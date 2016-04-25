@@ -16,6 +16,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var createEventButton: UIButton!
     
     @IBOutlet weak var segmentControl: UISegmentedControl!
+    @IBOutlet weak var outerView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,9 +39,24 @@ class HomeViewController: UIViewController {
         }
     }
     
+    func categoriesPressed() {
+        
+    }
+    
     func visualize() {
         createEventButton.layer.cornerRadius = createEventButton.frame.size.width/2
-        createEventButton.layer.masksToBounds = true
+        
+        self.segmentControl.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor()], forState: UIControlState.Normal)
+        self.segmentControl.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor()], forState: UIControlState.Selected)
+        
+        let categoriesButton = UIBarButtonItem(title: "CATEGORIES", style: .Plain, target: self, action: #selector(HomeViewController.categoriesPressed))
+        let font = UIFont.systemFontOfSize(11)
+        categoriesButton.setTitleTextAttributes([ NSFontAttributeName: font], forState: .Normal)
+        self.navigationItem.rightBarButtonItem = categoriesButton
+        
+        outerView.layer.cornerRadius = CGRectGetHeight(outerView.bounds) / 2;
+        outerView.layer.borderColor = UIColor(red: 71/255, green: 70/255, blue: 236/255, alpha: 1.0).CGColor
+        outerView.layer.borderWidth = 1
     }
 
 }

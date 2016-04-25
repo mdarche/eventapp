@@ -24,6 +24,7 @@
 		13210F611CC9490B00B3E257 /* CreateEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13210F601CC9490B00B3E257 /* CreateEventViewController.swift */; };
 		CB73E1961CCE8CFE00E6C6AF /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB73E1941CCE8CFE00E6C6AF /* FBSDKCoreKit.framework */; };
 		CB73E1971CCE8CFE00E6C6AF /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB73E1951CCE8CFE00E6C6AF /* FBSDKLoginKit.framework */; };
+		CB73E19A1CCEB3B200E6C6AF /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB73E1991CCEB3B200E6C6AF /* TabBarController.swift */; };
 		E95ACA47502F5AC611397AB7 /* Pods_EventApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9914B401D19A02F6CB2593EC /* Pods_EventApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -71,6 +72,7 @@
 		B75B4194D8FDF54C69627121 /* Pods-EventApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EventApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-EventApp/Pods-EventApp.release.xcconfig"; sourceTree = "<group>"; };
 		CB73E1941CCE8CFE00E6C6AF /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = EventApp/Frameworks/FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		CB73E1951CCE8CFE00E6C6AF /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = EventApp/Frameworks/FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		CB73E1991CCEB3B200E6C6AF /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TabBarController.swift; path = Utility/TabBarController.swift; sourceTree = "<group>"; };
 		CB7A24FE1CCE835D00D46DE2 /* Application-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Application-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -130,6 +132,7 @@
 			children = (
 				13210F251CC86C5300B3E257 /* Main.storyboard */,
 				13210F1F1CC86C5300B3E257 /* AppDelegate.swift */,
+				CB73E1981CCEB37100E6C6AF /* Utility */,
 				13210F511CC93EBB00B3E257 /* View Controllers */,
 				13210F281CC86C5300B3E257 /* Assets.xcassets */,
 				13210F2D1CC86C5300B3E257 /* Info.plist */,
@@ -190,6 +193,14 @@
 				B75B4194D8FDF54C69627121 /* Pods-EventApp.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		CB73E1981CCEB37100E6C6AF /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				CB73E1991CCEB3B200E6C6AF /* TabBarController.swift */,
+			);
+			name = Utility;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -385,6 +396,7 @@
 				13210F5B1CC942A400B3E257 /* MainMenuViewController.swift in Sources */,
 				13210F591CC941D500B3E257 /* EventViewController.swift in Sources */,
 				13210F5D1CC9433700B3E257 /* MyProfileViewController.swift in Sources */,
+				CB73E19A1CCEB3B200E6C6AF /* TabBarController.swift in Sources */,
 				13210F201CC86C5300B3E257 /* AppDelegate.swift in Sources */,
 				13210F531CC93F2D00B3E257 /* MapViewController.swift in Sources */,
 				13210F551CC93FB200B3E257 /* ListViewController.swift in Sources */,

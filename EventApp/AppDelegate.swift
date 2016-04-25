@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        let setting = UIUserNotificationSettings(forTypes: type, categories: nil)
 //        UIApplication.sharedApplication().registerUserNotificationSettings(setting)
 //        UIApplication.sharedApplication().registerForRemoteNotifications()
-        
+    
         
         FBSDKProfile.enableUpdatesOnAccessTokenChange(true)
         return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
@@ -57,7 +57,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
+    
 
 }
 
