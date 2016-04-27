@@ -13,20 +13,22 @@ class TabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let size = CGSize(width: UIScreen.mainScreen().bounds.width, height: 22)
-        let rect = CGRect(origin: CGPoint(x: 0, y: 0), size: size)
-        let statusBarBG = UIView(frame: rect)
-        statusBarBG.backgroundColor = UIColor(red: 43/255, green: 49/255, blue: 63/255, alpha: 1.0)
-        
-        statusBarBG.layer.shadowColor = UIColor.blackColor().CGColor
-        statusBarBG.layer.shadowOffset = CGSize(width: 0, height: 5)
-        statusBarBG.layer.shadowOpacity = 0.2
-        statusBarBG.layer.shadowRadius = 4
-        
-        self.view.addSubview(statusBarBG)
-        
         UITabBar.appearance().tintColor = UIColor.whiteColor()
-        
+        UITabBar.appearance().alpha = 0.85
     }
+    
+}
+
+extension UINavigationBar {
+    
+
+    class func setNavBarColorDefault() {
+        //  NavBar appearance
+        UINavigationBar.appearance().tintColor = UIColor.whiteColor()
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName:UIColor.whiteColor()]
+        UINavigationBar.appearance().barTintColor = UIColor(red: 30/255, green: 33/255, blue: 42/255, alpha: 1)
+
+    }
+    
     
 }

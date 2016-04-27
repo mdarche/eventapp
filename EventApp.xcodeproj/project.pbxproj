@@ -25,6 +25,8 @@
 		CB73E1961CCE8CFE00E6C6AF /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB73E1941CCE8CFE00E6C6AF /* FBSDKCoreKit.framework */; };
 		CB73E1971CCE8CFE00E6C6AF /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB73E1951CCE8CFE00E6C6AF /* FBSDKLoginKit.framework */; };
 		CB73E19A1CCEB3B200E6C6AF /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB73E1991CCEB3B200E6C6AF /* TabBarController.swift */; };
+		CB73E19D1CCEF06400E6C6AF /* Pulsator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB73E19C1CCEF06400E6C6AF /* Pulsator.swift */; };
+		CB73E19F1CCFED0900E6C6AF /* HomeFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB73E19E1CCFED0900E6C6AF /* HomeFeedCell.swift */; };
 		E95ACA47502F5AC611397AB7 /* Pods_EventApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9914B401D19A02F6CB2593EC /* Pods_EventApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -73,6 +75,8 @@
 		CB73E1941CCE8CFE00E6C6AF /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = EventApp/Frameworks/FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		CB73E1951CCE8CFE00E6C6AF /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = EventApp/Frameworks/FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		CB73E1991CCEB3B200E6C6AF /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TabBarController.swift; path = Utility/TabBarController.swift; sourceTree = "<group>"; };
+		CB73E19C1CCEF06400E6C6AF /* Pulsator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Pulsator.swift; path = Views/Pulsator.swift; sourceTree = "<group>"; };
+		CB73E19E1CCFED0900E6C6AF /* HomeFeedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeFeedCell.swift; path = Views/HomeFeedCell.swift; sourceTree = "<group>"; };
 		CB7A24FE1CCE835D00D46DE2 /* Application-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Application-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -134,6 +138,7 @@
 				13210F1F1CC86C5300B3E257 /* AppDelegate.swift */,
 				CB73E1981CCEB37100E6C6AF /* Utility */,
 				13210F511CC93EBB00B3E257 /* View Controllers */,
+				CB73E19B1CCEF02300E6C6AF /* Views */,
 				13210F281CC86C5300B3E257 /* Assets.xcassets */,
 				13210F2D1CC86C5300B3E257 /* Info.plist */,
 				CB7A24FE1CCE835D00D46DE2 /* Application-Bridging-Header.h */,
@@ -201,6 +206,15 @@
 				CB73E1991CCEB3B200E6C6AF /* TabBarController.swift */,
 			);
 			name = Utility;
+			sourceTree = "<group>";
+		};
+		CB73E19B1CCEF02300E6C6AF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CB73E19C1CCEF06400E6C6AF /* Pulsator.swift */,
+				CB73E19E1CCFED0900E6C6AF /* HomeFeedCell.swift */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -279,7 +293,7 @@
 								enabled = 1;
 							};
 							com.apple.Push = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
@@ -393,6 +407,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB73E19D1CCEF06400E6C6AF /* Pulsator.swift in Sources */,
 				13210F5B1CC942A400B3E257 /* MainMenuViewController.swift in Sources */,
 				13210F591CC941D500B3E257 /* EventViewController.swift in Sources */,
 				13210F5D1CC9433700B3E257 /* MyProfileViewController.swift in Sources */,
@@ -402,6 +417,7 @@
 				13210F551CC93FB200B3E257 /* ListViewController.swift in Sources */,
 				13210F5F1CC944B500B3E257 /* FeedViewController.swift in Sources */,
 				13210F571CC93FEC00B3E257 /* HomeViewController.swift in Sources */,
+				CB73E19F1CCFED0900E6C6AF /* HomeFeedCell.swift in Sources */,
 				13210F611CC9490B00B3E257 /* CreateEventViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
