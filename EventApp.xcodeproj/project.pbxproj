@@ -27,6 +27,7 @@
 		CB73E19A1CCEB3B200E6C6AF /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB73E1991CCEB3B200E6C6AF /* TabBarController.swift */; };
 		CB73E19D1CCEF06400E6C6AF /* Pulsator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB73E19C1CCEF06400E6C6AF /* Pulsator.swift */; };
 		CB73E19F1CCFED0900E6C6AF /* HomeFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB73E19E1CCFED0900E6C6AF /* HomeFeedCell.swift */; };
+		CBFD3E081CD1A92900FBE4A8 /* ListViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFD3E071CD1A92900FBE4A8 /* ListViewLayout.swift */; };
 		E95ACA47502F5AC611397AB7 /* Pods_EventApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9914B401D19A02F6CB2593EC /* Pods_EventApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -78,6 +79,7 @@
 		CB73E19C1CCEF06400E6C6AF /* Pulsator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Pulsator.swift; path = Views/Pulsator.swift; sourceTree = "<group>"; };
 		CB73E19E1CCFED0900E6C6AF /* HomeFeedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeFeedCell.swift; path = Views/HomeFeedCell.swift; sourceTree = "<group>"; };
 		CB7A24FE1CCE835D00D46DE2 /* Application-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Application-Bridging-Header.h"; sourceTree = "<group>"; };
+		CBFD3E071CD1A92900FBE4A8 /* ListViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListViewLayout.swift; path = Layouts/ListViewLayout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,6 +215,7 @@
 			children = (
 				CB73E19C1CCEF06400E6C6AF /* Pulsator.swift */,
 				CB73E19E1CCFED0900E6C6AF /* HomeFeedCell.swift */,
+				CBFD3E071CD1A92900FBE4A8 /* ListViewLayout.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -419,6 +422,7 @@
 				13210F571CC93FEC00B3E257 /* HomeViewController.swift in Sources */,
 				CB73E19F1CCFED0900E6C6AF /* HomeFeedCell.swift in Sources */,
 				13210F611CC9490B00B3E257 /* CreateEventViewController.swift in Sources */,
+				CBFD3E081CD1A92900FBE4A8 /* ListViewLayout.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

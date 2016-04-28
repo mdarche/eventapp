@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import AVFoundation
 
-class ListViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+class ListViewController: UICollectionViewController {
         
     @IBOutlet weak var backroundView: UIView!
     
@@ -16,6 +17,11 @@ class ListViewController: UICollectionViewController, UICollectionViewDelegateFl
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if let layout = collectionView?.collectionViewLayout as? ListViewLayout {
+            layout.delegate = self
+        }
+        
         visualize()
     }
     
@@ -57,10 +63,6 @@ class ListViewController: UICollectionViewController, UICollectionViewDelegateFl
         return cell
     }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.size.width, height: 85)
-    }
-    
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
 //        performSegueWithIdentifier("SeeEvent", sender: indexPath)
     }
@@ -70,4 +72,27 @@ class ListViewController: UICollectionViewController, UICollectionViewDelegateFl
     }
     
     
+}
+
+extension ListViewController : ListViewLayoutDelegate {
+    // 1
+    func collectionView(collectionView:UICollectionView, heightForPhotoAtIndexPath indexPath: NSIndexPath, withWidth width: CGFloat) -> CGFloat {
+//        let photo = photos[indexPath.item]
+//        let boundingRect =  CGRect(x: 0, y: 0, width: width, height: CGFloat(MAXFLOAT))
+//        let rect  = AVMakeRectWithAspectRatioInsideRect(photo.image!!.size, boundingRect)
+//        return rect.size.height
+        return 150
+    }
+    
+    // 2
+    func collectionView(collectionView: UICollectionView, heightForAnnotationAtIndexPath indexPath: NSIndexPath, withWidth width: CGFloat) -> CGFloat {
+//        let annotationPadding = CGFloat(4)
+//        let annotationHeaderHeight = CGFloat(17)
+//        let photo = photos[indexPath.item]
+//        let font = UIFont(name: "AvenirNext-Regular", size: 10)!
+//        let commentHeight = photo.heightForComment(font, width: width)
+//        let height = annotationPadding + annotationHeaderHeight + commentHeight + annotationPadding
+//        return height
+        return 80
+    }
 }

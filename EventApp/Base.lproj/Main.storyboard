@@ -91,13 +91,13 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jds-1H-JIr">
-                                <rect key="frame" x="292" y="419" width="55" height="55"/>
+                                <rect key="frame" x="287" y="414" width="60" height="60"/>
                                 <color key="backgroundColor" red="0.27843137254901962" green="0.27450980392156865" blue="0.92549019607843142" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="55" id="N3o-xI-uWk"/>
-                                    <constraint firstAttribute="height" constant="55" id="d3i-Xq-9wq"/>
+                                    <constraint firstAttribute="width" constant="60" id="N3o-xI-uWk"/>
+                                    <constraint firstAttribute="height" constant="60" id="d3i-Xq-9wq"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="43"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="48"/>
                                 <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="7"/>
                                 <state key="normal" title="+">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -845,36 +845,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="1" minimumInteritemSpacing="1" id="5NF-xx-9AV">
-                            <size key="itemSize" width="375" height="85"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                        </collectionViewFlowLayout>
+                        <collectionViewLayout key="collectionViewLayout" id="udL-NE-eS1" customClass="ListViewLayout" customModule="EventApp" customModuleProvider="target"/>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="HomeCell" id="ggI-n5-59b" customClass="HomeFeedCell" customModule="EventApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="85"/>
+                                <rect key="frame" x="0.0" y="0.0" width="180" height="227"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="85"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="180" height="227"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event or Party / Venue Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9f4-7R-K6f">
-                                            <rect key="frame" x="86" y="15" width="197" height="18"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sample" translatesAutoresizingMaskIntoConstraints="NO" id="8rj-bh-97L">
-                                            <rect key="frame" x="13" y="13" width="60" height="60"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="feedImage" translatesAutoresizingMaskIntoConstraints="NO" id="8rj-bh-97L">
+                                            <rect key="frame" x="1" y="0.0" width="178" height="130"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="60" id="0o4-QL-gM3"/>
-                                                <constraint firstAttribute="width" constant="60" id="US3-Km-bMl"/>
+                                                <constraint firstAttribute="height" constant="130" id="tRG-HJ-4BJ"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="❯" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sr9-AP-15b">
-                                            <rect key="frame" x="335" y="27" width="16" height="30"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9f4-7R-K6f">
+                                            <rect key="frame" x="15" y="142" width="150" height="16"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -883,13 +871,20 @@
                                 </view>
                                 <color key="backgroundColor" white="0.0" alpha="0.64229392414860687" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="8rj-bh-97L" firstAttribute="leading" secondItem="ggI-n5-59b" secondAttribute="leadingMargin" constant="5" id="471-8S-oce"/>
-                                    <constraint firstItem="8rj-bh-97L" firstAttribute="centerY" secondItem="ggI-n5-59b" secondAttribute="centerY" id="66X-oW-7iW"/>
-                                    <constraint firstItem="9f4-7R-K6f" firstAttribute="leading" secondItem="8rj-bh-97L" secondAttribute="trailing" constant="13" id="6VQ-il-vJq"/>
-                                    <constraint firstAttribute="topMargin" secondItem="9f4-7R-K6f" secondAttribute="top" constant="-7" id="Mlc-VU-hLi"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="8rj-bh-97L" secondAttribute="trailing" constant="-7" id="B7F-mH-NRP"/>
+                                    <constraint firstItem="8rj-bh-97L" firstAttribute="top" secondItem="ggI-n5-59b" secondAttribute="topMargin" constant="-8" id="D1m-8A-Dwb"/>
+                                    <constraint firstItem="8rj-bh-97L" firstAttribute="leading" secondItem="ggI-n5-59b" secondAttribute="leadingMargin" constant="-7" id="IgC-pP-z4P"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="9f4-7R-K6f" secondAttribute="trailing" constant="7" id="Z7p-EL-TU1"/>
+                                    <constraint firstItem="9f4-7R-K6f" firstAttribute="top" secondItem="8rj-bh-97L" secondAttribute="bottom" constant="12" id="ZFJ-BA-Eg1"/>
+                                    <constraint firstItem="9f4-7R-K6f" firstAttribute="leading" secondItem="ggI-n5-59b" secondAttribute="leadingMargin" constant="7" id="dwt-yP-m0v"/>
                                 </constraints>
+                                <size key="customSize" width="180" height="227"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <outlet property="imageThumbnail" destination="8rj-bh-97L" id="Z7g-1M-wFN"/>
+                                    <outlet property="imageViewHeightLayoutConstraint" destination="tRG-HJ-4BJ" id="gC0-8M-FUg"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -906,6 +901,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="feedImage" width="752" height="501"/>
         <image name="first" width="30" height="30"/>
         <image name="sample" width="32" height="32"/>
     </resources>
