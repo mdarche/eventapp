@@ -1,5 +1,5 @@
 //
-//  ListViewLayout.swift
+//  FeedViewLayout.swift
 //  EventApp
 //
 //  Created by Michael Darche on 4/27/16.
@@ -8,25 +8,25 @@
 
 import UIKit
 
-protocol ListViewLayoutDelegate {
+protocol FeedViewLayoutDelegate {
     
     func collectionView(collectionView:UICollectionView, heightForPhotoAtIndexPath indexPath:NSIndexPath, withWidth:CGFloat) -> CGFloat
     
     func collectionView(collectionView: UICollectionView, heightForAnnotationAtIndexPath indexPath: NSIndexPath, withWidth width: CGFloat) -> CGFloat
 }
 
-class ListViewLayoutAttributes: UICollectionViewLayoutAttributes {
+class FeedViewLayoutAttributes: UICollectionViewLayoutAttributes {
     
     var photoHeight: CGFloat = 0.0
     
     override func copyWithZone(zone: NSZone) -> AnyObject {
-        let copy = super.copyWithZone(zone) as! ListViewLayoutAttributes
+        let copy = super.copyWithZone(zone) as! FeedViewLayoutAttributes
         copy.photoHeight = photoHeight
         return copy
     }
     
     override func isEqual(object: AnyObject?) -> Bool {
-        if let attributes = object as? ListViewLayoutAttributes {
+        if let attributes = object as? FeedViewLayoutAttributes {
             if( attributes.photoHeight == photoHeight  ) {
                 return super.isEqual(object)
             }
@@ -35,16 +35,16 @@ class ListViewLayoutAttributes: UICollectionViewLayoutAttributes {
     }
 }
 
-class ListViewLayout: UICollectionViewLayout {
+class FeedViewLayout: UICollectionViewLayout {
 
     
-    var delegate: ListViewLayoutDelegate!
+    var delegate: FeedViewLayoutDelegate!
     
     var numberOfColumns = 2
-    var cellPadding: CGFloat = 3.0
+    var cellPadding: CGFloat = 5.0
     
 
-    private var cache = [ListViewLayoutAttributes]()
+    private var cache = [FeedViewLayoutAttributes]()
     
     private var contentHeight: CGFloat  = 0.0
     private var contentWidth: CGFloat {
@@ -53,7 +53,7 @@ class ListViewLayout: UICollectionViewLayout {
     }
     
     override class func layoutAttributesClass() -> AnyClass {
-        return ListViewLayoutAttributes.self
+        return FeedViewLayoutAttributes.self
     }
     
     override func prepareLayout() {
@@ -82,7 +82,7 @@ class ListViewLayout: UICollectionViewLayout {
                 let frame = CGRect(x: xOffset[column], y: yOffset[column], width: columnWidth, height: height)
                 let insetFrame = CGRectInset(frame, cellPadding, cellPadding)
                 
-                let attributes = ListViewLayoutAttributes(forCellWithIndexPath: indexPath)
+                let attributes = FeedViewLayoutAttributes(forCellWithIndexPath: indexPath)
                 attributes.photoHeight = photoHeight
                 attributes.frame = insetFrame
                 cache.append(attributes)

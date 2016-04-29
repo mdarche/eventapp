@@ -64,15 +64,10 @@ class HomeViewController: UIViewController {
         createEventButton.layer.cornerRadius = createEventButton.frame.size.width/2
         notificationImage.layer.cornerRadius = notificationImage.frame.size.width/2
         notificationImage.layer.borderColor = UIColor.whiteColor().CGColor
-        notificationImage.layer.borderWidth = 2
+        notificationImage.layer.borderWidth = 1
         
         self.segmentControl.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor()], forState: UIControlState.Normal)
         self.segmentControl.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor()], forState: UIControlState.Selected)
-        
-        let categoriesButton = UIBarButtonItem(title: "CATEGORIES", style: .Plain, target: self, action: #selector(HomeViewController.categoriesPressed))
-        let font = UIFont.systemFontOfSize(11)
-        categoriesButton.setTitleTextAttributes([ NSFontAttributeName: font], forState: .Normal)
-        self.navigationItem.rightBarButtonItem = categoriesButton
         
         outerView.layer.cornerRadius = CGRectGetHeight(outerView.bounds) / 2
         outerView.layer.borderColor = UIColor(red: 71/255, green: 70/255, blue: 236/255, alpha: 1.0).CGColor

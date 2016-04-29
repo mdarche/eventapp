@@ -11,7 +11,6 @@ import UIKit
 class HomeFeedCell: UICollectionViewCell {
 
     @IBOutlet weak var imageThumbnail: UIImageView!
-    @IBOutlet weak var imageViewHeightLayoutConstraint: NSLayoutConstraint!
     
     // MARK: Class's public methods
     override func awakeFromNib() {
@@ -26,13 +25,6 @@ class HomeFeedCell: UICollectionViewCell {
 //        imageThumbnail.layer.borderColor = UIColor.whiteColor().CGColor
 //        imageThumbnail.layer.masksToBounds = true
 //        imageThumbnail.layer.borderWidth = 1
-    }
-    
-    override func applyLayoutAttributes(layoutAttributes: UICollectionViewLayoutAttributes) {
-        super.applyLayoutAttributes(layoutAttributes)
-        if let attributes = layoutAttributes as? ListViewLayoutAttributes {
-            imageViewHeightLayoutConstraint.constant = attributes.photoHeight
-        }
     }
     
 }
