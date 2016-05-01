@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1313E4E01CD6685F0050483C /* ProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1313E4DF1CD6685F0050483C /* ProfileHeader.swift */; settings = {ASSET_TAGS = (); }; };
+		1313E4E21CD6689E0050483C /* NewsFeedHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1313E4E11CD6689E0050483C /* NewsFeedHeader.swift */; settings = {ASSET_TAGS = (); }; };
 		13210F201CC86C5300B3E257 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13210F1F1CC86C5300B3E257 /* AppDelegate.swift */; };
 		13210F271CC86C5300B3E257 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13210F251CC86C5300B3E257 /* Main.storyboard */; };
 		13210F291CC86C5300B3E257 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13210F281CC86C5300B3E257 /* Assets.xcassets */; };
@@ -20,7 +22,6 @@
 		13210F591CC941D500B3E257 /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13210F581CC941D500B3E257 /* EventViewController.swift */; };
 		13210F5B1CC942A400B3E257 /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13210F5A1CC942A400B3E257 /* MainMenuViewController.swift */; };
 		13210F5D1CC9433700B3E257 /* MyProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13210F5C1CC9433700B3E257 /* MyProfileViewController.swift */; };
-		13210F5F1CC944B500B3E257 /* NewsFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13210F5E1CC944B500B3E257 /* NewsFeedViewController.swift */; };
 		13210F611CC9490B00B3E257 /* CreateEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13210F601CC9490B00B3E257 /* CreateEventViewController.swift */; };
 		CB73E1961CCE8CFE00E6C6AF /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB73E1941CCE8CFE00E6C6AF /* FBSDKCoreKit.framework */; };
 		CB73E1971CCE8CFE00E6C6AF /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB73E1951CCE8CFE00E6C6AF /* FBSDKLoginKit.framework */; };
@@ -29,7 +30,7 @@
 		CB73E19F1CCFED0900E6C6AF /* HomeFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB73E19E1CCFED0900E6C6AF /* HomeFeedCell.swift */; };
 		CBFD3E081CD1A92900FBE4A8 /* FeedViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFD3E071CD1A92900FBE4A8 /* FeedViewLayout.swift */; };
 		CBFD3E0B1CD26A9400FBE4A8 /* NewsFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFD3E0A1CD26A9400FBE4A8 /* NewsFeedCell.swift */; };
-		CBFD3E0D1CD26D9F00FBE4A8 /* FeedCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFD3E0C1CD26D9F00FBE4A8 /* FeedCollectionViewController.swift */; };
+		CBFD3E0D1CD26D9F00FBE4A8 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFD3E0C1CD26D9F00FBE4A8 /* FeedViewController.swift */; };
 		E95ACA47502F5AC611397AB7 /* Pods_EventApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9914B401D19A02F6CB2593EC /* Pods_EventApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +52,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1313E4DF1CD6685F0050483C /* ProfileHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileHeader.swift; path = Views/ProfileHeader.swift; sourceTree = "<group>"; };
+		1313E4E11CD6689E0050483C /* NewsFeedHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewsFeedHeader.swift; path = Views/NewsFeedHeader.swift; sourceTree = "<group>"; };
 		13210F1C1CC86C5300B3E257 /* EventApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EventApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13210F1F1CC86C5300B3E257 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		13210F261CC86C5300B3E257 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -70,7 +73,6 @@
 		13210F581CC941D500B3E257 /* EventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventViewController.swift; path = Controllers/EventViewController.swift; sourceTree = "<group>"; };
 		13210F5A1CC942A400B3E257 /* MainMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainMenuViewController.swift; path = Controllers/MainMenuViewController.swift; sourceTree = "<group>"; };
 		13210F5C1CC9433700B3E257 /* MyProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyProfileViewController.swift; path = Controllers/MyProfileViewController.swift; sourceTree = "<group>"; };
-		13210F5E1CC944B500B3E257 /* NewsFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewsFeedViewController.swift; path = Controllers/NewsFeedViewController.swift; sourceTree = "<group>"; };
 		13210F601CC9490B00B3E257 /* CreateEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateEventViewController.swift; path = Controllers/CreateEventViewController.swift; sourceTree = "<group>"; };
 		930CD7A4051AA73C6076E8E2 /* Pods-EventApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EventApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EventApp/Pods-EventApp.debug.xcconfig"; sourceTree = "<group>"; };
 		9914B401D19A02F6CB2593EC /* Pods_EventApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EventApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -83,7 +85,7 @@
 		CB7A24FE1CCE835D00D46DE2 /* Application-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Application-Bridging-Header.h"; sourceTree = "<group>"; };
 		CBFD3E071CD1A92900FBE4A8 /* FeedViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedViewLayout.swift; path = Layouts/FeedViewLayout.swift; sourceTree = "<group>"; };
 		CBFD3E0A1CD26A9400FBE4A8 /* NewsFeedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewsFeedCell.swift; path = Views/NewsFeedCell.swift; sourceTree = "<group>"; };
-		CBFD3E0C1CD26D9F00FBE4A8 /* FeedCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedCollectionViewController.swift; path = Controllers/FeedCollectionViewController.swift; sourceTree = "<group>"; };
+		CBFD3E0C1CD26D9F00FBE4A8 /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedViewController.swift; path = Controllers/FeedViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1313E4E31CD6698E0050483C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		13210F131CC86C5300B3E257 = {
 			isa = PBXGroup;
 			children = (
@@ -145,6 +154,7 @@
 				CB73E1981CCEB37100E6C6AF /* Utility */,
 				13210F511CC93EBB00B3E257 /* Controllers */,
 				CBFD3E091CD26A3C00FBE4A8 /* Layouts */,
+				1313E4E31CD6698E0050483C /* Models */,
 				CB73E19B1CCEF02300E6C6AF /* Views */,
 				13210F281CC86C5300B3E257 /* Assets.xcassets */,
 				13210F2D1CC86C5300B3E257 /* Info.plist */,
@@ -177,13 +187,12 @@
 			children = (
 				13210F601CC9490B00B3E257 /* CreateEventViewController.swift */,
 				13210F581CC941D500B3E257 /* EventViewController.swift */,
-				CBFD3E0C1CD26D9F00FBE4A8 /* FeedCollectionViewController.swift */,
+				CBFD3E0C1CD26D9F00FBE4A8 /* FeedViewController.swift */,
 				13210F561CC93FEC00B3E257 /* HomeViewController.swift */,
 				13210F541CC93FB200B3E257 /* ListViewController.swift */,
 				13210F5A1CC942A400B3E257 /* MainMenuViewController.swift */,
 				13210F521CC93F2D00B3E257 /* MapViewController.swift */,
 				13210F5C1CC9433700B3E257 /* MyProfileViewController.swift */,
-				13210F5E1CC944B500B3E257 /* NewsFeedViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -220,8 +229,10 @@
 			isa = PBXGroup;
 			children = (
 				CB73E19E1CCFED0900E6C6AF /* HomeFeedCell.swift */,
+				1313E4DF1CD6685F0050483C /* ProfileHeader.swift */,
 				CBFD3E0A1CD26A9400FBE4A8 /* NewsFeedCell.swift */,
 				CB73E19C1CCEF06400E6C6AF /* Pulsator.swift */,
+				1313E4E11CD6689E0050483C /* NewsFeedHeader.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -425,20 +436,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				CB73E19D1CCEF06400E6C6AF /* Pulsator.swift in Sources */,
-				CBFD3E0D1CD26D9F00FBE4A8 /* FeedCollectionViewController.swift in Sources */,
+				CBFD3E0D1CD26D9F00FBE4A8 /* FeedViewController.swift in Sources */,
 				13210F5B1CC942A400B3E257 /* MainMenuViewController.swift in Sources */,
 				13210F591CC941D500B3E257 /* EventViewController.swift in Sources */,
 				13210F5D1CC9433700B3E257 /* MyProfileViewController.swift in Sources */,
 				CBFD3E0B1CD26A9400FBE4A8 /* NewsFeedCell.swift in Sources */,
 				CB73E19A1CCEB3B200E6C6AF /* TabBarController.swift in Sources */,
+				1313E4E01CD6685F0050483C /* ProfileHeader.swift in Sources */,
 				13210F201CC86C5300B3E257 /* AppDelegate.swift in Sources */,
 				13210F531CC93F2D00B3E257 /* MapViewController.swift in Sources */,
 				13210F551CC93FB200B3E257 /* ListViewController.swift in Sources */,
-				13210F5F1CC944B500B3E257 /* NewsFeedViewController.swift in Sources */,
 				13210F571CC93FEC00B3E257 /* HomeViewController.swift in Sources */,
 				CB73E19F1CCFED0900E6C6AF /* HomeFeedCell.swift in Sources */,
 				13210F611CC9490B00B3E257 /* CreateEventViewController.swift in Sources */,
 				CBFD3E081CD1A92900FBE4A8 /* FeedViewLayout.swift in Sources */,
+				1313E4E21CD6689E0050483C /* NewsFeedHeader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

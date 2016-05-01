@@ -33,18 +33,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     
     func visualize() {
-//        let size = CGSize(width: UIScreen.mainScreen().bounds.width, height: 25)
-//        let rect = CGRect(origin: CGPoint(x: 0, y: 0), size: size)
-//        let statusBarBG = UIView(frame: rect)
-//        statusBarBG.backgroundColor = UIColor(red: 43/255, green: 49/255, blue: 63/255, alpha: 1.0)
-//        
-//        statusBarBG.layer.shadowColor = UIColor.blackColor().CGColor
-//        statusBarBG.layer.shadowOffset = CGSize(width: 0, height: 5)
-//        statusBarBG.layer.shadowOpacity = 0.2
-//        statusBarBG.layer.shadowRadius = 4
-//        
-//        self.view.addSubview(statusBarBG)
-//        statusBarBG.alpha = 0.90
+
     }
     
     // MARK: Manage Memory

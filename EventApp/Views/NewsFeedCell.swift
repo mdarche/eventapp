@@ -10,15 +10,5 @@ import UIKit
 
 class NewsFeedCell: UICollectionViewCell {
 
-    @IBOutlet weak var imageThumbnail: UIImageView!
-    @IBOutlet weak var imageViewHeightLayoutConstraint: NSLayoutConstraint!
-    
-    
-    override func applyLayoutAttributes(layoutAttributes: UICollectionViewLayoutAttributes) {
-        super.applyLayoutAttributes(layoutAttributes)
-        if let attributes = layoutAttributes as? FeedViewLayoutAttributes {
-            imageViewHeightLayoutConstraint.constant = attributes.photoHeight
-        }
-    }
     
 }
