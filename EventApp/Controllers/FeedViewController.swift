@@ -15,8 +15,8 @@ class FeedViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        collectionView?.collectionViewLayout = FeedViewLayout()
-        collectionView!.collectionViewLayout = collectionViewLayout
+        self.collectionView!.collectionViewLayout = FeedViewLayout()
+//        navigationController?.hidesBarsOnSwipe = true
         
         visualize()
     }
@@ -48,7 +48,7 @@ class FeedViewController: UICollectionViewController {
     
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return 20
+        return 24
         
     }
     
@@ -73,7 +73,7 @@ class FeedViewController: UICollectionViewController {
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize
     {
-        return CGSizeMake(CGRectGetWidth(collectionView.bounds), 50.0)
+        return CGSizeMake(CGRectGetWidth(collectionView.bounds), 40.0)
         
         
     }
