@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1313E4E01CD6685F0050483C /* ProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1313E4DF1CD6685F0050483C /* ProfileHeader.swift */; settings = {ASSET_TAGS = (); }; };
-		1313E4E21CD6689E0050483C /* NewsFeedHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1313E4E11CD6689E0050483C /* NewsFeedHeader.swift */; settings = {ASSET_TAGS = (); }; };
-		1313E4E71CD682D00050483C /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1313E4E61CD682D00050483C /* Event.swift */; settings = {ASSET_TAGS = (); }; };
+		1313E4E01CD6685F0050483C /* ProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1313E4DF1CD6685F0050483C /* ProfileHeader.swift */; };
+		1313E4E21CD6689E0050483C /* NewsFeedHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1313E4E11CD6689E0050483C /* NewsFeedHeader.swift */; };
+		1313E4E71CD682D00050483C /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1313E4E61CD682D00050483C /* Event.swift */; };
 		13210F201CC86C5300B3E257 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13210F1F1CC86C5300B3E257 /* AppDelegate.swift */; };
 		13210F271CC86C5300B3E257 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13210F251CC86C5300B3E257 /* Main.storyboard */; };
 		13210F291CC86C5300B3E257 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13210F281CC86C5300B3E257 /* Assets.xcassets */; };
@@ -29,6 +29,9 @@
 		CB73E19A1CCEB3B200E6C6AF /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB73E1991CCEB3B200E6C6AF /* TabBarController.swift */; };
 		CB73E19D1CCEF06400E6C6AF /* Pulsator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB73E19C1CCEF06400E6C6AF /* Pulsator.swift */; };
 		CB73E19F1CCFED0900E6C6AF /* HomeFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB73E19E1CCFED0900E6C6AF /* HomeFeedCell.swift */; };
+		CBB4512A1CD7CBC600AD6A73 /* Authentication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBB451281CD7CBC600AD6A73 /* Authentication.storyboard */; };
+		CBB4512D1CD7CC2100AD6A73 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB4512C1CD7CC2100AD6A73 /* LoginViewController.swift */; };
+		CBB4512F1CD7D1AA00AD6A73 /* MediaDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB4512E1CD7D1AA00AD6A73 /* MediaDetailViewController.swift */; };
 		CBFD3E081CD1A92900FBE4A8 /* FeedViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFD3E071CD1A92900FBE4A8 /* FeedViewLayout.swift */; };
 		CBFD3E0B1CD26A9400FBE4A8 /* NewsFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFD3E0A1CD26A9400FBE4A8 /* NewsFeedCell.swift */; };
 		CBFD3E0D1CD26D9F00FBE4A8 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFD3E0C1CD26D9F00FBE4A8 /* FeedViewController.swift */; };
@@ -85,6 +88,9 @@
 		CB73E19C1CCEF06400E6C6AF /* Pulsator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Pulsator.swift; path = Views/Pulsator.swift; sourceTree = "<group>"; };
 		CB73E19E1CCFED0900E6C6AF /* HomeFeedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeFeedCell.swift; path = Views/HomeFeedCell.swift; sourceTree = "<group>"; };
 		CB7A24FE1CCE835D00D46DE2 /* Application-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Application-Bridging-Header.h"; sourceTree = "<group>"; };
+		CBB451291CD7CBC600AD6A73 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Authentication.storyboard; sourceTree = "<group>"; };
+		CBB4512C1CD7CC2100AD6A73 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = Controllers/LoginViewController.swift; sourceTree = "<group>"; };
+		CBB4512E1CD7D1AA00AD6A73 /* MediaDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MediaDetailViewController.swift; path = Controllers/MediaDetailViewController.swift; sourceTree = "<group>"; };
 		CBFD3E071CD1A92900FBE4A8 /* FeedViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedViewLayout.swift; path = Layouts/FeedViewLayout.swift; sourceTree = "<group>"; };
 		CBFD3E0A1CD26A9400FBE4A8 /* NewsFeedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewsFeedCell.swift; path = Views/NewsFeedCell.swift; sourceTree = "<group>"; };
 		CBFD3E0C1CD26D9F00FBE4A8 /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedViewController.swift; path = Controllers/FeedViewController.swift; sourceTree = "<group>"; };
@@ -153,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				13210F251CC86C5300B3E257 /* Main.storyboard */,
+				CBB451281CD7CBC600AD6A73 /* Authentication.storyboard */,
 				13210F1F1CC86C5300B3E257 /* AppDelegate.swift */,
 				CB73E1981CCEB37100E6C6AF /* Utility */,
 				13210F511CC93EBB00B3E257 /* Controllers */,
@@ -188,8 +195,10 @@
 		13210F511CC93EBB00B3E257 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				CBB4512B1CD7CBF800AD6A73 /* Authentication */,
 				13210F601CC9490B00B3E257 /* CreateEventViewController.swift */,
 				13210F581CC941D500B3E257 /* EventViewController.swift */,
+				CBB4512E1CD7D1AA00AD6A73 /* MediaDetailViewController.swift */,
 				CBFD3E0C1CD26D9F00FBE4A8 /* FeedViewController.swift */,
 				13210F561CC93FEC00B3E257 /* HomeViewController.swift */,
 				13210F541CC93FB200B3E257 /* ListViewController.swift */,
@@ -238,6 +247,14 @@
 				1313E4E11CD6689E0050483C /* NewsFeedHeader.swift */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		CBB4512B1CD7CBF800AD6A73 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				CBB4512C1CD7CC2100AD6A73 /* LoginViewController.swift */,
+			);
+			name = Authentication;
 			sourceTree = "<group>";
 		};
 		CBFD3E091CD26A3C00FBE4A8 /* Layouts */ = {
@@ -363,6 +380,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CBB4512A1CD7CBC600AD6A73 /* Authentication.storyboard in Resources */,
 				13210F2C1CC86C5300B3E257 /* LaunchScreen.storyboard in Resources */,
 				13210F291CC86C5300B3E257 /* Assets.xcassets in Resources */,
 				13210F271CC86C5300B3E257 /* Main.storyboard in Resources */,
@@ -438,11 +456,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CBB4512D1CD7CC2100AD6A73 /* LoginViewController.swift in Sources */,
 				CB73E19D1CCEF06400E6C6AF /* Pulsator.swift in Sources */,
 				CBFD3E0D1CD26D9F00FBE4A8 /* FeedViewController.swift in Sources */,
 				13210F5B1CC942A400B3E257 /* MainMenuViewController.swift in Sources */,
 				13210F591CC941D500B3E257 /* EventViewController.swift in Sources */,
 				13210F5D1CC9433700B3E257 /* MyProfileViewController.swift in Sources */,
+				CBB4512F1CD7D1AA00AD6A73 /* MediaDetailViewController.swift in Sources */,
 				CBFD3E0B1CD26A9400FBE4A8 /* NewsFeedCell.swift in Sources */,
 				CB73E19A1CCEB3B200E6C6AF /* TabBarController.swift in Sources */,
 				1313E4E01CD6685F0050483C /* ProfileHeader.swift in Sources */,
@@ -504,6 +524,14 @@
 				13210F2B1CC86C5300B3E257 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		CBB451281CD7CBC600AD6A73 /* Authentication.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CBB451291CD7CBC600AD6A73 /* Base */,
+			);
+			name = Authentication.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

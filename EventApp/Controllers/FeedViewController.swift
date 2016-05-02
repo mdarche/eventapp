@@ -58,7 +58,7 @@ class FeedViewController: UICollectionViewController {
     }
     
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        //        performSegueWithIdentifier("SeeEvent", sender: indexPath)
+                performSegueWithIdentifier("ShowMedia", sender: indexPath)
     }
     
     override func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView
