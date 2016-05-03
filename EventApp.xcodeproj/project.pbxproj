@@ -206,14 +206,14 @@
 				CBB4512B1CD7CBF800AD6A73 /* Authentication */,
 				13210F601CC9490B00B3E257 /* CreateEventViewController.swift */,
 				13210F581CC941D500B3E257 /* EventViewController.swift */,
-				CBB4512E1CD7D1AA00AD6A73 /* MediaDetailViewController.swift */,
 				CBFD3E0C1CD26D9F00FBE4A8 /* FeedViewController.swift */,
 				13210F561CC93FEC00B3E257 /* HomeViewController.swift */,
 				13210F541CC93FB200B3E257 /* ListViewController.swift */,
 				13210F5A1CC942A400B3E257 /* MainMenuViewController.swift */,
 				13210F521CC93F2D00B3E257 /* MapViewController.swift */,
-				CBB451301CD7F2F600AD6A73 /* ProfileViewController.swift */,
+				CBB4512E1CD7D1AA00AD6A73 /* MediaDetailViewController.swift */,
 				13210F5C1CC9433700B3E257 /* MyProfileViewController.swift */,
+				CBB451301CD7F2F600AD6A73 /* ProfileViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
