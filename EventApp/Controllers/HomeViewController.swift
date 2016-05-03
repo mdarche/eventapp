@@ -46,7 +46,7 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func dismissNotification(sender: UIButton) {
-        UIView.animateWithDuration(0.3, animations: {
+        UIView.animateWithDuration(0.2, animations: {
             self.eventNotification.transform = CGAffineTransformMakeTranslation(0, 58)
             self.createEventButton.transform = CGAffineTransformMakeTranslation(0, 48)
             }, completion: { (finished:Bool) in

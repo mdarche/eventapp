@@ -19,7 +19,9 @@ class HomeFeedCell: UICollectionViewCell {
     }
     
     func visualize() {
-        
+        imageThumbnail.layer.cornerRadius = imageThumbnail.frame.size.width/2
+//        imageThumbnail.layer.borderColor = UIColor.whiteColor().CGColor
+//        imageThumbnail.layer.borderWidth = 1
     }
     
 }

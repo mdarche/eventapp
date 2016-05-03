@@ -73,7 +73,7 @@ class FeedViewController: UICollectionViewController {
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize
     {
-        return CGSizeMake(CGRectGetWidth(collectionView.bounds), 40.0)
+        return CGSizeMake(CGRectGetWidth(collectionView.bounds), 0.0)
         
         
     }

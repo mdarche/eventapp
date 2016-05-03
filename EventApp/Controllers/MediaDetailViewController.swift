@@ -22,6 +22,7 @@ class MediaDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        UIApplication.sharedApplication().statusBarHidden = true
         
         let downSwipe = UISwipeGestureRecognizer(target: self, action: #selector(MediaDetailViewController.dismissVC))
         downSwipe.direction = UISwipeGestureRecognizerDirection.Down
@@ -29,9 +30,11 @@ class MediaDetailViewController: UIViewController {
         
     }
 
+    
     override func viewDidDisappear(animated: Bool) {
         super.viewDidDisappear(true)
         dismissVC()
+        UIApplication.sharedApplication().statusBarHidden = false
     }
     
     @IBAction func exitButtonPressed(sender: AnyObject) {

@@ -33,6 +33,7 @@ class FeedViewLayout: UICollectionViewFlowLayout {
     }
     
     func setupLayout() {
+        sectionInset = UIEdgeInsetsMake(-7, 0, 0, 0);
         minimumInteritemSpacing = 1
         minimumLineSpacing = -15
         scrollDirection = .Vertical

@@ -497,7 +497,7 @@
             </objects>
             <point key="canvasLocation" x="-776.5" y="63.5"/>
         </scene>
-        <!--Main Menu View Controller-->
+        <!--My Settings-->
         <scene sceneID="eC9-E6-C8q">
             <objects>
                 <tableViewController id="8ED-8m-T80" customClass="MainMenuViewController" customModule="EventApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -524,7 +524,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="28z-Pz-emX" kind="show" id="3c3-Cn-WHf"/>
+                                            <segue destination="OIk-1A-XRT" kind="show" id="M3P-uA-ITu"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="64" id="90R-IV-7a3">
@@ -634,7 +634,9 @@
                             <outlet property="delegate" destination="8ED-8m-T80" id="IwQ-Tb-jxB"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="HZO-rC-AwX"/>
+                    <navigationItem key="navigationItem" title="My Settings" id="HZO-rC-AwX">
+                        <barButtonItem key="backBarButtonItem" title="  " id="iHO-bW-7ad"/>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9ea-u7-OZN" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -798,89 +800,132 @@
             </objects>
             <point key="canvasLocation" x="-256.5" y="949.5"/>
         </scene>
-        <!--My Profile-->
-        <scene sceneID="yeb-1m-mdG">
+        <!--nickCage12-->
+        <scene sceneID="OVC-xk-GY3">
             <objects>
-                <viewController id="28z-Pz-emX" customClass="MyProfileViewController" customModule="EventApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="fvh-tv-ZfR"/>
-                        <viewControllerLayoutGuide type="bottom" id="ZoF-Uz-N0I"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="liJ-G4-Yc9">
+                <collectionViewController id="OIk-1A-XRT" customClass="ProfileViewController" customModule="EventApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" id="r1s-fp-pmr">
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="NickCage" translatesAutoresizingMaskIntoConstraints="NO" id="ije-7J-mef">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="237"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                </userDefinedRuntimeAttributes>
-                            </imageView>
-                            <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="p8o-sg-LS5">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="237"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" id="x8j-X6-YPq">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="237"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="rZy-5P-DRx">
+                            <size key="itemSize" width="373" height="80"/>
+                            <size key="headerReferenceSize" width="50" height="230"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ActivityCell" id="YyJ-7p-Jod" customClass="ProfileActivityCell" customModule="EventApp" customModuleProvider="target">
+                                <rect key="frame" x="1" y="230" width="373" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="373" height="80"/>
+                                    <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CeP-5c-1P5">
-                                            <rect key="frame" x="103" y="142" width="249" height="4"/>
-                                            <color key="backgroundColor" white="1" alpha="0.37079140866873067" colorSpace="calibratedWhite"/>
-                                        </view>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="In this space we add a line or two of text about the individual" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dIt-mL-yfG">
-                                            <rect key="frame" x="132" y="70" width="207" height="53"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Attended" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HQl-ri-FrR">
+                                            <rect key="frame" x="91" y="15" width="71" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Los Angeles" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i9H-ly-ssi">
-                                            <rect key="frame" x="132" y="50" width="74" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                            <color key="textColor" red="0.69994220190000001" green="0.70800025759999996" blue="0.96930722020000004" alpha="1" colorSpace="calibratedRGB"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Cyprus Beach Party June 2015" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cqP-0i-CKz">
+                                            <rect key="frame" x="91" y="34" width="211" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="NickCage" translatesAutoresizingMaskIntoConstraints="NO" id="TpJ-0S-a8H">
-                                            <rect key="frame" x="25" y="30" width="82" height="82"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="feedImage" translatesAutoresizingMaskIntoConstraints="NO" id="H53-KE-Fkw">
+                                            <rect key="frame" x="22" y="15" width="45" height="45"/>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                             </userDefinedRuntimeAttributes>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nicholas Cage" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jKT-af-log">
-                                            <rect key="frame" x="132" y="30" width="111" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="22" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="No8-Tn-jjz">
-                                            <rect key="frame" x="48" y="122" width="37" height="26"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Events" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6RF-Eb-MZm">
-                                            <rect key="frame" x="38" y="146" width="57" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i9x-4C-RrU">
+                                            <rect key="frame" x="0.0" y="79" width="373" height="1"/>
+                                            <color key="backgroundColor" white="0.33333333333333331" alpha="0.14674438854489164" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2d" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N7Q-lM-eGg">
+                                            <rect key="frame" x="302" y="15" width="55" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
-                                <blurEffect style="dark"/>
-                            </visualEffectView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="My Profile" id="Sit-gZ-vfW"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <size key="customSize" width="373" height="80"/>
+                                <connections>
+                                    <outlet property="attendedLabel" destination="HQl-ri-FrR" id="AS4-e6-zEE"/>
+                                    <outlet property="nameLabel" destination="cqP-0i-CKz" id="hOo-a4-G47"/>
+                                    <outlet property="thumbnailImage" destination="H53-KE-Fkw" id="4Kq-RA-wGY"/>
+                                    <outlet property="timestampLabel" destination="N7Q-lM-eGg" id="Sjy-qC-Pya"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ProfileViewHeader" id="t7w-QL-K0g" customClass="ProfileHeader" customModule="EventApp" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="230"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tgh-Js-aQw">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="230"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="NickCage" translatesAutoresizingMaskIntoConstraints="NO" id="lYk-8m-OzA">
+                                            <rect key="frame" x="0.0" y="-6" width="375" height="242"/>
+                                        </imageView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </view>
+                                <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="umr-0e-rcc">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="242"/>
+                                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" id="onO-Se-jZx">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="242"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="NickCage" translatesAutoresizingMaskIntoConstraints="NO" id="1yW-v4-geu">
+                                                <rect key="frame" x="146" y="27" width="82" height="82"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nicholas Cage" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3B9-BH-idP">
+                                                <rect key="frame" x="89" y="116" width="198" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Los Angeles" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ldt-sF-Ael">
+                                                <rect key="frame" x="88" y="137" width="198" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                <color key="textColor" red="0.69994220190000001" green="0.70800025759999996" blue="0.96930722020000004" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </view>
+                                    <blurEffect style="dark"/>
+                                </visualEffectView>
+                            </subviews>
+                            <connections>
+                                <outlet property="cityLabel" destination="ldt-sF-Ael" id="vRX-Bl-cJG"/>
+                                <outlet property="fullNameLabel" destination="3B9-BH-idP" id="5CT-H8-U5F"/>
+                                <outlet property="gradientView" destination="tgh-Js-aQw" id="CpF-vw-Jfz"/>
+                                <outlet property="profileImage" destination="1yW-v4-geu" id="kcd-zD-hXY"/>
+                                <outlet property="profileImageBG" destination="lYk-8m-OzA" id="BLH-eU-xOC"/>
+                            </connections>
+                        </collectionReusableView>
+                        <connections>
+                            <outlet property="dataSource" destination="OIk-1A-XRT" id="0f3-1b-Uwx"/>
+                            <outlet property="delegate" destination="OIk-1A-XRT" id="bmW-NB-nd9"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" title="nickCage12" id="x78-TM-bCN">
+                        <barButtonItem key="backBarButtonItem" title="  " id="oEx-4I-UfX"/>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-                    <connections>
-                        <outlet property="cityLabel" destination="i9H-ly-ssi" id="1lK-XY-1rw"/>
-                        <outlet property="nameLabel" destination="jKT-af-log" id="5ge-Ev-SQp"/>
-                        <outlet property="profileImage" destination="TpJ-0S-a8H" id="xsj-eQ-7vj"/>
-                        <outlet property="profileImageBG" destination="ije-7J-mef" id="ATr-UP-XBt"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="JGQ-Ks-QSM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cag-gH-MCb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="311.5" y="1738.5"/>
+            <point key="canvasLocation" x="311.5" y="1774.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ZYt-xy-LhF">
@@ -959,22 +1004,22 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Venue Presents: The Event Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9f4-7R-K6f">
-                                            <rect key="frame" x="126" y="15" width="220" height="17"/>
+                                            <rect key="frame" x="98" y="15" width="248" height="17"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Friday, May 13 9pm - 11:30pm" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kXi-Uo-NSo">
-                                            <rect key="frame" x="126" y="34" width="220" height="14"/>
+                                            <rect key="frame" x="98" y="34" width="248" height="14"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                             <color key="textColor" red="0.69994220193619228" green="0.70800025758168195" blue="0.96930722020711779" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="feedImage" translatesAutoresizingMaskIntoConstraints="NO" id="8rj-bh-97L">
-                                            <rect key="frame" x="13" y="12" width="100" height="72"/>
+                                            <rect key="frame" x="13" y="12" width="72" height="72"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="72" id="5Gc-h0-usw"/>
-                                                <constraint firstAttribute="width" constant="100" id="app-PH-ilM"/>
+                                                <constraint firstAttribute="width" constant="72" id="app-PH-ilM"/>
                                             </constraints>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
@@ -988,14 +1033,14 @@
                                             </constraints>
                                         </imageView>
                                         <imageView userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="public" translatesAutoresizingMaskIntoConstraints="NO" id="etx-ht-Z3R">
-                                            <rect key="frame" x="126" y="56" width="20" height="20"/>
+                                            <rect key="frame" x="98" y="56" width="20" height="20"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="20" id="v5y-ml-I2H"/>
                                                 <constraint firstAttribute="height" constant="20" id="vJX-U6-1rG"/>
                                             </constraints>
                                         </imageView>
                                         <imageView userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="attendance" translatesAutoresizingMaskIntoConstraints="NO" id="Phg-3u-JDS">
-                                            <rect key="frame" x="163" y="57" width="18" height="18"/>
+                                            <rect key="frame" x="135" y="57" width="18" height="18"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="18" id="aMG-TE-dMW"/>
                                                 <constraint firstAttribute="height" constant="18" id="b3Q-21-oYV"/>
@@ -1010,13 +1055,13 @@
                                             </variation>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="105" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0yi-ri-9WI">
-                                            <rect key="frame" x="185" y="59" width="20" height="14"/>
+                                            <rect key="frame" x="157" y="59" width="20" height="14"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                             <color key="textColor" red="0.69994220190000001" green="0.70800025759999996" blue="0.96930722020000004" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.2km" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B44-aj-zYm">
-                                            <rect key="frame" x="221" y="59" width="31" height="14"/>
+                                            <rect key="frame" x="193" y="59" width="31" height="14"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                             <color key="textColor" white="1" alpha="0.69999999999999996" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
@@ -1073,7 +1118,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QuS-9t-TaI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="815.5" y="-714.5"/>
+            <point key="canvasLocation" x="786.5" y="-714.5"/>
         </scene>
     </scenes>
     <resources>
@@ -1091,6 +1136,6 @@
         <image name="search" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="bf2-V3-fW7"/>
+        <segue reference="HHl-n2-38E"/>
     </inferredMetricsTieBreakers>
 </document>
