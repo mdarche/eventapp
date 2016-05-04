@@ -11,7 +11,7 @@ import Foundation
 let TestDomain = "http://private-87ec1-eventsapp2.apiary-mock.com"
 
 enum Routes {
-    static let routeGetNearbyEvents = "\(TestDomain)/events/?location=location"
+    static let getNearbyEvents = "\(TestDomain)/events/?location=location"
 }
 
 enum Segues {

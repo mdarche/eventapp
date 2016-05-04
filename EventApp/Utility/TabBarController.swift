@@ -19,16 +19,3 @@ class TabBarController: UITabBarController {
     
 }
 
-extension UINavigationBar {
-    
-
-    class func setNavBarColorDefault() {
-        //  NavBar appearance
-        UINavigationBar.appearance().tintColor = UIColor.whiteColor()
-        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName:UIColor.whiteColor()]
-        UINavigationBar.appearance().barTintColor = UIColor(red: 30/255, green: 33/255, blue: 42/255, alpha: 1)
-
-    }
-    
-    
-}

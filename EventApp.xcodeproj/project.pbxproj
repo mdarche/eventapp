@@ -36,6 +36,7 @@
 		CBB451331CD7FE1200AD6A73 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB451321CD7FE1200AD6A73 /* Constants.swift */; };
 		CBB451351CD82FD200AD6A73 /* ProfileActivityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB451341CD82FD200AD6A73 /* ProfileActivityCell.swift */; };
 		CBB451371CD8FB3400AD6A73 /* ProfileMediaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB451361CD8FB3400AD6A73 /* ProfileMediaCell.swift */; };
+		CBB451391CD939F200AD6A73 /* OrganizerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB451381CD939F200AD6A73 /* OrganizerViewController.swift */; };
 		CBFD3E081CD1A92900FBE4A8 /* FeedViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFD3E071CD1A92900FBE4A8 /* FeedViewLayout.swift */; };
 		CBFD3E0B1CD26A9400FBE4A8 /* NewsFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFD3E0A1CD26A9400FBE4A8 /* NewsFeedCell.swift */; };
 		CBFD3E0D1CD26D9F00FBE4A8 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFD3E0C1CD26D9F00FBE4A8 /* FeedViewController.swift */; };
@@ -99,6 +100,7 @@
 		CBB451321CD7FE1200AD6A73 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Utility/Constants.swift; sourceTree = "<group>"; };
 		CBB451341CD82FD200AD6A73 /* ProfileActivityCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileActivityCell.swift; path = Views/ProfileActivityCell.swift; sourceTree = "<group>"; };
 		CBB451361CD8FB3400AD6A73 /* ProfileMediaCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileMediaCell.swift; path = Views/ProfileMediaCell.swift; sourceTree = "<group>"; };
+		CBB451381CD939F200AD6A73 /* OrganizerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OrganizerViewController.swift; path = Controllers/OrganizerViewController.swift; sourceTree = "<group>"; };
 		CBFD3E071CD1A92900FBE4A8 /* FeedViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedViewLayout.swift; path = Layouts/FeedViewLayout.swift; sourceTree = "<group>"; };
 		CBFD3E0A1CD26A9400FBE4A8 /* NewsFeedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewsFeedCell.swift; path = Views/NewsFeedCell.swift; sourceTree = "<group>"; };
 		CBFD3E0C1CD26D9F00FBE4A8 /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedViewController.swift; path = Controllers/FeedViewController.swift; sourceTree = "<group>"; };
@@ -213,6 +215,7 @@
 				13210F521CC93F2D00B3E257 /* MapViewController.swift */,
 				CBB4512E1CD7D1AA00AD6A73 /* MediaDetailViewController.swift */,
 				13210F5C1CC9433700B3E257 /* MyProfileViewController.swift */,
+				CBB451381CD939F200AD6A73 /* OrganizerViewController.swift */,
 				CBB451301CD7F2F600AD6A73 /* ProfileViewController.swift */,
 			);
 			name = Controllers;
@@ -476,6 +479,7 @@
 				CBFD3E0D1CD26D9F00FBE4A8 /* FeedViewController.swift in Sources */,
 				13210F5B1CC942A400B3E257 /* MainMenuViewController.swift in Sources */,
 				13210F591CC941D500B3E257 /* EventViewController.swift in Sources */,
+				CBB451391CD939F200AD6A73 /* OrganizerViewController.swift in Sources */,
 				13210F5D1CC9433700B3E257 /* MyProfileViewController.swift in Sources */,
 				CBB4512F1CD7D1AA00AD6A73 /* MediaDetailViewController.swift in Sources */,
 				CBFD3E0B1CD26A9400FBE4A8 /* NewsFeedCell.swift in Sources */,
