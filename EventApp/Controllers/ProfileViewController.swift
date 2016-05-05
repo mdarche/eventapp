@@ -13,7 +13,6 @@ class ProfileViewController: UICollectionViewController, UICollectionViewDelegat
     //Test Array
     let testArray : [AnyObject]? = ["string", 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         visualize()
@@ -68,7 +67,7 @@ class ProfileViewController: UICollectionViewController, UICollectionViewDelegat
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize
     {
-        return CGSizeMake(CGRectGetWidth(collectionView.bounds), 230.0)
+        return CGSizeMake(CGRectGetWidth(collectionView.bounds), 213.0)
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
@@ -76,7 +75,7 @@ class ProfileViewController: UICollectionViewController, UICollectionViewDelegat
         if let list = self.testArray  {
             let item = list[indexPath.row]
             if item is Int {
-                return CGSize(width: collectionView.frame.size.width, height: 95)
+                return CGSize(width: collectionView.frame.size.width, height: 77)
             } else {
                 return CGSize(width: collectionView.frame.size.width, height: 190)
             }
