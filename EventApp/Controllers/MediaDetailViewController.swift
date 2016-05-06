@@ -23,18 +23,22 @@ class MediaDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         UIApplication.sharedApplication().statusBarHidden = true
+        self.tabBarController?.tabBar.hidden = true
         
         let downSwipe = UISwipeGestureRecognizer(target: self, action: #selector(MediaDetailViewController.dismissVC))
         downSwipe.direction = UISwipeGestureRecognizerDirection.Down
         self.view.addGestureRecognizer(downSwipe)
         
     }
-
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(true)
+    }
+    
     
     override func viewDidDisappear(animated: Bool) {
         super.viewDidDisappear(true)
         dismissVC()
-        UIApplication.sharedApplication().statusBarHidden = false
     }
     
     @IBAction func exitButtonPressed(sender: AnyObject) {
@@ -42,7 +46,10 @@ class MediaDetailViewController: UIViewController {
     }
     
     func dismissVC() {
-        dismissViewControllerAnimated(true, completion: nil)
+        dismissViewControllerAnimated(true, completion: {
+            UIApplication.sharedApplication().statusBarHidden = false
+            self.tabBarController?.tabBar.hidden = false
+        })
     }
 
     override func didReceiveMemoryWarning() {

@@ -23,6 +23,7 @@ class FeedViewController: UICollectionViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
+        self.tabBarController?.tabBar.hidden = false
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -33,7 +34,9 @@ class FeedViewController: UICollectionViewController {
     // MARK: View's Transition Handler
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
+        if segue.identifier == Identifiers.showMedia {
+//            self.tabBarController?.tabBar.hidden = true
+        }
     }
     
     
@@ -53,18 +56,18 @@ class FeedViewController: UICollectionViewController {
     }
     
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("FeedCell", forIndexPath: indexPath) as! NewsFeedCell
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(Identifiers.feedMediaCell, forIndexPath: indexPath) as! NewsFeedCell
         return cell
     }
     
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-                performSegueWithIdentifier("ShowMedia", sender: indexPath)
+                performSegueWithIdentifier(Identifiers.showMedia, sender: indexPath)
     }
     
     override func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView
     {
         
-        let header = collectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionHeader, withReuseIdentifier: "feedHeader", forIndexPath: indexPath) as! NewsFeedHeader
+        let header = collectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionHeader, withReuseIdentifier: Identifiers.feedHeader, forIndexPath: indexPath) as! NewsFeedHeader
         
         
         

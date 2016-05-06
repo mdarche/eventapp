@@ -23,4 +23,10 @@ enum Identifiers {
     static let profileMediaCell = "MediaCell"
     static let profileHeader = "ProfileViewHeader"
     
+    static let showMedia = "ShowMedia"
+    static let feedHeader = "feedHeader"
+    static let feedMediaCell = "FeedCell"
+    
+    static let organizerCell = "OrganizerCell"
+    
 }
