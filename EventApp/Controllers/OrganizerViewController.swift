@@ -10,6 +10,7 @@ import UIKit
 
 class OrganizerViewController: UITableViewController {
 
+    let headerTitles = ["My Events", "Invitations", "Upcoming"]
     
     // MARK: View's Lifecycle
     
@@ -46,19 +47,23 @@ class OrganizerViewController: UITableViewController {
         }
     }
     
-    override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        
-        //Create label and autoresize it
-        let headerLabel = UILabel(frame: CGRectMake(0, 0, tableView.frame.width, 2000))
-        //        headerLabel.font = UIFont(name: "Avenir-Light", size: 30)
-        headerLabel.text = self.tableView(self.tableView, titleForHeaderInSection: section)
-        headerLabel.sizeToFit()
-        
-        //Adding Label to existing headerView
-        let headerView = UIView()
-        headerView.addSubview(headerLabel)
-        
-        return headerView
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return headerTitles[section]
     }
+    
+//    override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//        
+//        //Create label and autoresize it
+//        let headerLabel = UILabel(frame: CGRectMake(0, 0, tableView.frame.width, 2000))
+//        //        headerLabel.font = UIFont(name: "Avenir-Light", size: 30)
+//        headerLabel.text = self.tableView(self.tableView, titleForHeaderInSection: section)
+//        headerLabel.sizeToFit()
+//        
+//        //Adding Label to existing headerView
+//        let headerView = UIView()
+//        headerView.addSubview(headerLabel)
+//        
+//        return headerView
+//    }
     
 }

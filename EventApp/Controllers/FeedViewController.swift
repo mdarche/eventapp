@@ -16,8 +16,6 @@ class FeedViewController: UICollectionViewController {
         super.viewDidLoad()
         
         self.collectionView!.collectionViewLayout = FeedViewLayout()
-//        navigationController?.hidesBarsOnSwipe = true
-        
         visualize()
     }
     
@@ -40,14 +38,17 @@ class FeedViewController: UICollectionViewController {
     }
     
     
-    // MARK: View set up and functions
+    // MARK: Set UI
     
     func visualize() {
         
     }
-    
-    
-    // MARK: CollectionView Setup
+}
+
+
+// MARK: CollectionView Config
+
+extension FeedViewController {
     
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
@@ -68,9 +69,7 @@ class FeedViewController: UICollectionViewController {
     {
         
         let header = collectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionHeader, withReuseIdentifier: Identifiers.feedHeader, forIndexPath: indexPath) as! NewsFeedHeader
-        
-        
-        
+
         return header
     }
     
