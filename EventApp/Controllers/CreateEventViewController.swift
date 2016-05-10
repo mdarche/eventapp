@@ -24,6 +24,9 @@ class CreateEventViewController: UIViewController, UIImagePickerControllerDelega
     @IBOutlet weak var countryField: UITextField!
     @IBOutlet weak var eventMap: MKMapView!
     
+    @IBOutlet weak var gradientView: UIView!
+    
+    let gradient = CAGradientLayer()
     let imagePicker = UIImagePickerController()
     
     // MARK: View's Lifecycle
@@ -92,6 +95,11 @@ class CreateEventViewController: UIViewController, UIImagePickerControllerDelega
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(CreateEventViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
         UIApplication.sharedApplication().statusBarStyle = .LightContent
+        
+        gradient.colors = [UIColor(red: 30/255, green: 32/255, blue: 42/255, alpha: 0.2).CGColor, UIColor(red: 71/255, green: 70/255, blue: 236/255, alpha: 0.6).CGColor]
+        gradient.frame = gradientView.bounds
+        gradient.locations = [0.0, 1.0]
+        gradientView.layer.insertSublayer(gradient, atIndex: 0)
         
         imagePicker.delegate = self
     }

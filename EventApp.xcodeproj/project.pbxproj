@@ -24,9 +24,12 @@
 		13210F5B1CC942A400B3E257 /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13210F5A1CC942A400B3E257 /* MainMenuViewController.swift */; };
 		13210F5D1CC9433700B3E257 /* MyProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13210F5C1CC9433700B3E257 /* MyProfileViewController.swift */; };
 		13210F611CC9490B00B3E257 /* CreateEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13210F601CC9490B00B3E257 /* CreateEventViewController.swift */; };
+		CB037EF81CE25CA400720835 /* EventMediaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB037EF71CE25CA400720835 /* EventMediaCell.swift */; };
+		CB037EFA1CE25CC100720835 /* EventActivityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB037EF91CE25CC100720835 /* EventActivityCell.swift */; };
+		CB037EFC1CE25D7600720835 /* EventHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB037EFB1CE25D7600720835 /* EventHeader.swift */; };
 		CB73E1961CCE8CFE00E6C6AF /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB73E1941CCE8CFE00E6C6AF /* FBSDKCoreKit.framework */; };
 		CB73E1971CCE8CFE00E6C6AF /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB73E1951CCE8CFE00E6C6AF /* FBSDKLoginKit.framework */; };
-		CB73E19A1CCEB3B200E6C6AF /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB73E1991CCEB3B200E6C6AF /* TabBarController.swift */; };
+		CB73E19A1CCEB3B200E6C6AF /* ClassExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB73E1991CCEB3B200E6C6AF /* ClassExtensions.swift */; };
 		CB73E19D1CCEF06400E6C6AF /* Pulsator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB73E19C1CCEF06400E6C6AF /* Pulsator.swift */; };
 		CB73E19F1CCFED0900E6C6AF /* HomeFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB73E19E1CCFED0900E6C6AF /* HomeFeedCell.swift */; };
 		CBB4512A1CD7CBC600AD6A73 /* Authentication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBB451281CD7CBC600AD6A73 /* Authentication.storyboard */; };
@@ -88,9 +91,12 @@
 		930CD7A4051AA73C6076E8E2 /* Pods-EventApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EventApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EventApp/Pods-EventApp.debug.xcconfig"; sourceTree = "<group>"; };
 		9914B401D19A02F6CB2593EC /* Pods_EventApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EventApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B75B4194D8FDF54C69627121 /* Pods-EventApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EventApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-EventApp/Pods-EventApp.release.xcconfig"; sourceTree = "<group>"; };
+		CB037EF71CE25CA400720835 /* EventMediaCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventMediaCell.swift; path = Views/EventMediaCell.swift; sourceTree = "<group>"; };
+		CB037EF91CE25CC100720835 /* EventActivityCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventActivityCell.swift; path = Views/EventActivityCell.swift; sourceTree = "<group>"; };
+		CB037EFB1CE25D7600720835 /* EventHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventHeader.swift; path = Views/EventHeader.swift; sourceTree = "<group>"; };
 		CB73E1941CCE8CFE00E6C6AF /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = EventApp/Frameworks/FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		CB73E1951CCE8CFE00E6C6AF /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = EventApp/Frameworks/FBSDKLoginKit.framework; sourceTree = "<group>"; };
-		CB73E1991CCEB3B200E6C6AF /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TabBarController.swift; path = Utility/TabBarController.swift; sourceTree = "<group>"; };
+		CB73E1991CCEB3B200E6C6AF /* ClassExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ClassExtensions.swift; path = Utility/ClassExtensions.swift; sourceTree = "<group>"; };
 		CB73E19C1CCEF06400E6C6AF /* Pulsator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Pulsator.swift; path = Views/Pulsator.swift; sourceTree = "<group>"; };
 		CB73E19E1CCFED0900E6C6AF /* HomeFeedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeFeedCell.swift; path = Views/HomeFeedCell.swift; sourceTree = "<group>"; };
 		CB7A24FE1CCE835D00D46DE2 /* Application-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Application-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -246,7 +252,7 @@
 		CB73E1981CCEB37100E6C6AF /* Utility */ = {
 			isa = PBXGroup;
 			children = (
-				CB73E1991CCEB3B200E6C6AF /* TabBarController.swift */,
+				CB73E1991CCEB3B200E6C6AF /* ClassExtensions.swift */,
 				CBB451321CD7FE1200AD6A73 /* Constants.swift */,
 			);
 			name = Utility;
@@ -255,6 +261,9 @@
 		CB73E19B1CCEF02300E6C6AF /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CB037EF71CE25CA400720835 /* EventMediaCell.swift */,
+				CB037EF91CE25CC100720835 /* EventActivityCell.swift */,
+				CB037EFB1CE25D7600720835 /* EventHeader.swift */,
 				CB73E19E1CCFED0900E6C6AF /* HomeFeedCell.swift */,
 				CBB451341CD82FD200AD6A73 /* ProfileActivityCell.swift */,
 				CBB451361CD8FB3400AD6A73 /* ProfileMediaCell.swift */,
@@ -485,10 +494,13 @@
 				13210F591CC941D500B3E257 /* EventViewController.swift in Sources */,
 				CBB451391CD939F200AD6A73 /* OrganizerViewController.swift in Sources */,
 				13210F5D1CC9433700B3E257 /* MyProfileViewController.swift in Sources */,
+				CB037EFC1CE25D7600720835 /* EventHeader.swift in Sources */,
 				CBB4512F1CD7D1AA00AD6A73 /* MediaDetailViewController.swift in Sources */,
 				CBFD3E0B1CD26A9400FBE4A8 /* NewsFeedCell.swift in Sources */,
-				CB73E19A1CCEB3B200E6C6AF /* TabBarController.swift in Sources */,
+				CB73E19A1CCEB3B200E6C6AF /* ClassExtensions.swift in Sources */,
 				1313E4E01CD6685F0050483C /* ProfileHeader.swift in Sources */,
+				CB037EF81CE25CA400720835 /* EventMediaCell.swift in Sources */,
+				CB037EFA1CE25CC100720835 /* EventActivityCell.swift in Sources */,
 				CBB451331CD7FE1200AD6A73 /* Constants.swift in Sources */,
 				1313E4E71CD682D00050483C /* Event.swift in Sources */,
 				13210F201CC86C5300B3E257 /* AppDelegate.swift in Sources */,

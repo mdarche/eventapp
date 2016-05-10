@@ -81,7 +81,10 @@ class ListViewController: UICollectionViewController, UICollectionViewDelegateFl
     }
     
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-//        performSegueWithIdentifier("mediaDetail", sender: indexPath)
+//        performSegueWithIdentifier(Segues.showEvent, sender: indexPath)
+        
+        // TODO: Create protocol and delegate method
+        
     }
     
     override func scrollViewDidScroll(scrollView: UIScrollView) {

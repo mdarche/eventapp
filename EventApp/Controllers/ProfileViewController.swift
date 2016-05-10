@@ -61,7 +61,6 @@ class ProfileViewController: UICollectionViewController, UICollectionViewDelegat
         let header = collectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionHeader, withReuseIdentifier: Identifiers.profileHeader, forIndexPath: indexPath) as! ProfileHeader
         
         
-        
         return header
     }
     

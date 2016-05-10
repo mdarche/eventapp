@@ -47,6 +47,10 @@ class OrganizerViewController: UITableViewController {
         }
     }
     
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+            performSegueWithIdentifier(Segues.showEvent, sender: indexPath)
+    }
+    
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return headerTitles[section]
     }

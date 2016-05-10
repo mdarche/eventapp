@@ -32,7 +32,7 @@ class FeedViewController: UICollectionViewController {
     // MARK: View's Transition Handler
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == Identifiers.showMedia {
+        if segue.identifier == Segues.showMedia {
 //            self.tabBarController?.tabBar.hidden = true
         }
     }
@@ -62,7 +62,7 @@ extension FeedViewController {
     }
     
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-                performSegueWithIdentifier(Identifiers.showMedia, sender: indexPath)
+                performSegueWithIdentifier(Segues.showMedia, sender: indexPath)
     }
     
     override func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView
