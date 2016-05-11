@@ -42,13 +42,13 @@ class EventViewController: UICollectionViewController {
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         
-        return CGSizeMake(CGRectGetWidth(collectionView.bounds), 450.0)
+        return CGSizeMake(CGRectGetWidth(collectionView.bounds), 432.0)
     
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         
-        return CGSize(width: collectionView.frame.size.width, height: 77)
+        return CGSize(width: collectionView.frame.size.width, height: 330)
 
     }
     
