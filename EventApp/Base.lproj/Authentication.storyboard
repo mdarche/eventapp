@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="yCI-gE-eAp">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Login View Controller-->
@@ -15,9 +16,47 @@
                     <view key="view" contentMode="scaleToFill" id="MkI-IK-nf8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="58t-Dn-nwq">
+                                <rect key="frame" x="-2" y="0.0" width="379" height="667"/>
+                            </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0fU-Kc-9us" customClass="FBSDKLoginButton">
+                                <rect key="frame" x="26" y="547" width="323" height="55"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="55" id="GXd-qE-Jwy"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Login with Facebook">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="ExM-4v-eWH">
+                                <rect key="frame" x="168" y="615" width="39" height="37"/>
+                            </pageControl>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="58t-Dn-nwq" secondAttribute="trailing" constant="-18" id="5XW-D1-Jab"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="0fU-Kc-9us" secondAttribute="trailing" constant="10" id="CCB-Fv-gMp"/>
+                            <constraint firstItem="58t-Dn-nwq" firstAttribute="top" secondItem="MkI-IK-nf8" secondAttribute="topMargin" id="IRi-uG-LFE"/>
+                            <constraint firstItem="58t-Dn-nwq" firstAttribute="leading" secondItem="MkI-IK-nf8" secondAttribute="leadingMargin" constant="-18" id="JMk-yL-fRU"/>
+                            <constraint firstItem="e8K-ji-Ars" firstAttribute="top" secondItem="58t-Dn-nwq" secondAttribute="bottom" id="RHo-60-xiu"/>
+                            <constraint firstItem="0fU-Kc-9us" firstAttribute="bottom" secondItem="ExM-4v-eWH" secondAttribute="top" constant="-13" id="SLq-e8-km3"/>
+                            <constraint firstItem="0fU-Kc-9us" firstAttribute="leading" secondItem="MkI-IK-nf8" secondAttribute="leadingMargin" constant="10" id="gos-gd-AMx"/>
+                            <constraint firstItem="ExM-4v-eWH" firstAttribute="centerX" secondItem="MkI-IK-nf8" secondAttribute="centerX" id="mvD-1o-NQz"/>
+                            <constraint firstItem="e8K-ji-Ars" firstAttribute="top" secondItem="0fU-Kc-9us" secondAttribute="bottom" constant="65" id="oad-rL-jqg"/>
+                            <constraint firstItem="0fU-Kc-9us" firstAttribute="centerX" secondItem="MkI-IK-nf8" secondAttribute="centerX" id="xug-Sd-g8F"/>
+                        </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="facebookLoginButton" destination="0fU-Kc-9us" id="RZa-t9-k7S"/>
+                        <outlet property="pageControl" destination="ExM-4v-eWH" id="Sbx-sh-rU9"/>
+                        <outlet property="scrollView" destination="58t-Dn-nwq" id="RQU-rZ-ymI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Vd-hd-sOr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

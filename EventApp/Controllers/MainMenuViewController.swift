@@ -11,7 +11,8 @@ import UIKit
 class MainMenuViewController: UITableViewController {
 
     @IBOutlet weak var profileImage: UIImageView!
-    @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var logoutButton: UIButton!
+
     
     // MARK: View's Lifecycle
     
@@ -30,6 +31,7 @@ class MainMenuViewController: UITableViewController {
         profileImage.layer.cornerRadius = profileImage.frame.size.width/2
         animateTable()
         setTableViewBackgroundGradient(self)
+        logoutButton.layer.borderColor = UIColor.whiteColor().CGColor
     }
     
     
@@ -41,6 +43,19 @@ class MainMenuViewController: UITableViewController {
     override func tableView(tableView: UITableView, didUnhighlightRowAtIndexPath indexPath: NSIndexPath) {
         let cell  = tableView.cellForRowAtIndexPath(indexPath)
         cell!.contentView.backgroundColor = .clearColor()
+    }
+    
+    @IBAction func logoutButtonPressed(sender: AnyObject) {
+        
+        let facebookLogout = FBSDKLoginManager()
+        facebookLogout.logOut()
+        
+        let storyboard = UIStoryboard(name: "Authentication", bundle: nil)
+        if let controller = storyboard.instantiateInitialViewController() {
+            self.presentViewController(controller, animated: true, completion: { () -> Void in
+                self.view.window?.rootViewController = controller
+            })
+        }
     }
     
     

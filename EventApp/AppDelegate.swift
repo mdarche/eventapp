@@ -24,10 +24,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        UIApplication.sharedApplication().registerUserNotificationSettings(setting)
 //        UIApplication.sharedApplication().registerForRemoteNotifications()
 
+        // Set initial VC based on active session token
+        FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+        if (FBSDKAccessToken.currentAccessToken() != nil) {
+            print("Not nil")
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let controller = storyboard.instantiateViewControllerWithIdentifier(Identifiers.TabBarID)
+            self.window?.rootViewController = controller
+            
+        } else {
+            print("Nil")
+        }
+        
         
         FBSDKProfile.enableUpdatesOnAccessTokenChange(true)
-        return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
-        
+        return true
     }
 
     func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
@@ -47,6 +58,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillEnterForeground(application: UIApplication) {
         // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
         UIApplication.sharedApplication().applicationIconBadgeNumber = 0
+
     }
 
     func applicationDidBecomeActive(application: UIApplication) {

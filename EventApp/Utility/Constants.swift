@@ -33,9 +33,11 @@ enum Identifiers {
     
     static let organizerCell = "OrganizerCell"
     
+    static let TabBarID = "mainTabBar"
+    
 }
 
-enum Colors {
+struct Colors {
     static let mainDarkFull = UIColor(red: 30/255, green: 32/255, blue: 42/255, alpha: 1.0)
     static let mainDarkHalf = UIColor(red: 30/255, green: 32/255, blue: 42/255, alpha: 0.5)
     
