@@ -22,7 +22,6 @@ class MediaDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        UIApplication.sharedApplication().statusBarHidden = true
         self.tabBarController?.tabBar.hidden = true
         
         let downSwipe = UISwipeGestureRecognizer(target: self, action: #selector(MediaDetailViewController.dismissVC))
@@ -39,6 +38,10 @@ class MediaDetailViewController: UIViewController {
     override func viewDidDisappear(animated: Bool) {
         super.viewDidDisappear(true)
         dismissVC()
+    }
+    
+    override func  preferredStatusBarStyle()-> UIStatusBarStyle {
+        return UIStatusBarStyle.LightContent
     }
     
     @IBAction func exitButtonPressed(sender: AnyObject) {

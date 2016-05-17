@@ -20,6 +20,12 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="58t-Dn-nwq">
                                 <rect key="frame" x="-2" y="0.0" width="379" height="667"/>
                             </scrollView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="47e-82-22t">
+                                <rect key="frame" x="36" y="220" width="303" height="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0fU-Kc-9us" customClass="FBSDKLoginButton">
                                 <rect key="frame" x="26" y="547" width="323" height="55"/>
                                 <constraints>
@@ -43,17 +49,23 @@
                             <constraint firstAttribute="trailingMargin" secondItem="0fU-Kc-9us" secondAttribute="trailing" constant="10" id="CCB-Fv-gMp"/>
                             <constraint firstItem="58t-Dn-nwq" firstAttribute="top" secondItem="MkI-IK-nf8" secondAttribute="topMargin" id="IRi-uG-LFE"/>
                             <constraint firstItem="58t-Dn-nwq" firstAttribute="leading" secondItem="MkI-IK-nf8" secondAttribute="leadingMargin" constant="-18" id="JMk-yL-fRU"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="47e-82-22t" secondAttribute="trailing" constant="20" id="O4B-7G-u8s"/>
                             <constraint firstItem="e8K-ji-Ars" firstAttribute="top" secondItem="58t-Dn-nwq" secondAttribute="bottom" id="RHo-60-xiu"/>
                             <constraint firstItem="0fU-Kc-9us" firstAttribute="bottom" secondItem="ExM-4v-eWH" secondAttribute="top" constant="-13" id="SLq-e8-km3"/>
+                            <constraint firstItem="47e-82-22t" firstAttribute="top" secondItem="wbe-xN-V9x" secondAttribute="bottom" constant="200" id="UJ7-Ix-EiE"/>
+                            <constraint firstItem="47e-82-22t" firstAttribute="centerX" secondItem="MkI-IK-nf8" secondAttribute="centerX" id="Uwy-0w-IJB"/>
                             <constraint firstItem="0fU-Kc-9us" firstAttribute="leading" secondItem="MkI-IK-nf8" secondAttribute="leadingMargin" constant="10" id="gos-gd-AMx"/>
                             <constraint firstItem="ExM-4v-eWH" firstAttribute="centerX" secondItem="MkI-IK-nf8" secondAttribute="centerX" id="mvD-1o-NQz"/>
                             <constraint firstItem="e8K-ji-Ars" firstAttribute="top" secondItem="0fU-Kc-9us" secondAttribute="bottom" constant="65" id="oad-rL-jqg"/>
+                            <constraint firstItem="47e-82-22t" firstAttribute="leading" secondItem="MkI-IK-nf8" secondAttribute="leadingMargin" constant="20" id="oeh-kR-gFU"/>
                             <constraint firstItem="0fU-Kc-9us" firstAttribute="centerX" secondItem="MkI-IK-nf8" secondAttribute="centerX" id="xug-Sd-g8F"/>
                         </constraints>
                     </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="facebookLoginButton" destination="0fU-Kc-9us" id="RZa-t9-k7S"/>
+                        <outlet property="onboardLabel" destination="47e-82-22t" id="Ure-Ye-G53"/>
                         <outlet property="pageControl" destination="ExM-4v-eWH" id="Sbx-sh-rU9"/>
                         <outlet property="scrollView" destination="58t-Dn-nwq" id="RQU-rZ-ymI"/>
                     </connections>

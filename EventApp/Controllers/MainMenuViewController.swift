@@ -25,13 +25,25 @@ class MainMenuViewController: UITableViewController {
         super.viewWillAppear(true)
     }
     
+    
+    // MARK: View's Transition Handler
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == Segues.showProfile {
+            guard let vc = segue.destinationViewController as? ProfileViewController else {
+                return
+            }
+            vc.isMe = true
+        }
+    }
+    
     // MARK: Setup View's Layout
     
     func visualize() {
         profileImage.layer.cornerRadius = profileImage.frame.size.width/2
         animateTable()
         setTableViewBackgroundGradient(self)
-        logoutButton.layer.borderColor = UIColor.whiteColor().CGColor
+        logoutButton.layer.borderColor = UIColor(white: 1.0, alpha: 0.7).CGColor
     }
     
     

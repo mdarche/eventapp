@@ -17,6 +17,7 @@ enum Routes {
 enum Segues {
     static let showEvent = "showEvent"
     static let showMedia = "ShowMedia"
+    static let showProfile = "ShowMyProfile"
 }
 
 enum Identifiers {

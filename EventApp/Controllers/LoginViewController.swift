@@ -13,9 +13,10 @@ class LoginViewController: UIViewController, UIScrollViewDelegate, FBSDKLoginBut
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var facebookLoginButton: FBSDKLoginButton!
+    @IBOutlet weak var onboardLabel: UILabel!
     
     var colors:[UIColor] = [UIColor.blueColor(), UIColor.purpleColor(), UIColor.magentaColor()]
-    var frame: CGRect = CGRectMake(0, 0, 0, 0)
+    var strings = ["Test string about how this app is the greatest", "Second test about why this app is the greatest", "This app is the greatest, check it out"]
     
     
     // MARK: View's Lifecycle
@@ -35,24 +36,26 @@ class LoginViewController: UIViewController, UIScrollViewDelegate, FBSDKLoginBut
     // MARK: Set Up Scrollview and Paging
     
     func visualize() {
+        onboardLabel.text = strings[0]
         scrollView.delegate = self
         
-        scrollView.frame = CGRectMake(0, 0, self.view.frame.width, self.view.frame.height)
+        scrollView.frame = CGRectMake(0, 0, (self.view.frame.width + 3), self.view.frame.height)
+        var frame = CGRectMake(0, 0, self.view.frame.width, self.view.frame.height)
         let scrollViewHeight = self.scrollView.frame.height
         let scrollViewWidth = self.scrollView.frame.width
         
         for index in 0..<3 {
             
-            frame.origin.x = self.scrollView.frame.size.width * CGFloat(index)
+            frame.origin.x = scrollViewWidth * CGFloat(index)
             frame.size = self.scrollView.frame.size
             self.scrollView.pagingEnabled = true
             
             let subView = UIView(frame: frame)
             subView.backgroundColor = colors[index]
-            self.scrollView .addSubview(subView)
+            self.scrollView.addSubview(subView)
         }
         
-        scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width * 3, self.scrollView.frame.size.height)
+        scrollView.contentSize = CGSizeMake(scrollViewWidth * 3, scrollViewHeight)
         pageControl.addTarget(self, action: #selector(LoginViewController.changePage(_:)), forControlEvents: UIControlEvents.ValueChanged)
         
     }
@@ -62,19 +65,19 @@ class LoginViewController: UIViewController, UIScrollViewDelegate, FBSDKLoginBut
         scrollView.setContentOffset(CGPointMake(x, 0), animated: true)
     }
     
-    
     func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
         
+        onboardLabel.pushTransition(0.2, effect: "fade")
         let pageNumber = round(scrollView.contentOffset.x / scrollView.frame.size.width)
         pageControl.currentPage = Int(pageNumber)
         
         switch pageControl.currentPage {
         case 0:
-            print("Label 1")
+            onboardLabel.text = strings[0]
         case 1:
-            print("Label 2")
+            onboardLabel.text = strings[1]
         case 2:
-            print("Label 3")
+            onboardLabel.text = strings[2]
         default:
             print("Default")
         }

@@ -79,9 +79,16 @@ extension UITableViewController {
 
 extension UICollectionViewController {
     
-    func setEventViewBackgroundGradient(sender: UICollectionViewController, image: UIImage?) {
+    func setBackgroundGradient(sender: UICollectionViewController, image: UIImage?, color: UIColor?, isProfile: Bool) {
         
-        let gradientBackgroundColors = [UIColor(red: 30/255, green: 32/255, blue: 42/255, alpha: 0.6).CGColor, UIColor(red: 71/255, green: 70/255, blue: 236/255, alpha: 0.6).CGColor]
+        var gradientBackgroundColors = [CGColor]()
+        
+        if isProfile == false {
+            gradientBackgroundColors = [UIColor(red: 30/255, green: 32/255, blue: 42/255, alpha: 0.6).CGColor, UIColor(red: 71/255, green: 70/255, blue: 236/255, alpha: 0.6).CGColor]
+        } else {
+            gradientBackgroundColors = [UIColor(red: 30/255, green: 32/255, blue: 42/255, alpha: 0.6).CGColor, color!.CGColor]
+        }
+        
         let gradientLocations = [0.0,1.0]
         
         let gradientLayer = CAGradientLayer()
@@ -95,11 +102,28 @@ extension UICollectionViewController {
         imageLayer.blurImage()
         
         gradientLayer.frame = sender.collectionView!.bounds
-//        let backgroundView = UIView(frame: sender.collectionView!.bounds)
-//        backgroundView.addSubview(imageLayer)
         imageLayer.layer.insertSublayer(gradientLayer, atIndex: 0)
         sender.collectionView!.backgroundView = imageLayer
     }
     
+}
+
+extension UIView {
+    func pushTransition(duration:CFTimeInterval, effect: String?) {
+        let animation:CATransition = CATransition()
+        animation.timingFunction = CAMediaTimingFunction(name:
+            kCAMediaTimingFunctionEaseInEaseOut)
+        
+        if effect == "fade" {
+            animation.type = kCATransitionFade
+            animation.subtype = kCATransitionFade
+        } else {
+            animation.type = kCATransitionFromBottom
+            animation.subtype = kCATransitionFromBottom
+        }
+
+        animation.duration = duration
+        self.layer.addAnimation(animation, forKey: kCATransitionPush)
+    }
 }
 

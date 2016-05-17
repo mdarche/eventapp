@@ -15,7 +15,7 @@ class EventViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setEventViewBackgroundGradient(self, image: UIImage(named: "feedImage"))
+        setBackgroundGradient(self, image: UIImage(named: "feedImage"), color: nil, isProfile: false)
         
     }
     // MARK: UICollectionViewDataSource
