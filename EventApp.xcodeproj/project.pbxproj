@@ -26,6 +26,9 @@
 		CB037EF81CE25CA400720835 /* EventMediaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB037EF71CE25CA400720835 /* EventMediaCell.swift */; };
 		CB037EFA1CE25CC100720835 /* EventActivityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB037EF91CE25CC100720835 /* EventActivityCell.swift */; };
 		CB037EFC1CE25D7600720835 /* EventHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB037EFB1CE25D7600720835 /* EventHeader.swift */; };
+		CB119FA71CEBB6980086B785 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CB119FA51CEBB6980086B785 /* DataModel.xcdatamodeld */; };
+		CB119FA91CEBB71B0086B785 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB119FA81CEBB71B0086B785 /* DataController.swift */; };
+		CB119FAB1CEBC7E20086B785 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB119FAA1CEBC7E20086B785 /* CoreData.framework */; };
 		CB73E1961CCE8CFE00E6C6AF /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB73E1941CCE8CFE00E6C6AF /* FBSDKCoreKit.framework */; };
 		CB73E1971CCE8CFE00E6C6AF /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB73E1951CCE8CFE00E6C6AF /* FBSDKLoginKit.framework */; };
 		CB73E19A1CCEB3B200E6C6AF /* ClassExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB73E1991CCEB3B200E6C6AF /* ClassExtensions.swift */; };
@@ -92,6 +95,9 @@
 		CB037EF71CE25CA400720835 /* EventMediaCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventMediaCell.swift; path = Views/EventMediaCell.swift; sourceTree = "<group>"; };
 		CB037EF91CE25CC100720835 /* EventActivityCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventActivityCell.swift; path = Views/EventActivityCell.swift; sourceTree = "<group>"; };
 		CB037EFB1CE25D7600720835 /* EventHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventHeader.swift; path = Views/EventHeader.swift; sourceTree = "<group>"; };
+		CB119FA61CEBB6980086B785 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
+		CB119FA81CEBB71B0086B785 /* DataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataController.swift; path = Utility/DataController.swift; sourceTree = "<group>"; };
+		CB119FAA1CEBC7E20086B785 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		CB73E1941CCE8CFE00E6C6AF /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = EventApp/Frameworks/FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		CB73E1951CCE8CFE00E6C6AF /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = EventApp/Frameworks/FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		CB73E1991CCEB3B200E6C6AF /* ClassExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ClassExtensions.swift; path = Utility/ClassExtensions.swift; sourceTree = "<group>"; };
@@ -117,6 +123,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB119FAB1CEBC7E20086B785 /* CoreData.framework in Frameworks */,
 				13210F501CC86D0F00B3E257 /* MapKit.framework in Frameworks */,
 				CB73E1961CCE8CFE00E6C6AF /* FBSDKCoreKit.framework in Frameworks */,
 				CB73E1971CCE8CFE00E6C6AF /* FBSDKLoginKit.framework in Frameworks */,
@@ -145,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				1313E4E61CD682D00050483C /* Event.swift */,
+				CB119FA51CEBB6980086B785 /* DataModel.xcdatamodeld */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -229,6 +237,7 @@
 		34445872FB33C9D29C8B5CB9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CB119FAA1CEBC7E20086B785 /* CoreData.framework */,
 				13210F4F1CC86D0F00B3E257 /* MapKit.framework */,
 				CB73E1941CCE8CFE00E6C6AF /* FBSDKCoreKit.framework */,
 				CB73E1951CCE8CFE00E6C6AF /* FBSDKLoginKit.framework */,
@@ -251,6 +260,7 @@
 			children = (
 				CB73E1991CCEB3B200E6C6AF /* ClassExtensions.swift */,
 				CBB451321CD7FE1200AD6A73 /* Constants.swift */,
+				CB119FA81CEBB71B0086B785 /* DataController.swift */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -493,10 +503,12 @@
 				CB037EFC1CE25D7600720835 /* EventHeader.swift in Sources */,
 				CBB4512F1CD7D1AA00AD6A73 /* MediaDetailViewController.swift in Sources */,
 				CBFD3E0B1CD26A9400FBE4A8 /* NewsFeedCell.swift in Sources */,
+				CB119FA91CEBB71B0086B785 /* DataController.swift in Sources */,
 				CB73E19A1CCEB3B200E6C6AF /* ClassExtensions.swift in Sources */,
 				1313E4E01CD6685F0050483C /* ProfileHeader.swift in Sources */,
 				CB037EF81CE25CA400720835 /* EventMediaCell.swift in Sources */,
 				CB037EFA1CE25CC100720835 /* EventActivityCell.swift in Sources */,
+				CB119FA71CEBB6980086B785 /* DataModel.xcdatamodeld in Sources */,
 				CBB451331CD7FE1200AD6A73 /* Constants.swift in Sources */,
 				1313E4E71CD682D00050483C /* Event.swift in Sources */,
 				13210F201CC86C5300B3E257 /* AppDelegate.swift in Sources */,
@@ -772,6 +784,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		CB119FA51CEBB6980086B785 /* DataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				CB119FA61CEBB6980086B785 /* DataModel.xcdatamodel */,
+			);
+			currentVersion = CB119FA61CEBB6980086B785 /* DataModel.xcdatamodel */;
+			name = DataModel.xcdatamodeld;
+			path = Models/DataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 13210F141CC86C5300B3E257 /* Project object */;
 }

@@ -67,7 +67,7 @@ extension UITableViewController {
         
         for a in cells {
             let cell: UITableViewCell = a as UITableViewCell
-            UIView.animateWithDuration(1.0, delay: 0.05 * Double(index), usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: UIViewAnimationOptions.CurveEaseIn, animations: {
+            UIView.animateWithDuration(0.7, delay: 0.04 * Double(index), usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: UIViewAnimationOptions.CurveEaseIn, animations: {
                 cell.transform = CGAffineTransformMakeTranslation(0, 0);
                 }, completion: nil)
             
@@ -96,10 +96,12 @@ extension UICollectionViewController {
         gradientLayer.locations = gradientLocations
         
         let imageLayer = UIImageView(frame: sender.collectionView!.bounds)
-        imageLayer.image = image
-        imageLayer.layer.masksToBounds = true
-        imageLayer.contentMode = .ScaleAspectFill
-        imageLayer.blurImage()
+        if image != nil {
+            imageLayer.image = image
+            imageLayer.layer.masksToBounds = true
+            imageLayer.contentMode = .ScaleAspectFill
+            imageLayer.blurImage()
+        }
         
         gradientLayer.frame = sender.collectionView!.bounds
         imageLayer.layer.insertSublayer(gradientLayer, atIndex: 0)

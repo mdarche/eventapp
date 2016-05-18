@@ -14,9 +14,11 @@ class LoginViewController: UIViewController, UIScrollViewDelegate, FBSDKLoginBut
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var facebookLoginButton: FBSDKLoginButton!
     @IBOutlet weak var onboardLabel: UILabel!
+    @IBOutlet var logoImage: UIImageView!
+    @IBOutlet var appNameLabel: UILabel!
     
-    var colors:[UIColor] = [UIColor.blueColor(), UIColor.purpleColor(), UIColor.magentaColor()]
-    var strings = ["Test string about how this app is the greatest", "Second test about why this app is the greatest", "This app is the greatest, check it out"]
+    var backgrounds:[UIImage?] = [UIImage(named: "login1"), UIImage(named: "login2")]
+    var strings = ["Find the nearest events and activities near you, no matter where you are", "Explore the nightlife of a new city"]
     
     
     // MARK: View's Lifecycle
@@ -35,6 +37,10 @@ class LoginViewController: UIViewController, UIScrollViewDelegate, FBSDKLoginBut
     
     // MARK: Set Up Scrollview and Paging
     
+    override func prefersStatusBarHidden() -> Bool {
+        return true
+    }
+    
     func visualize() {
         onboardLabel.text = strings[0]
         scrollView.delegate = self
@@ -44,18 +50,20 @@ class LoginViewController: UIViewController, UIScrollViewDelegate, FBSDKLoginBut
         let scrollViewHeight = self.scrollView.frame.height
         let scrollViewWidth = self.scrollView.frame.width
         
-        for index in 0..<3 {
+        for index in 0..<2 {
             
             frame.origin.x = scrollViewWidth * CGFloat(index)
             frame.size = self.scrollView.frame.size
             self.scrollView.pagingEnabled = true
             
-            let subView = UIView(frame: frame)
-            subView.backgroundColor = colors[index]
+            let subView = UIImageView(frame: frame)
+            subView.contentMode = .ScaleAspectFill
+            subView.layer.masksToBounds = true
+            subView.image = backgrounds[index]
             self.scrollView.addSubview(subView)
         }
         
-        scrollView.contentSize = CGSizeMake(scrollViewWidth * 3, scrollViewHeight)
+        scrollView.contentSize = CGSizeMake(scrollViewWidth * 2, scrollViewHeight)
         pageControl.addTarget(self, action: #selector(LoginViewController.changePage(_:)), forControlEvents: UIControlEvents.ValueChanged)
         
     }
@@ -76,8 +84,6 @@ class LoginViewController: UIViewController, UIScrollViewDelegate, FBSDKLoginBut
             onboardLabel.text = strings[0]
         case 1:
             onboardLabel.text = strings[1]
-        case 2:
-            onboardLabel.text = strings[2]
         default:
             print("Default")
         }

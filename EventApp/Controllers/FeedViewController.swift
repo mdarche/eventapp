@@ -41,7 +41,7 @@ class FeedViewController: UICollectionViewController {
     // MARK: Set UI
     
     func visualize() {
-        
+        setBackgroundGradient(self, image: nil, color: nil, isProfile: false)
     }
 }
 

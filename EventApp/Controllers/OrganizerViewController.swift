@@ -10,7 +10,7 @@ import UIKit
 
 class OrganizerViewController: UITableViewController {
 
-    let headerTitles = ["My Events", "Invitations", "Upcoming"]
+    let headerTitles = ["Upcoming", "Invitations"]
     
     // MARK: View's Lifecycle
     
@@ -23,16 +23,18 @@ class OrganizerViewController: UITableViewController {
         super.viewWillAppear(true)
     }
     
+    
     // MARK: Setup View's Layout
     
     func visualize() {
         setTableViewBackgroundGradient(self)
     }
 
+    
     // MARK: Tableview Functions
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 3
+        return 2
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

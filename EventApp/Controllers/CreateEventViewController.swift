@@ -46,6 +46,9 @@ class CreateEventViewController: UIViewController, UIImagePickerControllerDelega
     }
     
     
+    override func  preferredStatusBarStyle()-> UIStatusBarStyle {
+        return UIStatusBarStyle.LightContent
+    }
     
     // MARK: View's Transition Handler
     

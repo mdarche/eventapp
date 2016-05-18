@@ -37,13 +37,13 @@ class ProfileViewController: UICollectionViewController, UICollectionViewDelegat
     
     func visualize() {
         if isMe == true {
-            let settingsButton = UIBarButtonItem(image: UIImage(named: "moreSettings"), style: .Plain,
+            let settingsButton = UIBarButtonItem(image: UIImage(named: "settings"), style: .Plain,
                      target: nil, action: #selector(ProfileViewController.settingsPressed))
             
             self.navigationItem.rightBarButtonItem = settingsButton
         }
         navTitle.hidden = true
-        setBackgroundGradient(self, image: UIImage(named: "feedImage"), color: UIColor.redColor(), isProfile: true)
+        setBackgroundGradient(self, image: UIImage(named: "NickCage"), color: UIColor.redColor(), isProfile: true)
     }
     
     func settingsPressed() {
