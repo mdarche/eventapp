@@ -129,3 +129,34 @@ extension UIView {
     }
 }
 
+extension NSObject{
+    convenience init(jsonStr:String) {
+        self.init()
+        
+        if let jsonData = jsonStr.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
+        {
+            do {
+                let json = try NSJSONSerialization.JSONObjectWithData(jsonData, options: []) as! [String: AnyObject]
+                
+                // Loop
+                for (key, value) in json {
+                    let keyName = key as String
+                    let keyValue: String = value as! String
+                    
+                    // If property exists
+                    if (self.respondsToSelector(NSSelectorFromString(keyName))) {
+                        self.setValue(keyValue, forKey: keyName)
+                    }
+                }
+                
+            } catch let error as NSError {
+                print("Failed to load: \(error.localizedDescription)")
+            }
+        }
+        else
+        {
+            print("json is of wrong format!")
+        }
+    }
+}
+

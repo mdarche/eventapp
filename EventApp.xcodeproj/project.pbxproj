@@ -29,6 +29,10 @@
 		CB119FA71CEBB6980086B785 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CB119FA51CEBB6980086B785 /* DataModel.xcdatamodeld */; };
 		CB119FA91CEBB71B0086B785 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB119FA81CEBB71B0086B785 /* DataController.swift */; };
 		CB119FAB1CEBC7E20086B785 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB119FAA1CEBC7E20086B785 /* CoreData.framework */; };
+		CB119FAE1CEE3CB80086B785 /* NetworkRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB119FAD1CEE3CB80086B785 /* NetworkRouter.swift */; };
+		CB119FB01CEE48C80086B785 /* Requests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB119FAF1CEE48C80086B785 /* Requests.swift */; };
+		CB119FB21CEE5CD30086B785 /* Media.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB119FB11CEE5CD30086B785 /* Media.swift */; };
+		CB119FB41CEF6C2B0086B785 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB119FB31CEF6C2B0086B785 /* User.swift */; };
 		CB73E1961CCE8CFE00E6C6AF /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB73E1941CCE8CFE00E6C6AF /* FBSDKCoreKit.framework */; };
 		CB73E1971CCE8CFE00E6C6AF /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB73E1951CCE8CFE00E6C6AF /* FBSDKLoginKit.framework */; };
 		CB73E19A1CCEB3B200E6C6AF /* ClassExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB73E1991CCEB3B200E6C6AF /* ClassExtensions.swift */; };
@@ -98,6 +102,10 @@
 		CB119FA61CEBB6980086B785 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		CB119FA81CEBB71B0086B785 /* DataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataController.swift; path = Utility/DataController.swift; sourceTree = "<group>"; };
 		CB119FAA1CEBC7E20086B785 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		CB119FAD1CEE3CB80086B785 /* NetworkRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkRouter.swift; path = Network/NetworkRouter.swift; sourceTree = "<group>"; };
+		CB119FAF1CEE48C80086B785 /* Requests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Requests.swift; path = Network/Requests.swift; sourceTree = "<group>"; };
+		CB119FB11CEE5CD30086B785 /* Media.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Media.swift; path = Models/Media.swift; sourceTree = "<group>"; };
+		CB119FB31CEF6C2B0086B785 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Models/User.swift; sourceTree = "<group>"; };
 		CB73E1941CCE8CFE00E6C6AF /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = EventApp/Frameworks/FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		CB73E1951CCE8CFE00E6C6AF /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = EventApp/Frameworks/FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		CB73E1991CCEB3B200E6C6AF /* ClassExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ClassExtensions.swift; path = Utility/ClassExtensions.swift; sourceTree = "<group>"; };
@@ -152,6 +160,8 @@
 			isa = PBXGroup;
 			children = (
 				1313E4E61CD682D00050483C /* Event.swift */,
+				CB119FB31CEF6C2B0086B785 /* User.swift */,
+				CB119FB11CEE5CD30086B785 /* Media.swift */,
 				CB119FA51CEBB6980086B785 /* DataModel.xcdatamodeld */,
 			);
 			name = Models;
@@ -188,6 +198,7 @@
 				CB73E1981CCEB37100E6C6AF /* Utility */,
 				13210F511CC93EBB00B3E257 /* Controllers */,
 				CBFD3E091CD26A3C00FBE4A8 /* Layouts */,
+				CB119FAC1CEE3C790086B785 /* Network */,
 				1313E4E31CD6698E0050483C /* Models */,
 				CB73E19B1CCEF02300E6C6AF /* Views */,
 				13210F281CC86C5300B3E257 /* Assets.xcassets */,
@@ -253,6 +264,15 @@
 				B75B4194D8FDF54C69627121 /* Pods-EventApp.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		CB119FAC1CEE3C790086B785 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				CB119FAD1CEE3CB80086B785 /* NetworkRouter.swift */,
+				CB119FAF1CEE48C80086B785 /* Requests.swift */,
+			);
+			name = Network;
 			sourceTree = "<group>";
 		};
 		CB73E1981CCEB37100E6C6AF /* Utility */ = {
@@ -491,10 +511,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				CBB4512D1CD7CC2100AD6A73 /* LoginViewController.swift in Sources */,
+				CB119FB01CEE48C80086B785 /* Requests.swift in Sources */,
 				CBB451371CD8FB3400AD6A73 /* ProfileMediaCell.swift in Sources */,
 				CB73E19D1CCEF06400E6C6AF /* Pulsator.swift in Sources */,
 				CBB451351CD82FD200AD6A73 /* ProfileActivityCell.swift in Sources */,
 				CBB451311CD7F2F600AD6A73 /* ProfileViewController.swift in Sources */,
+				CB119FB21CEE5CD30086B785 /* Media.swift in Sources */,
 				CBFD3E0D1CD26D9F00FBE4A8 /* FeedViewController.swift in Sources */,
 				CBB4513B1CDBB78100AD6A73 /* OrganizerFeedCell.swift in Sources */,
 				13210F5B1CC942A400B3E257 /* MainMenuViewController.swift in Sources */,
@@ -507,6 +529,7 @@
 				CB73E19A1CCEB3B200E6C6AF /* ClassExtensions.swift in Sources */,
 				1313E4E01CD6685F0050483C /* ProfileHeader.swift in Sources */,
 				CB037EF81CE25CA400720835 /* EventMediaCell.swift in Sources */,
+				CB119FAE1CEE3CB80086B785 /* NetworkRouter.swift in Sources */,
 				CB037EFA1CE25CC100720835 /* EventActivityCell.swift in Sources */,
 				CB119FA71CEBB6980086B785 /* DataModel.xcdatamodeld in Sources */,
 				CBB451331CD7FE1200AD6A73 /* Constants.swift in Sources */,
@@ -518,6 +541,7 @@
 				CB73E19F1CCFED0900E6C6AF /* HomeFeedCell.swift in Sources */,
 				13210F611CC9490B00B3E257 /* CreateEventViewController.swift in Sources */,
 				CBFD3E081CD1A92900FBE4A8 /* FeedViewLayout.swift in Sources */,
+				CB119FB41CEF6C2B0086B785 /* User.swift in Sources */,
 				1313E4E21CD6689E0050483C /* NewsFeedHeader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

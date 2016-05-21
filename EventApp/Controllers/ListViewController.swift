@@ -59,6 +59,8 @@ class ListViewController: UICollectionViewController, UICollectionViewDelegateFl
 //            }
 //        }
         
+        Requests.getEvent(13)
+        
         
     }
     
