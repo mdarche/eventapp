@@ -8,11 +8,10 @@
 
 import Foundation
 
-let TestDomain = "http://private-87ec1-eventsapp2.apiary-mock.com"
-
-enum Routes {
-    static let getNearbyEvents = "\(TestDomain)/events/?location=location"
+enum Domains {
+    static let developmentURL = "http://private-87ec1-eventsapp2.apiary-mock.com"
 }
+
 
 enum Segues {
     static let showEvent = "showEvent"

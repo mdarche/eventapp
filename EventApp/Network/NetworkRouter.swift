@@ -10,9 +10,10 @@ import Foundation
 import Alamofire
 
 public enum NetworkRouter: URLRequestConvertible {
-    static let baseURLPath = TestDomain
+    static let baseURLPath = Domains.developmentURL
     static let authenticationToken = "Basic xxx"
     
+    case CreateSession([AnyObject])
     case EventsCollection([String])
     case Event(Int)
     case Profile(String)
@@ -21,6 +22,11 @@ public enum NetworkRouter: URLRequestConvertible {
         let result: (path: String, method: Alamofire.Method, parameters: [String: AnyObject]) = {
             switch self {
 
+            case CreateSession(let authParams):
+                let params = [ "provider" : authParams[0], "credentials" : [ "appId" : authParams[1], "userId" : authParams[2], "token" : authParams[3] ] ]
+                print("Session params are --> \(params)")
+                return ("/session", .POST, params)
+                
             case .EventsCollection(let locationParams):
                 let params = [ "location" : locationParams[0], "area" : locationParams[1] ]
                 return ("/events/?location=location&area=area", .GET, params)

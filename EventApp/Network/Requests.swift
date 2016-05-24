@@ -15,14 +15,26 @@ class Requests {
     
     // MARK: Create Session
     
-    class func createSession(){
+    class func createSession(authParams: [AnyObject], completion: ((successful: Bool, error: NSError?) -> Void)?) {
     
-    }
-    
-    
-    // MARK: Renew Session
-    
-    class func renewSession() {
+        Alamofire.request(NetworkRouter.CreateSession(authParams)).validate().responseJSON { response in
+            if let block = completion {
+            
+                switch response.result {
+                case .Success:
+                    if let value = response.result.value  {
+                        let json = JSON(value)
+                 // TODO: Add json to keychain for token key
+                        print("The APIARY response is: \(value)")
+                        block(successful: true, error: nil)
+                    }
+                    
+                case .Failure(let error):
+                    print(error)
+                    block(successful: false, error: error)
+                }
+            }
+        }
         
     }
     
@@ -36,22 +48,6 @@ class Requests {
     
     // MARK: Get Specific Event Data
     
-//    class func getEvent(eventId: Int, completionBlock: ((userData: [AnyObject]?, successful: Bool, error: NSError?) -> Void)?) {
-//        Alamofire.request(NetworkRouter.Event(eventId)).validate().responseJSON { response in
-//          
-//            switch response.result {
-//            case .Success:
-//                if let value = response.result.value  {
-//                    let json = JSON(value)
-//                    let thisEvent = Event(jsonStr: json as! String)
-//                    print(thisEvent)
-//                }
-//            case .Failure(let error):
-//                print(error)
-//            }
-//        }
-//    }
-    
     class func getEvent(eventId: Int) {
         Alamofire.request(NetworkRouter.Event(eventId)).validate().responseJSON { response in
             
@@ -60,7 +56,7 @@ class Requests {
                 if let value = response.result.value  {
                     let json = JSON(value)
                     
-                    let event = Event(json: json)
+                    let event = Event(json: json)!
                     print("EVENT Data so far: \(event.media)")
                     print("EVENT Data so far: \(event.title)")
                     print("EVENT Data so far: \(event.coverImage)")

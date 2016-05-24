@@ -17,6 +17,7 @@ class LoginViewController: UIViewController, UIScrollViewDelegate, FBSDKLoginBut
     @IBOutlet var logoImage: UIImageView!
     @IBOutlet var appNameLabel: UILabel!
     
+    
     var backgrounds:[UIImage?] = [UIImage(named: "login1"), UIImage(named: "login2")]
     var strings = ["Find the nearest events and activities near you, no matter where you are", "Explore the nightlife of a new city"]
     
@@ -110,11 +111,16 @@ extension LoginViewController {
         if (error != nil) {
             print(error.localizedDescription)
         } else {
-            returnUserData()
+            //TODO: Add popup for adding username. Upon completion add the following:
+
+            Requests.createSession(["facebook", FBSDKAccessToken.currentAccessToken().appID, FBSDKAccessToken.currentAccessToken().userID, FBSDKAccessToken.currentAccessToken().tokenString ],
+                       completion: {(successful, error) -> Void in
+                if successful {
+                    self.returnUserData()
+                }
+            })
+
         }
-        
-//            print("Token = \(FBSDKAccessToken.currentAccessToken().tokenString)")
-//            print("User ID = \(FBSDKAccessToken.currentAccessToken().userID)")
     }
     
     func returnUserData() {
@@ -122,14 +128,9 @@ extension LoginViewController {
         let graphRequest : FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me", parameters: ["fields":"id,interested_in,gender,birthday,email,age_range,name,picture.width(480).height(480)"])
         graphRequest.startWithCompletionHandler({ (connection, result, error) -> Void in
             
-            if ((error) != nil)
-            {
-                // Process error
+            if ((error) != nil) {
                 print("Error: \(error)")
-            }
-            else
-            {
-                print("fetched user: \(result)")
+            } else {
                 let id : NSString = result.valueForKey("id") as! String
                 print("User ID is: \(id)")
 
@@ -139,7 +140,6 @@ extension LoginViewController {
                         self.view.window?.rootViewController = controller
                     })
                 }
-                
             }
         })
     }
