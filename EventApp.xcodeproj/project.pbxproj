@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		1313E4E01CD6685F0050483C /* ProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1313E4DF1CD6685F0050483C /* ProfileHeader.swift */; };
 		1313E4E21CD6689E0050483C /* NewsFeedHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1313E4E11CD6689E0050483C /* NewsFeedHeader.swift */; };
-		1313E4E71CD682D00050483C /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1313E4E61CD682D00050483C /* Event.swift */; };
+		1313E4E71CD682D00050483C /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1313E4E61CD682D00050483C /* Activity.swift */; };
 		13210F201CC86C5300B3E257 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13210F1F1CC86C5300B3E257 /* AppDelegate.swift */; };
 		13210F271CC86C5300B3E257 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13210F251CC86C5300B3E257 /* Main.storyboard */; };
 		13210F291CC86C5300B3E257 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13210F281CC86C5300B3E257 /* Assets.xcassets */; };
@@ -26,9 +26,7 @@
 		CB037EF81CE25CA400720835 /* EventMediaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB037EF71CE25CA400720835 /* EventMediaCell.swift */; };
 		CB037EFA1CE25CC100720835 /* EventActivityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB037EF91CE25CC100720835 /* EventActivityCell.swift */; };
 		CB037EFC1CE25D7600720835 /* EventHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB037EFB1CE25D7600720835 /* EventHeader.swift */; };
-		CB119FA71CEBB6980086B785 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CB119FA51CEBB6980086B785 /* DataModel.xcdatamodeld */; };
 		CB119FA91CEBB71B0086B785 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB119FA81CEBB71B0086B785 /* DataController.swift */; };
-		CB119FAB1CEBC7E20086B785 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB119FAA1CEBC7E20086B785 /* CoreData.framework */; };
 		CB119FAE1CEE3CB80086B785 /* NetworkRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB119FAD1CEE3CB80086B785 /* NetworkRouter.swift */; };
 		CB119FB01CEE48C80086B785 /* Requests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB119FAF1CEE48C80086B785 /* Requests.swift */; };
 		CB119FB21CEE5CD30086B785 /* Media.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB119FB11CEE5CD30086B785 /* Media.swift */; };
@@ -73,7 +71,7 @@
 /* Begin PBXFileReference section */
 		1313E4DF1CD6685F0050483C /* ProfileHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileHeader.swift; path = Views/ProfileHeader.swift; sourceTree = "<group>"; };
 		1313E4E11CD6689E0050483C /* NewsFeedHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewsFeedHeader.swift; path = Views/NewsFeedHeader.swift; sourceTree = "<group>"; };
-		1313E4E61CD682D00050483C /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Event.swift; path = Models/Event.swift; sourceTree = "<group>"; };
+		1313E4E61CD682D00050483C /* Activity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Activity.swift; path = Models/Activity.swift; sourceTree = "<group>"; };
 		13210F1C1CC86C5300B3E257 /* EventApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EventApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13210F1F1CC86C5300B3E257 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		13210F261CC86C5300B3E257 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -99,7 +97,6 @@
 		CB037EF71CE25CA400720835 /* EventMediaCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventMediaCell.swift; path = Views/EventMediaCell.swift; sourceTree = "<group>"; };
 		CB037EF91CE25CC100720835 /* EventActivityCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventActivityCell.swift; path = Views/EventActivityCell.swift; sourceTree = "<group>"; };
 		CB037EFB1CE25D7600720835 /* EventHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventHeader.swift; path = Views/EventHeader.swift; sourceTree = "<group>"; };
-		CB119FA61CEBB6980086B785 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		CB119FA81CEBB71B0086B785 /* DataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataController.swift; path = Utility/DataController.swift; sourceTree = "<group>"; };
 		CB119FAA1CEBC7E20086B785 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		CB119FAD1CEE3CB80086B785 /* NetworkRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkRouter.swift; path = Network/NetworkRouter.swift; sourceTree = "<group>"; };
@@ -131,7 +128,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CB119FAB1CEBC7E20086B785 /* CoreData.framework in Frameworks */,
 				13210F501CC86D0F00B3E257 /* MapKit.framework in Frameworks */,
 				CB73E1961CCE8CFE00E6C6AF /* FBSDKCoreKit.framework in Frameworks */,
 				CB73E1971CCE8CFE00E6C6AF /* FBSDKLoginKit.framework in Frameworks */,
@@ -159,10 +155,9 @@
 		1313E4E31CD6698E0050483C /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				1313E4E61CD682D00050483C /* Event.swift */,
+				1313E4E61CD682D00050483C /* Activity.swift */,
 				CB119FB31CEF6C2B0086B785 /* User.swift */,
 				CB119FB11CEE5CD30086B785 /* Media.swift */,
-				CB119FA51CEBB6980086B785 /* DataModel.xcdatamodeld */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -531,9 +526,8 @@
 				CB037EF81CE25CA400720835 /* EventMediaCell.swift in Sources */,
 				CB119FAE1CEE3CB80086B785 /* NetworkRouter.swift in Sources */,
 				CB037EFA1CE25CC100720835 /* EventActivityCell.swift in Sources */,
-				CB119FA71CEBB6980086B785 /* DataModel.xcdatamodeld in Sources */,
 				CBB451331CD7FE1200AD6A73 /* Constants.swift in Sources */,
-				1313E4E71CD682D00050483C /* Event.swift in Sources */,
+				1313E4E71CD682D00050483C /* Activity.swift in Sources */,
 				13210F201CC86C5300B3E257 /* AppDelegate.swift in Sources */,
 				13210F531CC93F2D00B3E257 /* MapViewController.swift in Sources */,
 				13210F551CC93FB200B3E257 /* ListViewController.swift in Sources */,
@@ -808,20 +802,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		CB119FA51CEBB6980086B785 /* DataModel.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				CB119FA61CEBB6980086B785 /* DataModel.xcdatamodel */,
-			);
-			currentVersion = CB119FA61CEBB6980086B785 /* DataModel.xcdatamodel */;
-			name = DataModel.xcdatamodeld;
-			path = Models/DataModel.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 13210F141CC86C5300B3E257 /* Project object */;
 }

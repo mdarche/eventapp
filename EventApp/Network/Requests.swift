@@ -13,7 +13,7 @@ import SwiftyJSON
 
 class Requests {
     
-    // MARK: Create Session
+    // MARK: Sessions Collection
     
     class func createSession(authParams: [AnyObject], completion: ((successful: Bool, error: NSError?) -> Void)?) {
     
@@ -39,40 +39,56 @@ class Requests {
     }
     
     
-    // MARK: Get Collection Events for Map & Lists
+    // MARK: Activities Collection
     
-    class func getEventsCollection() {
+    class func getEventsCollection(location: String, completion : ((events: [Activity]?, successful: Bool, error: NSError?) -> Void)?) {
         
     }
     
     
-    // MARK: Get Specific Event Data
     
-    class func getEvent(eventId: Int) {
-        Alamofire.request(NetworkRouter.Event(eventId)).validate().responseJSON { response in
-            
-            switch response.result {
-            case .Success:
-                if let value = response.result.value  {
-                    let json = JSON(value)
+    class func getActivity(activityId: Int, completion: ((activity: Activity?, successful: Bool, error: NSError?) -> Void)? ) {
+        Alamofire.request(NetworkRouter.Activity(activityId)).validate().responseJSON { response in
+            if let block = completion {
+                switch response.result {
                     
-                    let event = Event(json: json)!
-                    print("EVENT Data so far: \(event.media)")
-                    print("EVENT Data so far: \(event.title)")
-                    print("EVENT Data so far: \(event.coverImage)")
-                    print("EVENT Data so far: \(event.latitude)")
-                    print("EVENT Data so far: \(event.longitude)")
+                case .Success:
+                    if let value = response.result.value  {
+                        let json = JSON(value)
+                        let event = Activity(json: json)!
+                        block(activity: event, successful: true, error: nil)
+                    }
                     
+                case .Failure(let error):
+                    block(activity: nil, successful: false, error: error)
                 }
-            case .Failure(let error):
-                print(error)
             }
         }
     }
     
-    // MARK: Get User Profile Data
     
-    class func getProfile(profileId: String, completionBlock: ((userData: [AnyObject]?, successful: Bool, error: NSError?) -> Void)?) {
-        
+    
+    // MARK: Profile Collection
+    
+    class func getProfile(profileId: String, completion: ((userData: User?, successful: Bool, error: NSError?) -> Void)?) {
+        Alamofire.request(NetworkRouter.Profile(profileId)).validate().responseJSON { response in
+            if let block = completion {
+                switch response.result {
+                    
+                case .Success:
+                    if let value = response.result.value  {
+                        let json = JSON(value)
+                        let person = User(json: json)!
+                        block(userData: person, successful: true, error: nil)
+                    }
+                    
+                case .Failure(let error):
+                    block(userData: nil, successful: false, error: error)
+                }
+            }
+        }
     }
+    
+    
+    
 }
