@@ -47,21 +47,6 @@ class ListViewController: UICollectionViewController, UICollectionViewDelegateFl
     
     func downloadData() {
         
-//        Alamofire.request(.GET, "http://private-87ec1-eventsapp2.apiary-mock.com/events/?location=location", parameters: ["location" : "34.8599979,33.5501066"], encoding: .URL).validate().responseJSON { (responseData) -> Void in
-//            
-//            print("Fetching Event Data Now")
-//            
-//            if((responseData.result.value) != nil) {
-//                let json = JSON(responseData.result.value!)
-//                print(json)
-//            } else {
-//                print("Error")
-//            }
-//        }
-        
-        Requests.getEvent(13)
-        
-        
     }
     
     

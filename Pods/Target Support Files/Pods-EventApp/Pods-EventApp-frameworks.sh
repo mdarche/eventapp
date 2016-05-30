@@ -86,10 +86,12 @@ strip_invalid_archs() {
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-EventApp/Alamofire.framework"
   install_framework "Pods-EventApp/Haneke.framework"
+  install_framework "Pods-EventApp/KeychainAccess.framework"
   install_framework "Pods-EventApp/SwiftyJSON.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-EventApp/Alamofire.framework"
   install_framework "Pods-EventApp/Haneke.framework"
+  install_framework "Pods-EventApp/KeychainAccess.framework"
   install_framework "Pods-EventApp/SwiftyJSON.framework"
 fi

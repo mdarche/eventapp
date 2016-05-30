@@ -9,7 +9,9 @@
 import Foundation
 import Alamofire
 import SwiftyJSON
+import KeychainAccess
 
+public let keychain = Keychain(service: "Authentication")
 
 class Requests {
     
@@ -24,8 +26,11 @@ class Requests {
                 case .Success:
                     if let value = response.result.value  {
                         let json = JSON(value)
-                 // TODO: Add json to keychain for token key
-                        print("The APIARY response is: \(value)")
+                        
+                        // Store values in Keychain
+                        keychain["accessToken"] = json["access_token"].string!
+                        keychain["refreshToken"] = json["refresh_token"].string!
+                        keychain["tokenExpiration"] = json["expiration"].string!
                         block(successful: true, error: nil)
                     }
                     
@@ -35,7 +40,32 @@ class Requests {
                 }
             }
         }
+    }
+    
+    class func renewSession(completion: ((successful: Bool, error: NSError?) -> Void)?) {
+        let refreshToken = try? keychain.get("refreshToken")
         
+        Alamofire.request(NetworkRouter.RenewSession(refreshToken!!)).validate().responseJSON { response in
+            if let block = completion {
+                
+                switch response.result {
+                case .Success:
+                    if let value = response.result.value  {
+                        let json = JSON(value)
+                        
+                        // Store values in Keychain
+                        keychain["accessToken"] = json["access_token"].string!
+                        keychain["refreshToken"] = json["refresh_token"].string!
+                        keychain["tokenExpiration"] = json["expiration"].string!
+                        block(successful: true, error: nil)
+                    }
+    
+                case .Failure(let error):
+                    print(error)
+                    block(successful: false, error: error)
+                }
+            }
+        }
     }
     
     

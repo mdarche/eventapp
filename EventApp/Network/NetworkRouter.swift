@@ -8,11 +8,14 @@
 
 import Foundation
 import Alamofire
+import KeychainAccess
+
+let accessToken = keychain["accessToken"]
 
 public enum NetworkRouter: URLRequestConvertible {
     
     static let baseURLPath = Domains.test
-    static let authenticationToken = "Basic xxx"
+    static let authenticationToken = "Bearer \(accessToken)"
     
     case CreateSession([AnyObject])
     case RenewSession(String)
@@ -28,6 +31,8 @@ public enum NetworkRouter: URLRequestConvertible {
     case ProfileFollowers([AnyObject])
     case ProfileActivities([AnyObject])
     case ProfileMedia([AnyObject])
+    
+    case Notifications
     
     public var URLRequest: NSMutableURLRequest {
         let result: (path: String, method: Alamofire.Method, parameters: [String: AnyObject]) = {
@@ -86,6 +91,12 @@ public enum NetworkRouter: URLRequestConvertible {
             case .ProfileMedia(let mediaInfo):
                 let params = [ "profile_id" : mediaInfo[0], "limit" : mediaInfo[1], "skip" : mediaInfo[2] ]
                 return ("/profile/profile_id/followers?limit=limit&skip=skip", .GET, params)
+                
+            // Notification Requests
+                
+            case .Notifications:
+                let params = [ String : AnyObject ]()
+                return ("/notifications", .GET, params)
             }
         }()
         
