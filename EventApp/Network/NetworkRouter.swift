@@ -31,6 +31,10 @@ public enum NetworkRouter: URLRequestConvertible {
     case ProfileFollowers([AnyObject])
     case ProfileActivities([AnyObject])
     case ProfileMedia([AnyObject])
+    case ProfileSettings(String)
+    
+    case AttendActivity(String)
+    case CancelActivity(String)
     
     case Notifications
     
@@ -91,6 +95,18 @@ public enum NetworkRouter: URLRequestConvertible {
             case .ProfileMedia(let mediaInfo):
                 let params = [ "profile_id" : mediaInfo[0], "limit" : mediaInfo[1], "skip" : mediaInfo[2] ]
                 return ("/profile/profile_id/media", .GET, params)
+                
+            case .ProfileSettings(let profileId):
+                let params = [ "profile_id" : profileId ]
+                return ("/profile/profile_id/settings", .GET, params)
+                
+            case .AttendActivity(let activityId):
+                let params = [ "activityId" : activityId ]
+                return ("/profile/profile_id/activities/", .POST, params)
+                
+            case .CancelActivity(let activityId):
+                let params = [ "activityId" : activityId ]
+                return ("/profile/profile_id/activities/", .DELETE, params)
                 
             // Notification Requests
                 

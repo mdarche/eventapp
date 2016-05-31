@@ -45,6 +45,7 @@
 		CBB451391CD939F200AD6A73 /* OrganizerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB451381CD939F200AD6A73 /* OrganizerViewController.swift */; };
 		CBB4513B1CDBB78100AD6A73 /* OrganizerFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB4513A1CDBB78000AD6A73 /* OrganizerFeedCell.swift */; };
 		CBCF43731CF7770800E691DD /* MapAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCF43721CF7770800E691DD /* MapAnnotation.swift */; };
+		CBCF43751CFDF5C800E691DD /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCF43741CFDF5C800E691DD /* CurrentUser.swift */; };
 		CBFD3E081CD1A92900FBE4A8 /* FeedViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFD3E071CD1A92900FBE4A8 /* FeedViewLayout.swift */; };
 		CBFD3E0B1CD26A9400FBE4A8 /* NewsFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFD3E0A1CD26A9400FBE4A8 /* NewsFeedCell.swift */; };
 		CBFD3E0D1CD26D9F00FBE4A8 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFD3E0C1CD26D9F00FBE4A8 /* FeedViewController.swift */; };
@@ -118,6 +119,7 @@
 		CBB451381CD939F200AD6A73 /* OrganizerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OrganizerViewController.swift; path = Controllers/OrganizerViewController.swift; sourceTree = "<group>"; };
 		CBB4513A1CDBB78000AD6A73 /* OrganizerFeedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OrganizerFeedCell.swift; path = Views/OrganizerFeedCell.swift; sourceTree = "<group>"; };
 		CBCF43721CF7770800E691DD /* MapAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapAnnotation.swift; path = Models/MapAnnotation.swift; sourceTree = "<group>"; };
+		CBCF43741CFDF5C800E691DD /* CurrentUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CurrentUser.swift; path = Models/CurrentUser.swift; sourceTree = "<group>"; };
 		CBFD3E071CD1A92900FBE4A8 /* FeedViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedViewLayout.swift; path = Layouts/FeedViewLayout.swift; sourceTree = "<group>"; };
 		CBFD3E0A1CD26A9400FBE4A8 /* NewsFeedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewsFeedCell.swift; path = Views/NewsFeedCell.swift; sourceTree = "<group>"; };
 		CBFD3E0C1CD26D9F00FBE4A8 /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedViewController.swift; path = Controllers/FeedViewController.swift; sourceTree = "<group>"; };
@@ -156,9 +158,10 @@
 			isa = PBXGroup;
 			children = (
 				1313E4E61CD682D00050483C /* Activity.swift */,
+				CBCF43741CFDF5C800E691DD /* CurrentUser.swift */,
 				CB119FB31CEF6C2B0086B785 /* User.swift */,
-				CB119FB11CEE5CD30086B785 /* Media.swift */,
 				CBCF43721CF7770800E691DD /* MapAnnotation.swift */,
+				CB119FB11CEE5CD30086B785 /* Media.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -283,16 +286,16 @@
 		CB73E19B1CCEF02300E6C6AF /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				CB037EF71CE25CA400720835 /* EventMediaCell.swift */,
 				CB037EF91CE25CC100720835 /* EventActivityCell.swift */,
+				CB037EF71CE25CA400720835 /* EventMediaCell.swift */,
 				CB037EFB1CE25D7600720835 /* EventHeader.swift */,
 				CB73E19E1CCFED0900E6C6AF /* HomeFeedCell.swift */,
+				CBFD3E0A1CD26A9400FBE4A8 /* NewsFeedCell.swift */,
+				1313E4E11CD6689E0050483C /* NewsFeedHeader.swift */,
+				CBB4513A1CDBB78000AD6A73 /* OrganizerFeedCell.swift */,
 				CBB451341CD82FD200AD6A73 /* ProfileActivityCell.swift */,
 				CBB451361CD8FB3400AD6A73 /* ProfileMediaCell.swift */,
 				1313E4DF1CD6685F0050483C /* ProfileHeader.swift */,
-				CBB4513A1CDBB78000AD6A73 /* OrganizerFeedCell.swift */,
-				CBFD3E0A1CD26A9400FBE4A8 /* NewsFeedCell.swift */,
-				1313E4E11CD6689E0050483C /* NewsFeedHeader.swift */,
 				CB73E19C1CCEF06400E6C6AF /* Pulsator.swift */,
 			);
 			name = Views;
@@ -518,6 +521,7 @@
 				13210F591CC941D500B3E257 /* EventViewController.swift in Sources */,
 				CBB451391CD939F200AD6A73 /* OrganizerViewController.swift in Sources */,
 				CB037EFC1CE25D7600720835 /* EventHeader.swift in Sources */,
+				CBCF43751CFDF5C800E691DD /* CurrentUser.swift in Sources */,
 				CBB4512F1CD7D1AA00AD6A73 /* MediaDetailViewController.swift in Sources */,
 				CBFD3E0B1CD26A9400FBE4A8 /* NewsFeedCell.swift in Sources */,
 				CB73E19A1CCEB3B200E6C6AF /* ClassExtensions.swift in Sources */,

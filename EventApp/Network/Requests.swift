@@ -101,8 +101,8 @@ class Requests {
     class func getActivity(activityId: Int, completion: ((activity: Activity?, successful: Bool, error: NSError?) -> Void)? ) {
         Alamofire.request(NetworkRouter.Activity(activityId)).validate().responseJSON { response in
             if let block = completion {
+                
                 switch response.result {
-                    
                 case .Success:
                     if let value = response.result.value  {
                         let json = JSON(value)
@@ -122,8 +122,8 @@ class Requests {
         Alamofire.request(NetworkRouter.ActivityMedia(mediaParams)).validate().responseJSON { response in
             if let block = completion {
                 var activityMedia = [Media]()
-                switch response.result {
                 
+                switch response.result {
                 case .Success:
                     if let value = response.result.value {
                         let json = JSON(value)
@@ -136,7 +136,7 @@ class Requests {
                         }
                         block(media: activityMedia, successful: true, error: nil)
                     }
-                case . Failure(let error):
+                case .Failure(let error):
                     block(media: nil, successful: false, error: error)
                 }
             }
@@ -144,13 +144,42 @@ class Requests {
     }
     
     
+    class func getActivityAttendees(attendeeParams: [AnyObject], completion: ((attendees: [User]?, successful: Bool, error: NSError?) -> Void)? ) {
+        Alamofire.request(NetworkRouter.ActivityAttendees(attendeeParams)).validate().responseJSON { response in
+            if let block = completion {
+                var activityAttendees = [User]()
+                
+                switch response.result {
+                case .Success:
+                    if let value = response.result.value {
+                        let json = JSON(value)
+                        guard let items = json["attendees"].array else {
+                            block(attendees: nil, successful: false, error: nil)
+                            return
+                        }
+                        for item in items {
+                            activityAttendees.append(User(json: item)!)
+                        }
+                        block(attendees: activityAttendees, successful: true, error: nil)
+                    }
+                case .Failure(let error):
+                    block(attendees: nil, successful: false, error: error)
+                }
+                
+                
+            }
+        }
+    }
+    
+    
+    
     // MARK: Profile Collection
     
     class func getProfile(profileId: String, completion: ((userData: User?, successful: Bool, error: NSError?) -> Void)?) {
         Alamofire.request(NetworkRouter.Profile(profileId)).validate().responseJSON { response in
             if let block = completion {
+                
                 switch response.result {
-                    
                 case .Success:
                     if let value = response.result.value  {
                         let json = JSON(value)
@@ -166,5 +195,164 @@ class Requests {
     }
     
     
+    class func getProfileFollowing(followingParams: [AnyObject], completion: ((following: [User]?, successful: Bool, error: NSError?) -> Void)?) {
+        Alamofire.request(NetworkRouter.ProfileFollowing(followingParams)).validate().responseJSON { response in
+            if let block = completion {
+                var profileFollowing = [User]()
+                
+                switch response.result {
+                case .Success:
+                    if let value = response.result.value {
+                        let json = JSON(value)
+                        guard let items = json["following"].array else {
+                            block(following: nil, successful: false, error: nil)
+                            return
+                        }
+                        for item in items {
+                            profileFollowing.append(User(json: item)!)
+                        }
+                        block(following: profileFollowing, successful: true, error: nil)
+                    }
+                case .Failure(let error):
+                    block(following: nil, successful: false, error: error)
+                }
+            }
+        }
+    }
+    
+    
+    class func getProfileFollowers(followerParams: [AnyObject], completion: ((followers: [User]?, successful: Bool, error: NSError?) -> Void)?) {
+        Alamofire.request(NetworkRouter.ProfileFollowers(followerParams)).validate().responseJSON { response in
+            if let block = completion {
+                var profileFollowers = [User]()
+                
+                switch response.result {
+                case .Success:
+                    if let value = response.result.value {
+                        let json = JSON(value)
+                        guard let items = json["followers"].array else {
+                            block(followers: nil, successful: false, error: nil)
+                            return
+                        }
+                        for item in items {
+                            profileFollowers.append(User(json: item)!)
+                        }
+                        block(followers: profileFollowers, successful: true, error: nil)
+                    }
+                case .Failure(let error):
+                    block(followers: nil, successful: false, error: error)
+                }
+            }
+        }
+    }
+    
+    
+    class func getProfileMedia(mediaParams: [AnyObject], completion: ((media: [Media]?, successful: Bool, error: NSError?) -> Void)? ) {
+        Alamofire.request(NetworkRouter.ProfileMedia(mediaParams)).validate().responseJSON { response in
+            if let block = completion {
+                var profileMedia = [Media]()
+                
+                switch response.result {
+                case .Success:
+                    if let value = response.result.value {
+                        let json = JSON(value)
+                        guard let items = json["media"].array else {
+                            block(media: nil, successful: false, error: nil)
+                            return
+                        }
+                        for item in items {
+                            profileMedia.append(Media(json: item)!)
+                        }
+                        block(media: profileMedia, successful: true, error: nil)
+                    }
+                case .Failure(let error):
+                    block(media: nil, successful: false, error: error)
+                }
+            }
+        }
+    }
+    
+    
+    class func getProfileActivities(activityParams: [AnyObject], completion : ((activities: [Activity]?, successful: Bool, error: NSError?) -> Void)?) {
+        Alamofire.request(NetworkRouter.ProfileActivities(activityParams)).validate().responseJSON { response in
+            if let block = completion {
+                var activities = [Activity]()
+                switch response.result {
+                    
+                case .Success:
+                    if let value = response.result.value  {
+                        let json = JSON(value)
+                        guard let items = json["activities"].array else {
+                            block(activities: nil, successful: false, error: nil)
+                            return
+                        }
+                        for item in items {
+                            activities.append(Activity(json: item)!)
+                        }
+                        block(activities: activities, successful: true, error: nil)
+                    }
+                    
+                case .Failure(let error):
+                    block(activities: nil, successful: false, error: error)
+                }
+            }
+        }
+    }
+    
+    
+    class func attendActivity(activityId: String, completion: ((successful: Bool, error: NSError?) -> Void)?) {
+        Alamofire.request(NetworkRouter.AttendActivity(activityId)).validate().responseJSON { response in
+            if let block = completion {
+                switch response.result {
+                case .Success:
+                    block(successful: true, error: nil)
+                case .Failure(let error):
+                    block(successful: false, error: error)
+                }
+            }
+        }
+    }
+    
+    
+    class func cancelActivity(activityId: String, completion: ((successful: Bool, error: NSError?) -> Void)?) {
+        Alamofire.request(NetworkRouter.CancelActivity(activityId)).validate().responseJSON { response in
+            if let block = completion {
+                switch response.result {
+                case .Success:
+                    block(successful: true, error: nil)
+                case .Failure(let error):
+                    block(successful: false, error: error)
+                }
+            }
+        }
+    }
+    
+    
+    class func getProfileSettings(completion: ((settings: [String : AnyObject]?, successful: Bool, error: NSError?) -> Void)?) {
+        // TODO: call current userID for params here
+        Alamofire.request(NetworkRouter.ProfileSettings("FakeStringForTesting")).validate().responseJSON { response in
+            if let block = completion {
+                let settings = [String:AnyObject]()
+                
+                switch response.result {
+                case .Success:
+                    if let value = response.result.value {
+                        let json = JSON(value)
+                        //TODO: figure out what to do with this dictionary
+                        guard let items = json["notifications"].dictionary else {
+                            block(settings: nil, successful: false, error: nil)
+                            return
+                        }
+                        for item in items {
+                            print(item)
+                        }
+                        block(settings: settings, successful: true, error: nil)
+                    }
+                case .Failure(let error):
+                    block(settings: nil, successful: false, error: error)
+                }
+            }
+        }
+    }
     
 }

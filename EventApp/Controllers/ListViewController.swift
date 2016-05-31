@@ -53,18 +53,6 @@ class ListViewController: UICollectionViewController, UICollectionViewDelegateFl
             }
         }
         
-//        Requests.getActivityMedia(["1234", 0, 10]) { (media, successful, error) in
-//            if successful {
-//                print("Worked")
-//            }
-//        }
-        
-        Requests.getActivity(15) { (activity, successful, error) in
-            if successful {
-                print(activity?.coverImage)
-            }
-        }
-        
     }
     
     
