@@ -8,14 +8,14 @@
 
 import Foundation
 import Alamofire
-import KeychainAccess
 
 let accessToken = keychain["accessToken"]
 
 public enum NetworkRouter: URLRequestConvertible {
     
     static let baseURLPath = Domains.test
-    static let authenticationToken = "Bearer \(accessToken)"
+//    static let authenticationToken = "Bearer \(accessToken!)"
+    static let authenticationToken = "Bearer {access_token}"
     
     case CreateSession([AnyObject])
     case RenewSession(String)
@@ -52,7 +52,7 @@ public enum NetworkRouter: URLRequestConvertible {
                 
             case .ActivitiesCollection(let locationParams):
                 let params = [ "location" : locationParams[0], "area" : locationParams[1] ]
-                return ("/activities?location=location&area=area", .GET, params)
+                return ("/activities", .GET, params)
                 
             case .Activity(let activityId):
                 let params = [ "activity_id" : activityId ]
@@ -60,11 +60,11 @@ public enum NetworkRouter: URLRequestConvertible {
                 
             case .ActivityMedia(let skipParams):
                 let params = [ "activity_id" : skipParams[0], "limit" : skipParams[1], "skip" : skipParams[2] ]
-                return ("/activities/activity_id/media?limit=limit&skip=skip", .GET, params)
+                return ("/activities/activity_id/media", .GET, params)
                 
             case .ActivityAttendees(let skipParams):
                 let params = [ "activity_id" : skipParams[0], "limit" : skipParams[1], "skip" : skipParams[2] ]
-                return ("/activities/activity_id/attendees?limit=limit&skip=skip", .GET, params)
+                return ("/activities/activity_id/attendees", .GET, params)
             
             // Profile Requests
                 
@@ -78,19 +78,19 @@ public enum NetworkRouter: URLRequestConvertible {
                 
             case .ProfileFollowing(let followingInfo):
                 let params = [ "profile_id" : followingInfo[0], "limit" : followingInfo[1], "skip" : followingInfo[2] ]
-                return ("/profile/profile_id/following?limit=limit&skip=skip", .GET, params)
+                return ("/profile/profile_id/following", .GET, params)
                 
             case .ProfileFollowers(let followersInfo):
                 let params = [ "profile_id" : followersInfo[0], "limit" : followersInfo[1], "skip" : followersInfo[2] ]
-                return ("/profile/profile_id/followers?limit=limit&skip=skip", .GET, params)
+                return ("/profile/profile_id/followers", .GET, params)
                 
             case .ProfileActivities(let activitiesInfo):
                 let params = [ "profile_id" : activitiesInfo[0], "upcoming" : activitiesInfo[1], "past" : activitiesInfo[2] ]
-                return ("/profile/profile_id/followers?limit=limit&skip=skip", .GET, params)
+                return ("/profile/profile_id/activities", .GET, params)
                 
             case .ProfileMedia(let mediaInfo):
                 let params = [ "profile_id" : mediaInfo[0], "limit" : mediaInfo[1], "skip" : mediaInfo[2] ]
-                return ("/profile/profile_id/followers?limit=limit&skip=skip", .GET, params)
+                return ("/profile/profile_id/media", .GET, params)
                 
             // Notification Requests
                 

@@ -16,8 +16,8 @@ class Activity: NSObject {
     var eventType : String?
     
     var locationId : Int?
-    var latitude : String?
-    var longitude : String?
+    var latitude : Double?
+    var longitude : Double?
     
     var title : String?
     var shortDescription : String?
@@ -40,8 +40,8 @@ class Activity: NSObject {
         eventType = json["eventType"].string
         
         locationId = json["location"]["locationId"].int
-        latitude = json["location"]["latitude"].string
-        longitude = json["location"]["longitude"].string
+        latitude = json["location"]["latitude"].double
+        longitude = json["location"]["longitude"].double
         
         venueId = json["venue"]["venueId"].int
         venueTitle = json["venue"]["title"].string
@@ -61,29 +61,3 @@ class Activity: NSObject {
     
 }
 
-
-
-//extension Activity {
-//    
-//    func addEventDetails(originalActivity: Activity, json: JSON) -> Activity {
-//        let updatedActivity = originalActivity
-//        updatedActivity.details = json["description"].string
-//
-//        if let mediaArray = json["media"].arrayObject {
-//            for m in mediaArray {
-//                let post = Media(object: m)
-//                updatedActivity.media.append(post!)
-//            }
-//        }
-//        
-////        if let attendeeArray = json["attendees"].arrayObject {
-////            for attendee in attendeeArray {
-////                let person = User(object: attendee)
-////                updatedEvent.attendees.append(person!)
-////            }
-////        }
-//        
-//        return updatedActivity
-//    }
-//    
-//}

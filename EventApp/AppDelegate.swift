@@ -36,7 +36,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print("Nil")
         }
         
-        
         FBSDKProfile.enableUpdatesOnAccessTokenChange(true)
         return true
     }

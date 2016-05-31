@@ -84,7 +84,7 @@ class MainMenuViewController: UITableViewController, UISearchBarDelegate {
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if hideCells == false {
-            return 5
+            return 4
         } else {
             return 0
         }

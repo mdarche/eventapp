@@ -33,13 +33,11 @@ class HomeViewController: UIViewController {
         if sender.selectedSegmentIndex == 0 {
             UIView.animateWithDuration(0.2, animations: {
                 self.mapContainer.alpha = 1
-                self.createEventButton.alpha = 1
                 self.listContainer.alpha = 0
             })
         } else {
             UIView.animateWithDuration(0.2, animations: {
                 self.mapContainer.alpha = 0
-                self.createEventButton.alpha = 0
                 self.listContainer.alpha = 1
             })
         }
@@ -62,6 +60,7 @@ class HomeViewController: UIViewController {
     
     func visualize() {
         createEventButton.layer.cornerRadius = createEventButton.frame.size.width/2
+        createEventButton.hidden = true
         notificationImage.layer.cornerRadius = notificationImage.frame.size.width/2
         notificationImage.layer.borderColor = UIColor.whiteColor().CGColor
         notificationImage.layer.borderWidth = 1

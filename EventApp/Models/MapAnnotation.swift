@@ -13,20 +13,19 @@ class MapAnnotation : NSObject, MKAnnotation {
    
     var type : String?
     var eventType : String?
-    var latitude : String
-    var coordinate : String
+    var coordinate : CLLocationCoordinate2D
     var venueTitle : String?
     var title : String?
-    var coverImage : String
+    var coverImage : String?
     
-    init() {
-        
+    init(activity: Activity) {
+        type = activity.type
+        eventType = activity.eventType
+        coordinate = CLLocationCoordinate2D(latitude: activity.latitude!, longitude: activity.longitude!)
+        venueTitle = activity.venueTitle
+        title = activity.title
+        coverImage = activity.coverImage
         
         super.init()
     }
-    
-    class func fromActivity(activity: Activity) -> MapAnnotation {
-        
-    }
-    
 }

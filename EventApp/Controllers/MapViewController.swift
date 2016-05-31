@@ -14,7 +14,6 @@ import CoreLocation
 class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     
     let locationManager = CLLocationManager()
-    let pulsator = Pulsator()
     
     @IBOutlet weak var mapView: MKMapView!
     

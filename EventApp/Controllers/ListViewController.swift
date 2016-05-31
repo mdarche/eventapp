@@ -47,6 +47,24 @@ class ListViewController: UICollectionViewController, UICollectionViewDelegateFl
     
     func downloadData() {
         
+        Requests.getActivitiesCollection(["34.8599979,33.5501066" , "10mi"]) { (activities, successful, error) in
+            if successful {
+                print("this worked")
+            }
+        }
+        
+//        Requests.getActivityMedia(["1234", 0, 10]) { (media, successful, error) in
+//            if successful {
+//                print("Worked")
+//            }
+//        }
+        
+        Requests.getActivity(15) { (activity, successful, error) in
+            if successful {
+                print(activity?.coverImage)
+            }
+        }
+        
     }
     
     

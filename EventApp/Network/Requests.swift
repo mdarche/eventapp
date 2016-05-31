@@ -18,7 +18,6 @@ class Requests {
     // MARK: Sessions Collection
     
     class func createSession(authParams: [AnyObject], completion: ((successful: Bool, error: NSError?) -> Void)?) {
-    
         Alamofire.request(NetworkRouter.CreateSession(authParams)).validate().responseJSON { response in
             if let block = completion {
             
@@ -44,7 +43,6 @@ class Requests {
     
     class func renewSession(completion: ((successful: Bool, error: NSError?) -> Void)?) {
         let refreshToken = try? keychain.get("refreshToken")
-        
         Alamofire.request(NetworkRouter.RenewSession(refreshToken!!)).validate().responseJSON { response in
             if let block = completion {
                 
@@ -69,10 +67,33 @@ class Requests {
     }
     
     
+    
     // MARK: Activities Collection
     
-    class func getEventsCollection(location: String, completion : ((events: [Activity]?, successful: Bool, error: NSError?) -> Void)?) {
-        
+    class func getActivitiesCollection(locationParams: [String], completion : ((activities: [Activity]?, successful: Bool, error: NSError?) -> Void)?) {
+        Alamofire.request(NetworkRouter.ActivitiesCollection(locationParams)).validate().responseJSON { response in
+            if let block = completion {
+                var activities = [Activity]()
+                switch response.result {
+                    
+                case .Success:
+                    if let value = response.result.value  {
+                        let json = JSON(value)
+                        guard let items = json["activities"].array else {
+                            block(activities: nil, successful: false, error: nil)
+                            return
+                        }
+                        for item in items {
+                            activities.append(Activity(json: item)!)
+                        }
+                        block(activities: activities, successful: true, error: nil)
+                    }
+                    
+                case .Failure(let error):
+                    block(activities: nil, successful: false, error: error)
+                }
+            }
+        }
     }
     
     
@@ -96,6 +117,31 @@ class Requests {
         }
     }
     
+    
+    class func getActivityMedia(mediaParams: [AnyObject], completion: ((media: [Media]?, successful: Bool, error: NSError?) -> Void)? ) {
+        Alamofire.request(NetworkRouter.ActivityMedia(mediaParams)).validate().responseJSON { response in
+            if let block = completion {
+                var activityMedia = [Media]()
+                switch response.result {
+                
+                case .Success:
+                    if let value = response.result.value {
+                        let json = JSON(value)
+                        guard let items = json["media"].array else {
+                            block(media: nil, successful: false, error: nil)
+                            return
+                        }
+                        for item in items {
+                            activityMedia.append(Media(json: item)!)
+                        }
+                        block(media: activityMedia, successful: true, error: nil)
+                    }
+                case . Failure(let error):
+                    block(media: nil, successful: false, error: error)
+                }
+            }
+        }
+    }
     
     
     // MARK: Profile Collection
