@@ -15,14 +15,16 @@ class MapAnnotation : NSObject, MKAnnotation {
     var eventType : String?
     var coordinate : CLLocationCoordinate2D
     var venueTitle : String?
+    var venueType : String?
     var title : String?
-    var coverImage : String?
+    var coverImage : NSURL?
     
     init(activity: Activity) {
         type = activity.type
         eventType = activity.eventType
         coordinate = CLLocationCoordinate2D(latitude: activity.latitude!, longitude: activity.longitude!)
         venueTitle = activity.venueTitle
+        venueType = activity.venueType
         title = activity.title
         coverImage = activity.coverImage
         

@@ -21,11 +21,12 @@ class Activity: NSObject {
     
     var title : String?
     var shortDescription : String?
-    var coverImage : String?
+    var coverImage : NSURL?
     var timestamp : String?
     
     var venueId : Int?
     var venueTitle : String?
+    var venueType : String?
     
     var eventRate : Int?
     var venueRate : Int?
@@ -45,10 +46,11 @@ class Activity: NSObject {
         
         venueId = json["venue"]["venueId"].int
         venueTitle = json["venue"]["title"].string
+        venueType = json["venue"]["type"].string
         
         title = json["title"].string
         shortDescription = json["shortDescription"].string
-        coverImage = json["coverImage"].string
+        coverImage = NSURL(string: json["coverImage"].string!)
         timestamp = json["timestamp"].string
         
         attendeesCount = json["stats"]["attendees"].int
@@ -57,6 +59,20 @@ class Activity: NSObject {
         
         
         if activityId == nil { return nil }
+    }
+    
+    // TEST CASE HERE
+    
+    init?(activityId: Int, type: String, eventType: String?, latitude: Double, longitude: Double, title: String, coverImage: String, venueTitle: String?, venueType: String?) {
+        self.activityId = activityId
+        self.type = type
+        self.eventType = eventType
+        self.venueType = venueType
+        self.latitude = latitude
+        self.longitude = longitude
+        self.title = title
+        self.coverImage = NSURL(string: coverImage)
+        self.venueTitle = venueTitle
     }
     
 }

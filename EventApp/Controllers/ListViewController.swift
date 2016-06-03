@@ -47,11 +47,11 @@ class ListViewController: UICollectionViewController, UICollectionViewDelegateFl
     
     func downloadData() {
         
-        Requests.getActivitiesCollection(["34.8599979,33.5501066" , "10mi"]) { (activities, successful, error) in
-            if successful {
-                print("this worked")
-            }
-        }
+//        Requests.getActivitiesCollection(["34.8599979,33.5501066" , "10mi"]) { (activities, successful, error) in
+//            if successful {
+//                print("this worked")
+//            }
+//        }
         
     }
     
