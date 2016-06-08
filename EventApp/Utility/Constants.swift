@@ -10,11 +10,14 @@ import Foundation
 
 enum Domains {
     static let test = "http://private-87ec1-eventsapp2.apiary-mock.com"
+    
 }
 
 
 enum Segues {
-    static let showEvent = "showEvent"
+    static let showOrganizerEvent = "ShowEventFromOrganizer"
+    static let showMapEvent = "ShowEventFromMap"
+    static let showListEvent = "ShowEventFromList"
     static let showMedia = "ShowMedia"
     static let showProfile = "ShowMyProfile"
 }

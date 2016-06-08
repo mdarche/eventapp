@@ -8,16 +8,11 @@
 
 import UIKit
 
-class MainMenuViewController: UITableViewController, UISearchBarDelegate {
+class MainMenuViewController: UITableViewController {
 
-    @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var logoutButton: UIButton!
     @IBOutlet weak var tableHeader: UIView!
-    @IBOutlet weak var searchBar: UISearchBar!
-
-    @IBOutlet weak var imageTopConstraint: NSLayoutConstraint!
     
-    var hideCells = false
     
     // MARK: View's Lifecycle
     
@@ -28,7 +23,6 @@ class MainMenuViewController: UITableViewController, UISearchBarDelegate {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
-        searchBar.text = nil
     }
     
     
@@ -44,50 +38,19 @@ class MainMenuViewController: UITableViewController, UISearchBarDelegate {
     }
     
     
-    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
-        animateViews(0.0, hide: true)
-    }
-    
-    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
-        dismissKeyboard()
-    }
-    
-    func dismissKeyboard() {
-        searchBar.endEditing(true)
-        animateViews(1.0, hide: false)
-    }
-    
     
     // MARK: Setup View's Layout
     
     func visualize() {
-        searchBar.delegate = self
-        self.searchBar.keyboardAppearance = UIKeyboardAppearance.Dark
-        profileImage.layer.cornerRadius = profileImage.frame.size.width/2
         animateTable()
         setTableViewBackgroundGradient(self)
-        logoutButton.layer.borderColor = UIColor(white: 1.0, alpha: 0.7).CGColor
-        
-        let tap = UITapGestureRecognizer(target: self, action: #selector(CreateEventViewController.dismissKeyboard))
-        tableHeader.addGestureRecognizer(tap)
+//        logoutButton.layer.borderColor = UIColor(white: 1.0, alpha: 0.7).CGColor
+
     }
     
-    func animateViews(alpha: CGFloat, hide: Bool) {
-        if hide == true { logoutButton.alpha = alpha }
-        UIView.animateWithDuration(0.5, delay: 0.0, options: UIViewAnimationOptions.CurveEaseInOut, animations: {
-            self.profileImage.alpha = alpha
-            self.hideCells = hide
-            self.tableView.reloadData()
-            if hide == false { self.logoutButton.alpha = alpha}
-        }, completion: nil)
-    }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if hideCells == false {
-            return 4
-        } else {
-            return 0
-        }
+        return 6
     }
     
     override func tableView(tableView: UITableView, didHighlightRowAtIndexPath indexPath: NSIndexPath) {
@@ -101,8 +64,10 @@ class MainMenuViewController: UITableViewController, UISearchBarDelegate {
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        if indexPath == 0 {
+        switch indexPath {
+        case 0:
             performSegueWithIdentifier(Segues.showProfile, sender: self)
+        default: break
         }
     }
     

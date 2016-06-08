@@ -28,11 +28,11 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         setupLocationManager()
         
         
-        let testActivity1 = Activity(activityId: 12, type: "event", eventType: "beachParty", latitude: 37.328001, longitude: -122.038175, title: "Test Party 1", coverImage: "https://pbs.twimg.com/profile_images/586482256652308480/vzDYvxsY.jpg", venueTitle: nil, venueType: nil)
+        let testActivity1 = Activity(activityId: 12, type: "event", eventType: "beach-party", latitude: 37.328001, longitude: -122.038175, title: "Test Party 1", coverImage: "https://pbs.twimg.com/profile_images/586482256652308480/vzDYvxsY.jpg", venueTitle: nil, venueType: nil)
         
         let testActivity2 = Activity(activityId: 13, type: "venue", eventType: nil, latitude: 37.327131, longitude: -122.036415, title: "Happy Hours", coverImage: "http://s2.evcdn.com/images/block/I0-001/026/920/649-1.jpeg_/edm-reggae-beach-party-49.jpeg", venueTitle: "Laguna Disco Bar", venueType: "bar")
         
-        let testActivity3 = Activity(activityId: 14, type: "event", eventType: nil, latitude: 37.326355, longitude: -122.035734, title: "Full Moon Party", coverImage: "https://pbs.twimg.com/profile_images/586482256652308480/vzDYvxsY.jpg", venueTitle: "Other Disco Bar", venueType: "bar")
+        let testActivity3 = Activity(activityId: 14, type: "event", eventType: "sport-event", latitude: 37.326355, longitude: -122.035734, title: "Full Moon Party", coverImage: "https://pbs.twimg.com/profile_images/586482256652308480/vzDYvxsY.jpg", venueTitle: "Other Disco Bar", venueType: "bar")
         
         let testActivity4 = Activity(activityId: 15, type: "venue", eventType: nil, latitude: 37.326479, longitude: -122.033591, title: "Cheers", coverImage: "http://s2.evcdn.com/images/block/I0-001/026/920/649-1.jpeg_/edm-reggae-beach-party-49.jpeg", venueTitle: "Cheers", venueType: "bar")
         
@@ -140,51 +140,36 @@ extension MapViewController {
         
         if let annotation = annotation as? MapAnnotation {
             let identifier = "pin"
-            var view : MKAnnotationView
+            var view : MapAnnotationView
             
-            if let dequeuedView = mapView.dequeueReusableAnnotationViewWithIdentifier(identifier) {
-                //
+            if let dequeuedView = mapView.dequeueReusableAnnotationViewWithIdentifier(identifier) as? MapAnnotationView {
+                // Reuse Annotation
                 dequeuedView.annotation = annotation
                 view = dequeuedView
             } else {
                 // Create new annotation
-                view = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-                
-                // Determine map icon
-                if annotation.type == "event" {
-                    view.image = UIImage(named: "downArrow")
-                    
-                } else {
-                    switch annotation.venueType! {
-                        case "bar":
-                            view.image = UIImage(named: "downArrow")
-                        case "club":
-                            view.image = UIImage(named: "downArrow")
-                        case "sportsbar":
-                            view.image = UIImage(named: "downArrow")
-                        default: break
-                    }
-                }
-                view.canShowCallout = true
-                view.backgroundColor = Colors.mainDarkHalf
+                view = MapAnnotationView(annotation: annotation, reuseIdentifier: identifier)
             }
-            configureDetailView(view)
             return view
         }
         return nil
     }
     
-    func configureDetailView(annotationView: MKAnnotationView) {
-        let width = 300
-        let height = 180
-        
-        let urlString = NSURL(string: "http://s2.evcdn.com/images/block/I0-001/026/920/649-1.jpeg_/edm-reggae-beach-party-49.jpeg")
-        
-        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: width, height: height))
-        imageView.hnk_setImageFromURL(urlString!)
-        imageView.contentMode = .ScaleAspectFill
-        
-        annotationView.detailCalloutAccessoryView = imageView
+    func seeEvent(sender: UITapGestureRecognizer) {
+        if let view = sender.view as? MapAnnotationView {
+            self.performSegueWithIdentifier(Segues.showMapEvent, sender: view.activityId)
+        }
+
+    }
+    
+    func mapView(mapView: MKMapView, didSelectAnnotationView view: MKAnnotationView) {
+        if let view = view as? MapAnnotationView {
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(MapViewController.seeEvent))
+            view.addGestureRecognizer(tapGesture)
+        }
+    }
+    func mapView(mapView: MKMapView, didDeselectAnnotationView view: MKAnnotationView) {
+        view.removeGestureRecognizer(view.gestureRecognizers!.first!)
     }
     
 }

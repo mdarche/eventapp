@@ -99,6 +99,8 @@ public enum NetworkRouter: URLRequestConvertible {
             case .ProfileSettings(let profileId):
                 let params = [ "profile_id" : profileId ]
                 return ("/profile/profile_id/settings", .GET, params)
+            
+            // User Action Requests
                 
             case .AttendActivity(let activityId):
                 let params = [ "activityId" : activityId ]

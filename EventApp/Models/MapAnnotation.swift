@@ -17,9 +17,12 @@ class MapAnnotation : NSObject, MKAnnotation {
     var venueTitle : String?
     var venueType : String?
     var title : String?
+    var subtitle: String?
+    var activityId : Int?
     var coverImage : NSURL?
     
     init(activity: Activity) {
+        activityId = activity.activityId
         type = activity.type
         eventType = activity.eventType
         coordinate = CLLocationCoordinate2D(latitude: activity.latitude!, longitude: activity.longitude!)

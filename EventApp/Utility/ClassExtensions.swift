@@ -9,7 +9,7 @@
 import UIKit
 
 class TabBarController: UITabBarController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -20,8 +20,7 @@ class TabBarController: UITabBarController {
 }
 
 extension UIImageView{
-    func blurImage()
-    {
+    func blurImage(){
         let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.Light)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.frame = self.bounds
@@ -56,11 +55,11 @@ extension UITableViewController {
         tableView.reloadData()
         
         let cells = tableView.visibleCells
-        let tableWidth: CGFloat = tableView.bounds.size.width
+        let tableHeight: CGFloat = tableView.bounds.size.height
         
         for i in cells {
             let cell: UITableViewCell = i as UITableViewCell
-            cell.transform = CGAffineTransformMakeTranslation(tableWidth, 0)
+            cell.transform = CGAffineTransformMakeTranslation(0, tableHeight)
         }
         
         var index = 0
@@ -123,7 +122,7 @@ extension UIView {
             animation.type = kCATransitionFromBottom
             animation.subtype = kCATransitionFromBottom
         }
-
+        
         animation.duration = duration
         self.layer.addAnimation(animation, forKey: kCATransitionPush)
     }

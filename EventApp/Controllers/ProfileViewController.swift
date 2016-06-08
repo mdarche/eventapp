@@ -10,8 +10,6 @@ import UIKit
 
 class ProfileViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
-    
-    
     @IBOutlet weak var fullnameLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var navTitle: UIView!
@@ -39,9 +37,12 @@ class ProfileViewController: UICollectionViewController, UICollectionViewDelegat
         if isMe == true {
             let settingsButton = UIBarButtonItem(image: UIImage(named: "settings"), style: .Plain,
                      target: nil, action: #selector(ProfileViewController.settingsPressed))
-            
             self.navigationItem.rightBarButtonItem = settingsButton
+        } else {
+            //TODO: Loop through current user's followingID array and change title of button
         }
+        
+        
         navTitle.hidden = true
         setBackgroundGradient(self, image: UIImage(named: "NickCage"), color: UIColor.redColor(), isProfile: true)
     }
@@ -84,7 +85,8 @@ class ProfileViewController: UICollectionViewController, UICollectionViewDelegat
     }
     
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout,
+        referenceSizeForHeaderInSection section: Int) -> CGSize
     {
         return CGSizeMake(CGRectGetWidth(collectionView.bounds), 213.0)
     }
