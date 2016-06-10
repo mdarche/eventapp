@@ -11,13 +11,20 @@ import MapKit
 
 class MapAnnotationView: MKAnnotationView {
 
-    var type : String?
-    var eventType : String?
-    var venueTitle : String?
-    var venueType : String?
+    private var type : String?
+    private var eventType : String?
+    private var venueTitle : String?
+    private var venueType : String?
     var title : String?
     var coverImage : NSURL?
     var activityId : Int?
+    
+    private var hitOutside = true
+    private var calloutView : MapCalloutView?
+    
+    var preventDeselection:Bool {
+        return !hitOutside
+    }
     
     override init(annotation: MKAnnotation?, reuseIdentifier: String?) {
         super.init(annotation:annotation, reuseIdentifier:reuseIdentifier)
@@ -27,6 +34,7 @@ class MapAnnotationView: MKAnnotationView {
             // Set class variables
             self.coverImage = annotation.coverImage
             self.activityId = annotation.activityId
+            self.title = annotation.title
             
             // Set annotation icon
             if annotation.type == "event" {
@@ -50,9 +58,7 @@ class MapAnnotationView: MKAnnotationView {
                 self.image = UIImage(named: "venueMarker")
             }
         }
-        self.canShowCallout = true
-        configureDetailView(self)
-    
+        self.canShowCallout = false
     }
     
     
@@ -65,19 +71,48 @@ class MapAnnotationView: MKAnnotationView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // Customize Callout
+}
+
+extension MapAnnotationView {
     
-    func configureDetailView(annotationView: MapAnnotationView) {
-        let width = 300
-        let height = 180
+    override func setSelected(selected: Bool, animated: Bool) {
+        let calloutViewAdded = calloutView?.superview != nil
         
-        let urlString = coverImage
+        if (selected || !selected && hitOutside) {
+            super.setSelected(selected, animated: animated)
+        }
         
-        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: width, height: height))
-        imageView.hnk_setImageFromURL(urlString!)
-        imageView.contentMode = .ScaleAspectFill
+        self.superview?.bringSubviewToFront(self)
         
-        annotationView.detailCalloutAccessoryView = imageView
+        if (calloutView == nil) {
+            calloutView = NSBundle.mainBundle().loadNibNamed("MapCallout", owner: self, options: nil).first as? MapCalloutView
+        }
+        
+        if (self.selected && !calloutViewAdded) {
+            UIView.transitionWithView(self, duration: 0.3, options: UIViewAnimationOptions.TransitionCurlUp, animations: {
+                self.addSubview(self.calloutView!)
+                self.calloutView!.setViewData(self)
+            }, completion: nil)
+        }
+        
+        if (!self.selected) {
+            calloutView?.removeFromSuperview()
+        }
     }
+    
+    override func hitTest(point: CGPoint, withEvent event: UIEvent?) -> UIView? {
+        var hitView = super.hitTest(point, withEvent: event)
+        
+        if let callout = calloutView {
+            if (hitView == nil && self.selected) {
+                hitView = callout.hitTest(point, withEvent: event)
+            }
+        }
+        
+        hitOutside = hitView == nil
+        
+        return hitView
+    }
+    
     
 }

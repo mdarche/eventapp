@@ -13,8 +13,6 @@ class OrganizerFeedCell: UITableViewCell {
     @IBOutlet weak var imageThumbnail: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var isPrivateImage: UIImageView!
-    @IBOutlet weak var attendanceLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

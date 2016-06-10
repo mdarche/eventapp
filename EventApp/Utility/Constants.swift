@@ -18,8 +18,12 @@ enum Segues {
     static let showOrganizerEvent = "ShowEventFromOrganizer"
     static let showMapEvent = "ShowEventFromMap"
     static let showListEvent = "ShowEventFromList"
+    
     static let showMedia = "ShowMedia"
     static let showProfile = "ShowMyProfile"
+    
+    static let showFollowTable = "ShowFollowTable"
+    static let showAttending = "ShowAttending"
 }
 
 enum Identifiers {

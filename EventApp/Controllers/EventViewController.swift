@@ -33,20 +33,23 @@ class EventViewController: UICollectionViewController {
         
     }
     
-    override func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
+    override func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String,
+             atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
         
         let header = collectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionHeader, withReuseIdentifier: Identifiers.eventHeader, forIndexPath: indexPath) as! EventHeader
         
         return header
     }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout,
+            referenceSizeForHeaderInSection section: Int) -> CGSize {
         
-        return CGSizeMake(CGRectGetWidth(collectionView.bounds), 432.0)
+        return CGSizeMake(CGRectGetWidth(collectionView.bounds), 563.0)
     
     }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout,
+            sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         
         return CGSize(width: collectionView.frame.size.width, height: 330)
 
@@ -56,7 +59,8 @@ class EventViewController: UICollectionViewController {
     // MARK: UICollectionViewDelegate
     
     
-    override func collectionView(collectionView: UICollectionView, performAction action: Selector, forItemAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) {
+    override func collectionView(collectionView: UICollectionView, performAction action: Selector,
+             forItemAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) {
         
     }
     

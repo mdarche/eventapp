@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MapKit
 
 class TabBarController: UITabBarController {
     
@@ -41,13 +42,14 @@ extension UITableViewController {
         gradientLayer.colors = gradientBackgroundColors
         gradientLayer.locations = gradientLocations
         
-        let blackLayer = UIView(frame: sender.tableView.bounds)
-        blackLayer.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.64)
+//        let blackLayer = UIView(frame: sender.tableView.bounds)
+//        blackLayer.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.64)
         
         gradientLayer.frame = sender.tableView.bounds
         let backgroundView = UIView(frame: sender.tableView.bounds)
         backgroundView.layer.insertSublayer(gradientLayer, atIndex: 0)
-        backgroundView.addSubview(blackLayer)
+//        backgroundView.addSubview(blackLayer)
+        
         sender.tableView.backgroundView = backgroundView
     }
     
@@ -126,6 +128,46 @@ extension UIView {
         animation.duration = duration
         self.layer.addAnimation(animation, forKey: kCATransitionPush)
     }
+}
+
+extension MKAnnotationView {
+    func createCurrentUserLocation(pulseView: MKAnnotationView) {
+        pulseView.centerOffset = CGPoint(x: 50, y: -30)
+        
+        let subview1 = UIView()
+        let pulsator = Pulsator()
+        pulsator.backgroundColor = Colors.mainBlueHalf.CGColor
+        pulsator.numPulse = 6
+        pulsator.animationDuration = 12
+        pulsator.repeatCount = 5
+        pulsator.radius = 200.0
+        pulsator.start()
+        subview1.layer.addSublayer(pulsator)
+        subview1.frame.offsetInPlace(dx: 15, dy: 15)
+        
+        let subview2 = UIImageView(image: UIImage(named: "userLocation"))
+        subview2.frame = CGRectMake(0, 0, 30, 30)
+        subview2.contentMode = .ScaleAspectFit
+        
+        pulseView.addSubview(subview2)
+        pulseView.insertSubview(subview1, belowSubview: subview2)
+        
+    }
+    
+}
+
+extension UIImageView {
+    
+    func addDarkGradientLayer(imageView: UIImageView) {
+        let gradientLayer = CAGradientLayer()
+        let gradientColors = [UIColor.clearColor().CGColor, UIColor(red: 30/255, green: 32/255, blue: 42/255, alpha: 0.5).CGColor ]
+        let gradientLocations = [0.0, 1.0]
+        gradientLayer.colors = gradientColors
+        gradientLayer.locations = gradientLocations
+        gradientLayer.frame = imageView.frame
+        imageView.layer.insertSublayer(gradientLayer, atIndex: 0)
+    }
+    
 }
 
 

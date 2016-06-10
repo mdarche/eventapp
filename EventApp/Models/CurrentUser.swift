@@ -10,6 +10,8 @@ import Foundation
 
 class CurrentUser : User {
 
+//    var upcomingEvents : [Events)?
+    
     // TODO: Use this User subclass for persistent storage and request shortcuts
     
 }

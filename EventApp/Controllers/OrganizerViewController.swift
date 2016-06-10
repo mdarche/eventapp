@@ -10,7 +10,7 @@ import UIKit
 
 class OrganizerViewController: UITableViewController {
 
-    let headerTitles = ["Upcoming", "Invitations"]
+    let headerTitles = ["My Events", "News Feed"]
     
     // MARK: View's Lifecycle
     
@@ -27,6 +27,7 @@ class OrganizerViewController: UITableViewController {
     // MARK: Setup View's Layout
     
     func visualize() {
+        animateTable()
         setTableViewBackgroundGradient(self)
     }
 
@@ -50,26 +51,27 @@ class OrganizerViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-            performSegueWithIdentifier(Segues.showEvent, sender: indexPath)
+            performSegueWithIdentifier(Segues.showOrganizerEvent, sender: indexPath)
     }
     
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return headerTitles[section]
     }
     
-//    override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//        
-//        //Create label and autoresize it
-//        let headerLabel = UILabel(frame: CGRectMake(0, 0, tableView.frame.width, 2000))
-//        //        headerLabel.font = UIFont(name: "Avenir-Light", size: 30)
-//        headerLabel.text = self.tableView(self.tableView, titleForHeaderInSection: section)
-//        headerLabel.sizeToFit()
-//        
-//        //Adding Label to existing headerView
-//        let headerView = UIView()
-//        headerView.addSubview(headerLabel)
-//        
-//        return headerView
-//    }
+    override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        let header = UIView()
+        header.backgroundColor = UIColor(red: 42/255, green: 47/255, blue: 60/255, alpha: 1.0)
+        
+        let headerLabel = UILabel(frame: CGRectMake(12, 3, 100, 35))
+        headerLabel.font = UIFont(name: "Avenir", size: 15)
+        headerLabel.textColor = UIColor.whiteColor()
+        headerLabel.textAlignment = .Left
+        headerLabel.text = self.tableView(self.tableView, titleForHeaderInSection: section)
+        
+        header.addSubview(headerLabel)
+        
+        return header
+    }
     
 }

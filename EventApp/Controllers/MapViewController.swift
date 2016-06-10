@@ -9,7 +9,6 @@
 import UIKit
 import MapKit
 import CoreLocation
-import Haneke
 
 
 class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
@@ -19,6 +18,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     var mapAnnotations = [MapAnnotation]()
     let locationManager = CLLocationManager()
     
+    @IBOutlet var mapCallout: MapCalloutView!
     @IBOutlet weak var mapView: MKMapView!
     
     // MARK: View's Lifecycle
@@ -43,19 +43,10 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         activities.append(testActivity3!)
         activities.append(testActivity4!)
         activities.append(testActivity5!)
-        
-        
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(true)
-        visualize()
-    }
-    
-    
-    func visualize() {
         createAnnotations()
+        
     }
+    
     
     // MARK: Manage Memory
     
@@ -78,7 +69,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                 mapAnnotations.append(MapAnnotation(activity: activity))
             }
             mapView.addAnnotations(mapAnnotations)
-            print(mapAnnotations.count)
         }
     }
     
@@ -90,7 +80,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
-        
         mapView.showsUserLocation = true
     }
     
@@ -110,31 +99,14 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
 
 }
 
+
 extension MapViewController {
     
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
         
         if annotation is MKUserLocation {
             let pulseView = MKAnnotationView()
-            pulseView.centerOffset = CGPoint(x: 50, y: -30)
-            
-            let subview1 = UIView()
-            let pulsator = Pulsator()
-            pulsator.backgroundColor = Colors.mainBlueHalf.CGColor
-            pulsator.numPulse = 6
-            pulsator.animationDuration = 12
-            pulsator.repeatCount = 5
-            pulsator.radius = 200.0
-            pulsator.start()
-            subview1.layer.addSublayer(pulsator)
-            subview1.frame.offsetInPlace(dx: 14.5, dy: 14.5)
-            
-            let subview2 = UIImageView(image: UIImage(named: "userLocation"))
-            subview2.frame = CGRectMake(0, 0, 30, 30)
-            subview2.contentMode = .ScaleAspectFit
-            
-            pulseView.addSubview(subview2)
-            pulseView.insertSubview(subview1, belowSubview: subview2)
+            pulseView.createCurrentUserLocation(pulseView)
             return pulseView
         }
         
@@ -155,21 +127,42 @@ extension MapViewController {
         return nil
     }
     
+    
     func seeEvent(sender: UITapGestureRecognizer) {
         if let view = sender.view as? MapAnnotationView {
             self.performSegueWithIdentifier(Segues.showMapEvent, sender: view.activityId)
         }
-
     }
+    
     
     func mapView(mapView: MKMapView, didSelectAnnotationView view: MKAnnotationView) {
         if let view = view as? MapAnnotationView {
+            updatePinPosition(view)
             let tapGesture = UITapGestureRecognizer(target: self, action: #selector(MapViewController.seeEvent))
             view.addGestureRecognizer(tapGesture)
         }
     }
+    
+    
     func mapView(mapView: MKMapView, didDeselectAnnotationView view: MKAnnotationView) {
         view.removeGestureRecognizer(view.gestureRecognizers!.first!)
+        if let mapPin = view as? MapAnnotationView {
+            if mapPin.preventDeselection {
+                mapView.selectAnnotation(view.annotation!, animated: false)
+            }
+        }
+    }
+    
+    
+    func updatePinPosition(pin:MapAnnotationView) {
+        let pinPosition = CGPointMake(pin.frame.midX, pin.frame.maxY)
+        
+        let y = pinPosition.y + 50
+        
+        let controlPoint = CGPointMake((pinPosition.x+100), y)
+        let controlPointCoordinate = mapView.convertPoint(controlPoint, toCoordinateFromView: mapView)
+        
+        mapView.setCenterCoordinate(controlPointCoordinate, animated: true)
     }
     
 }

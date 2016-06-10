@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="MapCalloutView" customModule="EventApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="273" height="207"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="feedImage" translatesAutoresizingMaskIntoConstraints="NO" id="n2g-wG-SFH">
+                    <rect key="frame" x="8" y="36" width="257" height="163"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title for Custom Callout" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zgw-GY-AS1">
+                    <rect key="frame" x="8" y="10" width="257" height="18"/>
+                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="0.20691159392404582" green="0.2274766414116671" blue="0.28917178387453091" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="n2g-wG-SFH" firstAttribute="leading" secondItem="zgw-GY-AS1" secondAttribute="leading" id="B4X-mn-ZJs"/>
+                <constraint firstItem="n2g-wG-SFH" firstAttribute="top" secondItem="zgw-GY-AS1" secondAttribute="bottom" constant="8" id="LBa-a8-Suw"/>
+                <constraint firstItem="zgw-GY-AS1" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="MLB-Xs-1wi"/>
+                <constraint firstItem="zgw-GY-AS1" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="nfg-ne-gV9"/>
+                <constraint firstAttribute="bottom" secondItem="n2g-wG-SFH" secondAttribute="bottom" constant="8" id="o5C-UZ-x5Y"/>
+                <constraint firstItem="n2g-wG-SFH" firstAttribute="trailing" secondItem="zgw-GY-AS1" secondAttribute="trailing" id="os6-Cf-t56"/>
+                <constraint firstAttribute="trailing" secondItem="zgw-GY-AS1" secondAttribute="trailing" constant="8" id="xxF-l9-H5r"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                    <integer key="value" value="5"/>
+                </userDefinedRuntimeAttribute>
+                <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                    <integer key="value" value="1"/>
+                </userDefinedRuntimeAttribute>
+                <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
+                    <color key="value" red="0.95300980227882037" green="0.95300980227882037" blue="0.95300980227882037" alpha="1" colorSpace="calibratedRGB"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
+            <connections>
+                <outlet property="imageThumbnail" destination="n2g-wG-SFH" id="xpw-qr-aFN"/>
+                <outlet property="titleLabel" destination="zgw-GY-AS1" id="jgC-2E-s3k"/>
+            </connections>
+            <point key="canvasLocation" x="324.5" y="-4.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="feedImage" width="752" height="501"/>
+    </resources>
+</document>

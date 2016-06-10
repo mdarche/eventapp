@@ -65,8 +65,8 @@ class HomeViewController: UIViewController {
         notificationImage.layer.borderColor = UIColor.whiteColor().CGColor
         notificationImage.layer.borderWidth = 1
         
-        self.segmentControl.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor()], forState: UIControlState.Normal)
-        self.segmentControl.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor()], forState: UIControlState.Selected)
+        segmentControl.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor()], forState: UIControlState.Normal)
+        segmentControl.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor()], forState: UIControlState.Selected)
         
         outerView.layer.cornerRadius = CGRectGetHeight(outerView.bounds) / 2
         outerView.layer.borderColor = UIColor(red: 71/255, green: 70/255, blue: 236/255, alpha: 1.0).CGColor
