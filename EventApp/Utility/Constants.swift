@@ -19,7 +19,7 @@ enum Segues {
     static let showMapEvent = "ShowEventFromMap"
     static let showListEvent = "ShowEventFromList"
     
-    static let showMedia = "ShowMedia"
+    static let showProfileMedia = "ShowProfileMedia"
     static let showProfile = "ShowMyProfile"
     
     static let showFollowTable = "ShowFollowTable"
@@ -38,7 +38,8 @@ enum Identifiers {
     static let feedHeader = "feedHeader"
     static let feedMediaCell = "FeedCell"
     
-    static let organizerCell = "OrganizerCell"
+    static let organizerNewsCell = "OrganizerNewsCell"
+    static let organizerUpcomingCell = "OrganizerUpcomingCell"
     
     static let TabBarID = "mainTabBar"
     

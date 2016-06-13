@@ -23,7 +23,6 @@
 		13210F591CC941D500B3E257 /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13210F581CC941D500B3E257 /* EventViewController.swift */; };
 		13210F5B1CC942A400B3E257 /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13210F5A1CC942A400B3E257 /* MainMenuViewController.swift */; };
 		CB037EF81CE25CA400720835 /* EventMediaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB037EF71CE25CA400720835 /* EventMediaCell.swift */; };
-		CB037EFA1CE25CC100720835 /* EventActivityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB037EF91CE25CC100720835 /* EventActivityCell.swift */; };
 		CB037EFC1CE25D7600720835 /* EventHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB037EFB1CE25D7600720835 /* EventHeader.swift */; };
 		CB119FAE1CEE3CB80086B785 /* NetworkRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB119FAD1CEE3CB80086B785 /* NetworkRouter.swift */; };
 		CB119FB01CEE48C80086B785 /* Requests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB119FAF1CEE48C80086B785 /* Requests.swift */; };
@@ -43,13 +42,17 @@
 		CBB451351CD82FD200AD6A73 /* ProfileActivityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB451341CD82FD200AD6A73 /* ProfileActivityCell.swift */; };
 		CBB451371CD8FB3400AD6A73 /* ProfileMediaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB451361CD8FB3400AD6A73 /* ProfileMediaCell.swift */; };
 		CBB451391CD939F200AD6A73 /* OrganizerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB451381CD939F200AD6A73 /* OrganizerViewController.swift */; };
-		CBB4513B1CDBB78100AD6A73 /* OrganizerFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB4513A1CDBB78000AD6A73 /* OrganizerFeedCell.swift */; };
+		CBB4513B1CDBB78100AD6A73 /* OrganizerNewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB4513A1CDBB78000AD6A73 /* OrganizerNewsCell.swift */; };
 		CBCF43731CF7770800E691DD /* MapAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCF43721CF7770800E691DD /* MapAnnotation.swift */; };
 		CBCF43751CFDF5C800E691DD /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCF43741CFDF5C800E691DD /* CurrentUser.swift */; };
 		CBD7A3FF1D087483000CD9C2 /* MapCalloutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD7A3FE1D087483000CD9C2 /* MapCalloutView.swift */; };
 		CBD7A4011D088F88000CD9C2 /* MapCallout.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBD7A4001D088F88000CD9C2 /* MapCallout.xib */; };
 		CBD7A4031D0A110A000CD9C2 /* UserTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD7A4021D0A110A000CD9C2 /* UserTableViewController.swift */; };
 		CBD7A4051D0B2DBB000CD9C2 /* UserTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD7A4041D0B2DBB000CD9C2 /* UserTableCell.swift */; };
+		CBD7A40A1D0F3327000CD9C2 /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CBD7A4071D0F3327000CD9C2 /* Roboto-Light.ttf */; };
+		CBD7A40B1D0F3327000CD9C2 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CBD7A4081D0F3327000CD9C2 /* Roboto-Medium.ttf */; };
+		CBD7A40C1D0F3327000CD9C2 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CBD7A4091D0F3327000CD9C2 /* Roboto-Regular.ttf */; };
+		CBD7A40E1D0F52B6000CD9C2 /* OrganizerUpcomingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD7A40D1D0F52B6000CD9C2 /* OrganizerUpcomingCell.swift */; };
 		CBFD3E081CD1A92900FBE4A8 /* FeedViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFD3E071CD1A92900FBE4A8 /* FeedViewLayout.swift */; };
 		CBFD3E0B1CD26A9400FBE4A8 /* NewsFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFD3E0A1CD26A9400FBE4A8 /* NewsFeedCell.swift */; };
 		CBFD3E0D1CD26D9F00FBE4A8 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFD3E0C1CD26D9F00FBE4A8 /* FeedViewController.swift */; };
@@ -99,7 +102,6 @@
 		9914B401D19A02F6CB2593EC /* Pods_EventApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EventApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B75B4194D8FDF54C69627121 /* Pods-EventApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EventApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-EventApp/Pods-EventApp.release.xcconfig"; sourceTree = "<group>"; };
 		CB037EF71CE25CA400720835 /* EventMediaCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventMediaCell.swift; path = Views/EventMediaCell.swift; sourceTree = "<group>"; };
-		CB037EF91CE25CC100720835 /* EventActivityCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventActivityCell.swift; path = Views/EventActivityCell.swift; sourceTree = "<group>"; };
 		CB037EFB1CE25D7600720835 /* EventHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventHeader.swift; path = Views/EventHeader.swift; sourceTree = "<group>"; };
 		CB119FAA1CEBC7E20086B785 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		CB119FAD1CEE3CB80086B785 /* NetworkRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkRouter.swift; path = Network/NetworkRouter.swift; sourceTree = "<group>"; };
@@ -121,13 +123,17 @@
 		CBB451341CD82FD200AD6A73 /* ProfileActivityCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileActivityCell.swift; path = Views/ProfileActivityCell.swift; sourceTree = "<group>"; };
 		CBB451361CD8FB3400AD6A73 /* ProfileMediaCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileMediaCell.swift; path = Views/ProfileMediaCell.swift; sourceTree = "<group>"; };
 		CBB451381CD939F200AD6A73 /* OrganizerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OrganizerViewController.swift; path = Controllers/OrganizerViewController.swift; sourceTree = "<group>"; };
-		CBB4513A1CDBB78000AD6A73 /* OrganizerFeedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OrganizerFeedCell.swift; path = Views/OrganizerFeedCell.swift; sourceTree = "<group>"; };
+		CBB4513A1CDBB78000AD6A73 /* OrganizerNewsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OrganizerNewsCell.swift; path = Views/OrganizerNewsCell.swift; sourceTree = "<group>"; };
 		CBCF43721CF7770800E691DD /* MapAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapAnnotation.swift; path = Models/MapAnnotation.swift; sourceTree = "<group>"; };
 		CBCF43741CFDF5C800E691DD /* CurrentUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CurrentUser.swift; path = Models/CurrentUser.swift; sourceTree = "<group>"; };
 		CBD7A3FE1D087483000CD9C2 /* MapCalloutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapCalloutView.swift; path = Views/MapCalloutView.swift; sourceTree = "<group>"; };
 		CBD7A4001D088F88000CD9C2 /* MapCallout.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MapCallout.xib; path = Views/MapCallout.xib; sourceTree = "<group>"; };
 		CBD7A4021D0A110A000CD9C2 /* UserTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserTableViewController.swift; path = Controllers/UserTableViewController.swift; sourceTree = "<group>"; };
 		CBD7A4041D0B2DBB000CD9C2 /* UserTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserTableCell.swift; path = Views/UserTableCell.swift; sourceTree = "<group>"; };
+		CBD7A4071D0F3327000CD9C2 /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Light.ttf"; path = "Resources/Roboto-Light.ttf"; sourceTree = "<group>"; };
+		CBD7A4081D0F3327000CD9C2 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Medium.ttf"; path = "Resources/Roboto-Medium.ttf"; sourceTree = "<group>"; };
+		CBD7A4091D0F3327000CD9C2 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Regular.ttf"; path = "Resources/Roboto-Regular.ttf"; sourceTree = "<group>"; };
+		CBD7A40D1D0F52B6000CD9C2 /* OrganizerUpcomingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OrganizerUpcomingCell.swift; path = Views/OrganizerUpcomingCell.swift; sourceTree = "<group>"; };
 		CBFD3E071CD1A92900FBE4A8 /* FeedViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedViewLayout.swift; path = Layouts/FeedViewLayout.swift; sourceTree = "<group>"; };
 		CBFD3E0A1CD26A9400FBE4A8 /* NewsFeedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewsFeedCell.swift; path = Views/NewsFeedCell.swift; sourceTree = "<group>"; };
 		CBFD3E0C1CD26D9F00FBE4A8 /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedViewController.swift; path = Controllers/FeedViewController.swift; sourceTree = "<group>"; };
@@ -207,6 +213,7 @@
 				CBFD3E091CD26A3C00FBE4A8 /* Layouts */,
 				CB119FAC1CEE3C790086B785 /* Network */,
 				1313E4E31CD6698E0050483C /* Models */,
+				CBD7A4061D0F32FA000CD9C2 /* Resources */,
 				CB73E19B1CCEF02300E6C6AF /* Views */,
 				13210F281CC86C5300B3E257 /* Assets.xcassets */,
 				13210F2D1CC86C5300B3E257 /* Info.plist */,
@@ -294,7 +301,6 @@
 		CB73E19B1CCEF02300E6C6AF /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				CB037EF91CE25CC100720835 /* EventActivityCell.swift */,
 				CB037EF71CE25CA400720835 /* EventMediaCell.swift */,
 				CB037EFB1CE25D7600720835 /* EventHeader.swift */,
 				CB73E19E1CCFED0900E6C6AF /* HomeFeedCell.swift */,
@@ -304,7 +310,8 @@
 				CBFD3E0A1CD26A9400FBE4A8 /* NewsFeedCell.swift */,
 				1313E4E11CD6689E0050483C /* NewsFeedHeader.swift */,
 				CBD7A4041D0B2DBB000CD9C2 /* UserTableCell.swift */,
-				CBB4513A1CDBB78000AD6A73 /* OrganizerFeedCell.swift */,
+				CBB4513A1CDBB78000AD6A73 /* OrganizerNewsCell.swift */,
+				CBD7A40D1D0F52B6000CD9C2 /* OrganizerUpcomingCell.swift */,
 				CBB451341CD82FD200AD6A73 /* ProfileActivityCell.swift */,
 				CBB451361CD8FB3400AD6A73 /* ProfileMediaCell.swift */,
 				1313E4DF1CD6685F0050483C /* ProfileHeader.swift */,
@@ -319,6 +326,16 @@
 				CBB4512C1CD7CC2100AD6A73 /* LoginViewController.swift */,
 			);
 			name = Authentication;
+			sourceTree = "<group>";
+		};
+		CBD7A4061D0F32FA000CD9C2 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				CBD7A4071D0F3327000CD9C2 /* Roboto-Light.ttf */,
+				CBD7A4081D0F3327000CD9C2 /* Roboto-Medium.ttf */,
+				CBD7A4091D0F3327000CD9C2 /* Roboto-Regular.ttf */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		CBFD3E091CD26A3C00FBE4A8 /* Layouts */ = {
@@ -446,6 +463,9 @@
 			files = (
 				CBD7A4011D088F88000CD9C2 /* MapCallout.xib in Resources */,
 				CBB4512A1CD7CBC600AD6A73 /* Authentication.storyboard in Resources */,
+				CBD7A40C1D0F3327000CD9C2 /* Roboto-Regular.ttf in Resources */,
+				CBD7A40A1D0F3327000CD9C2 /* Roboto-Light.ttf in Resources */,
+				CBD7A40B1D0F3327000CD9C2 /* Roboto-Medium.ttf in Resources */,
 				13210F2C1CC86C5300B3E257 /* LaunchScreen.storyboard in Resources */,
 				13210F291CC86C5300B3E257 /* Assets.xcassets in Resources */,
 				13210F271CC86C5300B3E257 /* Main.storyboard in Resources */,
@@ -529,7 +549,7 @@
 				CBB451311CD7F2F600AD6A73 /* ProfileViewController.swift in Sources */,
 				CB119FB21CEE5CD30086B785 /* Media.swift in Sources */,
 				CBFD3E0D1CD26D9F00FBE4A8 /* FeedViewController.swift in Sources */,
-				CBB4513B1CDBB78100AD6A73 /* OrganizerFeedCell.swift in Sources */,
+				CBB4513B1CDBB78100AD6A73 /* OrganizerNewsCell.swift in Sources */,
 				13210F5B1CC942A400B3E257 /* MainMenuViewController.swift in Sources */,
 				13210F591CC941D500B3E257 /* EventViewController.swift in Sources */,
 				CBB451391CD939F200AD6A73 /* OrganizerViewController.swift in Sources */,
@@ -541,7 +561,6 @@
 				1313E4E01CD6685F0050483C /* ProfileHeader.swift in Sources */,
 				CB037EF81CE25CA400720835 /* EventMediaCell.swift in Sources */,
 				CB119FAE1CEE3CB80086B785 /* NetworkRouter.swift in Sources */,
-				CB037EFA1CE25CC100720835 /* EventActivityCell.swift in Sources */,
 				CBD7A4051D0B2DBB000CD9C2 /* UserTableCell.swift in Sources */,
 				CBB451331CD7FE1200AD6A73 /* Constants.swift in Sources */,
 				CBA899FA1D04A343003A2B87 /* MapAnnotationView.swift in Sources */,
@@ -552,6 +571,7 @@
 				13210F551CC93FB200B3E257 /* ListViewController.swift in Sources */,
 				CBCF43731CF7770800E691DD /* MapAnnotation.swift in Sources */,
 				13210F571CC93FEC00B3E257 /* HomeViewController.swift in Sources */,
+				CBD7A40E1D0F52B6000CD9C2 /* OrganizerUpcomingCell.swift in Sources */,
 				CB73E19F1CCFED0900E6C6AF /* HomeFeedCell.swift in Sources */,
 				CBD7A3FF1D087483000CD9C2 /* MapCalloutView.swift in Sources */,
 				CBFD3E081CD1A92900FBE4A8 /* FeedViewLayout.swift in Sources */,

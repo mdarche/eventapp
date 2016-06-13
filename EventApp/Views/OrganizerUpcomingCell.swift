@@ -1,26 +1,25 @@
 //
-//  OrganizerFeedCell.swift
+//  OrganizerUpcomingCell.swift
 //  EventApp
 //
-//  Created by Michael Darche on 5/5/16.
+//  Created by Michael Darche on 6/13/16.
 //  Copyright © 2016 Michael Darche. All rights reserved.
 //
 
 import UIKit
 
-class OrganizerFeedCell: UITableViewCell {
+class OrganizerUpcomingCell: UITableViewCell {
 
     @IBOutlet weak var imageThumbnail: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var dateLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.visualize()
+        visualize()
     }
-    
+
     func visualize() {
-        imageThumbnail.layer.cornerRadius = imageThumbnail.frame.size.width/2
+        imageThumbnail.addDarkGradientLayer(imageThumbnail)
     }
-    
+
 }

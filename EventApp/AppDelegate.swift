@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
-        
+        setupAppearance()
         // Push Notification Setup
 //        let type: UIUserNotificationType = [UIUserNotificationType.Badge, UIUserNotificationType.Alert, UIUserNotificationType.Sound];
 //        let setting = UIUserNotificationSettings(forTypes: type, categories: nil)
@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Set initial VC based on active session token
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         if (FBSDKAccessToken.currentAccessToken() != nil) {
-            print("Not nil")
+            print("FB session active")
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let controller = storyboard.instantiateViewControllerWithIdentifier(Identifiers.TabBarID)
             self.window?.rootViewController = controller
@@ -69,6 +69,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
     
+    func setupAppearance() {
+        if let font = UIFont(name: "Roboto-Regular", size: 17) {
+            UINavigationBar.appearance().titleTextAttributes = [NSFontAttributeName : font, NSForegroundColorAttributeName : UIColor.whiteColor()]}
+    }
 
 }
 

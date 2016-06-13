@@ -43,7 +43,7 @@ class OrganizerViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCellWithIdentifier(Identifiers.organizerCell) as? OrganizerFeedCell {
+        if let cell = tableView.dequeueReusableCellWithIdentifier(Identifiers.organizerNewsCell) as? OrganizerNewsCell {
             return cell
         } else {
             return UITableViewCell()
@@ -61,10 +61,10 @@ class OrganizerViewController: UITableViewController {
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
         let header = UIView()
-        header.backgroundColor = UIColor(red: 42/255, green: 47/255, blue: 60/255, alpha: 1.0)
+        header.backgroundColor = UIColor(red: 10/255, green: 11/255, blue: 15/255, alpha: 1.0)
         
         let headerLabel = UILabel(frame: CGRectMake(12, 3, 100, 35))
-        headerLabel.font = UIFont(name: "Avenir", size: 15)
+        headerLabel.font = UIFont(name: "Roboto-Regular", size: 15)
         headerLabel.textColor = UIColor.whiteColor()
         headerLabel.textAlignment = .Left
         headerLabel.text = self.tableView(self.tableView, titleForHeaderInSection: section)

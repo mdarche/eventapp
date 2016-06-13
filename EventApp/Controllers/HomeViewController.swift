@@ -13,10 +13,8 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var listContainer: UIView!
     @IBOutlet weak var mapContainer: UIView!
     @IBOutlet weak var eventNotification: UIView!
-    @IBOutlet weak var createEventButton: UIButton!
     @IBOutlet weak var notificationImage: UIImageView!
     @IBOutlet weak var createEventConstraint: NSLayoutConstraint!
-    let gradient = CAGradientLayer()
     
     @IBOutlet weak var segmentControl: UISegmentedControl!
     @IBOutlet weak var outerView: UIView!
@@ -46,7 +44,6 @@ class HomeViewController: UIViewController {
     @IBAction func dismissNotification(sender: UIButton) {
         UIView.animateWithDuration(0.2, animations: {
             self.eventNotification.transform = CGAffineTransformMakeTranslation(0, 58)
-            self.createEventButton.transform = CGAffineTransformMakeTranslation(0, 48)
             }, completion: { (finished:Bool) in
                 self.eventNotification.hidden = true
         })
@@ -59,8 +56,6 @@ class HomeViewController: UIViewController {
     }
     
     func visualize() {
-        createEventButton.layer.cornerRadius = createEventButton.frame.size.width/2
-        createEventButton.hidden = true
         notificationImage.layer.cornerRadius = notificationImage.frame.size.width/2
         notificationImage.layer.borderColor = UIColor.whiteColor().CGColor
         notificationImage.layer.borderWidth = 1
@@ -72,10 +67,6 @@ class HomeViewController: UIViewController {
         outerView.layer.borderColor = UIColor(red: 71/255, green: 70/255, blue: 236/255, alpha: 1.0).CGColor
         outerView.layer.borderWidth = 1
         
-        gradient.colors = [UIColor(red: 30/255, green: 32/255, blue: 42/255, alpha: 1.0).CGColor, UIColor(red: 71/255, green: 70/255, blue: 236/255, alpha: 1.0).CGColor]
-        gradient.frame = listContainer.bounds
-        gradient.locations = [0.0, 1.0]
-        listContainer.layer.insertSublayer(gradient, atIndex: 0)
     }
 
 }

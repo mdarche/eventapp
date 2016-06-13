@@ -26,12 +26,6 @@ class ProfileViewController: UICollectionViewController, UICollectionViewDelegat
         visualize()
         
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
     
     func visualize() {
         if isMe == true {
@@ -40,17 +34,30 @@ class ProfileViewController: UICollectionViewController, UICollectionViewDelegat
             self.navigationItem.rightBarButtonItem = settingsButton
         } else {
             //TODO: Loop through current user's followingID array and change title of button
+            let followButtonItem = UIBarButtonItem(title: "FOLLOW", style: .Plain, target: self, action: #selector(ProfileViewController.followUserPressed))
+            let font = UIFont.systemFontOfSize(12)
+            followButtonItem.setTitleTextAttributes([ NSFontAttributeName: font], forState: .Normal)
+            self.navigationItem.rightBarButtonItem = followButtonItem
         }
         
         
         navTitle.hidden = true
-        setBackgroundGradient(self, image: UIImage(named: "NickCage"), color: UIColor.redColor(), isProfile: true)
+        setBackgroundGradient(self, image: UIImage(named: "NickCage"), color: UIColor.redColor(), isProfile: false)
     }
     
     func settingsPressed() {
         // TODO: Segue to edit profile screen
     }
 
+    func followUserPressed() {
+        //TODO: Determine what to make button title and execute request
+    }
+    
+    
+}
+
+extension ProfileViewController {
+    
     // MARK: UICollectionViewDataSource
 
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -61,12 +68,12 @@ class ProfileViewController: UICollectionViewController, UICollectionViewDelegat
     }
 
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(Identifiers.profileMediaCell, forIndexPath: indexPath) as! ProfileMediaCell
         let cell1 = collectionView.dequeueReusableCellWithReuseIdentifier(Identifiers.profileActivityCell, forIndexPath: indexPath) as! ProfileActivityCell
         
         if let list = self.testArray  {
-            let item = list[indexPath.row]
-            if item is Int {
+            if list[indexPath.row] is Int {
                 return cell1
             } else {
                 return cell
@@ -86,8 +93,7 @@ class ProfileViewController: UICollectionViewController, UICollectionViewDelegat
     
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout,
-        referenceSizeForHeaderInSection section: Int) -> CGSize
-    {
+        referenceSizeForHeaderInSection section: Int) -> CGSize {
         return CGSizeMake(CGRectGetWidth(collectionView.bounds), 213.0)
     }
     

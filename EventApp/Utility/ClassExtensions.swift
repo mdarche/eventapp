@@ -82,19 +82,19 @@ extension UICollectionViewController {
     
     func setBackgroundGradient(sender: UICollectionViewController, image: UIImage?, color: UIColor?, isProfile: Bool) {
         
-        var gradientBackgroundColors = [CGColor]()
-        
-        if isProfile == false {
-            gradientBackgroundColors = [UIColor(red: 30/255, green: 32/255, blue: 42/255, alpha: 0.6).CGColor, UIColor(red: 71/255, green: 70/255, blue: 236/255, alpha: 0.6).CGColor]
-        } else {
-            gradientBackgroundColors = [UIColor(red: 30/255, green: 32/255, blue: 42/255, alpha: 0.6).CGColor, color!.CGColor]
-        }
-        
-        let gradientLocations = [0.0,1.0]
-        
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.colors = gradientBackgroundColors
-        gradientLayer.locations = gradientLocations
+//        var gradientBackgroundColors = [CGColor]()
+//        
+//        if isProfile == false {
+//            gradientBackgroundColors = [UIColor(red: 30/255, green: 32/255, blue: 42/255, alpha: 0.6).CGColor, UIColor(red: 71/255, green: 70/255, blue: 236/255, alpha: 0.6).CGColor]
+//        } else {
+//            gradientBackgroundColors = [UIColor(red: 30/255, green: 32/255, blue: 42/255, alpha: 0.6).CGColor, color!.CGColor]
+//        }
+//        
+//        let gradientLocations = [0.0,1.0]
+//        
+//        let gradientLayer = CAGradientLayer()
+//        gradientLayer.colors = gradientBackgroundColors
+//        gradientLayer.locations = gradientLocations
         
         let imageLayer = UIImageView(frame: sender.collectionView!.bounds)
         if image != nil {
@@ -104,8 +104,8 @@ extension UICollectionViewController {
             imageLayer.blurImage()
         }
         
-        gradientLayer.frame = sender.collectionView!.bounds
-        imageLayer.layer.insertSublayer(gradientLayer, atIndex: 0)
+//        gradientLayer.frame = sender.collectionView!.bounds
+//        imageLayer.layer.insertSublayer(gradientLayer, atIndex: 0)
         sender.collectionView!.backgroundView = imageLayer
     }
     
@@ -160,7 +160,7 @@ extension UIImageView {
     
     func addDarkGradientLayer(imageView: UIImageView) {
         let gradientLayer = CAGradientLayer()
-        let gradientColors = [UIColor.clearColor().CGColor, UIColor(red: 30/255, green: 32/255, blue: 42/255, alpha: 0.5).CGColor ]
+        let gradientColors = [UIColor.clearColor().CGColor, UIColor(red: 30/255, green: 32/255, blue: 42/255, alpha: 0.4).CGColor ]
         let gradientLocations = [0.0, 1.0]
         gradientLayer.colors = gradientColors
         gradientLayer.locations = gradientLocations
