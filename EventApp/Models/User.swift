@@ -20,7 +20,7 @@ class User : NSObject {
     var location: String?
     var email: String?
     var personalDescription: String?
-    var profileImage : String?
+    var profileImage : NSURL?
     
     var followerCount : Int?
     var followingCount : Int?
@@ -38,7 +38,7 @@ class User : NSObject {
         location = json["location"].string
         email = json["email"].string
         personalDescription = json["description"].string
-        profileImage = json["avatar"].string
+        profileImage = NSURL(string: json["avatar"].string!)
         
         followerCount = json["followers"].int
         followingCount = json["following"].int

@@ -26,9 +26,9 @@ class EventViewController: UICollectionViewController {
     }
     
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(Identifiers.eventMediaCell, forIndexPath: indexPath) as! EventMediaCell
-//        let cell1 = collectionView.dequeueReusableCellWithReuseIdentifier(Identifiers.eventActivityCell, forIndexPath: indexPath) as! EventActivityCell
-        
+        guard let cell = collectionView.dequeueReusableCellWithReuseIdentifier(Identifiers.eventMediaCell, forIndexPath: indexPath) as? EventMediaCell else {
+            return UICollectionViewCell()
+        }
         return cell
         
     }

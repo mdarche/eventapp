@@ -8,9 +8,9 @@
 
 import Foundation
 
-class CurrentUser : User {
+class CurrentUser : NSObject {
 
-//    var upcomingEvents : [Events)?
+    var upcomingEvents : [Activity]?
     
     // TODO: Use this User subclass for persistent storage and request shortcuts
     

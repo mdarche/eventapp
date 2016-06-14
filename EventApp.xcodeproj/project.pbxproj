@@ -32,7 +32,7 @@
 		CB73E1971CCE8CFE00E6C6AF /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB73E1951CCE8CFE00E6C6AF /* FBSDKLoginKit.framework */; };
 		CB73E19A1CCEB3B200E6C6AF /* ClassExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB73E1991CCEB3B200E6C6AF /* ClassExtensions.swift */; };
 		CB73E19D1CCEF06400E6C6AF /* Pulsator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB73E19C1CCEF06400E6C6AF /* Pulsator.swift */; };
-		CB73E19F1CCFED0900E6C6AF /* HomeFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB73E19E1CCFED0900E6C6AF /* HomeFeedCell.swift */; };
+		CB73E19F1CCFED0900E6C6AF /* ListFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB73E19E1CCFED0900E6C6AF /* ListFeedCell.swift */; };
 		CBA899FA1D04A343003A2B87 /* MapAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA899F91D04A343003A2B87 /* MapAnnotationView.swift */; };
 		CBB4512A1CD7CBC600AD6A73 /* Authentication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBB451281CD7CBC600AD6A73 /* Authentication.storyboard */; };
 		CBB4512D1CD7CC2100AD6A73 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB4512C1CD7CC2100AD6A73 /* LoginViewController.swift */; };
@@ -53,6 +53,7 @@
 		CBD7A40B1D0F3327000CD9C2 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CBD7A4081D0F3327000CD9C2 /* Roboto-Medium.ttf */; };
 		CBD7A40C1D0F3327000CD9C2 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CBD7A4091D0F3327000CD9C2 /* Roboto-Regular.ttf */; };
 		CBD7A40E1D0F52B6000CD9C2 /* OrganizerUpcomingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD7A40D1D0F52B6000CD9C2 /* OrganizerUpcomingCell.swift */; };
+		CBD7A4101D107350000CD9C2 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD7A40F1D107350000CD9C2 /* Notification.swift */; };
 		CBFD3E081CD1A92900FBE4A8 /* FeedViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFD3E071CD1A92900FBE4A8 /* FeedViewLayout.swift */; };
 		CBFD3E0B1CD26A9400FBE4A8 /* NewsFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFD3E0A1CD26A9400FBE4A8 /* NewsFeedCell.swift */; };
 		CBFD3E0D1CD26D9F00FBE4A8 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFD3E0C1CD26D9F00FBE4A8 /* FeedViewController.swift */; };
@@ -112,7 +113,7 @@
 		CB73E1951CCE8CFE00E6C6AF /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = EventApp/Frameworks/FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		CB73E1991CCEB3B200E6C6AF /* ClassExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ClassExtensions.swift; path = Utility/ClassExtensions.swift; sourceTree = "<group>"; };
 		CB73E19C1CCEF06400E6C6AF /* Pulsator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Pulsator.swift; path = Views/Pulsator.swift; sourceTree = "<group>"; };
-		CB73E19E1CCFED0900E6C6AF /* HomeFeedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeFeedCell.swift; path = Views/HomeFeedCell.swift; sourceTree = "<group>"; };
+		CB73E19E1CCFED0900E6C6AF /* ListFeedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListFeedCell.swift; path = Views/ListFeedCell.swift; sourceTree = "<group>"; };
 		CB7A24FE1CCE835D00D46DE2 /* Application-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Application-Bridging-Header.h"; sourceTree = "<group>"; };
 		CBA899F91D04A343003A2B87 /* MapAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapAnnotationView.swift; path = Views/MapAnnotationView.swift; sourceTree = "<group>"; };
 		CBB451291CD7CBC600AD6A73 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Authentication.storyboard; sourceTree = "<group>"; };
@@ -134,6 +135,7 @@
 		CBD7A4081D0F3327000CD9C2 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Medium.ttf"; path = "Resources/Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		CBD7A4091D0F3327000CD9C2 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Regular.ttf"; path = "Resources/Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		CBD7A40D1D0F52B6000CD9C2 /* OrganizerUpcomingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OrganizerUpcomingCell.swift; path = Views/OrganizerUpcomingCell.swift; sourceTree = "<group>"; };
+		CBD7A40F1D107350000CD9C2 /* Notification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Notification.swift; path = Models/Notification.swift; sourceTree = "<group>"; };
 		CBFD3E071CD1A92900FBE4A8 /* FeedViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedViewLayout.swift; path = Layouts/FeedViewLayout.swift; sourceTree = "<group>"; };
 		CBFD3E0A1CD26A9400FBE4A8 /* NewsFeedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewsFeedCell.swift; path = Views/NewsFeedCell.swift; sourceTree = "<group>"; };
 		CBFD3E0C1CD26D9F00FBE4A8 /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedViewController.swift; path = Controllers/FeedViewController.swift; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 				CB119FB31CEF6C2B0086B785 /* User.swift */,
 				CBCF43721CF7770800E691DD /* MapAnnotation.swift */,
 				CB119FB11CEE5CD30086B785 /* Media.swift */,
+				CBD7A40F1D107350000CD9C2 /* Notification.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -245,16 +248,7 @@
 			isa = PBXGroup;
 			children = (
 				CBB4512B1CD7CBF800AD6A73 /* Authentication */,
-				13210F581CC941D500B3E257 /* EventViewController.swift */,
-				CBFD3E0C1CD26D9F00FBE4A8 /* FeedViewController.swift */,
-				13210F561CC93FEC00B3E257 /* HomeViewController.swift */,
-				13210F541CC93FB200B3E257 /* ListViewController.swift */,
-				13210F5A1CC942A400B3E257 /* MainMenuViewController.swift */,
-				13210F521CC93F2D00B3E257 /* MapViewController.swift */,
-				CBB4512E1CD7D1AA00AD6A73 /* MediaDetailViewController.swift */,
-				CBB451381CD939F200AD6A73 /* OrganizerViewController.swift */,
-				CBB451301CD7F2F600AD6A73 /* ProfileViewController.swift */,
-				CBD7A4021D0A110A000CD9C2 /* UserTableViewController.swift */,
+				CBD7A4111D1075A1000CD9C2 /* Main */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -301,21 +295,14 @@
 		CB73E19B1CCEF02300E6C6AF /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				CB037EF71CE25CA400720835 /* EventMediaCell.swift */,
-				CB037EFB1CE25D7600720835 /* EventHeader.swift */,
-				CB73E19E1CCFED0900E6C6AF /* HomeFeedCell.swift */,
-				CBD7A4001D088F88000CD9C2 /* MapCallout.xib */,
-				CBA899F91D04A343003A2B87 /* MapAnnotationView.swift */,
-				CBD7A3FE1D087483000CD9C2 /* MapCalloutView.swift */,
+				CBD7A4151D107839000CD9C2 /* Event */,
+				CB73E19E1CCFED0900E6C6AF /* ListFeedCell.swift */,
 				CBFD3E0A1CD26A9400FBE4A8 /* NewsFeedCell.swift */,
 				1313E4E11CD6689E0050483C /* NewsFeedHeader.swift */,
 				CBD7A4041D0B2DBB000CD9C2 /* UserTableCell.swift */,
-				CBB4513A1CDBB78000AD6A73 /* OrganizerNewsCell.swift */,
-				CBD7A40D1D0F52B6000CD9C2 /* OrganizerUpcomingCell.swift */,
-				CBB451341CD82FD200AD6A73 /* ProfileActivityCell.swift */,
-				CBB451361CD8FB3400AD6A73 /* ProfileMediaCell.swift */,
-				1313E4DF1CD6685F0050483C /* ProfileHeader.swift */,
-				CB73E19C1CCEF06400E6C6AF /* Pulsator.swift */,
+				CBD7A4141D107816000CD9C2 /* Map */,
+				CBD7A4121D1077EF000CD9C2 /* Organizer */,
+				CBD7A4131D107802000CD9C2 /* Profile */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -336,6 +323,62 @@
 				CBD7A4091D0F3327000CD9C2 /* Roboto-Regular.ttf */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		CBD7A4111D1075A1000CD9C2 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				13210F581CC941D500B3E257 /* EventViewController.swift */,
+				CBFD3E0C1CD26D9F00FBE4A8 /* FeedViewController.swift */,
+				13210F561CC93FEC00B3E257 /* HomeViewController.swift */,
+				13210F541CC93FB200B3E257 /* ListViewController.swift */,
+				13210F5A1CC942A400B3E257 /* MainMenuViewController.swift */,
+				13210F521CC93F2D00B3E257 /* MapViewController.swift */,
+				CBB4512E1CD7D1AA00AD6A73 /* MediaDetailViewController.swift */,
+				CBB451381CD939F200AD6A73 /* OrganizerViewController.swift */,
+				CBB451301CD7F2F600AD6A73 /* ProfileViewController.swift */,
+				CBD7A4021D0A110A000CD9C2 /* UserTableViewController.swift */,
+			);
+			name = Main;
+			sourceTree = "<group>";
+		};
+		CBD7A4121D1077EF000CD9C2 /* Organizer */ = {
+			isa = PBXGroup;
+			children = (
+				CBB4513A1CDBB78000AD6A73 /* OrganizerNewsCell.swift */,
+				CBD7A40D1D0F52B6000CD9C2 /* OrganizerUpcomingCell.swift */,
+			);
+			name = Organizer;
+			sourceTree = "<group>";
+		};
+		CBD7A4131D107802000CD9C2 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				CBB451341CD82FD200AD6A73 /* ProfileActivityCell.swift */,
+				1313E4DF1CD6685F0050483C /* ProfileHeader.swift */,
+				CBB451361CD8FB3400AD6A73 /* ProfileMediaCell.swift */,
+			);
+			name = Profile;
+			sourceTree = "<group>";
+		};
+		CBD7A4141D107816000CD9C2 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				CBD7A4001D088F88000CD9C2 /* MapCallout.xib */,
+				CBA899F91D04A343003A2B87 /* MapAnnotationView.swift */,
+				CBD7A3FE1D087483000CD9C2 /* MapCalloutView.swift */,
+				CB73E19C1CCEF06400E6C6AF /* Pulsator.swift */,
+			);
+			name = Map;
+			sourceTree = "<group>";
+		};
+		CBD7A4151D107839000CD9C2 /* Event */ = {
+			isa = PBXGroup;
+			children = (
+				CB037EF71CE25CA400720835 /* EventMediaCell.swift */,
+				CB037EFB1CE25D7600720835 /* EventHeader.swift */,
+			);
+			name = Event;
 			sourceTree = "<group>";
 		};
 		CBFD3E091CD26A3C00FBE4A8 /* Layouts */ = {
@@ -552,6 +595,7 @@
 				CBB4513B1CDBB78100AD6A73 /* OrganizerNewsCell.swift in Sources */,
 				13210F5B1CC942A400B3E257 /* MainMenuViewController.swift in Sources */,
 				13210F591CC941D500B3E257 /* EventViewController.swift in Sources */,
+				CBD7A4101D107350000CD9C2 /* Notification.swift in Sources */,
 				CBB451391CD939F200AD6A73 /* OrganizerViewController.swift in Sources */,
 				CB037EFC1CE25D7600720835 /* EventHeader.swift in Sources */,
 				CBCF43751CFDF5C800E691DD /* CurrentUser.swift in Sources */,
@@ -572,7 +616,7 @@
 				CBCF43731CF7770800E691DD /* MapAnnotation.swift in Sources */,
 				13210F571CC93FEC00B3E257 /* HomeViewController.swift in Sources */,
 				CBD7A40E1D0F52B6000CD9C2 /* OrganizerUpcomingCell.swift in Sources */,
-				CB73E19F1CCFED0900E6C6AF /* HomeFeedCell.swift in Sources */,
+				CB73E19F1CCFED0900E6C6AF /* ListFeedCell.swift in Sources */,
 				CBD7A3FF1D087483000CD9C2 /* MapCalloutView.swift in Sources */,
 				CBFD3E081CD1A92900FBE4A8 /* FeedViewLayout.swift in Sources */,
 				CB119FB41CEF6C2B0086B785 /* User.swift in Sources */,

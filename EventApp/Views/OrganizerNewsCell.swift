@@ -14,6 +14,9 @@ class OrganizerNewsCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     
+    var profileId : Int?
+    var activityId: Int?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         self.visualize()

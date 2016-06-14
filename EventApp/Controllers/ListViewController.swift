@@ -69,12 +69,14 @@ class ListViewController: UICollectionViewController, UICollectionViewDelegateFl
     }
     
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("HomeCell", forIndexPath: indexPath) as! HomeFeedCell
+        guard let cell = collectionView.dequeueReusableCellWithReuseIdentifier("ListCell", forIndexPath: indexPath) as? ListFeedCell else {
+            return UICollectionViewCell()
+        }
         return cell
     }
     
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-//        performSegueWithIdentifier(Segues.showEvent, sender: indexPath)
+        performSegueWithIdentifier(Segues.showListEvent, sender: indexPath)
         
         // TODO: Create protocol and delegate method
         

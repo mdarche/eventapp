@@ -29,6 +29,7 @@
             <string>Roboto-Light</string>
             <string>Roboto-Light</string>
             <string>Roboto-Light</string>
+            <string>Roboto-Light</string>
         </mutableArray>
         <mutableArray key="Roboto-Medium.ttf">
             <string>Roboto-Medium</string>
@@ -1422,16 +1423,27 @@
                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                             </userDefinedRuntimeAttributes>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Venue Presents: The Event Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kvq-6R-cvr">
-                                            <rect key="frame" x="28" y="66" width="317" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Venue Presents: The Event Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kvq-6R-cvr">
+                                            <rect key="frame" x="28" y="63" width="319" height="18"/>
                                             <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="15"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event timestamp" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fsw-Yc-JDX">
+                                            <rect key="frame" x="28" y="81" width="91" height="15"/>
+                                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <constraints>
+                                        <constraint firstItem="kvq-6R-cvr" firstAttribute="top" secondItem="tII-bu-jKb" secondAttribute="topMargin" constant="55" id="7cg-0X-bNq"/>
+                                        <constraint firstItem="kvq-6R-cvr" firstAttribute="leading" secondItem="tII-bu-jKb" secondAttribute="leadingMargin" constant="20" id="CiY-E4-7Bz"/>
                                         <constraint firstItem="YP6-k0-fTo" firstAttribute="top" secondItem="tII-bu-jKb" secondAttribute="topMargin" constant="-8" id="GmS-rn-9X1"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="kvq-6R-cvr" secondAttribute="trailing" constant="20" id="KcW-TX-u0C"/>
+                                        <constraint firstItem="fsw-Yc-JDX" firstAttribute="leading" secondItem="kvq-6R-cvr" secondAttribute="leading" id="T19-QH-Cxa"/>
+                                        <constraint firstItem="fsw-Yc-JDX" firstAttribute="top" secondItem="kvq-6R-cvr" secondAttribute="bottom" id="ktV-ge-yhD"/>
                                         <constraint firstItem="YP6-k0-fTo" firstAttribute="leading" secondItem="tII-bu-jKb" secondAttribute="leadingMargin" constant="-8" id="odo-cH-T0E"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="YP6-k0-fTo" secondAttribute="trailing" constant="-8" id="q68-gi-aG1"/>
                                     </constraints>
@@ -1441,45 +1453,56 @@
                                 <connections>
                                     <outlet property="imageThumbnail" destination="YP6-k0-fTo" id="3bu-ck-YrK"/>
                                     <outlet property="nameLabel" destination="kvq-6R-cvr" id="2OZ-Q9-e7a"/>
+                                    <outlet property="timestampLabel" destination="fsw-Yc-JDX" id="F0x-xJ-eeS"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="OrganizerNewsCell" rowHeight="75" id="jQy-sW-XRo" userLabel="NewsCell" customClass="OrganizerNewsCell" customModule="EventApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="152" width="375" height="75"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="OrganizerNewsCell" rowHeight="70" id="jQy-sW-XRo" userLabel="NewsCell" customClass="OrganizerNewsCell" customModule="EventApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="152" width="375" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jQy-sW-XRo" id="zKo-RU-8kp">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="74"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="69"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="riN-xB-MF3">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="74"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="69"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.64229392409999997" colorSpace="calibratedWhite"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="74" id="wZ0-ih-NrD"/>
+                                                <constraint firstAttribute="height" constant="69" id="wZ0-ih-NrD"/>
                                             </constraints>
                                         </view>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="feedImage" translatesAutoresizingMaskIntoConstraints="NO" id="Fze-7B-Vbb">
-                                            <rect key="frame" x="16" y="15" width="44" height="44"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="feedImage" translatesAutoresizingMaskIntoConstraints="NO" id="Fze-7B-Vbb">
+                                            <rect key="frame" x="18" y="15" width="39" height="39"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="39" id="TDN-Ow-c9z"/>
+                                                <constraint firstAttribute="height" constant="39" id="XFI-58-cSP"/>
+                                            </constraints>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                             </userDefinedRuntimeAttributes>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Venue Presents: Upcoming Event" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LG2-wq-zgG">
-                                            <rect key="frame" x="80" y="19" width="279" height="21"/>
-                                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Venue Presents: Upcoming Event" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LG2-wq-zgG">
+                                            <rect key="frame" x="80" y="21" width="193" height="16"/>
+                                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="13"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Friday, May 13 9pm - 11:30pm" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iiR-O0-eI4">
-                                            <rect key="frame" x="80" y="35" width="235" height="21"/>
-                                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="11"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iiR-O0-eI4">
+                                            <rect key="frame" x="80" y="37" width="30" height="13"/>
+                                            <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="11"/>
                                             <color key="textColor" red="0.69994220190000001" green="0.70800025759999996" blue="0.96930722020000004" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <constraints>
+                                        <constraint firstItem="iiR-O0-eI4" firstAttribute="leading" secondItem="LG2-wq-zgG" secondAttribute="leading" id="58w-7J-b7u"/>
+                                        <constraint firstItem="iiR-O0-eI4" firstAttribute="top" secondItem="LG2-wq-zgG" secondAttribute="bottom" id="7cK-eP-ehX"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="riN-xB-MF3" secondAttribute="trailing" constant="-8" id="LIN-LG-qyz"/>
+                                        <constraint firstItem="LG2-wq-zgG" firstAttribute="leading" secondItem="Fze-7B-Vbb" secondAttribute="trailing" constant="23" id="Sfg-XX-SO6"/>
+                                        <constraint firstItem="LG2-wq-zgG" firstAttribute="centerY" secondItem="Fze-7B-Vbb" secondAttribute="centerY" constant="-6" id="T7a-2A-K2K"/>
                                         <constraint firstItem="riN-xB-MF3" firstAttribute="top" secondItem="zKo-RU-8kp" secondAttribute="topMargin" constant="-8" id="tah-Z9-m1N"/>
+                                        <constraint firstItem="Fze-7B-Vbb" firstAttribute="centerY" secondItem="riN-xB-MF3" secondAttribute="centerY" id="tw9-ru-gXM"/>
+                                        <constraint firstItem="riN-xB-MF3" firstAttribute="leading" secondItem="Fze-7B-Vbb" secondAttribute="trailing" constant="-57" id="wcu-BT-idT"/>
                                         <constraint firstItem="riN-xB-MF3" firstAttribute="leading" secondItem="zKo-RU-8kp" secondAttribute="leadingMargin" constant="-8" id="zyz-o3-FNF"/>
                                     </constraints>
                                 </tableViewCellContentView>
@@ -1891,7 +1914,7 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" reuseIdentifier="HomeCell" id="ggI-n5-59b" customClass="HomeFeedCell" customModule="EventApp" customModuleProvider="target">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" reuseIdentifier="ListCell" id="ggI-n5-59b" customClass="ListFeedCell" customModule="EventApp" customModuleProvider="target">
                                 <rect key="frame" x="1" y="0.0" width="374" height="112"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -1989,7 +2012,12 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <outlet property="imageThumbnail" destination="8rj-bh-97L" id="Z7g-1M-wFN"/>
+                                    <outlet property="attendingCountLabel" destination="0yi-ri-9WI" id="Rmy-zk-b7h"/>
+                                    <outlet property="attendingIcon" destination="Phg-3u-JDS" id="jq3-gn-AG5"/>
+                                    <outlet property="distanceLabel" destination="B44-aj-zYm" id="bOS-qb-X00"/>
+                                    <outlet property="eventAlertView" destination="SPd-AA-WF5" id="261-iB-lbM"/>
+                                    <outlet property="imageThumbnail" destination="8rj-bh-97L" id="f4R-oP-IpA"/>
+                                    <outlet property="titleLabel" destination="9f4-7R-K6f" id="6mF-y7-Dtn"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>

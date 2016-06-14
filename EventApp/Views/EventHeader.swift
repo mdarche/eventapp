@@ -10,8 +10,6 @@ import UIKit
 
 class EventHeader: UICollectionReusableView {
 
-    
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         self.visualize()

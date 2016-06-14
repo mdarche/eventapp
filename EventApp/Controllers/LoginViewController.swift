@@ -112,16 +112,20 @@ extension LoginViewController {
             //TODO: Add popup for adding username. Upon completion add the following:
             
             Requests.createSession(["facebook", FBSDKAccessToken.currentAccessToken().appID, FBSDKAccessToken.currentAccessToken().userID, FBSDKAccessToken.currentAccessToken().tokenString ],
-                                   completion: {(successful, error) -> Void in
-                                    if successful {
-                                        self.returnUserData()
-                                    }
+                completion: {(successful, error) -> Void in
+                if successful {
+                    self.returnUserData()
+                } else {
+                    debugPrint(error)
+                }
             })
         }
     }
     
     func returnUserData() {
-        let graphRequest : FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me", parameters: ["fields":"id,interested_in,gender,birthday,email,age_range,name,picture.width(480).height(480)"])
+        let graphRequest : FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me",
+            parameters: ["fields":"id,interested_in,gender,birthday,email,age_range,name,picture.width(480).height(480)"])
+        
         graphRequest.startWithCompletionHandler({ (connection, result, error) -> Void in
             
             if ((error) != nil) {

@@ -8,9 +8,15 @@
 
 import UIKit
 
-class HomeFeedCell: UICollectionViewCell {
+class ListFeedCell: UICollectionViewCell {
 
     @IBOutlet weak var imageThumbnail: UIImageView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var distanceLabel: UILabel!
+    @IBOutlet weak var attendingCountLabel: UILabel!
+    @IBOutlet weak var attendingIcon: UIImageView!
+    
+    @IBOutlet weak var eventAlertView: UIView!
     
     // MARK: Class's public methods
     override func awakeFromNib() {

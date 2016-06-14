@@ -49,12 +49,6 @@ class HomeViewController: UIViewController {
         })
     }
     
-    func categoriesPressed() {
-        
-        // TODO
-        
-    }
-    
     func visualize() {
         notificationImage.layer.cornerRadius = notificationImage.frame.size.width/2
         notificationImage.layer.borderColor = UIColor.whiteColor().CGColor

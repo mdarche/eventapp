@@ -22,8 +22,6 @@ class ProfileMediaCell: UICollectionViewCell {
     }
     
     func visualize() {
-//        mainImageWidthConstraint.constant = UICollectionViewCell.frame.width/3
-//        mainImageHeightConstraint.constant = mainImageWidthConstraint.constant
         
     }
     

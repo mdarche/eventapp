@@ -12,6 +12,10 @@ class OrganizerUpcomingCell: UITableViewCell {
 
     @IBOutlet weak var imageThumbnail: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var timestampLabel: UILabel!
+    
+    var activityId: Int?
+    var venueId: Int?
     
     override func awakeFromNib() {
         super.awakeFromNib()
