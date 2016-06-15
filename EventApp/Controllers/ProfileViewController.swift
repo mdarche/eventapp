@@ -42,7 +42,7 @@ class ProfileViewController: UICollectionViewController, UICollectionViewDelegat
         
         
         navTitle.hidden = true
-        setBackgroundGradient(self, image: UIImage(named: "NickCage"), color: UIColor.redColor(), isProfile: false)
+        setBackgroundGradient(self, image: UIImage(named: "NickCage"))
     }
     
     func settingsPressed() {

@@ -7,11 +7,20 @@
 //
 
 import Foundation
+import SwiftyJSON
 
-class CurrentUser : NSObject {
+class CurrentUser : User {
 
     var upcomingEvents : [Activity]?
     
     // TODO: Use this User subclass for persistent storage and request shortcuts
+    
+    override init?(json: JSON) {
+        super.init(json: json)
+    }
+    
+    func saveUser(completion: ((successful: Bool, error: NSError?)-> Void)?) {
+        
+    }
     
 }

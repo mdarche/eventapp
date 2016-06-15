@@ -11,6 +11,9 @@ import UIKit
 class OrganizerViewController: UITableViewController {
 
     let headerTitles = ["My Events", "News Feed"]
+    var upcomingEvents : [Activity]?
+    var notifications : [Notification]?
+    
     
     // MARK: View's Lifecycle
     

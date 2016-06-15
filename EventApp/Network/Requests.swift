@@ -34,7 +34,7 @@ class Requests {
                     }
                     
                 case .Failure(let error):
-                    print(error)
+                    debugPrint(error)
                     block(successful: false, error: error)
                 }
             }
@@ -59,7 +59,7 @@ class Requests {
                     }
     
                 case .Failure(let error):
-                    print(error)
+                    debugPrint(error)
                     block(successful: false, error: error)
                 }
             }
@@ -344,7 +344,7 @@ class Requests {
                             return
                         }
                         for item in items {
-                            print(item)
+                            debugPrint(item)
                         }
                         block(settings: settings, successful: true, error: nil)
                     }

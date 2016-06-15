@@ -22,11 +22,11 @@ enum Segues {
     static let showProfileMedia = "ShowProfileMedia"
     static let showProfile = "ShowMyProfile"
     
-    static let showFollowTable = "ShowFollowTable"
     static let showAttending = "ShowAttending"
 }
 
 enum Identifiers {
+    static let eventAttendingCell = "AttendingCell"
     static let profileActivityCell = "ActivityCell"
     static let profileMediaCell = "MediaCell"
     static let profileHeader = "ProfileViewHeader"

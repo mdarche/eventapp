@@ -44,8 +44,6 @@ class MainMenuViewController: UITableViewController {
     func visualize() {
         animateTable()
         setTableViewBackgroundGradient(self)
-//        logoutButton.layer.borderColor = UIColor(white: 1.0, alpha: 0.7).CGColor
-
     }
     
     
@@ -67,6 +65,16 @@ class MainMenuViewController: UITableViewController {
         switch indexPath {
         case 0:
             performSegueWithIdentifier(Segues.showProfile, sender: self)
+//        case 1:
+//            // Segue to edit profile
+//        case 2:
+//            // Segue to Follower/Following/Invite User table
+//        case 3:
+//            // Segue to Notification Settings
+//        case 4:
+//            // Segue to Terms webview
+//        case 5:
+//            //Segue to Privacy webview
         default: break
         }
     }

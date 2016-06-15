@@ -47,8 +47,8 @@
 		CBCF43751CFDF5C800E691DD /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCF43741CFDF5C800E691DD /* CurrentUser.swift */; };
 		CBD7A3FF1D087483000CD9C2 /* MapCalloutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD7A3FE1D087483000CD9C2 /* MapCalloutView.swift */; };
 		CBD7A4011D088F88000CD9C2 /* MapCallout.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBD7A4001D088F88000CD9C2 /* MapCallout.xib */; };
-		CBD7A4031D0A110A000CD9C2 /* UserTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD7A4021D0A110A000CD9C2 /* UserTableViewController.swift */; };
-		CBD7A4051D0B2DBB000CD9C2 /* UserTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD7A4041D0B2DBB000CD9C2 /* UserTableCell.swift */; };
+		CBD7A4031D0A110A000CD9C2 /* AttendingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD7A4021D0A110A000CD9C2 /* AttendingTableViewController.swift */; };
+		CBD7A4051D0B2DBB000CD9C2 /* AttendingTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD7A4041D0B2DBB000CD9C2 /* AttendingTableCell.swift */; };
 		CBD7A40A1D0F3327000CD9C2 /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CBD7A4071D0F3327000CD9C2 /* Roboto-Light.ttf */; };
 		CBD7A40B1D0F3327000CD9C2 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CBD7A4081D0F3327000CD9C2 /* Roboto-Medium.ttf */; };
 		CBD7A40C1D0F3327000CD9C2 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CBD7A4091D0F3327000CD9C2 /* Roboto-Regular.ttf */; };
@@ -129,8 +129,8 @@
 		CBCF43741CFDF5C800E691DD /* CurrentUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CurrentUser.swift; path = Models/CurrentUser.swift; sourceTree = "<group>"; };
 		CBD7A3FE1D087483000CD9C2 /* MapCalloutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapCalloutView.swift; path = Views/MapCalloutView.swift; sourceTree = "<group>"; };
 		CBD7A4001D088F88000CD9C2 /* MapCallout.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MapCallout.xib; path = Views/MapCallout.xib; sourceTree = "<group>"; };
-		CBD7A4021D0A110A000CD9C2 /* UserTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserTableViewController.swift; path = Controllers/UserTableViewController.swift; sourceTree = "<group>"; };
-		CBD7A4041D0B2DBB000CD9C2 /* UserTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserTableCell.swift; path = Views/UserTableCell.swift; sourceTree = "<group>"; };
+		CBD7A4021D0A110A000CD9C2 /* AttendingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AttendingTableViewController.swift; path = Controllers/AttendingTableViewController.swift; sourceTree = "<group>"; };
+		CBD7A4041D0B2DBB000CD9C2 /* AttendingTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AttendingTableCell.swift; path = Views/AttendingTableCell.swift; sourceTree = "<group>"; };
 		CBD7A4071D0F3327000CD9C2 /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Light.ttf"; path = "Resources/Roboto-Light.ttf"; sourceTree = "<group>"; };
 		CBD7A4081D0F3327000CD9C2 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Medium.ttf"; path = "Resources/Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		CBD7A4091D0F3327000CD9C2 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Regular.ttf"; path = "Resources/Roboto-Regular.ttf"; sourceTree = "<group>"; };
@@ -299,7 +299,6 @@
 				CB73E19E1CCFED0900E6C6AF /* ListFeedCell.swift */,
 				CBFD3E0A1CD26A9400FBE4A8 /* NewsFeedCell.swift */,
 				1313E4E11CD6689E0050483C /* NewsFeedHeader.swift */,
-				CBD7A4041D0B2DBB000CD9C2 /* UserTableCell.swift */,
 				CBD7A4141D107816000CD9C2 /* Map */,
 				CBD7A4121D1077EF000CD9C2 /* Organizer */,
 				CBD7A4131D107802000CD9C2 /* Profile */,
@@ -337,7 +336,7 @@
 				CBB4512E1CD7D1AA00AD6A73 /* MediaDetailViewController.swift */,
 				CBB451381CD939F200AD6A73 /* OrganizerViewController.swift */,
 				CBB451301CD7F2F600AD6A73 /* ProfileViewController.swift */,
-				CBD7A4021D0A110A000CD9C2 /* UserTableViewController.swift */,
+				CBD7A4021D0A110A000CD9C2 /* AttendingTableViewController.swift */,
 			);
 			name = Main;
 			sourceTree = "<group>";
@@ -375,6 +374,7 @@
 		CBD7A4151D107839000CD9C2 /* Event */ = {
 			isa = PBXGroup;
 			children = (
+				CBD7A4041D0B2DBB000CD9C2 /* AttendingTableCell.swift */,
 				CB037EF71CE25CA400720835 /* EventMediaCell.swift */,
 				CB037EFB1CE25D7600720835 /* EventHeader.swift */,
 			);
@@ -605,12 +605,12 @@
 				1313E4E01CD6685F0050483C /* ProfileHeader.swift in Sources */,
 				CB037EF81CE25CA400720835 /* EventMediaCell.swift in Sources */,
 				CB119FAE1CEE3CB80086B785 /* NetworkRouter.swift in Sources */,
-				CBD7A4051D0B2DBB000CD9C2 /* UserTableCell.swift in Sources */,
+				CBD7A4051D0B2DBB000CD9C2 /* AttendingTableCell.swift in Sources */,
 				CBB451331CD7FE1200AD6A73 /* Constants.swift in Sources */,
 				CBA899FA1D04A343003A2B87 /* MapAnnotationView.swift in Sources */,
 				1313E4E71CD682D00050483C /* Activity.swift in Sources */,
 				13210F201CC86C5300B3E257 /* AppDelegate.swift in Sources */,
-				CBD7A4031D0A110A000CD9C2 /* UserTableViewController.swift in Sources */,
+				CBD7A4031D0A110A000CD9C2 /* AttendingTableViewController.swift in Sources */,
 				13210F531CC93F2D00B3E257 /* MapViewController.swift in Sources */,
 				13210F551CC93FB200B3E257 /* ListViewController.swift in Sources */,
 				CBCF43731CF7770800E691DD /* MapAnnotation.swift in Sources */,

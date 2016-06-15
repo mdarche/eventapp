@@ -107,7 +107,7 @@ extension LoginViewController {
         print(userToken)
         
         if (error != nil) {
-            print(error.localizedDescription)
+            debugPrint(error.localizedDescription)
         } else {
             //TODO: Add popup for adding username. Upon completion add the following:
             

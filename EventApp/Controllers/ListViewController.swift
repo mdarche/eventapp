@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import Alamofire
-import SwiftyJSON
 
 class ListViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
@@ -16,8 +14,6 @@ class ListViewController: UICollectionViewController, UICollectionViewDelegateFl
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        downloadData()
         visualize()
     }
     
@@ -43,16 +39,6 @@ class ListViewController: UICollectionViewController, UICollectionViewDelegateFl
     
     func visualize() {
 
-    }
-    
-    func downloadData() {
-        
-//        Requests.getActivitiesCollection(["34.8599979,33.5501066" , "10mi"]) { (activities, successful, error) in
-//            if successful {
-//                print("this worked")
-//            }
-//        }
-        
     }
     
     

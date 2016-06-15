@@ -27,6 +27,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         super.viewDidLoad()
         setupLocationManager()
         
+        // TODO: Move this to Unit Tests
         
         let testActivity1 = Activity(activityId: 12, type: "event", eventType: "beach-party", latitude: 37.328001, longitude: -122.038175, title: "Test Party 1", coverImage: "https://pbs.twimg.com/profile_images/586482256652308480/vzDYvxsY.jpg", venueTitle: nil, venueType: nil)
         
@@ -47,8 +48,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         
     }
     
-    
-    // MARK: Manage Memory
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -110,21 +109,20 @@ extension MapViewController {
             return pulseView
         }
         
-        if let annotation = annotation as? MapAnnotation {
-            let identifier = "pin"
-            var view : MapAnnotationView
-            
-            if let dequeuedView = mapView.dequeueReusableAnnotationViewWithIdentifier(identifier) as? MapAnnotationView {
-                // Reuse Annotation
-                dequeuedView.annotation = annotation
-                view = dequeuedView
-            } else {
-                // Create new annotation
-                view = MapAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-            }
-            return view
+        guard let annotation = annotation as? MapAnnotation else { return nil }
+        
+        let identifier = "pin"
+        var view : MapAnnotationView
+        
+        if let dequeuedView = mapView.dequeueReusableAnnotationViewWithIdentifier(identifier) as? MapAnnotationView {
+            // Reuse Annotation
+            dequeuedView.annotation = annotation
+            view = dequeuedView
+        } else {
+            // Create new annotation
+            view = MapAnnotationView(annotation: annotation, reuseIdentifier: identifier)
         }
-        return nil
+        return view
     }
     
     

@@ -1,5 +1,5 @@
 //
-//  UserTableCell.swift
+//  AttendingTableCell.swift
 //  EventApp
 //
 //  Created by Michael Darche on 6/10/16.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UserTableCell: UITableViewCell {
+class AttendingTableCell: UITableViewCell {
 
     @IBOutlet weak var userProfileImage: UIImageView!
     @IBOutlet weak var usernameLabel: UILabel!
