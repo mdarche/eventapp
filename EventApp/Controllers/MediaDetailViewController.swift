@@ -12,7 +12,6 @@ class MediaDetailViewController: UIViewController {
 
     @IBOutlet weak var mediaView: UIView!
     @IBOutlet weak var eventTitle: UILabel!
-    @IBOutlet weak var ownerName: UILabel!
     @IBOutlet weak var uploadDate: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     

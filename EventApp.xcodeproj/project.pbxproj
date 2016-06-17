@@ -44,7 +44,6 @@
 		CBB451391CD939F200AD6A73 /* OrganizerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB451381CD939F200AD6A73 /* OrganizerViewController.swift */; };
 		CBB4513B1CDBB78100AD6A73 /* OrganizerNewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB4513A1CDBB78000AD6A73 /* OrganizerNewsCell.swift */; };
 		CBCF43731CF7770800E691DD /* MapAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCF43721CF7770800E691DD /* MapAnnotation.swift */; };
-		CBCF43751CFDF5C800E691DD /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCF43741CFDF5C800E691DD /* CurrentUser.swift */; };
 		CBD7A3FF1D087483000CD9C2 /* MapCalloutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD7A3FE1D087483000CD9C2 /* MapCalloutView.swift */; };
 		CBD7A4011D088F88000CD9C2 /* MapCallout.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBD7A4001D088F88000CD9C2 /* MapCallout.xib */; };
 		CBD7A4031D0A110A000CD9C2 /* AttendingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD7A4021D0A110A000CD9C2 /* AttendingTableViewController.swift */; };
@@ -54,9 +53,17 @@
 		CBD7A40C1D0F3327000CD9C2 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CBD7A4091D0F3327000CD9C2 /* Roboto-Regular.ttf */; };
 		CBD7A40E1D0F52B6000CD9C2 /* OrganizerUpcomingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD7A40D1D0F52B6000CD9C2 /* OrganizerUpcomingCell.swift */; };
 		CBD7A4101D107350000CD9C2 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD7A40F1D107350000CD9C2 /* Notification.swift */; };
-		CBFD3E081CD1A92900FBE4A8 /* FeedViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFD3E071CD1A92900FBE4A8 /* FeedViewLayout.swift */; };
+		CBD7A4181D11BBD9000CD9C2 /* CurrentUser.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CBD7A4161D11BBD9000CD9C2 /* CurrentUser.xcdatamodeld */; };
+		CBD7A41A1D11BC22000CD9C2 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD7A4191D11BC22000CD9C2 /* DataController.swift */; };
+		CBD7A41E1D11BF08000CD9C2 /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD7A41C1D11BF08000CD9C2 /* CurrentUser.swift */; };
+		CBFD3E081CD1A92900FBE4A8 /* GridViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFD3E071CD1A92900FBE4A8 /* GridViewLayout.swift */; };
 		CBFD3E0B1CD26A9400FBE4A8 /* NewsFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFD3E0A1CD26A9400FBE4A8 /* NewsFeedCell.swift */; };
-		CBFD3E0D1CD26D9F00FBE4A8 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFD3E0C1CD26D9F00FBE4A8 /* FeedViewController.swift */; };
+		CBFD3E0D1CD26D9F00FBE4A8 /* MediaGridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFD3E0C1CD26D9F00FBE4A8 /* MediaGridViewController.swift */; };
+		CBFFCE831D144FB100C32877 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFFCE821D144FB100C32877 /* EditProfileViewController.swift */; };
+		CBFFCE851D14553500C32877 /* NotificationSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFFCE841D14553500C32877 /* NotificationSettingsViewController.swift */; };
+		CBFFCE871D14574900C32877 /* PrivacyTermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFFCE861D14574900C32877 /* PrivacyTermsViewController.swift */; };
+		CBFFCE891D145E3200C32877 /* MediaFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFFCE881D145E3200C32877 /* MediaFeedViewController.swift */; };
+		CBFFCE8B1D14617C00C32877 /* FFITableviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFFCE8A1D14617C00C32877 /* FFITableviewController.swift */; };
 		E95ACA47502F5AC611397AB7 /* Pods_EventApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9914B401D19A02F6CB2593EC /* Pods_EventApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -126,7 +133,6 @@
 		CBB451381CD939F200AD6A73 /* OrganizerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OrganizerViewController.swift; path = Controllers/OrganizerViewController.swift; sourceTree = "<group>"; };
 		CBB4513A1CDBB78000AD6A73 /* OrganizerNewsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OrganizerNewsCell.swift; path = Views/OrganizerNewsCell.swift; sourceTree = "<group>"; };
 		CBCF43721CF7770800E691DD /* MapAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapAnnotation.swift; path = Models/MapAnnotation.swift; sourceTree = "<group>"; };
-		CBCF43741CFDF5C800E691DD /* CurrentUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CurrentUser.swift; path = Models/CurrentUser.swift; sourceTree = "<group>"; };
 		CBD7A3FE1D087483000CD9C2 /* MapCalloutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapCalloutView.swift; path = Views/MapCalloutView.swift; sourceTree = "<group>"; };
 		CBD7A4001D088F88000CD9C2 /* MapCallout.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MapCallout.xib; path = Views/MapCallout.xib; sourceTree = "<group>"; };
 		CBD7A4021D0A110A000CD9C2 /* AttendingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AttendingTableViewController.swift; path = Controllers/AttendingTableViewController.swift; sourceTree = "<group>"; };
@@ -136,9 +142,17 @@
 		CBD7A4091D0F3327000CD9C2 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Regular.ttf"; path = "Resources/Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		CBD7A40D1D0F52B6000CD9C2 /* OrganizerUpcomingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OrganizerUpcomingCell.swift; path = Views/OrganizerUpcomingCell.swift; sourceTree = "<group>"; };
 		CBD7A40F1D107350000CD9C2 /* Notification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Notification.swift; path = Models/Notification.swift; sourceTree = "<group>"; };
-		CBFD3E071CD1A92900FBE4A8 /* FeedViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedViewLayout.swift; path = Layouts/FeedViewLayout.swift; sourceTree = "<group>"; };
+		CBD7A4171D11BBD9000CD9C2 /* CurrentUser.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CurrentUser.xcdatamodel; sourceTree = "<group>"; };
+		CBD7A4191D11BC22000CD9C2 /* DataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataController.swift; path = Models/DataController.swift; sourceTree = "<group>"; };
+		CBD7A41C1D11BF08000CD9C2 /* CurrentUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CurrentUser.swift; path = Models/CurrentUser.swift; sourceTree = "<group>"; };
+		CBFD3E071CD1A92900FBE4A8 /* GridViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GridViewLayout.swift; path = Layouts/GridViewLayout.swift; sourceTree = "<group>"; };
 		CBFD3E0A1CD26A9400FBE4A8 /* NewsFeedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewsFeedCell.swift; path = Views/NewsFeedCell.swift; sourceTree = "<group>"; };
-		CBFD3E0C1CD26D9F00FBE4A8 /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedViewController.swift; path = Controllers/FeedViewController.swift; sourceTree = "<group>"; };
+		CBFD3E0C1CD26D9F00FBE4A8 /* MediaGridViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MediaGridViewController.swift; path = Controllers/MediaGridViewController.swift; sourceTree = "<group>"; };
+		CBFFCE821D144FB100C32877 /* EditProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditProfileViewController.swift; path = Controllers/EditProfileViewController.swift; sourceTree = "<group>"; };
+		CBFFCE841D14553500C32877 /* NotificationSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotificationSettingsViewController.swift; path = Controllers/NotificationSettingsViewController.swift; sourceTree = "<group>"; };
+		CBFFCE861D14574900C32877 /* PrivacyTermsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PrivacyTermsViewController.swift; path = Controllers/PrivacyTermsViewController.swift; sourceTree = "<group>"; };
+		CBFFCE881D145E3200C32877 /* MediaFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MediaFeedViewController.swift; path = Controllers/MediaFeedViewController.swift; sourceTree = "<group>"; };
+		CBFFCE8A1D14617C00C32877 /* FFITableviewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FFITableviewController.swift; path = Controllers/FFITableviewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,7 +188,9 @@
 			isa = PBXGroup;
 			children = (
 				1313E4E61CD682D00050483C /* Activity.swift */,
-				CBCF43741CFDF5C800E691DD /* CurrentUser.swift */,
+				CBD7A4161D11BBD9000CD9C2 /* CurrentUser.xcdatamodeld */,
+				CBD7A41C1D11BF08000CD9C2 /* CurrentUser.swift */,
+				CBD7A4191D11BC22000CD9C2 /* DataController.swift */,
 				CB119FB31CEF6C2B0086B785 /* User.swift */,
 				CBCF43721CF7770800E691DD /* MapAnnotation.swift */,
 				CB119FB11CEE5CD30086B785 /* Media.swift */,
@@ -328,13 +344,18 @@
 			isa = PBXGroup;
 			children = (
 				13210F581CC941D500B3E257 /* EventViewController.swift */,
-				CBFD3E0C1CD26D9F00FBE4A8 /* FeedViewController.swift */,
+				CBFFCE821D144FB100C32877 /* EditProfileViewController.swift */,
 				13210F561CC93FEC00B3E257 /* HomeViewController.swift */,
 				13210F541CC93FB200B3E257 /* ListViewController.swift */,
 				13210F5A1CC942A400B3E257 /* MainMenuViewController.swift */,
 				13210F521CC93F2D00B3E257 /* MapViewController.swift */,
+				CBFD3E0C1CD26D9F00FBE4A8 /* MediaGridViewController.swift */,
+				CBFFCE881D145E3200C32877 /* MediaFeedViewController.swift */,
 				CBB4512E1CD7D1AA00AD6A73 /* MediaDetailViewController.swift */,
+				CBFFCE8A1D14617C00C32877 /* FFITableviewController.swift */,
+				CBFFCE841D14553500C32877 /* NotificationSettingsViewController.swift */,
 				CBB451381CD939F200AD6A73 /* OrganizerViewController.swift */,
+				CBFFCE861D14574900C32877 /* PrivacyTermsViewController.swift */,
 				CBB451301CD7F2F600AD6A73 /* ProfileViewController.swift */,
 				CBD7A4021D0A110A000CD9C2 /* AttendingTableViewController.swift */,
 			);
@@ -384,7 +405,7 @@
 		CBFD3E091CD26A3C00FBE4A8 /* Layouts */ = {
 			isa = PBXGroup;
 			children = (
-				CBFD3E071CD1A92900FBE4A8 /* FeedViewLayout.swift */,
+				CBFD3E071CD1A92900FBE4A8 /* GridViewLayout.swift */,
 			);
 			name = Layouts;
 			sourceTree = "<group>";
@@ -591,36 +612,43 @@
 				CBB451351CD82FD200AD6A73 /* ProfileActivityCell.swift in Sources */,
 				CBB451311CD7F2F600AD6A73 /* ProfileViewController.swift in Sources */,
 				CB119FB21CEE5CD30086B785 /* Media.swift in Sources */,
-				CBFD3E0D1CD26D9F00FBE4A8 /* FeedViewController.swift in Sources */,
+				CBFD3E0D1CD26D9F00FBE4A8 /* MediaGridViewController.swift in Sources */,
+				CBFFCE831D144FB100C32877 /* EditProfileViewController.swift in Sources */,
 				CBB4513B1CDBB78100AD6A73 /* OrganizerNewsCell.swift in Sources */,
 				13210F5B1CC942A400B3E257 /* MainMenuViewController.swift in Sources */,
 				13210F591CC941D500B3E257 /* EventViewController.swift in Sources */,
 				CBD7A4101D107350000CD9C2 /* Notification.swift in Sources */,
 				CBB451391CD939F200AD6A73 /* OrganizerViewController.swift in Sources */,
 				CB037EFC1CE25D7600720835 /* EventHeader.swift in Sources */,
-				CBCF43751CFDF5C800E691DD /* CurrentUser.swift in Sources */,
 				CBB4512F1CD7D1AA00AD6A73 /* MediaDetailViewController.swift in Sources */,
 				CBFD3E0B1CD26A9400FBE4A8 /* NewsFeedCell.swift in Sources */,
+				CBFFCE891D145E3200C32877 /* MediaFeedViewController.swift in Sources */,
 				CB73E19A1CCEB3B200E6C6AF /* ClassExtensions.swift in Sources */,
 				1313E4E01CD6685F0050483C /* ProfileHeader.swift in Sources */,
 				CB037EF81CE25CA400720835 /* EventMediaCell.swift in Sources */,
 				CB119FAE1CEE3CB80086B785 /* NetworkRouter.swift in Sources */,
 				CBD7A4051D0B2DBB000CD9C2 /* AttendingTableCell.swift in Sources */,
 				CBB451331CD7FE1200AD6A73 /* Constants.swift in Sources */,
+				CBFFCE851D14553500C32877 /* NotificationSettingsViewController.swift in Sources */,
 				CBA899FA1D04A343003A2B87 /* MapAnnotationView.swift in Sources */,
 				1313E4E71CD682D00050483C /* Activity.swift in Sources */,
 				13210F201CC86C5300B3E257 /* AppDelegate.swift in Sources */,
 				CBD7A4031D0A110A000CD9C2 /* AttendingTableViewController.swift in Sources */,
+				CBD7A4181D11BBD9000CD9C2 /* CurrentUser.xcdatamodeld in Sources */,
 				13210F531CC93F2D00B3E257 /* MapViewController.swift in Sources */,
+				CBFFCE871D14574900C32877 /* PrivacyTermsViewController.swift in Sources */,
 				13210F551CC93FB200B3E257 /* ListViewController.swift in Sources */,
+				CBD7A41E1D11BF08000CD9C2 /* CurrentUser.swift in Sources */,
+				CBD7A41A1D11BC22000CD9C2 /* DataController.swift in Sources */,
 				CBCF43731CF7770800E691DD /* MapAnnotation.swift in Sources */,
 				13210F571CC93FEC00B3E257 /* HomeViewController.swift in Sources */,
 				CBD7A40E1D0F52B6000CD9C2 /* OrganizerUpcomingCell.swift in Sources */,
 				CB73E19F1CCFED0900E6C6AF /* ListFeedCell.swift in Sources */,
 				CBD7A3FF1D087483000CD9C2 /* MapCalloutView.swift in Sources */,
-				CBFD3E081CD1A92900FBE4A8 /* FeedViewLayout.swift in Sources */,
+				CBFD3E081CD1A92900FBE4A8 /* GridViewLayout.swift in Sources */,
 				CB119FB41CEF6C2B0086B785 /* User.swift in Sources */,
 				1313E4E21CD6689E0050483C /* NewsFeedHeader.swift in Sources */,
+				CBFFCE8B1D14617C00C32877 /* FFITableviewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -886,6 +914,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		CBD7A4161D11BBD9000CD9C2 /* CurrentUser.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				CBD7A4171D11BBD9000CD9C2 /* CurrentUser.xcdatamodel */,
+			);
+			currentVersion = CBD7A4171D11BBD9000CD9C2 /* CurrentUser.xcdatamodel */;
+			name = CurrentUser.xcdatamodeld;
+			path = Models/CurrentUser.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 13210F141CC86C5300B3E257 /* Project object */;
 }

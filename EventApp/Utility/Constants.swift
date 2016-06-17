@@ -21,8 +21,18 @@ enum Segues {
     
     static let showProfileMedia = "ShowProfileMedia"
     static let showProfile = "ShowMyProfile"
+    static let showFFTable = "ShowFFTable"
     
     static let showAttending = "ShowAttending"
+    
+    static let showSettingsFromMenu = "SettingsToEditProfile"
+    static let showSettingsFromProfile = "ProfileToEditProfile"
+    
+    static let showNotificationSettings = "ShowNotificationSettings"
+    static let showPrivacyTerms = "ShowPrivacyTerms"
+    static let showInviteTable = "ShowInviteTable"
+    
+    static let showMediaFeedView = "ShowMediaFeedView"
 }
 
 enum Identifiers {

@@ -1,5 +1,5 @@
 //
-//  FeedViewLayout.swift
+//  GridViewLayout.swift
 //  EventApp
 //
 //  Created by Michael Darche on 4/27/16.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FeedViewLayout: UICollectionViewFlowLayout {
+class GridViewLayout: UICollectionViewFlowLayout {
     
     override init() {
         super.init()

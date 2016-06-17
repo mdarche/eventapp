@@ -30,11 +30,22 @@ class MainMenuViewController: UITableViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == Segues.showProfile {
-            guard let vc = segue.destinationViewController as? ProfileViewController else {
-                return
-            }
+            guard let vc = segue.destinationViewController as? ProfileViewController else { return }
             vc.isMe = true
         }
+        
+        if segue.identifier == Segues.showPrivacyTerms {
+            guard let vc = segue.destinationViewController as? PrivacyTermsViewController else { return }
+            if sender as! String == "privacy" {
+                vc.isPrivacy = true
+            }
+        }
+
+        if segue.identifier == Segues.showInviteTable {
+            guard let vc = segue.destinationViewController as? FFITableviewController else { return }
+            vc.isInvitation = true
+        }
+        
     }
     
     
@@ -65,16 +76,16 @@ class MainMenuViewController: UITableViewController {
         switch indexPath {
         case 0:
             performSegueWithIdentifier(Segues.showProfile, sender: self)
-//        case 1:
-//            // Segue to edit profile
-//        case 2:
-//            // Segue to Follower/Following/Invite User table
-//        case 3:
-//            // Segue to Notification Settings
-//        case 4:
-//            // Segue to Terms webview
-//        case 5:
-//            //Segue to Privacy webview
+        case 1:
+            performSegueWithIdentifier(Segues.showSettingsFromMenu, sender: self)
+        case 2:
+            performSegueWithIdentifier(Segues.showNotificationSettings, sender: self)
+        case 3:
+            performSegueWithIdentifier(Segues.showInviteTable, sender: self)
+        case 4:
+            performSegueWithIdentifier(Segues.showPrivacyTerms, sender: "terms")
+        case 5:
+            performSegueWithIdentifier(Segues.showPrivacyTerms, sender: "privacy")
         default: break
         }
     }

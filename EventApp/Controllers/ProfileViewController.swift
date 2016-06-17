@@ -46,7 +46,7 @@ class ProfileViewController: UICollectionViewController, UICollectionViewDelegat
     }
     
     func settingsPressed() {
-        // TODO: Segue to edit profile screen
+        performSegueWithIdentifier(Segues.showSettingsFromProfile, sender: self)
     }
 
     func followUserPressed() {

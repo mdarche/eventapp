@@ -1,26 +1,98 @@
 //
 //  CurrentUser.swift
-//  EventApp
+//  
 //
-//  Created by Michael Darche on 5/31/16.
-//  Copyright © 2016 Michael Darche. All rights reserved.
+//  Created by Michael Darche on 6/15/16.
+//
 //
 
 import Foundation
+import CoreData
 import SwiftyJSON
 
-class CurrentUser : User {
 
-    var upcomingEvents : [Activity]?
+class CurrentUser: NSManagedObject {
+
+    @NSManaged var displayName: String?
+    @NSManaged var username: String?
+    @NSManaged var firstName: String?
+    @NSManaged var lastName: String?
+    @NSManaged var city: String?
+    @NSManaged var profileId: NSNumber?
+    @NSManaged var personalDescription: String?
+    @NSManaged var profileImage: String?
+    @NSManaged var email: String?
+    @NSManaged var followerCount: NSNumber?
+    @NSManaged var followingCount: NSNumber?
+    @NSManaged var eventsAttended: NSNumber?
+    @NSManaged var eventsMissed : NSNumber?
     
-    // TODO: Use this User subclass for persistent storage and request shortcuts
+    @NSManaged var followingIds : [String]?
+
     
-    override init?(json: JSON) {
-        super.init(json: json)
+}
+
+
+extension CurrentUser {
+    
+    // MARK: Profile Functions
+    
+    func updateFromJson(json: JSON) {
+        
+        profileId = json["profileId"].int
+        username = json["username"].string
+        displayName = json["displayName"].string
+        firstName = json["name"].string
+        lastName = json["surname"].string
+        
+        city = json["location"].string
+        email = json["email"].string
+        personalDescription = json["description"].string
+        profileImage = json["avatar"].string
+        
+        followerCount = json["followers"].int
+        followingCount = json["following"].int
+        eventsAttended = json["eventsAttended"].int
+        eventsMissed = json["eventsMissed"].int
+    }
+
+    func updateProfile() {
+        // TODO: add various params and variables, add completion handler, make network request, save if successful
     }
     
-    func saveUser(completion: ((successful: Bool, error: NSError?)-> Void)?) {
+    
+//    func getUserProfile() -> User {
+//        
+//    }
+    
+    
+    // MARK: Following Functions
+    
+    func followUser(follow: Bool, followingId: String) {
+//        if follow {
+//            followingCount += 1
+//            // TODO: add string to array and save
+//        } else {
+//            followingCount -= 1
+//            //TODO: remove string from array and save
+//        }
+    }
+    
+    
+    // MARK: Event Functions
+    
+    func attendEvent(){
+        // TODO: make network request and save
+    }
+    
+    func unattendEvent(){
         
     }
     
+    
+    // MARK: Save Current User 
+    
+    func saveCurrentUser() {
+        
+    }
 }

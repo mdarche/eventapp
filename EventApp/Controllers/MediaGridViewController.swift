@@ -1,5 +1,5 @@
 //
-//  FeedViewController.swift
+//  MediaGridViewController.swift
 //  EventApp
 //
 //  Created by Michael Darche on 4/28/16.
@@ -8,14 +8,16 @@
 
 import UIKit
 
-class FeedViewController: UICollectionViewController {
+class MediaGridViewController: UICollectionViewController {
+    
+    var gridMedia : [Media]?
     
     // MARK: View's Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.collectionView!.collectionViewLayout = FeedViewLayout()
+        self.collectionView!.collectionViewLayout = GridViewLayout()
         visualize()
     }
     
@@ -32,7 +34,9 @@ class FeedViewController: UICollectionViewController {
     // MARK: View's Transition Handler
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-
+//        if segue.identifier == Segues.showMediaFeedView {
+//            guard let vc = segue.destinationViewController as? MediaFeedViewController else { return }
+//        }
     }
     
     
@@ -46,7 +50,7 @@ class FeedViewController: UICollectionViewController {
 
 // MARK: CollectionView Config
 
-extension FeedViewController {
+extension MediaGridViewController {
     
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
@@ -62,7 +66,7 @@ extension FeedViewController {
     }
     
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-    //TODO: Segue to full width collection view using same data
+        performSegueWithIdentifier(Segues.showMediaFeedView, sender: indexPath)
     }
     
     override func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView
