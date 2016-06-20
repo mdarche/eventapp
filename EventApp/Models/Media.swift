@@ -13,14 +13,14 @@ class Media: NSObject {
     
     var mediaId : Int?
     var mimeType : String?
-    var mediaURL: String?
-    var previewURL: String?
+    var mediaURL: NSURL?
+    var previewURL: NSURL?
     
     init?(json: JSON) {
         mediaId = json["mediaId"].int
         mimeType = json["mimeType"].string
-        mediaURL = json["location"].string
-        previewURL = json["preview"].string
+        mediaURL = json["location"].URL
+        previewURL = json["preview"].URL
         
         if mediaId == nil { return nil }
     }

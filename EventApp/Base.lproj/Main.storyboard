@@ -35,6 +35,7 @@
             <string>Roboto-Light</string>
             <string>Roboto-Light</string>
             <string>Roboto-Light</string>
+            <string>Roboto-Light</string>
         </mutableArray>
         <mutableArray key="Roboto-Medium.ttf">
             <string>Roboto-Medium</string>
@@ -42,6 +43,7 @@
             <string>Roboto-Medium</string>
         </mutableArray>
         <mutableArray key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
             <string>Roboto-Regular</string>
             <string>Roboto-Regular</string>
             <string>Roboto-Regular</string>
@@ -643,6 +645,9 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <connections>
+                                            <segue destination="JWr-if-aAU" kind="show" identifier="SettingsToEditProfile" id="yZ6-7C-MtT"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="0.0" rowHeight="60" id="90R-IV-7a3">
                                         <rect key="frame" x="0.0" y="292" width="375" height="60"/>
@@ -686,6 +691,9 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <connections>
+                                            <segue destination="3Xi-Hg-MtW" kind="show" identifier="ShowNotificationSettings" id="IvM-u3-J6o"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="0.0" rowHeight="60" id="GT2-6I-SYk">
                                         <rect key="frame" x="0.0" y="352" width="375" height="60"/>
@@ -729,6 +737,9 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <connections>
+                                            <segue destination="HMc-MS-ITS" kind="show" identifier="ShowInviteTable" id="WOJ-F6-NX0"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="0.0" rowHeight="60" id="MhM-po-JEy">
                                         <rect key="frame" x="0.0" y="412" width="375" height="60"/>
@@ -772,6 +783,9 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <connections>
+                                            <segue destination="Us1-GH-zVv" kind="show" identifier="ShowTerms" id="qXX-8T-Eyo"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="0.0" rowHeight="60" id="yhx-VM-WbO">
                                         <rect key="frame" x="0.0" y="472" width="375" height="60"/>
@@ -815,6 +829,9 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <connections>
+                                            <segue destination="Us1-GH-zVv" kind="show" identifier="ShowPrivacyPolicy" id="CCG-Yg-VT8"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -858,15 +875,11 @@
                     <connections>
                         <outlet property="logoutButton" destination="0zr-yE-JCW" id="aPD-D0-3ZS"/>
                         <outlet property="tableHeader" destination="BWk-Rw-c9n" id="dKk-NU-Loq"/>
-                        <segue destination="JWr-if-aAU" kind="show" identifier="SettingsToEditProfile" id="KyJ-2E-R8n"/>
-                        <segue destination="3Xi-Hg-MtW" kind="show" identifier="ShowNotificationSettings" id="tYO-sf-FAa"/>
-                        <segue destination="Us1-GH-zVv" kind="show" identifier="ShowPrivacyTerms" id="4S2-eN-Eve"/>
-                        <segue destination="HMc-MS-ITS" kind="show" identifier="ShowInviteTable" id="LQV-XC-Kke"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9ea-u7-OZN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="245.5" y="949.5"/>
+            <point key="canvasLocation" x="221.5" y="837.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="dJp-dw-RkL">
@@ -939,7 +952,7 @@
         <!--Profile View Controller-->
         <scene sceneID="OVC-xk-GY3">
             <objects>
-                <collectionViewController id="OIk-1A-XRT" customClass="ProfileViewController" customModule="EventApp" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController storyboardIdentifier="UserProfileViewController" id="OIk-1A-XRT" customClass="ProfileViewController" customModule="EventApp" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" id="r1s-fp-pmr">
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1201,6 +1214,9 @@
                                             <state key="normal" title="35">
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
+                                            <connections>
+                                                <action selector="followersPressed:" destination="OIk-1A-XRT" eventType="touchUpInside" id="pR7-cc-YeE"/>
+                                            </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Followers" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GXZ-Ck-RPQ" userLabel="#Followers">
                                             <rect key="frame" x="188" y="191" width="93" height="12"/>
@@ -1215,6 +1231,9 @@
                                             <state key="normal" title="20">
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
+                                            <connections>
+                                                <action selector="followingPressed:" destination="OIk-1A-XRT" eventType="touchUpInside" id="tFw-oZ-gJq"/>
+                                            </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Following" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jK2-da-Mtm" userLabel="#Following">
                                             <rect key="frame" x="281" y="191" width="94" height="12"/>
@@ -1352,22 +1371,43 @@
             </objects>
             <point key="canvasLocation" x="-160.5" y="1779.5"/>
         </scene>
-        <!--Tableview Controller-->
+        <!--Followers-->
         <scene sceneID="jKX-xt-dXF">
             <objects>
                 <tableViewController id="HMc-MS-ITS" customClass="FFITableviewController" customModule="EventApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="LQ5-L5-ba1">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="58" sectionHeaderHeight="28" sectionFooterHeight="28" id="LQ5-L5-ba1">
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="hBx-JI-8Xc">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FFICell" rowHeight="58" id="hBx-JI-8Xc" customClass="FFITableViewCell" customModule="EventApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="58"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hBx-JI-8Xc" id="1kg-0v-MBN">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="57"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dXO-q7-ORM">
+                                            <rect key="frame" x="19" y="11" width="35" height="35"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ene-d4-a5Y">
+                                            <rect key="frame" x="72" y="18" width="201" height="21"/>
+                                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kc1-sU-ZDM">
+                                            <rect key="frame" x="287" y="16" width="75" height="25"/>
+                                            <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="13"/>
+                                            <state key="normal" title="Follow"/>
+                                        </button>
+                                    </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="button" destination="Kc1-sU-ZDM" id="6iA-NJ-vHk"/>
+                                    <outlet property="imageThumbnail" destination="dXO-q7-ORM" id="6Dp-rs-5oP"/>
+                                    <outlet property="nameLabel" destination="ene-d4-a5Y" id="o1y-qU-iwz"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -1375,11 +1415,12 @@
                             <outlet property="delegate" destination="HMc-MS-ITS" id="zcR-qa-LKf"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Followers" id="Heh-Fa-sH4"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ndv-Sq-g0i" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-160.5" y="2688.5"/>
+            <point key="canvasLocation" x="-142.5" y="2668.5"/>
         </scene>
         <!--Edit Profile-->
         <scene sceneID="2xI-La-MeN">
@@ -2202,8 +2243,9 @@
         <image name="sample" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="KyJ-2E-R8n"/>
-        <segue reference="LQV-XC-Kke"/>
+        <segue reference="WOJ-F6-NX0"/>
+        <segue reference="qXX-8T-Eyo"/>
+        <segue reference="y4z-i5-7rP"/>
         <segue reference="Rd5-Ln-EPA"/>
     </inferredMetricsTieBreakers>
 </document>

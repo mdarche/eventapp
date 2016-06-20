@@ -38,7 +38,7 @@ class User : NSObject {
         location = json["location"].string
         email = json["email"].string
         personalDescription = json["description"].string
-        profileImage = NSURL(string: json["avatar"].string!)
+        profileImage = json["avatar"].URL
         
         followerCount = json["followers"].int
         followingCount = json["following"].int

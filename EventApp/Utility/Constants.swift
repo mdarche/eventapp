@@ -23,13 +23,15 @@ enum Segues {
     static let showProfile = "ShowMyProfile"
     static let showFFTable = "ShowFFTable"
     
+    static let showUserProfile = "ShowUserProfile"
     static let showAttending = "ShowAttending"
     
     static let showSettingsFromMenu = "SettingsToEditProfile"
     static let showSettingsFromProfile = "ProfileToEditProfile"
     
     static let showNotificationSettings = "ShowNotificationSettings"
-    static let showPrivacyTerms = "ShowPrivacyTerms"
+    static let showPrivacyPolicy = "ShowPrivacyPolicy"
+    static let showTerms = "ShowTerms"
     static let showInviteTable = "ShowInviteTable"
     
     static let showMediaFeedView = "ShowMediaFeedView"
@@ -40,6 +42,8 @@ enum Identifiers {
     static let profileActivityCell = "ActivityCell"
     static let profileMediaCell = "MediaCell"
     static let profileHeader = "ProfileViewHeader"
+    
+    static let followInviteCell = "FFICell"
     
     static let eventMediaCell = "EventMediaCell"
     static let eventActivityCell = "EventActivityCell"

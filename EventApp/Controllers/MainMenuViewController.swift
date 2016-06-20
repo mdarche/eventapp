@@ -34,18 +34,15 @@ class MainMenuViewController: UITableViewController {
             vc.isMe = true
         }
         
-        if segue.identifier == Segues.showPrivacyTerms {
+        if segue.identifier == Segues.showPrivacyPolicy {
             guard let vc = segue.destinationViewController as? PrivacyTermsViewController else { return }
-            if sender as! String == "privacy" {
                 vc.isPrivacy = true
-            }
         }
 
         if segue.identifier == Segues.showInviteTable {
-            guard let vc = segue.destinationViewController as? FFITableviewController else { return }
+            guard let vc = segue.destinationViewController as? FFITableviewController  else { return }
             vc.isInvitation = true
         }
-        
     }
     
     
@@ -70,24 +67,6 @@ class MainMenuViewController: UITableViewController {
     override func tableView(tableView: UITableView, didUnhighlightRowAtIndexPath indexPath: NSIndexPath) {
         let cell  = tableView.cellForRowAtIndexPath(indexPath)
         cell!.contentView.backgroundColor = .clearColor()
-    }
-    
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        switch indexPath {
-        case 0:
-            performSegueWithIdentifier(Segues.showProfile, sender: self)
-        case 1:
-            performSegueWithIdentifier(Segues.showSettingsFromMenu, sender: self)
-        case 2:
-            performSegueWithIdentifier(Segues.showNotificationSettings, sender: self)
-        case 3:
-            performSegueWithIdentifier(Segues.showInviteTable, sender: self)
-        case 4:
-            performSegueWithIdentifier(Segues.showPrivacyTerms, sender: "terms")
-        case 5:
-            performSegueWithIdentifier(Segues.showPrivacyTerms, sender: "privacy")
-        default: break
-        }
     }
     
     @IBAction func logoutButtonPressed(sender: AnyObject) {

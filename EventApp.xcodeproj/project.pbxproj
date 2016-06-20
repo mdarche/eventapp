@@ -64,6 +64,7 @@
 		CBFFCE871D14574900C32877 /* PrivacyTermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFFCE861D14574900C32877 /* PrivacyTermsViewController.swift */; };
 		CBFFCE891D145E3200C32877 /* MediaFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFFCE881D145E3200C32877 /* MediaFeedViewController.swift */; };
 		CBFFCE8B1D14617C00C32877 /* FFITableviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFFCE8A1D14617C00C32877 /* FFITableviewController.swift */; };
+		CBFFCE8E1D186A7C00C32877 /* FFITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFFCE8D1D186A7C00C32877 /* FFITableViewCell.swift */; };
 		E95ACA47502F5AC611397AB7 /* Pods_EventApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9914B401D19A02F6CB2593EC /* Pods_EventApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -153,6 +154,7 @@
 		CBFFCE861D14574900C32877 /* PrivacyTermsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PrivacyTermsViewController.swift; path = Controllers/PrivacyTermsViewController.swift; sourceTree = "<group>"; };
 		CBFFCE881D145E3200C32877 /* MediaFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MediaFeedViewController.swift; path = Controllers/MediaFeedViewController.swift; sourceTree = "<group>"; };
 		CBFFCE8A1D14617C00C32877 /* FFITableviewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FFITableviewController.swift; path = Controllers/FFITableviewController.swift; sourceTree = "<group>"; };
+		CBFFCE8D1D186A7C00C32877 /* FFITableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FFITableViewCell.swift; path = Views/FFITableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,14 +189,12 @@
 		1313E4E31CD6698E0050483C /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				CBFFCE8C1D18558900C32877 /* Current User */,
 				1313E4E61CD682D00050483C /* Activity.swift */,
-				CBD7A4161D11BBD9000CD9C2 /* CurrentUser.xcdatamodeld */,
-				CBD7A41C1D11BF08000CD9C2 /* CurrentUser.swift */,
-				CBD7A4191D11BC22000CD9C2 /* DataController.swift */,
-				CB119FB31CEF6C2B0086B785 /* User.swift */,
 				CBCF43721CF7770800E691DD /* MapAnnotation.swift */,
 				CB119FB11CEE5CD30086B785 /* Media.swift */,
 				CBD7A40F1D107350000CD9C2 /* Notification.swift */,
+				CB119FB31CEF6C2B0086B785 /* User.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -313,6 +313,7 @@
 			children = (
 				CBD7A4151D107839000CD9C2 /* Event */,
 				CB73E19E1CCFED0900E6C6AF /* ListFeedCell.swift */,
+				CBFFCE8D1D186A7C00C32877 /* FFITableViewCell.swift */,
 				CBFD3E0A1CD26A9400FBE4A8 /* NewsFeedCell.swift */,
 				1313E4E11CD6689E0050483C /* NewsFeedHeader.swift */,
 				CBD7A4141D107816000CD9C2 /* Map */,
@@ -408,6 +409,16 @@
 				CBFD3E071CD1A92900FBE4A8 /* GridViewLayout.swift */,
 			);
 			name = Layouts;
+			sourceTree = "<group>";
+		};
+		CBFFCE8C1D18558900C32877 /* Current User */ = {
+			isa = PBXGroup;
+			children = (
+				CBD7A4161D11BBD9000CD9C2 /* CurrentUser.xcdatamodeld */,
+				CBD7A41C1D11BF08000CD9C2 /* CurrentUser.swift */,
+				CBD7A4191D11BC22000CD9C2 /* DataController.swift */,
+			);
+			name = "Current User";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -643,6 +654,7 @@
 				CBCF43731CF7770800E691DD /* MapAnnotation.swift in Sources */,
 				13210F571CC93FEC00B3E257 /* HomeViewController.swift in Sources */,
 				CBD7A40E1D0F52B6000CD9C2 /* OrganizerUpcomingCell.swift in Sources */,
+				CBFFCE8E1D186A7C00C32877 /* FFITableViewCell.swift in Sources */,
 				CB73E19F1CCFED0900E6C6AF /* ListFeedCell.swift in Sources */,
 				CBD7A3FF1D087483000CD9C2 /* MapCalloutView.swift in Sources */,
 				CBFD3E081CD1A92900FBE4A8 /* GridViewLayout.swift in Sources */,

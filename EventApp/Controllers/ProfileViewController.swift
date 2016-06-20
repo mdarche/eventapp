@@ -15,6 +15,10 @@ class ProfileViewController: UICollectionViewController, UICollectionViewDelegat
     @IBOutlet weak var navTitle: UIView!
     @IBOutlet weak var navTitleConstraint: NSLayoutConstraint!
 
+    var profileId : Int?
+    var profileImage : NSURL?
+    var displayName : String?
+    
     let testArray : [AnyObject]? = ["string", 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     var isMe : Bool?
     var didAnimate = false
@@ -27,10 +31,20 @@ class ProfileViewController: UICollectionViewController, UICollectionViewDelegat
         
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == Segues.showFFTable {
+            guard let vc = segue.destinationViewController as? FFITableviewController, sender = sender as? String else { return }
+            if sender == "followers" {
+                vc.isFollowers = true
+            } else {
+                vc.isFollowing = true
+            }
+        }
+    }
+    
     func visualize() {
         if isMe == true {
-            let settingsButton = UIBarButtonItem(image: UIImage(named: "settings"), style: .Plain,
-                     target: nil, action: #selector(ProfileViewController.settingsPressed))
+            let settingsButton = UIBarButtonItem(image: UIImage(named: "settings"), style: .Plain, target: self, action: #selector(ProfileViewController.settingsPressed))
             self.navigationItem.rightBarButtonItem = settingsButton
         } else {
             //TODO: Loop through current user's followingID array and change title of button
@@ -52,6 +66,16 @@ class ProfileViewController: UICollectionViewController, UICollectionViewDelegat
     func followUserPressed() {
         //TODO: Determine what to make button title and execute request
     }
+    
+    
+    @IBAction func followersPressed(sender: AnyObject) {
+        performSegueWithIdentifier(Segues.showFFTable, sender: "followers")
+    }
+    
+    @IBAction func followingPressed(sender: AnyObject) {
+        performSegueWithIdentifier(Segues.showFFTable, sender: "following")
+    }
+    
     
     
 }
@@ -88,6 +112,9 @@ extension ProfileViewController {
         
         let header = collectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionHeader,
                        withReuseIdentifier: Identifiers.profileHeader, forIndexPath: indexPath) as! ProfileHeader
+        
+        //TODO: send user data to header file and set up
+        
         return header
     }
     

@@ -25,7 +25,7 @@ class Notification : NSObject {
         type = json["type"].string
         message = json["message"].string
         timestamp = json["timestamp"].string
-        imageThumb = NSURL(string: json["coverImage"].string!)
+        imageThumb = json["coverImage"].URL
         
         activityId = json["activityId"].int
         profileId = json["profileId"].int

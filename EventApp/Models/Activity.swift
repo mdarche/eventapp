@@ -50,7 +50,7 @@ class Activity: NSObject {
         
         title = json["title"].string
         shortDescription = json["shortDescription"].string
-        coverImage = NSURL(string: json["coverImage"].string!)
+        coverImage = json["coverImage"].URL
         timestamp = json["timestamp"].string
         
         attendeesCount = json["stats"]["attendees"].int
