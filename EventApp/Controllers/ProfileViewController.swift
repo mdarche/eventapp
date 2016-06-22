@@ -15,6 +15,7 @@ class ProfileViewController: UICollectionViewController, UICollectionViewDelegat
     @IBOutlet weak var navTitle: UIView!
     @IBOutlet weak var navTitleConstraint: NSLayoutConstraint!
 
+    private var topRefreshControl = TopRefresher()
     var profileId : Int?
     var profileImage : NSURL?
     var displayName : String?
@@ -54,9 +55,16 @@ class ProfileViewController: UICollectionViewController, UICollectionViewDelegat
             self.navigationItem.rightBarButtonItem = followButtonItem
         }
         
+        topRefreshControl.setupSubview()
+        topRefreshControl.addTarget(self, action: "handleTopPull", forControlEvents: UIControlEvents.ValueChanged)
+        self.collectionView!.addSubview(topRefreshControl)
         
         navTitle.hidden = true
         setBackgroundGradient(self, image: UIImage(named: "NickCage"))
+    }
+    
+    func handleTopPull() {
+        print("handling top pull")
     }
     
     func settingsPressed() {
@@ -139,6 +147,7 @@ extension ProfileViewController {
     }
     
     override func scrollViewDidScroll(scrollView: UIScrollView) {
+        topRefreshControl.scrollTableView()
         
         let currentOffset = scrollView.contentOffset.y
         if didAnimate == false && currentOffset >= 127 {

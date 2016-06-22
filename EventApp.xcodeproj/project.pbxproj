@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1300ECF81D1A38C700E223A2 /* TopRefresher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1300ECF71D1A38C700E223A2 /* TopRefresher.swift */; };
 		1313E4E01CD6685F0050483C /* ProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1313E4DF1CD6685F0050483C /* ProfileHeader.swift */; };
 		1313E4E21CD6689E0050483C /* MediaGridHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1313E4E11CD6689E0050483C /* MediaGridHeader.swift */; };
 		1313E4E71CD682D00050483C /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1313E4E61CD682D00050483C /* Activity.swift */; };
@@ -87,6 +88,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1300ECF71D1A38C700E223A2 /* TopRefresher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TopRefresher.swift; path = Views/TopRefresher.swift; sourceTree = "<group>"; };
 		1313E4DF1CD6685F0050483C /* ProfileHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileHeader.swift; path = Views/ProfileHeader.swift; sourceTree = "<group>"; };
 		1313E4E11CD6689E0050483C /* MediaGridHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MediaGridHeader.swift; path = Views/MediaGridHeader.swift; sourceTree = "<group>"; };
 		1313E4E61CD682D00050483C /* Activity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Activity.swift; path = Models/Activity.swift; sourceTree = "<group>"; };
@@ -317,6 +319,7 @@
 				CB73E19E1CCFED0900E6C6AF /* ListFeedCell.swift */,
 				CBFFCE8D1D186A7C00C32877 /* FFITableViewCell.swift */,
 				CBFFCE8F1D1A0E6300C32877 /* MediaFeedCell.swift */,
+				1300ECF71D1A38C700E223A2 /* TopRefresher.swift */,
 				CBFD3E0A1CD26A9400FBE4A8 /* MediaGridCell.swift */,
 				1313E4E11CD6689E0050483C /* MediaGridHeader.swift */,
 				CBD7A4141D107816000CD9C2 /* Map */,
@@ -641,6 +644,7 @@
 				CB73E19A1CCEB3B200E6C6AF /* ClassExtensions.swift in Sources */,
 				1313E4E01CD6685F0050483C /* ProfileHeader.swift in Sources */,
 				CB037EF81CE25CA400720835 /* EventMediaCell.swift in Sources */,
+				1300ECF81D1A38C700E223A2 /* TopRefresher.swift in Sources */,
 				CB119FAE1CEE3CB80086B785 /* NetworkRouter.swift in Sources */,
 				CBD7A4051D0B2DBB000CD9C2 /* AttendingTableCell.swift in Sources */,
 				CBB451331CD7FE1200AD6A73 /* Constants.swift in Sources */,
