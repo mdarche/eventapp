@@ -1,5 +1,5 @@
 //
-//  NewsFeedHeader.swift
+//  MediaGridHeader.swift
 //  EventApp
 //
 //  Created by Michael Darche on 5/1/16.
@@ -8,6 +8,6 @@
 
 import UIKit
 
-class NewsFeedHeader: UICollectionReusableView {
+class MediaGridHeader: UICollectionReusableView {
 
 }

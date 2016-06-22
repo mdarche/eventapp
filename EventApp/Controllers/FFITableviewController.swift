@@ -10,7 +10,9 @@ import UIKit
 import Haneke
 
 class FFITableviewController: UITableViewController {
-
+    
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     var isFollowers : Bool?
     var isFollowing : Bool?
     var isInvitation : Bool?
@@ -38,6 +40,7 @@ class FFITableviewController: UITableViewController {
     
     
     func visualize() {
+        activityIndicator.stopAnimating()
         if isFollowers != nil {
             navigationItem.title = "Followers"
         } else if isFollowing != nil {
@@ -95,7 +98,7 @@ extension FFITableviewController {
         if users.count > 0 {
             return users.count
         } else {
-            return 0
+            return 15
         }
     }
     
@@ -103,9 +106,9 @@ extension FFITableviewController {
         guard let cell = tableView.dequeueReusableCellWithIdentifier(Identifiers.followInviteCell, forIndexPath: indexPath) as? FFITableViewCell else {
             return UITableViewCell()
         }
-        let user = users[indexPath.row]
-        cell.imageThumbnail.hnk_setImageFromURL(user.profileImage!)
-        cell.nameLabel.text = user.displayName
+//        let user = users[indexPath.row]
+//        cell.imageThumbnail.hnk_setImageFromURL(user.profileImage!)
+//        cell.nameLabel.text = user.displayName
         
         //TODO: Configure Following button
         
@@ -114,12 +117,12 @@ extension FFITableviewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if isFollowers != nil || isFollowing != nil {
-            let selectedUser = users[indexPath.row]
+//            let selectedUser = users[indexPath.row]
             let vc = self.storyboard?.instantiateViewControllerWithIdentifier("UserProfileViewController") as! ProfileViewController
             
-            vc.profileId = selectedUser.profileId
-            vc.profileImage = selectedUser.profileImage
-            vc.displayName = selectedUser.displayName
+//            vc.profileId = selectedUser.profileId
+//            vc.profileImage = selectedUser.profileImage
+//            vc.displayName = selectedUser.displayName
             
             self.navigationController?.pushViewController(vc, animated: true)
         }

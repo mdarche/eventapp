@@ -30,7 +30,6 @@ class OrganizerViewController: UITableViewController {
     // MARK: Setup View's Layout
     
     func visualize() {
-        animateTable()
         setTableViewBackgroundGradient(self)
     }
 

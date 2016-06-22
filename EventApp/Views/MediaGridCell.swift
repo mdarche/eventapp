@@ -1,5 +1,5 @@
 //
-//  NewsFeedCell.swift
+//  MediaGridCell.swift
 //  EventApp
 //
 //  Created by Michael Darche on 4/28/16.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NewsFeedCell: UICollectionViewCell {
+class MediaGridCell: UICollectionViewCell {
 
     
 }

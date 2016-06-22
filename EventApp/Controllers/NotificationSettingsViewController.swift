@@ -8,6 +8,24 @@
 
 import UIKit
 
-class NotificationSettingsViewController: UIViewController {
+class NotificationSettingsViewController: UITableViewController {
 
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.navigationController?.navigationBar.barTintColor = Colors.mainBlueFull
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(true)
+        UIView.animateWithDuration(0.3, animations: {
+            self.navigationController?.navigationBar.barTintColor = Colors.mainDarkFull
+        })
+    }
+    
+    
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 3
+    }
+    
 }

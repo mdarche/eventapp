@@ -43,7 +43,7 @@ class MediaGridViewController: UICollectionViewController {
     // MARK: Set UI
     
     func visualize() {
-        
+
     }
 }
 
@@ -59,7 +59,7 @@ extension MediaGridViewController {
     }
     
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCellWithReuseIdentifier(Identifiers.feedMediaCell, forIndexPath: indexPath) as? NewsFeedCell else {
+        guard let cell = collectionView.dequeueReusableCellWithReuseIdentifier(Identifiers.feedMediaCell, forIndexPath: indexPath) as? MediaGridCell else {
             return UICollectionViewCell()
         }
         return cell
@@ -69,19 +69,15 @@ extension MediaGridViewController {
         performSegueWithIdentifier(Segues.showMediaFeedView, sender: indexPath)
     }
     
-    override func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView
-    {
+    override func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
         
-        let header = collectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionHeader, withReuseIdentifier: Identifiers.feedHeader, forIndexPath: indexPath) as! NewsFeedHeader
+        guard let header = collectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionHeader, withReuseIdentifier: Identifiers.feedHeader, forIndexPath: indexPath) as? MediaGridHeader else { return nil }
 
         return header
     }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize
-    {
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         return CGSizeMake(CGRectGetWidth(collectionView.bounds), 0.0)
-        
-        
     }
     
     override func scrollViewDidScroll(scrollView: UIScrollView) {
