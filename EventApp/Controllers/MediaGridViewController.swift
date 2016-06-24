@@ -54,7 +54,7 @@ extension MediaGridViewController {
     
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return 24
+        return 36
         
     }
     

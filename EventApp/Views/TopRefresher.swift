@@ -16,12 +16,17 @@ class TopRefresher: UIRefreshControl {
     private var isRefreshIconsOverlap = false
     private var isRefreshAnimating = false
     
-    var indicatorColor : UIColor?
-    var bgColor : UIColor?
+    var indicatorColor = UIColor.whiteColor()
+    var bgColor = UIColor.whiteColor()
     
-    func setupSubview () {
+    
+    func setupSubview(indicatorColor: UIColor, bgColor: UIColor) {
+        
+        self.indicatorColor = indicatorColor
+        self.bgColor = bgColor
+        
         refreshLoadingView = UIView(frame: self.bounds)
-        refreshLoadingView.backgroundColor = UIColor.whiteColor()
+        refreshLoadingView.backgroundColor = self.bgColor
         refreshColorView = UIView(frame: self.bounds)
         refreshColorView.backgroundColor = UIColor.clearColor()
         refreshColorView.alpha = 0.80
@@ -29,7 +34,7 @@ class TopRefresher: UIRefreshControl {
         refreshLoadingView.clipsToBounds = true;
         
         // Hide the original spinner icon
-        tintColor = UIColor.blackColor()
+        tintColor = indicatorColor
         
         addSubview(self.refreshColorView)
         addSubview(self.refreshLoadingView)
@@ -57,14 +62,14 @@ class TopRefresher: UIRefreshControl {
     
     func animateRefreshView() {
         refreshLoadingView.backgroundColor = UIColor.clearColor()
-        var colorArray = [UIColor.redColor(), UIColor(red: 114/255, green: 5/255, blue: 229/255, alpha: 1.0), UIColor.greenColor(), UIColor(red: 232/255, green: 28/255, blue: 217/255, alpha: 1.0), UIColor.magentaColor()]
+        var colorArray = [Colors.mainBlueFull, Colors.mainBlueHalf, Colors.mainDarkHalf]
         struct ColorIndex {
             static var colorIndex = 0
         }
         isRefreshAnimating = true
         
         UIView.animateWithDuration(
-            Double(0.28),
+            Double(0.35),
             delay: Double(0.0),
             options: UIViewAnimationOptions.CurveLinear,
             animations: {
@@ -83,7 +88,7 @@ class TopRefresher: UIRefreshControl {
     }
     
     func resetAnimation() {
-        refreshLoadingView.backgroundColor = UIColor.whiteColor()
+        refreshLoadingView.backgroundColor = bgColor
         isRefreshAnimating = false;
         isRefreshIconsOverlap = false;
         refreshColorView.backgroundColor = UIColor.clearColor()

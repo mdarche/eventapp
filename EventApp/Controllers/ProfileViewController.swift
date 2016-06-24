@@ -55,8 +55,8 @@ class ProfileViewController: UICollectionViewController, UICollectionViewDelegat
             self.navigationItem.rightBarButtonItem = followButtonItem
         }
         
-        topRefreshControl.setupSubview()
-        topRefreshControl.addTarget(self, action: "handleTopPull", forControlEvents: UIControlEvents.ValueChanged)
+        topRefreshControl.setupSubview(UIColor.whiteColor(), bgColor: Colors.mainBlueFull)
+        topRefreshControl.addTarget(self, action: #selector(ProfileViewController.handleTopPull), forControlEvents: UIControlEvents.ValueChanged)
         self.collectionView!.addSubview(topRefreshControl)
         
         navTitle.hidden = true
@@ -64,7 +64,9 @@ class ProfileViewController: UICollectionViewController, UICollectionViewDelegat
     }
     
     func handleTopPull() {
-        print("handling top pull")
+        Utility.delay(2.5) {
+            self.topRefreshControl.endRefreshing()
+        }
     }
     
     func settingsPressed() {

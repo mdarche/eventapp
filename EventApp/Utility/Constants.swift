@@ -10,7 +10,6 @@ import Foundation
 
 enum Domains {
     static let test = "http://private-87ec1-eventsapp2.apiary-mock.com"
-    
 }
 
 

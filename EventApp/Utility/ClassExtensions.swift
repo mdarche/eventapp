@@ -19,6 +19,19 @@ class TabBarController: UITabBarController {
     }
 }
 
+class Utility : NSObject {
+    
+    class func delay(delay:Double, closure:()->()) {
+        dispatch_after(
+            dispatch_time(
+                DISPATCH_TIME_NOW,
+                Int64(delay * Double(NSEC_PER_SEC))
+            ),
+            dispatch_get_main_queue(), closure)
+    }
+    
+}
+
 extension UIImageView{
     func blurImage(){
         let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.Light)

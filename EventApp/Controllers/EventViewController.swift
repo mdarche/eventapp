@@ -44,14 +44,14 @@ class EventViewController: UICollectionViewController {
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout,
             referenceSizeForHeaderInSection section: Int) -> CGSize {
         
-        return CGSizeMake(CGRectGetWidth(collectionView.bounds), 563.0)
+        return CGSizeMake(CGRectGetWidth(collectionView.bounds), 398.0)
     
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout,
             sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         
-        return CGSize(width: collectionView.frame.size.width, height: 330)
+        return CGSize(width: collectionView.frame.size.width, height: 280)
 
     }
     

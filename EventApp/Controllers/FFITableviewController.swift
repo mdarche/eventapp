@@ -40,6 +40,7 @@ class FFITableviewController: UITableViewController {
     
     
     func visualize() {
+        setTableViewBackgroundGradient(self)
         activityIndicator.stopAnimating()
         if isFollowers != nil {
             navigationItem.title = "Followers"

@@ -10,6 +10,9 @@ import UIKit
 
 class NotificationSettingsViewController: UITableViewController {
 
+    @IBOutlet weak var nearbyEventSwitch: UISwitch!
+    @IBOutlet weak var eventReminderSwitch: UISwitch!
+    @IBOutlet weak var newFollowerSwitch: UISwitch!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +26,9 @@ class NotificationSettingsViewController: UITableViewController {
         })
     }
     
+    @IBAction func saveChanges(sender: AnyObject) {
+    
+    }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 3
