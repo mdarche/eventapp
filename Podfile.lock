@@ -2,12 +2,18 @@ PODS:
   - Alamofire (3.1.5)
   - HanekeSwift (0.10.1)
   - KeychainAccess (2.3.5)
+  - Realm (1.0.1):
+    - Realm/Headers (= 1.0.1)
+  - Realm/Headers (1.0.1)
+  - RealmSwift (1.0.1):
+    - Realm (= 1.0.1)
   - SwiftyJSON (2.3.2)
 
 DEPENDENCIES:
   - Alamofire (~> 3.1.2)
   - HanekeSwift
   - KeychainAccess
+  - RealmSwift
   - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
 
 EXTERNAL SOURCES:
@@ -23,6 +29,8 @@ SPEC CHECKSUMS:
   Alamofire: 5f730ba29fd113b7ddd71c1e65d0c630acf5d7b0
   HanekeSwift: 08e47d3d0f2899ec58e5d257beba0de619aca9e8
   KeychainAccess: e283c1981a6c5655e1984cd411c6faf16fa165ae
+  Realm: 2e15e39d35b08abb529e212ed5d8af107b5236c8
+  RealmSwift: d73ea2af08c3676dbdd5e4b669651a0f492162a4
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
 
 COCOAPODS: 0.39.0

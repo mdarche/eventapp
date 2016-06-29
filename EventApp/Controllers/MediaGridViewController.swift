@@ -8,28 +8,21 @@
 
 import UIKit
 
-class MediaGridViewController: UICollectionViewController {
+class MediaGridViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
+    let flowLayout = UICollectionViewFlowLayout()
     var gridMedia : [Media]?
     
     // MARK: View's Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.collectionView!.collectionViewLayout = GridViewLayout()
         visualize()
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(true)
-        self.tabBarController?.tabBar.hidden = false
     }
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(true)
     }
-    
     
     // MARK: View's Transition Handler
     
@@ -43,45 +36,41 @@ class MediaGridViewController: UICollectionViewController {
     // MARK: Set UI
     
     func visualize() {
-
+        flowLayout.minimumInteritemSpacing = 1
+        flowLayout.minimumLineSpacing = 1
+        flowLayout.scrollDirection = .Vertical
+        collectionView?.collectionViewLayout = flowLayout
     }
-}
-
-
-// MARK: CollectionView Config
-
-extension MediaGridViewController {
     
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
         return 36
-        
     }
     
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCellWithReuseIdentifier(Identifiers.feedMediaCell, forIndexPath: indexPath) as? MediaGridCell else {
-            return UICollectionViewCell()
-        }
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("FeedCell", forIndexPath: indexPath) as! MediaGridCell
+        
+        let imageName = (indexPath.row % 2 == 0) ? "NickCage" : "feedImage"
+        cell.imageView.image = UIImage(named: imageName)
+        
         return cell
     }
     
-    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        performSegueWithIdentifier(Segues.showMediaFeedView, sender: indexPath)
-    }
-    
-    override func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
+    func collectionView(collectionView : UICollectionView,layout collectionViewLayout:UICollectionViewLayout,sizeForItemAtIndexPath indexPath:NSIndexPath) -> CGSize {
         
-        guard let header = collectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionHeader, withReuseIdentifier: Identifiers.feedHeader, forIndexPath: indexPath) as? MediaGridHeader else { return UICollectionViewCell() }
-
-        return header
-    }
-    
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSizeMake(CGRectGetWidth(collectionView.bounds), 0.0)
-    }
-    
-    override func scrollViewDidScroll(scrollView: UIScrollView) {
+        switch indexPath.item {
+        case 0,1,7,8,16,17,27,28:
+            let numberOfColumns: CGFloat = 2
+            let itemWidth = (CGRectGetWidth(self.collectionView!.frame) - (numberOfColumns - 1)) / numberOfColumns
+            return CGSizeMake(itemWidth, 150)
+        case 2,3,15,35:
+            return CGSize(width: collectionView.frame.size.width, height: 112)
+        default:
+            let numberOfColumns: CGFloat = 3
+            let itemWidth = (CGRectGetWidth(collectionView.frame) - (numberOfColumns - 1)) / numberOfColumns
+            return CGSizeMake(itemWidth, itemWidth)
+        }
         
     }
 }
+
 

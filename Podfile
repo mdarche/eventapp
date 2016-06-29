@@ -8,6 +8,7 @@ target 'EventApp' do
     pod 'Alamofire', '~> 3.1.2'
     pod 'KeychainAccess'
     pod 'HanekeSwift'
+    pod 'RealmSwift'
     pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git'
 end
 

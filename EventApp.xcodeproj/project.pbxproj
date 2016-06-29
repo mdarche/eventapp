@@ -54,10 +54,7 @@
 		CBD7A40C1D0F3327000CD9C2 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CBD7A4091D0F3327000CD9C2 /* Roboto-Regular.ttf */; };
 		CBD7A40E1D0F52B6000CD9C2 /* OrganizerUpcomingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD7A40D1D0F52B6000CD9C2 /* OrganizerUpcomingCell.swift */; };
 		CBD7A4101D107350000CD9C2 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD7A40F1D107350000CD9C2 /* Notification.swift */; };
-		CBD7A4181D11BBD9000CD9C2 /* CurrentUser.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CBD7A4161D11BBD9000CD9C2 /* CurrentUser.xcdatamodeld */; };
-		CBD7A41A1D11BC22000CD9C2 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD7A4191D11BC22000CD9C2 /* DataController.swift */; };
 		CBD7A41E1D11BF08000CD9C2 /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD7A41C1D11BF08000CD9C2 /* CurrentUser.swift */; };
-		CBFD3E081CD1A92900FBE4A8 /* GridViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFD3E071CD1A92900FBE4A8 /* GridViewLayout.swift */; };
 		CBFD3E0B1CD26A9400FBE4A8 /* MediaGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFD3E0A1CD26A9400FBE4A8 /* MediaGridCell.swift */; };
 		CBFD3E0D1CD26D9F00FBE4A8 /* MediaGridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFD3E0C1CD26D9F00FBE4A8 /* MediaGridViewController.swift */; };
 		CBFFCE831D144FB100C32877 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFFCE821D144FB100C32877 /* EditProfileViewController.swift */; };
@@ -146,10 +143,7 @@
 		CBD7A4091D0F3327000CD9C2 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Regular.ttf"; path = "Resources/Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		CBD7A40D1D0F52B6000CD9C2 /* OrganizerUpcomingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OrganizerUpcomingCell.swift; path = Views/OrganizerUpcomingCell.swift; sourceTree = "<group>"; };
 		CBD7A40F1D107350000CD9C2 /* Notification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Notification.swift; path = Models/Notification.swift; sourceTree = "<group>"; };
-		CBD7A4171D11BBD9000CD9C2 /* CurrentUser.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CurrentUser.xcdatamodel; sourceTree = "<group>"; };
-		CBD7A4191D11BC22000CD9C2 /* DataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataController.swift; path = Models/DataController.swift; sourceTree = "<group>"; };
 		CBD7A41C1D11BF08000CD9C2 /* CurrentUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CurrentUser.swift; path = Models/CurrentUser.swift; sourceTree = "<group>"; };
-		CBFD3E071CD1A92900FBE4A8 /* GridViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GridViewLayout.swift; path = Layouts/GridViewLayout.swift; sourceTree = "<group>"; };
 		CBFD3E0A1CD26A9400FBE4A8 /* MediaGridCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MediaGridCell.swift; path = Views/MediaGridCell.swift; sourceTree = "<group>"; };
 		CBFD3E0C1CD26D9F00FBE4A8 /* MediaGridViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MediaGridViewController.swift; path = Controllers/MediaGridViewController.swift; sourceTree = "<group>"; };
 		CBFFCE821D144FB100C32877 /* EditProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditProfileViewController.swift; path = Controllers/EditProfileViewController.swift; sourceTree = "<group>"; };
@@ -193,7 +187,7 @@
 		1313E4E31CD6698E0050483C /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				CBFFCE8C1D18558900C32877 /* Current User */,
+				CBD7A41C1D11BF08000CD9C2 /* CurrentUser.swift */,
 				1313E4E61CD682D00050483C /* Activity.swift */,
 				CBCF43721CF7770800E691DD /* MapAnnotation.swift */,
 				CB119FB11CEE5CD30086B785 /* Media.swift */,
@@ -231,12 +225,11 @@
 				13210F251CC86C5300B3E257 /* Main.storyboard */,
 				CBB451281CD7CBC600AD6A73 /* Authentication.storyboard */,
 				13210F1F1CC86C5300B3E257 /* AppDelegate.swift */,
-				CB73E1981CCEB37100E6C6AF /* Utility */,
 				13210F511CC93EBB00B3E257 /* Controllers */,
-				CBFD3E091CD26A3C00FBE4A8 /* Layouts */,
-				CB119FAC1CEE3C790086B785 /* Network */,
 				1313E4E31CD6698E0050483C /* Models */,
+				CB119FAC1CEE3C790086B785 /* Network */,
 				CBD7A4061D0F32FA000CD9C2 /* Resources */,
+				CB73E1981CCEB37100E6C6AF /* Utility */,
 				CB73E19B1CCEF02300E6C6AF /* Views */,
 				13210F281CC86C5300B3E257 /* Assets.xcassets */,
 				13210F2D1CC86C5300B3E257 /* Info.plist */,
@@ -303,6 +296,26 @@
 			name = Network;
 			sourceTree = "<group>";
 		};
+		CB1F7FFC1D1D90A600D1F6C3 /* Media */ = {
+			isa = PBXGroup;
+			children = (
+				CBFFCE8F1D1A0E6300C32877 /* MediaFeedCell.swift */,
+				CBFD3E0A1CD26A9400FBE4A8 /* MediaGridCell.swift */,
+				1313E4E11CD6689E0050483C /* MediaGridHeader.swift */,
+			);
+			name = Media;
+			sourceTree = "<group>";
+		};
+		CB1F7FFD1D1D90D000D1F6C3 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				CBD7A4081D0F3327000CD9C2 /* Roboto-Medium.ttf */,
+				CBD7A4091D0F3327000CD9C2 /* Roboto-Regular.ttf */,
+				CBD7A4071D0F3327000CD9C2 /* Roboto-Light.ttf */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
 		CB73E1981CCEB37100E6C6AF /* Utility */ = {
 			isa = PBXGroup;
 			children = (
@@ -316,13 +329,10 @@
 			isa = PBXGroup;
 			children = (
 				CBD7A4151D107839000CD9C2 /* Event */,
-				CB73E19E1CCFED0900E6C6AF /* ListFeedCell.swift */,
 				CBFFCE8D1D186A7C00C32877 /* FFITableViewCell.swift */,
-				CBFFCE8F1D1A0E6300C32877 /* MediaFeedCell.swift */,
 				1300ECF71D1A38C700E223A2 /* TopRefresher.swift */,
-				CBFD3E0A1CD26A9400FBE4A8 /* MediaGridCell.swift */,
-				1313E4E11CD6689E0050483C /* MediaGridHeader.swift */,
 				CBD7A4141D107816000CD9C2 /* Map */,
+				CB1F7FFC1D1D90A600D1F6C3 /* Media */,
 				CBD7A4121D1077EF000CD9C2 /* Organizer */,
 				CBD7A4131D107802000CD9C2 /* Profile */,
 			);
@@ -340,9 +350,7 @@
 		CBD7A4061D0F32FA000CD9C2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				CBD7A4071D0F3327000CD9C2 /* Roboto-Light.ttf */,
-				CBD7A4081D0F3327000CD9C2 /* Roboto-Medium.ttf */,
-				CBD7A4091D0F3327000CD9C2 /* Roboto-Regular.ttf */,
+				CB1F7FFD1D1D90D000D1F6C3 /* Fonts */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -350,8 +358,10 @@
 		CBD7A4111D1075A1000CD9C2 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				CBD7A4021D0A110A000CD9C2 /* AttendingTableViewController.swift */,
 				13210F581CC941D500B3E257 /* EventViewController.swift */,
 				CBFFCE821D144FB100C32877 /* EditProfileViewController.swift */,
+				CBFFCE8A1D14617C00C32877 /* FFITableviewController.swift */,
 				13210F561CC93FEC00B3E257 /* HomeViewController.swift */,
 				13210F541CC93FB200B3E257 /* ListViewController.swift */,
 				13210F5A1CC942A400B3E257 /* MainMenuViewController.swift */,
@@ -359,12 +369,10 @@
 				CBFD3E0C1CD26D9F00FBE4A8 /* MediaGridViewController.swift */,
 				CBFFCE881D145E3200C32877 /* MediaFeedViewController.swift */,
 				CBB4512E1CD7D1AA00AD6A73 /* MediaDetailViewController.swift */,
-				CBFFCE8A1D14617C00C32877 /* FFITableviewController.swift */,
 				CBFFCE841D14553500C32877 /* NotificationSettingsViewController.swift */,
 				CBB451381CD939F200AD6A73 /* OrganizerViewController.swift */,
 				CBFFCE861D14574900C32877 /* PrivacyTermsViewController.swift */,
 				CBB451301CD7F2F600AD6A73 /* ProfileViewController.swift */,
-				CBD7A4021D0A110A000CD9C2 /* AttendingTableViewController.swift */,
 			);
 			name = Main;
 			sourceTree = "<group>";
@@ -391,6 +399,7 @@
 		CBD7A4141D107816000CD9C2 /* Map */ = {
 			isa = PBXGroup;
 			children = (
+				CB73E19E1CCFED0900E6C6AF /* ListFeedCell.swift */,
 				CBD7A4001D088F88000CD9C2 /* MapCallout.xib */,
 				CBA899F91D04A343003A2B87 /* MapAnnotationView.swift */,
 				CBD7A3FE1D087483000CD9C2 /* MapCalloutView.swift */,
@@ -407,24 +416,6 @@
 				CB037EFB1CE25D7600720835 /* EventHeader.swift */,
 			);
 			name = Event;
-			sourceTree = "<group>";
-		};
-		CBFD3E091CD26A3C00FBE4A8 /* Layouts */ = {
-			isa = PBXGroup;
-			children = (
-				CBFD3E071CD1A92900FBE4A8 /* GridViewLayout.swift */,
-			);
-			name = Layouts;
-			sourceTree = "<group>";
-		};
-		CBFFCE8C1D18558900C32877 /* Current User */ = {
-			isa = PBXGroup;
-			children = (
-				CBD7A4161D11BBD9000CD9C2 /* CurrentUser.xcdatamodeld */,
-				CBD7A41C1D11BF08000CD9C2 /* CurrentUser.swift */,
-				CBD7A4191D11BC22000CD9C2 /* DataController.swift */,
-			);
-			name = "Current User";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -653,19 +644,16 @@
 				1313E4E71CD682D00050483C /* Activity.swift in Sources */,
 				13210F201CC86C5300B3E257 /* AppDelegate.swift in Sources */,
 				CBD7A4031D0A110A000CD9C2 /* AttendingTableViewController.swift in Sources */,
-				CBD7A4181D11BBD9000CD9C2 /* CurrentUser.xcdatamodeld in Sources */,
 				13210F531CC93F2D00B3E257 /* MapViewController.swift in Sources */,
 				CBFFCE871D14574900C32877 /* PrivacyTermsViewController.swift in Sources */,
 				13210F551CC93FB200B3E257 /* ListViewController.swift in Sources */,
 				CBD7A41E1D11BF08000CD9C2 /* CurrentUser.swift in Sources */,
-				CBD7A41A1D11BC22000CD9C2 /* DataController.swift in Sources */,
 				CBCF43731CF7770800E691DD /* MapAnnotation.swift in Sources */,
 				13210F571CC93FEC00B3E257 /* HomeViewController.swift in Sources */,
 				CBD7A40E1D0F52B6000CD9C2 /* OrganizerUpcomingCell.swift in Sources */,
 				CBFFCE8E1D186A7C00C32877 /* FFITableViewCell.swift in Sources */,
 				CB73E19F1CCFED0900E6C6AF /* ListFeedCell.swift in Sources */,
 				CBD7A3FF1D087483000CD9C2 /* MapCalloutView.swift in Sources */,
-				CBFD3E081CD1A92900FBE4A8 /* GridViewLayout.swift in Sources */,
 				CB119FB41CEF6C2B0086B785 /* User.swift in Sources */,
 				1313E4E21CD6689E0050483C /* MediaGridHeader.swift in Sources */,
 				CBFFCE8B1D14617C00C32877 /* FFITableviewController.swift in Sources */,
@@ -934,20 +922,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		CBD7A4161D11BBD9000CD9C2 /* CurrentUser.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				CBD7A4171D11BBD9000CD9C2 /* CurrentUser.xcdatamodel */,
-			);
-			currentVersion = CBD7A4171D11BBD9000CD9C2 /* CurrentUser.xcdatamodel */;
-			name = CurrentUser.xcdatamodeld;
-			path = Models/CurrentUser.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 13210F141CC86C5300B3E257 /* Project object */;
 }
