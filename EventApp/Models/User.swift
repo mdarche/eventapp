@@ -40,10 +40,10 @@ class User : NSObject {
         personalDescription = json["description"].string
         profileImage = json["avatar"].URL
         
-        followerCount = json["followers"].int
-        followingCount = json["following"].int
-        eventsAttended = json["eventsAttended"].int
-        eventsMissed = json["eventsMissed"].int
+        followerCount = json["stats"]["followers"].int
+        followingCount = json["stats"]["following"].int
+        eventsAttended = json["stats"]["eventsAttended"].int
+        eventsMissed = json["stats"]["eventsMissed"].int
         
         if profileId == nil { return nil }
     }

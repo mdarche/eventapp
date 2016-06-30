@@ -7,39 +7,62 @@
 //
 
 import Foundation
-import CoreData
+import RealmSwift
 import SwiftyJSON
 
 
-class CurrentUser: NSManagedObject {
-
-    @NSManaged var displayName: String?
-    @NSManaged var username: String?
-    @NSManaged var firstName: String?
-    @NSManaged var lastName: String?
-    @NSManaged var city: String?
-    @NSManaged var profileId: NSNumber?
-    @NSManaged var personalDescription: String?
-    @NSManaged var profileImage: String?
-    @NSManaged var email: String?
-    @NSManaged var followerCount: NSNumber?
-    @NSManaged var followingCount: NSNumber?
-    @NSManaged var eventsAttended: NSNumber?
-    @NSManaged var eventsMissed : NSNumber?
+class CurrentUser: Object {
     
-    @NSManaged var followingIds : [String]?
+    dynamic var profileId = 0
+    
+    dynamic var displayName: String? = nil
+    dynamic var username: String? = nil
+    dynamic var firstName: String? = nil
+    dynamic var lastName: String? = nil
+    dynamic var city: String? = nil
+    dynamic var personalDescription: String? = nil
+    dynamic var profileImage: String? = nil
+    dynamic var email: String? = nil
+    
+    dynamic var followerCount = 0
+    dynamic var followingCount = 0
+    dynamic var eventsAttended = 0
+    dynamic var eventsMissed = 0
+    
+    let followingIds = List<Following>()
+    let activities = List<Activities>()
 
+    
+    override static func primaryKey() -> String? {
+        return "profileId"
+    }
     
 }
+
+class Following: Object {
+    dynamic var followingId = 0
+    
+    override static func primaryKey() -> String? {
+        return "followingId"
+    }
+}
+
+class Activities : Object {
+    dynamic var activityId = 0
+    dynamic var title : String? = nil
+    dynamic var coverImage : String? = nil
+    dynamic var eventDate : NSDate? = nil
+}
+
+
 
 
 extension CurrentUser {
     
-    // MARK: Profile Functions
-    
     func updateFromJson(json: JSON) {
+        try! realm!.write {
         
-        profileId = json["profileId"].int
+        profileId = json["profileId"].int!
         username = json["username"].string
         displayName = json["displayName"].string
         firstName = json["name"].string
@@ -50,10 +73,12 @@ extension CurrentUser {
         personalDescription = json["description"].string
         profileImage = json["avatar"].string
         
-        followerCount = json["followers"].int
-        followingCount = json["following"].int
-        eventsAttended = json["eventsAttended"].int
-        eventsMissed = json["eventsMissed"].int
+        followerCount = json["stats"]["followers"].int!
+        followingCount = json["stats"]["following"].int!
+        eventsAttended = json["stats"]["eventsAttended"].int!
+        eventsMissed = json["stats"]["eventsMissed"].int!
+        
+        }
     }
 
     func updateProfile() {
@@ -61,21 +86,19 @@ extension CurrentUser {
     }
     
     
-//    func getUserProfile() -> User {
-//        
-//    }
-    
-    
-    // MARK: Following Functions
-    
-    func followUser(follow: Bool, followingId: String) {
-//        if follow {
-//            followingCount += 1
-//            // TODO: add string to array and save
-//        } else {
-//            followingCount -= 1
-//            //TODO: remove string from array and save
-//        }
+    func followUser(follow: Bool, followingId: Int) {
+        try! realm!.write {
+            if follow {
+                followingCount += 1
+                followingIds.append(Following(value: ["followingId" : followingId]))
+                print("Success")
+            } else {
+//                var followingAccount = realm?.objects(Following.self).filter("followingId = '\(followingId)'")
+//                let index = followingIds.objectf
+                followingCount -= 1
+                print("Success")
+            }
+        }
     }
     
     
@@ -90,9 +113,4 @@ extension CurrentUser {
     }
     
     
-    // MARK: Save Current User 
-    
-    func saveCurrentUser() {
-        
-    }
 }

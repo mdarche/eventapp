@@ -41,9 +41,12 @@ class MediaGridViewController: UICollectionViewController, UICollectionViewDeleg
         flowLayout.scrollDirection = .Vertical
         collectionView?.collectionViewLayout = flowLayout
     }
+}
+
+extension MediaGridViewController {
     
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 36
+        return 42
     }
     
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
@@ -53,6 +56,10 @@ class MediaGridViewController: UICollectionViewController, UICollectionViewDeleg
         cell.imageView.image = UIImage(named: imageName)
         
         return cell
+    }
+    
+    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        performSegueWithIdentifier("ShowMediaFeedView", sender: self)
     }
     
     func collectionView(collectionView : UICollectionView,layout collectionViewLayout:UICollectionViewLayout,sizeForItemAtIndexPath indexPath:NSIndexPath) -> CGSize {

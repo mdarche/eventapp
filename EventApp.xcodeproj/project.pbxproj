@@ -29,6 +29,7 @@
 		CB119FB01CEE48C80086B785 /* Requests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB119FAF1CEE48C80086B785 /* Requests.swift */; };
 		CB119FB21CEE5CD30086B785 /* Media.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB119FB11CEE5CD30086B785 /* Media.swift */; };
 		CB119FB41CEF6C2B0086B785 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB119FB31CEF6C2B0086B785 /* User.swift */; };
+		CB214AC11D25845B00238BF6 /* MediaFeedLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB214AC01D25845B00238BF6 /* MediaFeedLayout.swift */; };
 		CB73E1961CCE8CFE00E6C6AF /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB73E1941CCE8CFE00E6C6AF /* FBSDKCoreKit.framework */; };
 		CB73E1971CCE8CFE00E6C6AF /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB73E1951CCE8CFE00E6C6AF /* FBSDKLoginKit.framework */; };
 		CB73E19A1CCEB3B200E6C6AF /* ClassExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB73E1991CCEB3B200E6C6AF /* ClassExtensions.swift */; };
@@ -117,6 +118,7 @@
 		CB119FAF1CEE48C80086B785 /* Requests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Requests.swift; path = Network/Requests.swift; sourceTree = "<group>"; };
 		CB119FB11CEE5CD30086B785 /* Media.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Media.swift; path = Models/Media.swift; sourceTree = "<group>"; };
 		CB119FB31CEF6C2B0086B785 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Models/User.swift; sourceTree = "<group>"; };
+		CB214AC01D25845B00238BF6 /* MediaFeedLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MediaFeedLayout.swift; path = Layouts/MediaFeedLayout.swift; sourceTree = "<group>"; };
 		CB73E1941CCE8CFE00E6C6AF /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = EventApp/Frameworks/FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		CB73E1951CCE8CFE00E6C6AF /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = EventApp/Frameworks/FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		CB73E1991CCEB3B200E6C6AF /* ClassExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ClassExtensions.swift; path = Utility/ClassExtensions.swift; sourceTree = "<group>"; };
@@ -222,19 +224,13 @@
 		13210F1E1CC86C5300B3E257 /* EventApp */ = {
 			isa = PBXGroup;
 			children = (
-				13210F251CC86C5300B3E257 /* Main.storyboard */,
-				CBB451281CD7CBC600AD6A73 /* Authentication.storyboard */,
-				13210F1F1CC86C5300B3E257 /* AppDelegate.swift */,
+				CB214ABE1D25818D00238BF6 /* Assets & Storyboards */,
 				13210F511CC93EBB00B3E257 /* Controllers */,
+				CB214ABF1D25843000238BF6 /* Layouts */,
 				1313E4E31CD6698E0050483C /* Models */,
 				CB119FAC1CEE3C790086B785 /* Network */,
-				CBD7A4061D0F32FA000CD9C2 /* Resources */,
-				CB73E1981CCEB37100E6C6AF /* Utility */,
+				CBD7A4061D0F32FA000CD9C2 /* Utility */,
 				CB73E19B1CCEF02300E6C6AF /* Views */,
-				13210F281CC86C5300B3E257 /* Assets.xcassets */,
-				13210F2D1CC86C5300B3E257 /* Info.plist */,
-				CB7A24FE1CCE835D00D46DE2 /* Application-Bridging-Header.h */,
-				13210F2A1CC86C5300B3E257 /* LaunchScreen.storyboard */,
 			);
 			path = EventApp;
 			sourceTree = "<group>";
@@ -316,13 +312,24 @@
 			name = Fonts;
 			sourceTree = "<group>";
 		};
-		CB73E1981CCEB37100E6C6AF /* Utility */ = {
+		CB214ABE1D25818D00238BF6 /* Assets & Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				CB73E1991CCEB3B200E6C6AF /* ClassExtensions.swift */,
-				CBB451321CD7FE1200AD6A73 /* Constants.swift */,
+				13210F281CC86C5300B3E257 /* Assets.xcassets */,
+				CBB451281CD7CBC600AD6A73 /* Authentication.storyboard */,
+				13210F251CC86C5300B3E257 /* Main.storyboard */,
+				13210F2A1CC86C5300B3E257 /* LaunchScreen.storyboard */,
+				CB1F7FFD1D1D90D000D1F6C3 /* Fonts */,
 			);
-			name = Utility;
+			name = "Assets & Storyboards";
+			sourceTree = "<group>";
+		};
+		CB214ABF1D25843000238BF6 /* Layouts */ = {
+			isa = PBXGroup;
+			children = (
+				CB214AC01D25845B00238BF6 /* MediaFeedLayout.swift */,
+			);
+			name = Layouts;
 			sourceTree = "<group>";
 		};
 		CB73E19B1CCEF02300E6C6AF /* Views */ = {
@@ -347,12 +354,16 @@
 			name = Authentication;
 			sourceTree = "<group>";
 		};
-		CBD7A4061D0F32FA000CD9C2 /* Resources */ = {
+		CBD7A4061D0F32FA000CD9C2 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
-				CB1F7FFD1D1D90D000D1F6C3 /* Fonts */,
+				13210F1F1CC86C5300B3E257 /* AppDelegate.swift */,
+				CB73E1991CCEB3B200E6C6AF /* ClassExtensions.swift */,
+				CBB451321CD7FE1200AD6A73 /* Constants.swift */,
+				13210F2D1CC86C5300B3E257 /* Info.plist */,
+				CB7A24FE1CCE835D00D46DE2 /* Application-Bridging-Header.h */,
 			);
-			name = Resources;
+			name = Utility;
 			sourceTree = "<group>";
 		};
 		CBD7A4111D1075A1000CD9C2 /* Main */ = {
@@ -635,6 +646,7 @@
 				CB73E19A1CCEB3B200E6C6AF /* ClassExtensions.swift in Sources */,
 				1313E4E01CD6685F0050483C /* ProfileHeader.swift in Sources */,
 				CB037EF81CE25CA400720835 /* EventMediaCell.swift in Sources */,
+				CB214AC11D25845B00238BF6 /* MediaFeedLayout.swift in Sources */,
 				1300ECF81D1A38C700E223A2 /* TopRefresher.swift in Sources */,
 				CB119FAE1CEE3CB80086B785 /* NetworkRouter.swift in Sources */,
 				CBD7A4051D0B2DBB000CD9C2 /* AttendingTableCell.swift in Sources */,
