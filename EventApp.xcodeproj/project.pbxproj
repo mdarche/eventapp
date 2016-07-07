@@ -38,7 +38,6 @@
 		CBA899FA1D04A343003A2B87 /* MapAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA899F91D04A343003A2B87 /* MapAnnotationView.swift */; };
 		CBB4512A1CD7CBC600AD6A73 /* Authentication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBB451281CD7CBC600AD6A73 /* Authentication.storyboard */; };
 		CBB4512D1CD7CC2100AD6A73 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB4512C1CD7CC2100AD6A73 /* LoginViewController.swift */; };
-		CBB4512F1CD7D1AA00AD6A73 /* MediaDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB4512E1CD7D1AA00AD6A73 /* MediaDetailViewController.swift */; };
 		CBB451311CD7F2F600AD6A73 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB451301CD7F2F600AD6A73 /* ProfileViewController.swift */; };
 		CBB451331CD7FE1200AD6A73 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB451321CD7FE1200AD6A73 /* Constants.swift */; };
 		CBB451351CD82FD200AD6A73 /* ProfileActivityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB451341CD82FD200AD6A73 /* ProfileActivityCell.swift */; };
@@ -48,8 +47,6 @@
 		CBCF43731CF7770800E691DD /* MapAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCF43721CF7770800E691DD /* MapAnnotation.swift */; };
 		CBD7A3FF1D087483000CD9C2 /* MapCalloutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD7A3FE1D087483000CD9C2 /* MapCalloutView.swift */; };
 		CBD7A4011D088F88000CD9C2 /* MapCallout.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBD7A4001D088F88000CD9C2 /* MapCallout.xib */; };
-		CBD7A4031D0A110A000CD9C2 /* AttendingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD7A4021D0A110A000CD9C2 /* AttendingTableViewController.swift */; };
-		CBD7A4051D0B2DBB000CD9C2 /* AttendingTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD7A4041D0B2DBB000CD9C2 /* AttendingTableCell.swift */; };
 		CBD7A40A1D0F3327000CD9C2 /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CBD7A4071D0F3327000CD9C2 /* Roboto-Light.ttf */; };
 		CBD7A40B1D0F3327000CD9C2 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CBD7A4081D0F3327000CD9C2 /* Roboto-Medium.ttf */; };
 		CBD7A40C1D0F3327000CD9C2 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CBD7A4091D0F3327000CD9C2 /* Roboto-Regular.ttf */; };
@@ -128,7 +125,6 @@
 		CBA899F91D04A343003A2B87 /* MapAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapAnnotationView.swift; path = Views/MapAnnotationView.swift; sourceTree = "<group>"; };
 		CBB451291CD7CBC600AD6A73 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Authentication.storyboard; sourceTree = "<group>"; };
 		CBB4512C1CD7CC2100AD6A73 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = Controllers/LoginViewController.swift; sourceTree = "<group>"; };
-		CBB4512E1CD7D1AA00AD6A73 /* MediaDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MediaDetailViewController.swift; path = Controllers/MediaDetailViewController.swift; sourceTree = "<group>"; };
 		CBB451301CD7F2F600AD6A73 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileViewController.swift; path = Controllers/ProfileViewController.swift; sourceTree = "<group>"; };
 		CBB451321CD7FE1200AD6A73 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Utility/Constants.swift; sourceTree = "<group>"; };
 		CBB451341CD82FD200AD6A73 /* ProfileActivityCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileActivityCell.swift; path = Views/ProfileActivityCell.swift; sourceTree = "<group>"; };
@@ -138,8 +134,6 @@
 		CBCF43721CF7770800E691DD /* MapAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapAnnotation.swift; path = Models/MapAnnotation.swift; sourceTree = "<group>"; };
 		CBD7A3FE1D087483000CD9C2 /* MapCalloutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapCalloutView.swift; path = Views/MapCalloutView.swift; sourceTree = "<group>"; };
 		CBD7A4001D088F88000CD9C2 /* MapCallout.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MapCallout.xib; path = Views/MapCallout.xib; sourceTree = "<group>"; };
-		CBD7A4021D0A110A000CD9C2 /* AttendingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AttendingTableViewController.swift; path = Controllers/AttendingTableViewController.swift; sourceTree = "<group>"; };
-		CBD7A4041D0B2DBB000CD9C2 /* AttendingTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AttendingTableCell.swift; path = Views/AttendingTableCell.swift; sourceTree = "<group>"; };
 		CBD7A4071D0F3327000CD9C2 /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Light.ttf"; path = "Resources/Roboto-Light.ttf"; sourceTree = "<group>"; };
 		CBD7A4081D0F3327000CD9C2 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Medium.ttf"; path = "Resources/Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		CBD7A4091D0F3327000CD9C2 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Regular.ttf"; path = "Resources/Roboto-Regular.ttf"; sourceTree = "<group>"; };
@@ -369,7 +363,6 @@
 		CBD7A4111D1075A1000CD9C2 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				CBD7A4021D0A110A000CD9C2 /* AttendingTableViewController.swift */,
 				13210F581CC941D500B3E257 /* EventViewController.swift */,
 				CBFFCE821D144FB100C32877 /* EditProfileViewController.swift */,
 				CBFFCE8A1D14617C00C32877 /* FFITableviewController.swift */,
@@ -379,7 +372,6 @@
 				13210F521CC93F2D00B3E257 /* MapViewController.swift */,
 				CBFD3E0C1CD26D9F00FBE4A8 /* MediaGridViewController.swift */,
 				CBFFCE881D145E3200C32877 /* MediaFeedViewController.swift */,
-				CBB4512E1CD7D1AA00AD6A73 /* MediaDetailViewController.swift */,
 				CBFFCE841D14553500C32877 /* NotificationSettingsViewController.swift */,
 				CBB451381CD939F200AD6A73 /* OrganizerViewController.swift */,
 				CBFFCE861D14574900C32877 /* PrivacyTermsViewController.swift */,
@@ -422,7 +414,6 @@
 		CBD7A4151D107839000CD9C2 /* Event */ = {
 			isa = PBXGroup;
 			children = (
-				CBD7A4041D0B2DBB000CD9C2 /* AttendingTableCell.swift */,
 				CB037EF71CE25CA400720835 /* EventMediaCell.swift */,
 				CB037EFB1CE25D7600720835 /* EventHeader.swift */,
 			);
@@ -639,7 +630,6 @@
 				CBD7A4101D107350000CD9C2 /* Notification.swift in Sources */,
 				CBB451391CD939F200AD6A73 /* OrganizerViewController.swift in Sources */,
 				CB037EFC1CE25D7600720835 /* EventHeader.swift in Sources */,
-				CBB4512F1CD7D1AA00AD6A73 /* MediaDetailViewController.swift in Sources */,
 				CBFD3E0B1CD26A9400FBE4A8 /* MediaGridCell.swift in Sources */,
 				CBFFCE891D145E3200C32877 /* MediaFeedViewController.swift in Sources */,
 				CBFFCE901D1A0E6300C32877 /* MediaFeedCell.swift in Sources */,
@@ -649,13 +639,11 @@
 				CB214AC11D25845B00238BF6 /* MediaFeedLayout.swift in Sources */,
 				1300ECF81D1A38C700E223A2 /* TopRefresher.swift in Sources */,
 				CB119FAE1CEE3CB80086B785 /* NetworkRouter.swift in Sources */,
-				CBD7A4051D0B2DBB000CD9C2 /* AttendingTableCell.swift in Sources */,
 				CBB451331CD7FE1200AD6A73 /* Constants.swift in Sources */,
 				CBFFCE851D14553500C32877 /* NotificationSettingsViewController.swift in Sources */,
 				CBA899FA1D04A343003A2B87 /* MapAnnotationView.swift in Sources */,
 				1313E4E71CD682D00050483C /* Activity.swift in Sources */,
 				13210F201CC86C5300B3E257 /* AppDelegate.swift in Sources */,
-				CBD7A4031D0A110A000CD9C2 /* AttendingTableViewController.swift in Sources */,
 				13210F531CC93F2D00B3E257 /* MapViewController.swift in Sources */,
 				CBFFCE871D14574900C32877 /* PrivacyTermsViewController.swift in Sources */,
 				13210F551CC93FB200B3E257 /* ListViewController.swift in Sources */,

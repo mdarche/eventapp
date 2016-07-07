@@ -32,18 +32,18 @@ class EditProfileViewController: UITableViewController, UIImagePickerControllerD
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
-        UIView.animateWithDuration(0.3, animations: {
-            self.navigationController?.navigationBar.barTintColor = Colors.mainBlueFull
-        })
+//        UIView.animateWithDuration(0.3, animations: {
+//            self.navigationController?.navigationBar.barTintColor = Colors.mainBlueFull
+//        })
         setCurrentInformation()
     }
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(true)
         
-        UIView.animateWithDuration(0.3, animations: {
-            self.navigationController?.navigationBar.barTintColor = Colors.mainDarkFull
-        })
+//        UIView.animateWithDuration(0.3, animations: {
+//            self.navigationController?.navigationBar.barTintColor = Colors.mainDarkFull
+//        })
     }
     
     

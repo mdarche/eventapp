@@ -17,9 +17,6 @@ class ListViewController: UICollectionViewController, UICollectionViewDelegateFl
         visualize()
     }
     
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(true)
-    }
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(true)

@@ -10,7 +10,7 @@ import UIKit
 
 class OrganizerViewController: UITableViewController {
 
-    let headerTitles = ["My Events", "News Feed"]
+    let headerTitles = ["UPCOMING EVENTS", "NEWS FEED"]
     var upcomingEvents : [Activity]?
     var notifications : [Notification]?
     
@@ -30,7 +30,6 @@ class OrganizerViewController: UITableViewController {
     // MARK: Setup View's Layout
     
     func visualize() {
-        setTableViewBackgroundGradient(self)
     }
 
     
@@ -42,8 +41,11 @@ class OrganizerViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //TODO: return count of each object array per section
-        
-        return 4
+        if section == 0 {
+            return 2
+        } else {
+            return 20
+        }
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -83,15 +85,20 @@ class OrganizerViewController: UITableViewController {
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
         let header = UIView()
-        header.backgroundColor = UIColor(red: 10/255, green: 11/255, blue: 15/255, alpha: 1.0)
+        header.backgroundColor = UIColor(red: 225/255, green: 228/255, blue: 234/255, alpha: 1.0)
         
-        let headerLabel = UILabel(frame: CGRectMake(12, 3, 100, 35))
-        headerLabel.font = UIFont(name: "Roboto-Regular", size: 15)
-        headerLabel.textColor = UIColor.whiteColor()
+        let headerLabel = UILabel(frame: CGRectMake(12, 3, 150, 35))
+        headerLabel.font = UIFont(name: "Roboto-Medium", size: 12)
+        headerLabel.textColor = UIColor(red: 150/255, green: 152/255, blue: 156/255, alpha: 1.0)
         headerLabel.textAlignment = .Left
         headerLabel.text = self.tableView(self.tableView, titleForHeaderInSection: section)
         
         header.addSubview(headerLabel)
+        
+        header.layer.shadowColor = UIColor.blackColor().CGColor
+        header.layer.shadowOpacity = 0.4
+        header.layer.shadowOffset = CGSizeZero
+        header.layer.shadowRadius = 2.5
         
         return header
     }

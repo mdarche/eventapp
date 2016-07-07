@@ -50,22 +50,16 @@ class MainMenuViewController: UITableViewController {
     // MARK: Setup View's Layout
     
     func visualize() {
-        setTableViewBackgroundGradient(self)
+        let topView: UIView = UIView(frame: CGRectMake(0.0, -260.0, UIScreen.mainScreen().bounds.width, 260.0))
+        topView.backgroundColor = UIColor(red: 30/255, green: 32/255, blue: 42/255, alpha: 1.0)
+        tableView?.addSubview(topView)
     }
     
+    
+    // MARK: Tableview setup
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 6
-    }
-    
-    override func tableView(tableView: UITableView, didHighlightRowAtIndexPath indexPath: NSIndexPath) {
-        let cell  = tableView.cellForRowAtIndexPath(indexPath)
-        cell!.contentView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.34)
-    }
-    
-    override func tableView(tableView: UITableView, didUnhighlightRowAtIndexPath indexPath: NSIndexPath) {
-        let cell  = tableView.cellForRowAtIndexPath(indexPath)
-        cell!.contentView.backgroundColor = .clearColor()
     }
     
     @IBAction func logoutButtonPressed(sender: AnyObject) {

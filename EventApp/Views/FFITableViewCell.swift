@@ -22,7 +22,7 @@ class FFITableViewCell: UITableViewCell {
     
     func visualize() {
         imageThumbnail.layer.cornerRadius = imageThumbnail.frame.size.width/2
-        button.layer.borderColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.4).CGColor
+        button.layer.borderColor = Colors.mainBlueFull.CGColor
         button.layer.borderWidth = 0.3
     }
     

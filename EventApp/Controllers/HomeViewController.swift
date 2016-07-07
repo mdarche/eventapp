@@ -27,6 +27,7 @@ class HomeViewController: UIViewController {
         visualize()
     }
     
+    
     @IBAction func showComponent(sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0 {
             UIView.animateWithDuration(0.2, animations: {

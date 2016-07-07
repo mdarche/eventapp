@@ -17,13 +17,14 @@ class NotificationSettingsViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.barTintColor = Colors.mainBlueFull
+ 
     }
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(true)
-        UIView.animateWithDuration(0.3, animations: {
-            self.navigationController?.navigationBar.barTintColor = Colors.mainDarkFull
-        })
+//        UIView.animateWithDuration(0.3, animations: {
+//            self.navigationController?.navigationBar.barTintColor = Colors.mainDarkFull
+//        })
     }
     
     @IBAction func saveChanges(sender: AnyObject) {

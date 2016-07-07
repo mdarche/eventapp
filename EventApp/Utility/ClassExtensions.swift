@@ -14,8 +14,8 @@ class TabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        UITabBar.appearance().tintColor = UIColor.whiteColor()
-        UITabBar.appearance().alpha = 0.85
+        UITabBar.appearance().tintColor = .whiteColor()
+        UITabBar.appearance().alpha = 1
     }
 }
 
@@ -102,6 +102,7 @@ extension UICollectionViewController {
     
 }
 
+
 extension UIView {
     func pushTransition(duration:CFTimeInterval, effect: String?) {
         let animation:CATransition = CATransition()
@@ -160,6 +161,19 @@ extension UIImageView {
         
         imageView.layer.insertSublayer(gradientLayer, atIndex: 0)
     }
+    
+//    func setBackgroundGradient(sender: UIImageView, image: UIImage?) {
+//        
+//        let imageLayer = UIImageView(frame: sender.bounds)
+//        if image != nil {
+//            imageLayer.image = image
+//            imageLayer.layer.masksToBounds = true
+//            imageLayer.contentMode = .ScaleAspectFill
+//            imageLayer.blurImage()
+//        }
+//        sender.collectionView!.backgroundView = imageLayer
+//    }
+    
 }
 
 extension NSDate {

@@ -14,8 +14,6 @@ class EventViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        setBackgroundGradient(self, image: UIImage(named: "feedImage"))
     }
     
     // MARK: UICollectionViewDataSource
@@ -44,7 +42,7 @@ class EventViewController: UICollectionViewController {
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout,
             referenceSizeForHeaderInSection section: Int) -> CGSize {
         
-        return CGSizeMake(CGRectGetWidth(collectionView.bounds), 398.0)
+        return CGSizeMake(CGRectGetWidth(collectionView.bounds), 550.0)
     
     }
     

@@ -40,6 +40,8 @@ class MediaGridViewController: UICollectionViewController, UICollectionViewDeleg
         flowLayout.minimumLineSpacing = 1
         flowLayout.scrollDirection = .Vertical
         collectionView?.collectionViewLayout = flowLayout
+        
+        navigationController?.hidesBarsOnSwipe = true
     }
 }
 

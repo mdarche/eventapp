@@ -17,6 +17,13 @@ class MediaFeedViewController: UICollectionViewController {
         
         collectionView!.backgroundColor = .blackColor()
         collectionView!.decelerationRate = UIScrollViewDecelerationRateFast
+        navigationController?.hidesBarsOnSwipe = false
+        navigationController?.navigationBarHidden = false
+        
+        let whiteView: UIView = UIView(frame: CGRectMake(0.0, -260.0, UIScreen.mainScreen().bounds.width, 260.0))
+        whiteView.backgroundColor = .whiteColor()
+        collectionView?.addSubview(whiteView)
+        
     }
 }
 
@@ -33,6 +40,9 @@ extension MediaFeedViewController {
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("MediaFeedCell", forIndexPath: indexPath) as! MediaFeedCell
 //        cell.inspiration = inspirations[indexPath.item]
+        let imageName = (indexPath.row % 2 == 0) ? "NickCage" : "feedImage"
+        cell.imageView.image = UIImage(named: imageName)
+        
         return cell
     }
     

@@ -13,6 +13,7 @@ class ProfileHeader: UICollectionReusableView {
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var fullNameLabel: UILabel!
     @IBOutlet weak var cityLabel: UILabel!
+    @IBOutlet weak var headerBG: UIImageView!
 
     
     override func awakeFromNib() {
@@ -21,6 +22,7 @@ class ProfileHeader: UICollectionReusableView {
     }
     
     func visualize() {
+        
         profileImage.layer.cornerRadius = profileImage.frame.size.width/2
         profileImage.layer.borderColor = UIColor.whiteColor().CGColor
         profileImage.layer.borderWidth = 1
