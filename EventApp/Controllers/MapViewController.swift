@@ -44,6 +44,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         activities.append(testActivity3!)
         activities.append(testActivity4!)
         activities.append(testActivity5!)
+        
         createAnnotations()
         
     }

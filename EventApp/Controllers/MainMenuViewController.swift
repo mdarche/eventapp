@@ -40,7 +40,7 @@ class MainMenuViewController: UITableViewController {
         }
 
         if segue.identifier == Segues.showInviteTable {
-            guard let vc = segue.destinationViewController as? FFITableviewController  else { return }
+            guard let vc = segue.destinationViewController as? FFITableviewController else { return }
             vc.isInvitation = true
         }
     }
@@ -50,9 +50,10 @@ class MainMenuViewController: UITableViewController {
     // MARK: Setup View's Layout
     
     func visualize() {
-        let topView: UIView = UIView(frame: CGRectMake(0.0, -260.0, UIScreen.mainScreen().bounds.width, 260.0))
-        topView.backgroundColor = UIColor(red: 30/255, green: 32/255, blue: 42/255, alpha: 1.0)
-        tableView?.addSubview(topView)
+        tableView?.addInvisibleHeader(Colors.darkestBlue, sender: self.tableView, size: 260)
+//        let topView: UIView = UIView(frame: CGRectMake(0.0, -260.0, UIScreen.mainScreen().bounds.width, 260.0))
+//        topView.backgroundColor = UIColor(red: 30/255, green: 32/255, blue: 42/255, alpha: 1.0)
+//        tableView?.addSubview(topView)
     }
     
     

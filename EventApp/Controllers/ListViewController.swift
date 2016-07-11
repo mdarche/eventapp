@@ -48,7 +48,7 @@ class ListViewController: UICollectionViewController, UICollectionViewDelegateFl
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.size.width, height: 112)
+        return CGSize(width: collectionView.frame.size.width, height: 115)
     }
     
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {

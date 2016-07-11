@@ -23,7 +23,7 @@ class OrganizerUpcomingCell: UITableViewCell {
     }
 
     func visualize() {
-        imageThumbnail.addDarkGradientLayer(imageThumbnail)
+        imageThumbnail.addDarkGradientLayer()
     }
 
 }

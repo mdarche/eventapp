@@ -59,9 +59,11 @@ enum Identifiers {
 }
 
 struct Colors {
-    static let mainDarkFull = UIColor(red: 30/255, green: 32/255, blue: 42/255, alpha: 1.0)
-    static let mainDarkHalf = UIColor(red: 30/255, green: 32/255, blue: 42/255, alpha: 0.5)
+    static let primaryBlue = UIColor(red: 61/255, green: 90/255, blue: 254/255, alpha: 1.0)
     
-    static let mainBlueFull = UIColor(red: 71/255, green: 70/255, blue: 236/255, alpha: 1.0)
-    static let mainBlueHalf = UIColor(red: 71/255, green: 70/255, blue: 236/255, alpha: 0.5)
+    static let darkBlue = UIColor(red: 42/255, green: 74/255, blue: 209/255, alpha: 1.0)
+    static let darkBlueHalf = UIColor(red: 42/255, green: 74/255, blue: 209/255, alpha: 0.5)
+    static let darkestBlue = UIColor(red: 30/255, green: 32/255, blue: 42/255, alpha: 1.0)
+    
+    static let accentRed = UIColor(red: 255/255, green: 23/255, blue: 68/255, alpha: 1.0)
 }

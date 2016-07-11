@@ -13,6 +13,7 @@ class EditProfileViewController: UITableViewController, UIImagePickerControllerD
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var headerLabel: UILabel!
+    @IBOutlet weak var headerView2: UIView!
     
     @IBOutlet weak var firstNameField: UITextField! { didSet {firstNameField.delegate = self} }
     @IBOutlet weak var lastNameField: UITextField! { didSet {lastNameField.delegate = self} }
@@ -38,14 +39,6 @@ class EditProfileViewController: UITableViewController, UIImagePickerControllerD
         setCurrentInformation()
     }
     
-    override func viewWillDisappear(animated: Bool) {
-        super.viewWillDisappear(true)
-        
-//        UIView.animateWithDuration(0.3, animations: {
-//            self.navigationController?.navigationBar.barTintColor = Colors.mainDarkFull
-//        })
-    }
-    
     
     func setCurrentInformation() {
         // TODO: Grab data from disk
@@ -55,11 +48,20 @@ class EditProfileViewController: UITableViewController, UIImagePickerControllerD
     func visualize() {
         imagePicker.delegate = self
         profileImage.layer.cornerRadius = profileImage.frame.size.width/2
+        
+        headerView.layer.shadowColor = UIColor.blackColor().CGColor
+        headerView2.layer.shadowColor = UIColor.blackColor().CGColor
+        
+        let saveButtonItem = UIBarButtonItem(title: "SAVE", style: .Plain, target: self, action: #selector(EditProfileViewController.saveChanges))
+        let font = UIFont.systemFontOfSize(12)
+        saveButtonItem.setTitleTextAttributes([ NSFontAttributeName: font], forState: .Normal)
+        self.navigationItem.rightBarButtonItem = saveButtonItem
+        
+        tableView?.addInvisibleHeader(.whiteColor(), sender: self.tableView, size: 50)
     }
     
-    
-    @IBAction func saveChanges(sender: AnyObject) {
-    
+    func saveChanges() {
+        
     }
     
     @IBAction func editImageButton(sender: AnyObject) {
@@ -68,6 +70,7 @@ class EditProfileViewController: UITableViewController, UIImagePickerControllerD
     }
     
 }
+
 
 extension EditProfileViewController {
     

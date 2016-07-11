@@ -61,7 +61,7 @@ class Activity: NSObject {
         if activityId == nil { return nil }
     }
     
-    // FOR TEST CASES:
+    // TEMPORARY FOR TEST CASES:
     
     init?(activityId: Int, type: String, eventType: String?, latitude: Double, longitude: Double, title: String, coverImage: String, venueTitle: String?, venueType: String?) {
         self.activityId = activityId

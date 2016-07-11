@@ -30,7 +30,6 @@ class MapAnnotation : NSObject, MKAnnotation {
         venueType = activity.venueType
         title = activity.title
         coverImage = activity.coverImage
-        
         super.init()
     }
 }

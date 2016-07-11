@@ -32,7 +32,11 @@ class Utility : NSObject {
     
 }
 
+
+// MARK: UIImageViews and UIViews
+
 extension UIImageView{
+    
     func blurImage(){
         let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.Light)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
@@ -41,6 +45,78 @@ extension UIImageView{
         blurEffectView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
         self.addSubview(blurEffectView)
     }
+    
+    // For Profiles
+    
+    func addColorGradient() {
+        let gradientLayer = CAGradientLayer()
+        let gradientColors = [ UIColor(red: 30/255, green: 32/255, blue: 42/255, alpha: 0.85).CGColor, UIColor(red: 30/255, green: 32/255, blue: 42/255, alpha: 0.68).CGColor, UIColor(red: 30/255, green: 32/255, blue: 42/255, alpha: 1.0).CGColor ]
+        let gradientLocations = [0.0, 0.5, 1.0]
+        
+        gradientLayer.colors = gradientColors
+        gradientLayer.locations = gradientLocations
+        gradientLayer.frame = self.bounds
+        
+        self.layer.insertSublayer(gradientLayer, atIndex: 0)
+        
+    }
+    
+    // For cells
+    
+    func addDarkGradientLayer() {
+        let gradientLayer = CAGradientLayer()
+        let gradientColors = [UIColor.clearColor().CGColor, UIColor(red: 30/255, green: 32/255, blue: 42/255, alpha: 0.8).CGColor ]
+        let gradientLocations = [0.4, 1.0]
+        
+        gradientLayer.colors = gradientColors
+        gradientLayer.locations = gradientLocations
+        gradientLayer.frame = self.frame
+        
+        self.layer.insertSublayer(gradientLayer, atIndex: 0)
+    }
+}
+
+extension UIView {
+    func pushTransition(duration:CFTimeInterval, effect: String?) {
+        let animation:CATransition = CATransition()
+        animation.timingFunction = CAMediaTimingFunction(name:
+            kCAMediaTimingFunctionEaseInEaseOut)
+        
+        if effect == "fade" {
+            animation.type = kCATransitionFade
+            animation.subtype = kCATransitionFade
+        } else {
+            animation.type = kCATransitionFromBottom
+            animation.subtype = kCATransitionFromBottom
+        }
+        
+        animation.duration = duration
+        self.layer.addAnimation(animation, forKey: kCATransitionPush)
+    }
+    
+    func addShadow(opacity: Float, radius: CGFloat) {
+        // Recommended 2 for radius and 0.8 for opacity
+        
+        self.layer.shadowColor = UIColor.blackColor().CGColor
+        self.layer.shadowOpacity = opacity
+        self.layer.shadowOffset = CGSizeZero
+        self.layer.shadowRadius = radius
+    }
+    
+    
+}
+
+
+// MARK: UITableViews
+
+extension UITableView {
+    
+    func addInvisibleHeader(color: UIColor, sender: UITableView, size: CGFloat) {
+        let topView: UIView = UIView(frame: CGRectMake(0.0, -size, UIScreen.mainScreen().bounds.width, size))
+        topView.backgroundColor = color
+        sender.addSubview(topView)
+    }
+    
 }
 
 extension UITableViewController {
@@ -86,41 +162,8 @@ extension UITableViewController {
     
 }
 
-extension UICollectionViewController {
-    
-    func setBackgroundGradient(sender: UICollectionViewController, image: UIImage?) {
 
-        let imageLayer = UIImageView(frame: sender.collectionView!.bounds)
-        if image != nil {
-            imageLayer.image = image
-            imageLayer.layer.masksToBounds = true
-            imageLayer.contentMode = .ScaleAspectFill
-            imageLayer.blurImage()
-        }
-        sender.collectionView!.backgroundView = imageLayer
-    }
-    
-}
-
-
-extension UIView {
-    func pushTransition(duration:CFTimeInterval, effect: String?) {
-        let animation:CATransition = CATransition()
-        animation.timingFunction = CAMediaTimingFunction(name:
-            kCAMediaTimingFunctionEaseInEaseOut)
-        
-        if effect == "fade" {
-            animation.type = kCATransitionFade
-            animation.subtype = kCATransitionFade
-        } else {
-            animation.type = kCATransitionFromBottom
-            animation.subtype = kCATransitionFromBottom
-        }
-        
-        animation.duration = duration
-        self.layer.addAnimation(animation, forKey: kCATransitionPush)
-    }
-}
+// MARK: Mapkit extensions
 
 extension MKAnnotationView {
     func createCurrentUserLocation(pulseView: MKAnnotationView) {
@@ -128,7 +171,7 @@ extension MKAnnotationView {
         
         let subview1 = UIView()
         let pulsator = Pulsator()
-        pulsator.backgroundColor = Colors.mainBlueHalf.CGColor
+        pulsator.backgroundColor = Colors.darkBlueHalf.CGColor
         pulsator.numPulse = 6
         pulsator.animationDuration = 12
         pulsator.repeatCount = 5
@@ -148,33 +191,8 @@ extension MKAnnotationView {
     
 }
 
-extension UIImageView {
-    
-    func addDarkGradientLayer(imageView: UIImageView) {
-        let gradientLayer = CAGradientLayer()
-        let gradientColors = [UIColor.clearColor().CGColor, UIColor(red: 30/255, green: 32/255, blue: 42/255, alpha: 0.4).CGColor ]
-        let gradientLocations = [0.0, 1.0]
-        
-        gradientLayer.colors = gradientColors
-        gradientLayer.locations = gradientLocations
-        gradientLayer.frame = imageView.frame
-        
-        imageView.layer.insertSublayer(gradientLayer, atIndex: 0)
-    }
-    
-//    func setBackgroundGradient(sender: UIImageView, image: UIImage?) {
-//        
-//        let imageLayer = UIImageView(frame: sender.bounds)
-//        if image != nil {
-//            imageLayer.image = image
-//            imageLayer.layer.masksToBounds = true
-//            imageLayer.contentMode = .ScaleAspectFill
-//            imageLayer.blurImage()
-//        }
-//        sender.collectionView!.backgroundView = imageLayer
-//    }
-    
-}
+
+// MARK: NSDate Dateformatters
 
 extension NSDate {
     func yearsFrom(date: NSDate) -> Int {

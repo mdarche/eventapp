@@ -25,7 +25,7 @@ class ListFeedCell: UICollectionViewCell {
     }
     
     func visualize() {
-        imageThumbnail.addDarkGradientLayer(imageThumbnail)
+        imageThumbnail.addDarkGradientLayer()
     }
     
 }

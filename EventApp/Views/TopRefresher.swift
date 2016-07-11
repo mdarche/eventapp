@@ -62,7 +62,7 @@ class TopRefresher: UIRefreshControl {
     
     func animateRefreshView() {
         refreshLoadingView.backgroundColor = UIColor.clearColor()
-        var colorArray = [Colors.mainBlueFull, Colors.mainBlueHalf, Colors.mainDarkHalf]
+        var colorArray = [Colors.primaryBlue, Colors.accentRed]
         struct ColorIndex {
             static var colorIndex = 0
         }

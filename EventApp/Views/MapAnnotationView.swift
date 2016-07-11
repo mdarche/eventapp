@@ -39,7 +39,7 @@ class MapAnnotationView: MKAnnotationView {
             // Set annotation icon
             if annotation.type == "event" {
                 self.type = "Event"
-                self.backgroundColor = Colors.mainDarkHalf
+                self.backgroundColor = Colors.darkBlueHalf
                 switch annotation.eventType! {
                 case "sport-event":
                     self.eventType = "Sports Event"

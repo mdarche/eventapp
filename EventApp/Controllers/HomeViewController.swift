@@ -59,8 +59,14 @@ class HomeViewController: UIViewController {
         segmentControl.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor()], forState: UIControlState.Selected)
         
         outerView.layer.cornerRadius = CGRectGetHeight(outerView.bounds) / 2
-        outerView.layer.borderColor = UIColor(red: 71/255, green: 70/255, blue: 236/255, alpha: 1.0).CGColor
+        outerView.layer.borderColor = Colors.primaryBlue.CGColor
         outerView.layer.borderWidth = 1
+        
+        let moreButton = UIBarButtonItem(image: UIImage(named: "more"), style: .Plain, target: self, action: #selector(HomeViewController.moreMenuPressed))
+        self.navigationItem.rightBarButtonItem = moreButton
+    }
+    
+    func moreMenuPressed() {
         
     }
 

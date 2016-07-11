@@ -41,7 +41,6 @@ class MediaGridViewController: UICollectionViewController, UICollectionViewDeleg
         flowLayout.scrollDirection = .Vertical
         collectionView?.collectionViewLayout = flowLayout
         
-        navigationController?.hidesBarsOnSwipe = true
     }
 }
 

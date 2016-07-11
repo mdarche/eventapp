@@ -22,14 +22,11 @@ class OrganizerViewController: UITableViewController {
         visualize()
     }
     
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(true)
-    }
-    
     
     // MARK: Setup View's Layout
     
     func visualize() {
+        tableView?.addInvisibleHeader(Colors.darkBlue, sender: self.tableView, size: 150)
     }
 
     
@@ -85,11 +82,11 @@ class OrganizerViewController: UITableViewController {
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
         let header = UIView()
-        header.backgroundColor = UIColor(red: 225/255, green: 228/255, blue: 234/255, alpha: 1.0)
+        header.backgroundColor = Colors.darkBlue
         
         let headerLabel = UILabel(frame: CGRectMake(12, 3, 150, 35))
         headerLabel.font = UIFont(name: "Roboto-Medium", size: 12)
-        headerLabel.textColor = UIColor(red: 150/255, green: 152/255, blue: 156/255, alpha: 1.0)
+        headerLabel.textColor = .whiteColor()
         headerLabel.textAlignment = .Left
         headerLabel.text = self.tableView(self.tableView, titleForHeaderInSection: section)
         

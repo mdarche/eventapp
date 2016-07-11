@@ -16,7 +16,7 @@ class ProfileViewController: UICollectionViewController, UICollectionViewDelegat
     var profileImage : NSURL?
     var displayName : String?
     
-    let testArray : [AnyObject]? = ["string", 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    let testArray : [AnyObject]? = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     var isMe : Bool?
     
     // MARK: View's Lifecycle
@@ -41,7 +41,7 @@ class ProfileViewController: UICollectionViewController, UICollectionViewDelegat
     
     func visualize() {
         if isMe == true {
-            let settingsButton = UIBarButtonItem(image: UIImage(named: "settings"), style: .Plain, target: self, action: #selector(ProfileViewController.settingsPressed))
+            let settingsButton = UIBarButtonItem(image: UIImage(named: "settingsLight"), style: .Plain, target: self, action: #selector(ProfileViewController.settingsPressed))
             self.navigationItem.rightBarButtonItem = settingsButton
         } else {
             //TODO: Loop through current user's followingID array and change title of button
@@ -55,7 +55,6 @@ class ProfileViewController: UICollectionViewController, UICollectionViewDelegat
         topRefreshControl.addTarget(self, action: #selector(ProfileViewController.handleTopPull), forControlEvents: UIControlEvents.ValueChanged)
         self.collectionView!.addSubview(topRefreshControl)
         
-//        setBackgroundGradient(self, image: UIImage(named: "NickCage"))
     }
     
     func handleTopPull() {
@@ -114,7 +113,6 @@ extension ProfileViewController {
                        withReuseIdentifier: Identifiers.profileHeader, forIndexPath: indexPath) as! ProfileHeader
         
         header.headerBG.image = UIImage(named: "NickCage")
-        header.headerBG.blurImage()
         //TODO: send user data to header file and set up
         
         return header
@@ -123,7 +121,7 @@ extension ProfileViewController {
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout,
         referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSizeMake(CGRectGetWidth(collectionView.bounds), 220.0)
+        return CGSizeMake(CGRectGetWidth(collectionView.bounds), 320.0)
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
