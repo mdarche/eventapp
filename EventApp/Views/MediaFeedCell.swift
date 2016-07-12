@@ -14,6 +14,7 @@ class MediaFeedCell: UICollectionViewCell {
     @IBOutlet weak var imageCoverView: UIView!
     @IBOutlet weak var eventLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var containerView: UIView!
     
     
     override func applyLayoutAttributes(layoutAttributes: UICollectionViewLayoutAttributes) {
@@ -31,7 +32,7 @@ class MediaFeedCell: UICollectionViewCell {
         
         eventLabel.alpha = delta
         timeLabel.alpha = delta
-
+        containerView.alpha = delta
     }
     
 }

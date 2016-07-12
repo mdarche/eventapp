@@ -14,7 +14,24 @@ class EventViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        visualize()
     }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(true)
+        
+            if self.parentViewController == (self.navigationController?.parentViewController) as? OrganizerViewController {
+                navigationController?.navigationBar.barTintColor = .redColor()
+            } else {
+                navigationController?.navigationBar.barTintColor = .blueColor()
+            }
+    }
+    
+    func visualize(){
+        navigationController?.navigationBar.barTintColor = UIColor(red: 156/255, green: 39/255, blue: 176/255, alpha: 1.0)
+    }
+    
+
     
     // MARK: UICollectionViewDataSource
     

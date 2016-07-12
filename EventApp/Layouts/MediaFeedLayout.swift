@@ -11,7 +11,7 @@ import UIKit
 struct MediaFeedLayoutConstants {
     struct Cell {
         static let standardHeight : CGFloat = 100
-        static let featuredHeight : CGFloat = 400
+        static let featuredHeight : CGFloat = 420
     }
 }
 

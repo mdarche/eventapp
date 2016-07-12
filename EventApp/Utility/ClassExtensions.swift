@@ -65,7 +65,7 @@ extension UIImageView{
     
     func addDarkGradientLayer() {
         let gradientLayer = CAGradientLayer()
-        let gradientColors = [UIColor.clearColor().CGColor, UIColor(red: 30/255, green: 32/255, blue: 42/255, alpha: 0.8).CGColor ]
+        let gradientColors = [UIColor.clearColor().CGColor, UIColor(red: 30/255, green: 32/255, blue: 42/255, alpha: 0.7).CGColor ]
         let gradientLocations = [0.4, 1.0]
         
         gradientLayer.colors = gradientColors
