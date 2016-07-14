@@ -10,6 +10,8 @@ import UIKit
 
 class EventViewController: UICollectionViewController {
 
+    var parentNavColor : UIColor?
+    
     // MARK: View's Lifecycle
     
     override func viewDidLoad() {
@@ -17,18 +19,18 @@ class EventViewController: UICollectionViewController {
         visualize()
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(true)
+        navigationController?.navigationBar.barTintColor = Colors.primaryPurple
+    }
+    
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(true)
-        
-            if self.parentViewController == (self.navigationController?.parentViewController) as? OrganizerViewController {
-                navigationController?.navigationBar.barTintColor = .redColor()
-            } else {
-                navigationController?.navigationBar.barTintColor = .blueColor()
-            }
+        navigationController?.navigationBar.barTintColor = parentNavColor
     }
     
     func visualize(){
-        navigationController?.navigationBar.barTintColor = UIColor(red: 156/255, green: 39/255, blue: 176/255, alpha: 1.0)
+        collectionView?.addInvisibleHeader(Colors.darkPurple, sender: self.collectionView!, size: 200)
     }
     
 
@@ -59,14 +61,14 @@ class EventViewController: UICollectionViewController {
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout,
             referenceSizeForHeaderInSection section: Int) -> CGSize {
         
-        return CGSizeMake(CGRectGetWidth(collectionView.bounds), 550.0)
+        return CGSizeMake(CGRectGetWidth(collectionView.bounds), 712.0)
     
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout,
             sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         
-        return CGSize(width: collectionView.frame.size.width, height: 280)
+        return CGSize(width: collectionView.frame.size.width, height: 320)
 
     }
     

@@ -18,14 +18,15 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     var mapAnnotations = [MapAnnotation]()
     let locationManager = CLLocationManager()
     
-    @IBOutlet var mapCallout: MapCalloutView!
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var locationButton: UIButton!
     
     // MARK: View's Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupLocationManager()
+        visualize()
         
         // TODO: Move to UI Test
         
@@ -54,10 +55,18 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         // Dispose of any resources that can be recreated.
     }
     
+    func visualize() {
+        locationButton.layer.cornerRadius = locationButton.frame.size.height / 2
+        locationButton.addShadow(0.2, radius: 1.5)
+    }
+    
     // MARK: View's Transition Handler
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        //TODO: send activityId to activity view
+        if segue.identifier == Segues.showMapEvent {
+            guard let vc = segue.destinationViewController as? EventViewController else { return }
+            vc.parentNavColor = Colors.darkestBlue
+        }
     }
     
     // MARK: Convert Activities to Annotations
@@ -96,6 +105,9 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         print("Errors: " + error.localizedDescription)
     }
 
+    @IBAction func updateCurrentLocationPressed(sender: AnyObject) {
+        setupLocationManager()
+    }
 }
 
 

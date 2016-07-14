@@ -162,6 +162,15 @@ extension UITableViewController {
     
 }
 
+extension UICollectionView {
+    
+    func addInvisibleHeader(color: UIColor, sender: UICollectionView, size: CGFloat) {
+        let topView: UIView = UIView(frame: CGRectMake(0.0, -size, UIScreen.mainScreen().bounds.width, size))
+        topView.backgroundColor = color
+        sender.addSubview(topView)
+    }
+}
+
 
 // MARK: Mapkit extensions
 

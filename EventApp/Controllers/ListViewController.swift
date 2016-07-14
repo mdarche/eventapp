@@ -26,9 +26,10 @@ class ListViewController: UICollectionViewController, UICollectionViewDelegateFl
     // MARK: View's Transition Handler
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
-        // TODO
-        
+        if segue.identifier == Segues.showListEvent {
+            guard let vc = segue.destinationViewController as? EventViewController else { return }
+            vc.parentNavColor = Colors.darkestBlue
+        }
     }
     
     

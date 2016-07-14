@@ -43,17 +43,11 @@ class ProfileViewController: UICollectionViewController, UICollectionViewDelegat
         if isMe == true {
             let settingsButton = UIBarButtonItem(image: UIImage(named: "settingsLight"), style: .Plain, target: self, action: #selector(ProfileViewController.settingsPressed))
             self.navigationItem.rightBarButtonItem = settingsButton
-        } else {
-            //TODO: Loop through current user's followingID array and change title of button
-            let followButtonItem = UIBarButtonItem(title: "FOLLOW", style: .Plain, target: self, action: #selector(ProfileViewController.followUserPressed))
-            let font = UIFont.systemFontOfSize(12)
-            followButtonItem.setTitleTextAttributes([ NSFontAttributeName: font], forState: .Normal)
-            self.navigationItem.rightBarButtonItem = followButtonItem
         }
-        
-        topRefreshControl.setupSubview(.whiteColor(), bgColor: .clearColor())
+        collectionView!.addInvisibleHeader(Colors.accentRed, sender: self.collectionView!, size: 100)
+        topRefreshControl.setupSubview(.whiteColor(), bgColor: Colors.accentRed)
         topRefreshControl.addTarget(self, action: #selector(ProfileViewController.handleTopPull), forControlEvents: UIControlEvents.ValueChanged)
-        self.collectionView!.addSubview(topRefreshControl)
+        collectionView!.addSubview(topRefreshControl)
         
     }
     
@@ -121,7 +115,7 @@ extension ProfileViewController {
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout,
         referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSizeMake(CGRectGetWidth(collectionView.bounds), 320.0)
+        return CGSizeMake(CGRectGetWidth(collectionView.bounds), 278.0)
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
@@ -130,7 +124,7 @@ extension ProfileViewController {
         
             let item = list[indexPath.row]
             if item is Int {
-                return CGSize(width: collectionView.frame.size.width, height: 77)
+                return CGSize(width: collectionView.frame.size.width, height: 70)
             } else {
                 return CGSize(width: collectionView.frame.size.width, height: 190)
             }

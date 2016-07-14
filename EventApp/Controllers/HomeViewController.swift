@@ -51,6 +51,7 @@ class HomeViewController: UIViewController {
     }
     
     func visualize() {
+        eventNotification.hidden = true
         notificationImage.layer.cornerRadius = notificationImage.frame.size.width/2
         notificationImage.layer.borderColor = UIColor.whiteColor().CGColor
         notificationImage.layer.borderWidth = 1

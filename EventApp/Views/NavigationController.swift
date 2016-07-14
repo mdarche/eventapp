@@ -25,3 +25,20 @@ class NavigationController: UINavigationController {
     }
     
 }
+
+class DarkNavigationController : UINavigationController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        visualize()
+    }
+    
+    func visualize() {
+        self.navigationBar.barTintColor = Colors.darkestBlue
+        
+        self.navigationBar.layer.shadowOffset = CGSizeMake(0, 2)
+        self.navigationBar.layer.shadowRadius = 2.5
+        self.navigationBar.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5).CGColor
+        self.navigationBar.layer.shadowOpacity = 0.3
+    }
+
+}

@@ -23,6 +23,15 @@ class OrganizerViewController: UITableViewController {
     }
     
     
+    // MARK: View's Transition Handler
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == Segues.showOrganizerEvent {
+            guard let vc = segue.destinationViewController as? EventViewController else { return }
+            vc.parentNavColor = Colors.primaryBlue
+        }
+    }
+    
     // MARK: Setup View's Layout
     
     func visualize() {
@@ -92,10 +101,11 @@ class OrganizerViewController: UITableViewController {
         
         header.addSubview(headerLabel)
         
-        header.layer.shadowColor = UIColor.blackColor().CGColor
-        header.layer.shadowOpacity = 0.4
-        header.layer.shadowOffset = CGSizeZero
-        header.layer.shadowRadius = 2.5
+        header.addShadow(0.4, radius: 2.5)
+//        header.layer.shadowColor = UIColor.blackColor().CGColor
+//        header.layer.shadowOpacity = 0.4
+//        header.layer.shadowOffset = CGSizeZero
+//        header.layer.shadowRadius = 2.5
         
         return header
     }
