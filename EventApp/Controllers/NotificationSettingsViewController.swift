@@ -14,6 +14,7 @@ class NotificationSettingsViewController: UITableViewController {
     @IBOutlet weak var eventReminderSwitch: UISwitch!
     @IBOutlet weak var newFollowerSwitch: UISwitch!
     @IBOutlet weak var headerView: UIView!
+    @IBOutlet weak var saveButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,16 +24,12 @@ class NotificationSettingsViewController: UITableViewController {
     func visualize() {
         tableView?.addInvisibleHeader(.whiteColor(), sender: self.tableView, size: 50)
         headerView.layer.shadowColor = UIColor.blackColor().CGColor
-        
-        let saveButtonItem = UIBarButtonItem(title: "SAVE", style: .Plain, target: self, action: #selector(NotificationSettingsViewController.saveChanges))
-        let font = UIFont.systemFontOfSize(12)
-        saveButtonItem.setTitleTextAttributes([ NSFontAttributeName: font], forState: .Normal)
-        self.navigationItem.rightBarButtonItem = saveButtonItem
-        
+        saveButton.layer.cornerRadius = saveButton.frame.size.height/2
     }
     
-    func saveChanges() {
-        
+    
+    @IBAction func saveChanges(sender: AnyObject) {
+    
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

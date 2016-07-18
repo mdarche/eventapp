@@ -13,8 +13,8 @@ class ProfileViewController: UICollectionViewController, UICollectionViewDelegat
 
     private var topRefreshControl = TopRefresher()
     var profileId : Int?
-    var profileImage : NSURL?
-    var displayName : String?
+    var user : User?
+    var currentUser : CurrentUser?
     
     let testArray : [AnyObject]? = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     var isMe : Bool?
@@ -30,7 +30,6 @@ class ProfileViewController: UICollectionViewController, UICollectionViewDelegat
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == Segues.showFFTable {
             guard let vc = segue.destinationViewController as? FFITableviewController, sender = sender as? String else { return }
-            
             if sender == "followers" {
                 vc.isFollowers = true
             } else {
@@ -77,6 +76,7 @@ class ProfileViewController: UICollectionViewController, UICollectionViewDelegat
     
     
 }
+
 
 extension ProfileViewController {
     
@@ -132,14 +132,6 @@ extension ProfileViewController {
     
     override func scrollViewDidScroll(scrollView: UIScrollView) {
         topRefreshControl.scrollTableView()
-        
-//        let currentOffset = scrollView.contentOffset.y
-//        if didAnimate == false && currentOffset >= 127 {
-//            UIView.animateWithDuration(2.5, animations: {
-//                self.navTitle.hidden = false
-//                self.didAnimate = true
-//            })
-//        }
     }
 
 }

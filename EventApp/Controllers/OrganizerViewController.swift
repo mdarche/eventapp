@@ -35,8 +35,9 @@ class OrganizerViewController: UITableViewController {
     // MARK: Setup View's Layout
     
     func visualize() {
-        tableView?.addInvisibleHeader(Colors.darkBlue, sender: self.tableView, size: 150)
+        tableView!.addInvisibleHeader(Colors.accentRed, sender: self.tableView!, size: 160)
     }
+    
 
     
     // MARK: Tableview Functions
@@ -100,12 +101,7 @@ class OrganizerViewController: UITableViewController {
         headerLabel.text = self.tableView(self.tableView, titleForHeaderInSection: section)
         
         header.addSubview(headerLabel)
-        
         header.addShadow(0.4, radius: 2.5)
-//        header.layer.shadowColor = UIColor.blackColor().CGColor
-//        header.layer.shadowOpacity = 0.4
-//        header.layer.shadowOffset = CGSizeZero
-//        header.layer.shadowRadius = 2.5
         
         return header
     }

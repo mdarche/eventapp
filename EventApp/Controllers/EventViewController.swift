@@ -21,7 +21,7 @@ class EventViewController: UICollectionViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
-        navigationController?.navigationBar.barTintColor = Colors.primaryPurple
+        navigationController?.navigationBar.barTintColor = Colors.darkestBlue
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -30,7 +30,7 @@ class EventViewController: UICollectionViewController {
     }
     
     func visualize(){
-        collectionView?.addInvisibleHeader(Colors.darkPurple, sender: self.collectionView!, size: 200)
+        collectionView?.addInvisibleHeader(Colors.lightBlue, sender: self.collectionView!, size: 200)
     }
     
 

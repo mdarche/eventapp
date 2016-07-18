@@ -9,7 +9,8 @@
 import Foundation
 
 enum Domains {
-    static let test = "http://private-87ec1-eventsapp2.apiary-mock.com"
+    static let apiary = "http://private-87ec1-eventsapp2.apiary-mock.com"
+    static let develop = "https://eventapp-development-133611.appspot.com"
 }
 
 
@@ -34,6 +35,8 @@ enum Segues {
     static let showInviteTable = "ShowInviteTable"
     
     static let showMediaFeedView = "ShowMediaFeedView"
+    static let showMediaDetail = "ShowMediaDetail"
+    static let showEventMedia = "ShowEventMedia"
 }
 
 enum Identifiers {
@@ -65,8 +68,11 @@ struct Colors {
     static let primaryBlue = UIColor(red: 61/255, green: 90/255, blue: 254/255, alpha: 1.0)
     static let darkBlue = UIColor(red: 42/255, green: 74/255, blue: 209/255, alpha: 1.0)
     static let darkBlueHalf = UIColor(red: 42/255, green: 74/255, blue: 209/255, alpha: 0.5)
-    static let darkestBlue = UIColor(red: 30/255, green: 32/255, blue: 42/255, alpha: 1.0)
+
     static let accentRed = UIColor(red: 255/255, green: 23/255, blue: 68/255, alpha: 1.0)
+    
+    static let darkestBlue = UIColor(red: 30/255, green: 32/255, blue: 42/255, alpha: 1.0)
+    static let lightBlue = UIColor(red: 42/255, green: 45/255, blue: 60/255, alpha: 1.0)
     
     // Event and Map Pairings
     

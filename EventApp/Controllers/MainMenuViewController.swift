@@ -51,9 +51,23 @@ class MainMenuViewController: UITableViewController {
     
     func visualize() {
         tableView?.addInvisibleHeader(Colors.darkestBlue, sender: self.tableView, size: 260)
-//        let topView: UIView = UIView(frame: CGRectMake(0.0, -260.0, UIScreen.mainScreen().bounds.width, 260.0))
-//        topView.backgroundColor = UIColor(red: 30/255, green: 32/255, blue: 42/255, alpha: 1.0)
-//        tableView?.addSubview(topView)
+        logoutButton.layer.cornerRadius = logoutButton.frame.size.height/2
+        logoutButton.addShadow(0.3, radius: 2)
+    }
+    
+    func showInviteAlert() {
+        let alertController = UIAlertController(title: "Invite Your Friends", message: nil, preferredStyle: .ActionSheet)
+        let buttonFacebook = UIAlertAction(title: "Facebook", style: .Default, handler: { (action) -> Void in
+            self.performSegueWithIdentifier(Segues.showInviteTable, sender: self)
+        })
+        let buttonSMS = UIAlertAction(title: "Text Message", style: .Default) { (action) -> Void in }
+        let buttonCancel = UIAlertAction(title: "Cancel", style: .Cancel) { (action) -> Void in }
+        
+        alertController.view.tintColor = Colors.primaryBlue
+        alertController.addAction(buttonFacebook)
+        alertController.addAction(buttonSMS)
+        alertController.addAction(buttonCancel)
+        presentViewController(alertController, animated: true, completion: nil)
     }
     
     
@@ -61,6 +75,12 @@ class MainMenuViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 6
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if indexPath.row == 3 {
+            showInviteAlert()
+        }
     }
     
     @IBAction func logoutButtonPressed(sender: AnyObject) {

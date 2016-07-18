@@ -26,17 +26,14 @@ class EventHeader: UICollectionReusableView {
     }
     
     func visualize() {
-        mainColor = Colors.darkPurple
+        mainColor = Colors.lightBlue
         
         coverImage.addDarkGradientLayer()
         addEventButton.layer.cornerRadius = addEventButton.frame.size.width/2
         facebookButton.layer.cornerRadius = facebookButton.frame.size.height/2
-        facebookButton.layer.borderColor = Colors.primaryBlue.CGColor
         directionsButton.layer.cornerRadius = directionsButton.frame.size.height/2
-        directionsButton.layer.borderColor = Colors.darkestBlue.CGColor
         
         subheaderView.backgroundColor = mainColor
-        addEventButton.backgroundColor = mainColor
         
         addEventButton.addShadow(0.2, radius: 1.3)
         subheaderView.addShadow(0.4, radius: 2.5)

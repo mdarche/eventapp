@@ -30,6 +30,8 @@ class Requests {
                         keychain["accessToken"] = json["access_token"].string!
                         keychain["refreshToken"] = json["refresh_token"].string!
                         keychain["tokenExpiration"] = json["expiration"].string!
+                        
+                        print(value)
                         block(successful: true, error: nil)
                     }
                     

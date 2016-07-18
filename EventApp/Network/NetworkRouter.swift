@@ -13,9 +13,9 @@ let accessToken = keychain["accessToken"]
 
 public enum NetworkRouter: URLRequestConvertible {
     
-    static let baseURLPath = Domains.test
-//    static let authenticationToken = "Bearer \(accessToken!)"
-    static let authenticationToken = "Bearer {access_token}"
+    static let baseURLPath = Domains.develop
+    static let authenticationToken = "Bearer \(accessToken!)"
+//    static let authenticationToken = "Bearer {access_token}"
     
     case CreateSession([AnyObject])
     case RenewSession(String)
@@ -45,7 +45,8 @@ public enum NetworkRouter: URLRequestConvertible {
             // Session Requests
                 
             case .CreateSession(let authParams):
-                let params = [ "provider" : authParams[0], "credentials" : [ "appId" : authParams[1], "userId" : authParams[2], "token" : authParams[3] ] ]
+                let params = [ "provider" : authParams[0], "credentials" : [ "appID" : authParams[1], "userID" : authParams[2], "token" : authParams[3] ] ]
+                print(params)
                 return ("/session", .POST, params)
             
             case .RenewSession(let refreshToken):
@@ -54,7 +55,7 @@ public enum NetworkRouter: URLRequestConvertible {
                 
             // Activity Requests
                 
-            case .ActivitiesCollection(let locationParams):
+            case .ActivitiesCollection(let locationParams):0
                 let params = [ "location" : locationParams[0], "area" : locationParams[1] ]
                 return ("/activities", .GET, params)
                 
@@ -122,6 +123,7 @@ public enum NetworkRouter: URLRequestConvertible {
         let URLRequest = NSMutableURLRequest(URL: URL.URLByAppendingPathComponent(result.path))
         URLRequest.HTTPMethod = result.method.rawValue
         URLRequest.setValue(NetworkRouter.authenticationToken, forHTTPHeaderField: "Authorization")
+        URLRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
         URLRequest.timeoutInterval = NSTimeInterval(10 * 1000)
         
         let encoding = Alamofire.ParameterEncoding.URL

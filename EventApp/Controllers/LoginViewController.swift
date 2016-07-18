@@ -109,16 +109,17 @@ extension LoginViewController {
         if (error != nil) {
             debugPrint(error.localizedDescription)
         } else {
-            //TODO: Add popup for adding username. Upon completion add the following:
             
             Requests.createSession(["facebook", FBSDKAccessToken.currentAccessToken().appID, FBSDKAccessToken.currentAccessToken().userID, FBSDKAccessToken.currentAccessToken().tokenString ],
                 completion: {(successful, error) -> Void in
                 if successful {
+                    print("API worked: Successful login")
                     self.returnUserData()
                 } else {
                     debugPrint(error)
                 }
             })
+            
         }
     }
     

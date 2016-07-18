@@ -14,6 +14,7 @@ class EditProfileViewController: UITableViewController, UIImagePickerControllerD
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var headerLabel: UILabel!
     @IBOutlet weak var headerView2: UIView!
+    @IBOutlet weak var saveButton: UIButton!
     
     @IBOutlet weak var firstNameField: UITextField! { didSet {firstNameField.delegate = self} }
     @IBOutlet weak var lastNameField: UITextField! { didSet {lastNameField.delegate = self} }
@@ -33,9 +34,6 @@ class EditProfileViewController: UITableViewController, UIImagePickerControllerD
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
-//        UIView.animateWithDuration(0.3, animations: {
-//            self.navigationController?.navigationBar.barTintColor = Colors.mainBlueFull
-//        })
         setCurrentInformation()
     }
     
@@ -47,21 +45,15 @@ class EditProfileViewController: UITableViewController, UIImagePickerControllerD
     
     func visualize() {
         imagePicker.delegate = self
+        saveButton.layer.cornerRadius = saveButton.frame.size.height/2
         profileImage.layer.cornerRadius = profileImage.frame.size.width/2
-        
         headerView.layer.shadowColor = UIColor.blackColor().CGColor
         headerView2.layer.shadowColor = UIColor.blackColor().CGColor
-        
-        let saveButtonItem = UIBarButtonItem(title: "SAVE", style: .Plain, target: self, action: #selector(EditProfileViewController.saveChanges))
-        let font = UIFont.systemFontOfSize(12)
-        saveButtonItem.setTitleTextAttributes([ NSFontAttributeName: font], forState: .Normal)
-        self.navigationItem.rightBarButtonItem = saveButtonItem
-        
         tableView?.addInvisibleHeader(.whiteColor(), sender: self.tableView, size: 50)
     }
     
-    func saveChanges() {
-        
+    @IBAction func saveInformation(sender: AnyObject) {
+    
     }
     
     @IBAction func editImageButton(sender: AnyObject) {
