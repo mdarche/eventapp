@@ -17,6 +17,8 @@ class LoginViewController: UIViewController, UIScrollViewDelegate, FBSDKLoginBut
     @IBOutlet var logoImage: UIImageView!
     @IBOutlet var appNameLabel: UILabel!
     
+    var deviceName = UIDevice.currentDevice().type
+    var deviceOS = UIDevice.currentDevice().systemVersion
     
     var backgrounds:[UIImage?] = [UIImage(named: "login1"), UIImage(named: "login2")]
     var strings = ["Find the nearest events and activities near you, no matter where you are", "Explore the nightlife of a new city"]
@@ -103,17 +105,16 @@ extension LoginViewController {
     }
     
     func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {
-        let userToken = result.token
-        print(userToken)
+//        let userToken = result.token
+//        print(userToken)
         
         if (error != nil) {
             debugPrint(error.localizedDescription)
         } else {
             
-            Requests.createSession(["facebook", FBSDKAccessToken.currentAccessToken().appID, FBSDKAccessToken.currentAccessToken().userID, FBSDKAccessToken.currentAccessToken().tokenString ],
+            Requests.createSession(["facebook", FBSDKAccessToken.currentAccessToken().appID, FBSDKAccessToken.currentAccessToken().userID, FBSDKAccessToken.currentAccessToken().tokenString, "\(deviceName) \(deviceOS)"],
                 completion: {(successful, error) -> Void in
                 if successful {
-                    print("API worked: Successful login")
                     self.returnUserData()
                 } else {
                     debugPrint(error)
@@ -124,25 +125,41 @@ extension LoginViewController {
     }
     
     func returnUserData() {
-        let graphRequest : FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me",
-            parameters: ["fields":"id,interested_in,gender,birthday,email,age_range,name,picture.width(480).height(480)"])
         
-        graphRequest.startWithCompletionHandler({ (connection, result, error) -> Void in
-            
-            if ((error) != nil) {
-                print("Error: \(error)")
-            } else {
-                let id : NSString = result.valueForKey("id") as! String
-                print("User ID is: \(id)")
+        Requests.getProfile("me") { (userData, successful, error) in
+            if successful {
                 
+                print(userData)
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 if let controller = storyboard.instantiateInitialViewController() {
                     self.presentViewController(controller, animated: true, completion: { () -> Void in
                         self.view.window?.rootViewController = controller
                     })
                 }
+            } else {
+                debugPrint(error)
             }
-        })
+        }
+        
+//        let graphRequest : FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me",
+//            parameters: ["fields":"id,interested_in,gender,birthday,email,age_range,name,picture.width(480).height(480)"])
+//        
+//        graphRequest.startWithCompletionHandler({ (connection, result, error) -> Void in
+//            
+//            if ((error) != nil) {
+//                print("Error: \(error)")
+//            } else {
+//                let id : NSString = result.valueForKey("id") as! String
+//                print("User ID is: \(id)")
+                
+//                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//                if let controller = storyboard.instantiateInitialViewController() {
+//                    self.presentViewController(controller, animated: true, completion: { () -> Void in
+//                        self.view.window?.rootViewController = controller
+//                    })
+//                }
+//            }
+//        })
     }
     
     func loginButtonDidLogOut(loginButton: FBSDKLoginButton!){}

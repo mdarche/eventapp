@@ -14,6 +14,7 @@ class NavigationController: UINavigationController {
         super.viewDidLoad()
         visualize()
     }
+
     
     func visualize() {
         self.navigationBar.barTintColor = Colors.primaryBlue

@@ -45,13 +45,13 @@ public enum NetworkRouter: URLRequestConvertible {
             // Session Requests
                 
             case .CreateSession(let authParams):
-                let params = [ "provider" : authParams[0], "credentials" : [ "appID" : authParams[1], "userID" : authParams[2], "token" : authParams[3] ] ]
+                let params = [ "provider" : authParams[0], "credentials" : [ "appID" : authParams[1], "userID" : authParams[2], "token" : authParams[3] ], "deviceType" : "mobile" , "deviceID" : authParams[4]]
                 print(params)
-                return ("/session", .POST, params)
+                return ("/sessions", .POST, params)
             
             case .RenewSession(let refreshToken):
                 let params = [ "refreshToken" : refreshToken]
-                return ("/session", .PUT, params)
+                return ("/sessions", .PUT, params)
                 
             // Activity Requests
                 
@@ -122,7 +122,9 @@ public enum NetworkRouter: URLRequestConvertible {
         let URL = NSURL(string: NetworkRouter.baseURLPath)!
         let URLRequest = NSMutableURLRequest(URL: URL.URLByAppendingPathComponent(result.path))
         URLRequest.HTTPMethod = result.method.rawValue
-        URLRequest.setValue(NetworkRouter.authenticationToken, forHTTPHeaderField: "Authorization")
+        if result.path != "/sessions" && result.method != .POST {
+            URLRequest.setValue(NetworkRouter.authenticationToken, forHTTPHeaderField: "Authorization")
+        }
         URLRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
         URLRequest.timeoutInterval = NSTimeInterval(10 * 1000)
         

@@ -8,14 +8,32 @@
 
 import UIKit
 
-class MediaPlayerViewController: UIViewController {
+class MediaPlayerViewController: UIViewController, UIScrollViewDelegate {
 
+    @IBOutlet weak var containerView: UIView!
+    
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var imageView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        visualize()
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(true)
     }
     
+    func visualize() {
+        self.scrollView.minimumZoomScale = 1.0
+        self.scrollView.maximumZoomScale = 6.0
+    }
+    
+    func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView? {
+        return self.imageView
+    }
+    
+    @IBAction func dismissViewController(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
 }

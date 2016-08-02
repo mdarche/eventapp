@@ -50,6 +50,10 @@ class EventViewController: UICollectionViewController {
         
     }
     
+    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        performSegueWithIdentifier(Segues.showEventMedia, sender: self)
+    }
+    
     override func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String,
              atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
         

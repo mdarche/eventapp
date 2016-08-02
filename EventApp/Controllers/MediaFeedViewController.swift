@@ -46,4 +46,8 @@ extension MediaFeedViewController {
         return cell
     }
     
+    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        performSegueWithIdentifier(Segues.showMediaDetail, sender: self)
+    }
+    
 }

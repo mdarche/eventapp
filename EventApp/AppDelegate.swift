@@ -70,6 +70,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if let font = UIFont(name: "Roboto-Regular", size: 17) {
             UINavigationBar.appearance().titleTextAttributes = [NSFontAttributeName : font, NSForegroundColorAttributeName : UIColor.whiteColor()]}
     }
+    
 
 }
 

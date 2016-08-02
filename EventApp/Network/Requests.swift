@@ -31,7 +31,6 @@ class Requests {
                         keychain["refreshToken"] = json["refresh_token"].string!
                         keychain["tokenExpiration"] = json["expiration"].string!
                         
-                        print(value)
                         block(successful: true, error: nil)
                     }
                     
@@ -180,7 +179,6 @@ class Requests {
     class func getProfile(profileId: String, completion: ((userData: User?, successful: Bool, error: NSError?) -> Void)?) {
         Alamofire.request(NetworkRouter.Profile(profileId)).validate().responseJSON { response in
             if let block = completion {
-                
                 switch response.result {
                 case .Success:
                     if let value = response.result.value  {

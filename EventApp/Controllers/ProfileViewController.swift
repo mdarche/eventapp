@@ -43,6 +43,11 @@ class ProfileViewController: UICollectionViewController, UICollectionViewDelegat
             let settingsButton = UIBarButtonItem(image: UIImage(named: "settingsLight"), style: .Plain, target: self, action: #selector(ProfileViewController.settingsPressed))
             self.navigationItem.rightBarButtonItem = settingsButton
         }
+
+//        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
+//        self.navigationController?.navigationBar.shadowImage = UIImage()
+//        self.navigationController?.navigationBar.translucent = true
+        
         collectionView!.addInvisibleHeader(Colors.accentRed, sender: self.collectionView!, size: 100)
         topRefreshControl.setupSubview(.whiteColor(), bgColor: Colors.accentRed)
         topRefreshControl.addTarget(self, action: #selector(ProfileViewController.handleTopPull), forControlEvents: UIControlEvents.ValueChanged)
