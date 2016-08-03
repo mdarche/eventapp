@@ -21,7 +21,6 @@ class Requests {
         Alamofire.request(NetworkRouter.CreateSession(authParams)).validate().responseJSON { response in
             if let block = completion {
                 
-                
                 // Decode the serialized request json
                 let decodedJSON = try! NSJSONSerialization.JSONObjectWithData((response.request?.HTTPBody)!, options: [])
 
@@ -29,8 +28,8 @@ class Requests {
                 
                 print(response.request)  // original URL request
                 print("Headers: \(response.request?.allHTTPHeaderFields)") // header
-                print("Serialized json: \(response.request?.HTTPBody)") // Json body
-                print("Decoded json: \(decodedJSON)") // Decoded Json body
+                print("Serialized json params: \(response.request?.HTTPBody)") // Json request body
+                print("Decoded json params: \(decodedJSON)") // Decoded Json request body
                 
                 // Print response info
                 
@@ -38,7 +37,6 @@ class Requests {
                 print(response.response) // URL response
                 print(response.data)     // server data
                 print(response.result)  // response result
-            
                 
                 switch response.result {
                 case .Success:

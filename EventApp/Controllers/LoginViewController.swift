@@ -45,6 +45,7 @@ class LoginViewController: UIViewController, UIScrollViewDelegate, FBSDKLoginBut
     }
     
     func visualize() {
+        
         onboardLabel.text = strings[0]
         scrollView.delegate = self
         
@@ -126,7 +127,6 @@ extension LoginViewController {
         Requests.getProfile("me") { (userData, successful, error) in
             if successful {
                 
-                print(userData)
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 if let controller = storyboard.instantiateInitialViewController() {
                     self.presentViewController(controller, animated: true, completion: { () -> Void in

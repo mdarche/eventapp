@@ -9,13 +9,17 @@
 import Foundation
 import Alamofire
 
-let accessToken = keychain["accessToken"]
+
+var accessToken : String? {
+    get {
+        return keychain["accessToken"]
+    }
+}
 
 public enum NetworkRouter: URLRequestConvertible {
     
     static let baseURLPath = Domains.develop
     static let authenticationToken = "Bearer \(accessToken!)"
-//    static let authenticationToken = "Bearer {access_token}"
     
     case CreateSession([AnyObject])
     case RenewSession(String)
@@ -121,8 +125,9 @@ public enum NetworkRouter: URLRequestConvertible {
         let URL = NSURL(string: NetworkRouter.baseURLPath)!
         let URLRequest = NSMutableURLRequest(URL: URL.URLByAppendingPathComponent(result.path))
         URLRequest.HTTPMethod = result.method.rawValue
-        URLRequest.setValue(NetworkRouter.authenticationToken, forHTTPHeaderField: "Authorization")
-
+        if accessToken != nil {
+            URLRequest.setValue(NetworkRouter.authenticationToken, forHTTPHeaderField: "Authorization")
+        }
         URLRequest.timeoutInterval = NSTimeInterval(10 * 1000)
         
         let encoding = Alamofire.ParameterEncoding.JSON
