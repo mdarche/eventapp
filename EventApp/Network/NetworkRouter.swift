@@ -46,7 +46,6 @@ public enum NetworkRouter: URLRequestConvertible {
                 
             case .CreateSession(let authParams):
                 let params = [ "provider" : authParams[0], "credentials" : [ "appID" : authParams[1], "userID" : authParams[2], "token" : authParams[3] ], "deviceType" : "mobile" , "deviceID" : authParams[4]]
-                print(params)
                 return ("/sessions", .POST, params)
             
             case .RenewSession(let refreshToken):
@@ -122,13 +121,11 @@ public enum NetworkRouter: URLRequestConvertible {
         let URL = NSURL(string: NetworkRouter.baseURLPath)!
         let URLRequest = NSMutableURLRequest(URL: URL.URLByAppendingPathComponent(result.path))
         URLRequest.HTTPMethod = result.method.rawValue
-        if result.path != "/sessions" && result.method != .POST {
-            URLRequest.setValue(NetworkRouter.authenticationToken, forHTTPHeaderField: "Authorization")
-        }
-        URLRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        URLRequest.setValue(NetworkRouter.authenticationToken, forHTTPHeaderField: "Authorization")
+
         URLRequest.timeoutInterval = NSTimeInterval(10 * 1000)
         
-        let encoding = Alamofire.ParameterEncoding.URL
+        let encoding = Alamofire.ParameterEncoding.JSON
         
         return encoding.encode(URLRequest, parameters: result.parameters).0
     }

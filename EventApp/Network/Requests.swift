@@ -20,7 +20,26 @@ class Requests {
     class func createSession(authParams: [AnyObject], completion: ((successful: Bool, error: NSError?) -> Void)?) {
         Alamofire.request(NetworkRouter.CreateSession(authParams)).validate().responseJSON { response in
             if let block = completion {
+                
+                
+                // Decode the serialized request json
+                let decodedJSON = try! NSJSONSerialization.JSONObjectWithData((response.request?.HTTPBody)!, options: [])
+
+                // Print request info
+                
+                print(response.request)  // original URL request
+                print("Headers: \(response.request?.allHTTPHeaderFields)") // header
+                print("Serialized json: \(response.request?.HTTPBody)") // Json body
+                print("Decoded json: \(decodedJSON)") // Decoded Json body
+                
+                // Print response info
+                
+                print("Response and result data starts here:")
+                print(response.response) // URL response
+                print(response.data)     // server data
+                print(response.result)  // response result
             
+                
                 switch response.result {
                 case .Success:
                     if let value = response.result.value  {
@@ -41,6 +60,7 @@ class Requests {
             }
         }
     }
+    
     
     class func renewSession(completion: ((successful: Bool, error: NSError?) -> Void)?) {
         let refreshToken = try? keychain.get("refreshToken")

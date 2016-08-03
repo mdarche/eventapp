@@ -16,8 +16,8 @@ class LoginViewController: UIViewController, UIScrollViewDelegate, FBSDKLoginBut
     @IBOutlet weak var onboardLabel: UILabel!
     @IBOutlet var logoImage: UIImageView!
     @IBOutlet var appNameLabel: UILabel!
-    
-    var deviceName = UIDevice.currentDevice().type
+
+    var deviceName = String(UIDevice.currentDevice().type)
     var deviceOS = UIDevice.currentDevice().systemVersion
     
     var backgrounds:[UIImage?] = [UIImage(named: "login1"), UIImage(named: "login2")]
@@ -105,14 +105,11 @@ extension LoginViewController {
     }
     
     func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {
-//        let userToken = result.token
-//        print(userToken)
-        
         if (error != nil) {
             debugPrint(error.localizedDescription)
         } else {
             
-            Requests.createSession(["facebook", FBSDKAccessToken.currentAccessToken().appID, FBSDKAccessToken.currentAccessToken().userID, FBSDKAccessToken.currentAccessToken().tokenString, "\(deviceName) \(deviceOS)"],
+            Requests.createSession(["facebook", FBSDKAccessToken.currentAccessToken().appID, FBSDKAccessToken.currentAccessToken().userID, FBSDKAccessToken.currentAccessToken().tokenString, (deviceName + " " + deviceOS)],
                 completion: {(successful, error) -> Void in
                 if successful {
                     self.returnUserData()
