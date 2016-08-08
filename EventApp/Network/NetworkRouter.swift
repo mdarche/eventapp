@@ -49,7 +49,7 @@ public enum NetworkRouter: URLRequestConvertible {
             // Session Requests
                 
             case .CreateSession(let authParams):
-                let params = [ "provider" : authParams[0], "credentials" : [ "appID" : authParams[1], "userID" : authParams[2], "token" : authParams[3] ], "deviceType" : "mobile" , "deviceID" : authParams[4]]
+                let params = [ "provider" : authParams[0], "credentials" : [ "applicationID" : authParams[1], "userID" : authParams[2], "accessToken" : authParams[3] ], "deviceType" : "mobile" , "deviceID" : authParams[4]]
                 return ("/sessions", .POST, params)
             
             case .RenewSession(let refreshToken):
