@@ -47,9 +47,6 @@ class EditProfileViewController: UITableViewController, UIImagePickerControllerD
         imagePicker.delegate = self
         saveButton.layer.cornerRadius = saveButton.frame.size.height/2
         profileImage.layer.cornerRadius = profileImage.frame.size.width/2
-        headerView.layer.shadowColor = UIColor.blackColor().CGColor
-        headerView2.layer.shadowColor = UIColor.blackColor().CGColor
-        tableView?.addInvisibleHeader(.whiteColor(), sender: self.tableView, size: 50)
     }
     
     @IBAction func saveInformation(sender: AnyObject) {

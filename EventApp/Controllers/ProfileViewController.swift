@@ -15,6 +15,7 @@ class ProfileViewController: UICollectionViewController, UICollectionViewDelegat
     var profileId : Int?
     var user : User?
     var currentUser : CurrentUser?
+    var parentNavColor: UIColor?
     
     let testArray : [AnyObject]? = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     var isMe : Bool?
@@ -123,6 +124,7 @@ extension ProfileViewController {
         return CGSizeMake(CGRectGetWidth(collectionView.bounds), 278.0)
     }
     
+    
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         
         guard let list = self.testArray else  { return CGSize(width: collectionView.frame.size.width, height: 95) }
@@ -134,9 +136,14 @@ extension ProfileViewController {
                 return CGSize(width: collectionView.frame.size.width, height: 190)
             }
     }
+
     
     override func scrollViewDidScroll(scrollView: UIScrollView) {
         topRefreshControl.scrollTableView()
+        
+//        var progress = scrollView.contentOffset.y / (scrollView.contentSize.height - scrollView.bounds.size.height)
+//        print(String(progress))
+        
     }
 
 }

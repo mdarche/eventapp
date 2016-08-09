@@ -22,8 +22,7 @@ class NotificationSettingsViewController: UITableViewController {
     }
     
     func visualize() {
-        tableView?.addInvisibleHeader(.whiteColor(), sender: self.tableView, size: 50)
-        headerView.layer.shadowColor = UIColor.blackColor().CGColor
+//        tableView?.addInvisibleHeader(.whiteColor(), sender: self.tableView, size: 50)
         saveButton.layer.cornerRadius = saveButton.frame.size.height/2
     }
     

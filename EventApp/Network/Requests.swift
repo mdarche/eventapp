@@ -21,28 +21,28 @@ class Requests {
         Alamofire.request(NetworkRouter.CreateSession(authParams)).validate().responseJSON { response in
             if let block = completion {
                 
-                // Decode the serialized request json
-                let decodedJSON = try! NSJSONSerialization.JSONObjectWithData((response.request?.HTTPBody)!, options: [])
-
-                // Print request info
-                
-                print(response.request)  // original URL request
-                print("Headers: \(response.request?.allHTTPHeaderFields)") // header
-                print("Serialized json params: \(response.request?.HTTPBody)") // Json request body
-                print("Decoded json params: \(decodedJSON)") // Decoded Json request body
-                
-                // Print response info
-                
-                print("Response and result data starts here:")
-                print(response.response) // URL response
-                print(response.data)     // server data
-                print(response.result)  // response result
+//                // Decode the serialized request json
+////                let decodedJSON = try! NSJSONSerialization.JSONObjectWithData((response.request?.HTTPBody)!, options: [])
+//
+//                // Print request info
+//                
+//                print(response.request)  // original URL request
+//                print("Headers: \(response.request?.allHTTPHeaderFields)") // header
+//                print("Serialized json params: \(response.request?.HTTPBody)") // Json request body
+////                print("Decoded json params: \(decodedJSON)") // Decoded Json request body
+//                
+//                // Print response info
+//                
+//                print("Response and result data starts here:")
+//                print(response.response) // URL response
+//                print(response.data)     // server data
+//                print(response.result)  // response result
                 
                 switch response.result {
                 case .Success:
                     if let value = response.result.value  {
                         let json = JSON(value)
-                        
+                        print(json)
                         // Store values in Keychain
                         keychain["accessToken"] = json["access_token"].string!
                         keychain["refreshToken"] = json["refresh_token"].string!
@@ -197,6 +197,7 @@ class Requests {
     class func getProfile(profileId: String, completion: ((userData: User?, successful: Bool, error: NSError?) -> Void)?) {
         Alamofire.request(NetworkRouter.Profile(profileId)).validate().responseJSON { response in
             if let block = completion {
+                
                 switch response.result {
                 case .Success:
                     if let value = response.result.value  {

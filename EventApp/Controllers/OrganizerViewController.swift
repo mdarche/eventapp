@@ -10,7 +10,7 @@ import UIKit
 
 class OrganizerViewController: UITableViewController {
 
-    let headerTitles = ["UPCOMING EVENTS", "NEWS FEED"]
+    let headerTitles = ["SAVED ACTIVITIES", "NEWS FEED"]
     var upcomingEvents : [Activity]?
     var notifications : [Notification]?
     
@@ -35,7 +35,7 @@ class OrganizerViewController: UITableViewController {
     // MARK: Setup View's Layout
     
     func visualize() {
-        tableView!.addInvisibleHeader(Colors.accentRed, sender: self.tableView!, size: 160)
+        tableView!.addInvisibleHeader(Colors.darkBlue, sender: self.tableView!, size: 260)
     }
     
 
@@ -81,7 +81,7 @@ class OrganizerViewController: UITableViewController {
         if indexPath.section == 0 {
             return 112
         } else {
-            return 70
+            return 65
         }
     }
     
@@ -92,16 +92,16 @@ class OrganizerViewController: UITableViewController {
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
         let header = UIView()
-        header.backgroundColor = Colors.darkBlue
+        header.backgroundColor = UIColor.whiteColor()
         
         let headerLabel = UILabel(frame: CGRectMake(12, 3, 150, 35))
         headerLabel.font = UIFont(name: "Roboto-Medium", size: 12)
-        headerLabel.textColor = .whiteColor()
+        headerLabel.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.45)
         headerLabel.textAlignment = .Left
         headerLabel.text = self.tableView(self.tableView, titleForHeaderInSection: section)
         
         header.addSubview(headerLabel)
-        header.addShadow(0.4, radius: 2.5)
+        header.addShadow(0.3, radius: 2.5)
         
         return header
     }
