@@ -319,6 +319,7 @@
 		CB214ABE1D25818D00238BF6 /* Assets & Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				13210F1F1CC86C5300B3E257 /* AppDelegate.swift */,
 				13210F281CC86C5300B3E257 /* Assets.xcassets */,
 				CBB451281CD7CBC600AD6A73 /* Authentication.storyboard */,
 				13210F251CC86C5300B3E257 /* Main.storyboard */,
@@ -363,7 +364,6 @@
 		CBD7A4061D0F32FA000CD9C2 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
-				13210F1F1CC86C5300B3E257 /* AppDelegate.swift */,
 				CB73E1991CCEB3B200E6C6AF /* ClassExtensions.swift */,
 				CBB451321CD7FE1200AD6A73 /* Constants.swift */,
 				13210F2D1CC86C5300B3E257 /* Info.plist */,

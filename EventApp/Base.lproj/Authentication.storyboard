@@ -2,10 +2,12 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="yCI-gE-eAp">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
             <string>Roboto-Regular</string>
             <string>Roboto-Regular</string>
         </mutableArray>
@@ -27,6 +29,9 @@
                                 <rect key="frame" x="-2" y="0.0" width="379" height="667"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </scrollView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="ExM-4v-eWH">
+                                <rect key="frame" x="168" y="435" width="39" height="37"/>
+                            </pageControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="47e-82-22t">
                                 <rect key="frame" x="36" y="350" width="303" height="22"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="18"/>
@@ -43,6 +48,13 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K6t-ZN-BUW">
+                                <rect key="frame" x="44" y="562" width="287" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <state key="normal" title="Terms of Service and Privacy Policy">
+                                    <color key="titleColor" white="1" alpha="0.70407516891891897" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login-logo" translatesAutoresizingMaskIntoConstraints="NO" id="UuZ-fB-K0N">
                                 <rect key="frame" x="80" y="90" width="214" height="160"/>
                                 <constraints>
@@ -50,50 +62,69 @@
                                     <constraint firstAttribute="width" constant="214" id="oLE-v4-KkK"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0fU-Kc-9us" customClass="FBSDKLoginButton">
-                                <rect key="frame" x="41" y="512" width="293" height="55"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0fU-Kc-9us">
+                                <rect key="frame" x="44" y="492" width="287" height="55"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="GXd-qE-Jwy"/>
                                 </constraints>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
+                                <inset key="contentEdgeInsets" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <state key="normal" title="Login with Facebook">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="6"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="facebookLogin:" destination="yCI-gE-eAp" eventType="touchUpInside" id="mmw-kw-V2S"/>
+                                </connections>
                             </button>
-                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="ExM-4v-eWH">
-                                <rect key="frame" x="168" y="580" width="39" height="37"/>
-                            </pageControl>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="facebook" translatesAutoresizingMaskIntoConstraints="NO" id="V7U-Cs-v4I">
+                                <rect key="frame" x="67" y="507" width="25" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="25" id="klq-BA-x5W"/>
+                                    <constraint firstAttribute="height" constant="25" id="m1x-x8-Y60"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.13360164141414133" green="0.13360164141414133" blue="0.13360164141414133" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="0fU-Kc-9us" firstAttribute="top" secondItem="ExM-4v-eWH" secondAttribute="bottom" constant="20" id="0YH-W4-cTR"/>
+                            <constraint firstItem="V7U-Cs-v4I" firstAttribute="centerY" secondItem="0fU-Kc-9us" secondAttribute="centerY" id="0h0-63-pQa"/>
+                            <constraint firstItem="K6t-ZN-BUW" firstAttribute="trailing" secondItem="0fU-Kc-9us" secondAttribute="centerX" id="2wV-sm-ej0"/>
                             <constraint firstAttribute="trailingMargin" secondItem="58t-Dn-nwq" secondAttribute="trailing" constant="-18" id="5XW-D1-Jab"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="0fU-Kc-9us" secondAttribute="trailing" constant="25" id="CCB-Fv-gMp"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="0fU-Kc-9us" secondAttribute="trailing" constant="28" id="CCB-Fv-gMp"/>
                             <constraint firstItem="58t-Dn-nwq" firstAttribute="top" secondItem="MkI-IK-nf8" secondAttribute="topMargin" id="IRi-uG-LFE"/>
                             <constraint firstItem="58t-Dn-nwq" firstAttribute="leading" secondItem="MkI-IK-nf8" secondAttribute="leadingMargin" constant="-18" id="JMk-yL-fRU"/>
                             <constraint firstAttribute="trailingMargin" secondItem="47e-82-22t" secondAttribute="trailing" constant="20" id="O4B-7G-u8s"/>
                             <constraint firstItem="47e-82-22t" firstAttribute="top" secondItem="UuZ-fB-K0N" secondAttribute="bottom" constant="35" id="P3h-lb-HvQ"/>
                             <constraint firstItem="UuZ-fB-K0N" firstAttribute="top" secondItem="wbe-xN-V9x" secondAttribute="bottom" constant="70" id="QUY-0r-4hP"/>
                             <constraint firstItem="e8K-ji-Ars" firstAttribute="top" secondItem="58t-Dn-nwq" secondAttribute="bottom" id="RHo-60-xiu"/>
-                            <constraint firstItem="0fU-Kc-9us" firstAttribute="bottom" secondItem="ExM-4v-eWH" secondAttribute="top" constant="-13" id="SLq-e8-km3"/>
                             <constraint firstItem="47e-82-22t" firstAttribute="top" secondItem="wbe-xN-V9x" secondAttribute="bottom" constant="200" id="UJ7-Ix-EiE"/>
                             <constraint firstItem="47e-82-22t" firstAttribute="centerX" secondItem="MkI-IK-nf8" secondAttribute="centerX" id="Uwy-0w-IJB"/>
+                            <constraint firstItem="K6t-ZN-BUW" firstAttribute="top" secondItem="0fU-Kc-9us" secondAttribute="bottom" constant="15" id="Xnv-GP-em2"/>
                             <constraint firstItem="UuZ-fB-K0N" firstAttribute="centerX" secondItem="MkI-IK-nf8" secondAttribute="centerX" id="eZp-Tl-1ep"/>
                             <constraint firstItem="YKG-z7-iIV" firstAttribute="centerX" secondItem="MkI-IK-nf8" secondAttribute="centerX" id="fzx-05-jGP"/>
-                            <constraint firstItem="0fU-Kc-9us" firstAttribute="leading" secondItem="MkI-IK-nf8" secondAttribute="leadingMargin" constant="25" id="gos-gd-AMx"/>
+                            <constraint firstItem="K6t-ZN-BUW" firstAttribute="leading" secondItem="0fU-Kc-9us" secondAttribute="leading" id="gln-qm-LrH"/>
+                            <constraint firstItem="0fU-Kc-9us" firstAttribute="leading" secondItem="MkI-IK-nf8" secondAttribute="leadingMargin" constant="28" id="gos-gd-AMx"/>
                             <constraint firstItem="YKG-z7-iIV" firstAttribute="top" secondItem="UuZ-fB-K0N" secondAttribute="bottom" id="lEc-t6-KOg"/>
                             <constraint firstItem="47e-82-22t" firstAttribute="top" secondItem="YKG-z7-iIV" secondAttribute="bottom" constant="73" id="let-am-8Wz"/>
-                            <constraint firstItem="ExM-4v-eWH" firstAttribute="centerX" secondItem="MkI-IK-nf8" secondAttribute="centerX" id="mvD-1o-NQz"/>
-                            <constraint firstItem="e8K-ji-Ars" firstAttribute="top" secondItem="0fU-Kc-9us" secondAttribute="bottom" constant="100" id="oad-rL-jqg"/>
+                            <constraint firstItem="e8K-ji-Ars" firstAttribute="top" secondItem="0fU-Kc-9us" secondAttribute="bottom" constant="120" id="oad-rL-jqg"/>
                             <constraint firstItem="47e-82-22t" firstAttribute="leading" secondItem="MkI-IK-nf8" secondAttribute="leadingMargin" constant="20" id="oeh-kR-gFU"/>
+                            <constraint firstItem="0fU-Kc-9us" firstAttribute="leading" secondItem="V7U-Cs-v4I" secondAttribute="trailing" constant="-48" id="ogU-PU-BQc"/>
+                            <constraint firstItem="ExM-4v-eWH" firstAttribute="centerX" secondItem="58t-Dn-nwq" secondAttribute="centerX" id="qZj-au-rjf"/>
+                            <constraint firstItem="K6t-ZN-BUW" firstAttribute="trailing" secondItem="0fU-Kc-9us" secondAttribute="trailing" id="x2U-wM-tDD"/>
                             <constraint firstItem="0fU-Kc-9us" firstAttribute="centerX" secondItem="MkI-IK-nf8" secondAttribute="centerX" id="xug-Sd-g8F"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="P3h-lb-HvQ"/>
                                 <exclude reference="UJ7-Ix-EiE"/>
+                                <exclude reference="2wV-sm-ej0"/>
                             </mask>
                         </variation>
                     </view>
@@ -101,7 +132,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="appNameLabel" destination="YKG-z7-iIV" id="5Lo-Dr-zWj"/>
-                        <outlet property="facebookLoginButton" destination="0fU-Kc-9us" id="RZa-t9-k7S"/>
+                        <outlet property="facebookLoginButton" destination="0fU-Kc-9us" id="ASF-8w-be6"/>
                         <outlet property="logoImage" destination="UuZ-fB-K0N" id="VlG-5s-xcp"/>
                         <outlet property="onboardLabel" destination="47e-82-22t" id="Ure-Ye-G53"/>
                         <outlet property="pageControl" destination="ExM-4v-eWH" id="Sbx-sh-rU9"/>
@@ -114,6 +145,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="facebook" width="67" height="80"/>
         <image name="login-logo" width="243" height="243"/>
     </resources>
 </document>

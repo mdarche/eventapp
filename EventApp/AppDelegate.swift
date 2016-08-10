@@ -25,17 +25,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        UIApplication.sharedApplication().registerForRemoteNotifications()
 
         // Set initial VC based on active session token
-        FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
-        if (FBSDKAccessToken.currentAccessToken() != nil) {
-            print("FB session active")
+        if keychain["accessToken"] != nil  {
+            print("Access token found")
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let controller = storyboard.instantiateViewControllerWithIdentifier(Identifiers.TabBarID)
             self.window?.rootViewController = controller
-            
-        } else {
-            print("Nil")
         }
         
+        FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         FBSDKProfile.enableUpdatesOnAccessTokenChange(true)
         return true
     }

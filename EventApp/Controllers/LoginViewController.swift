@@ -8,14 +8,14 @@
 
 import UIKit
 
-class LoginViewController: UIViewController, UIScrollViewDelegate, FBSDKLoginButtonDelegate {
+class LoginViewController: UIViewController, UIScrollViewDelegate {
     
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var pageControl: UIPageControl!
-    @IBOutlet weak var facebookLoginButton: FBSDKLoginButton!
     @IBOutlet weak var onboardLabel: UILabel!
     @IBOutlet var logoImage: UIImageView!
     @IBOutlet var appNameLabel: UILabel!
+    @IBOutlet weak var facebookLoginButton: UIButton!
 
     var imageViews = [UIImageView]()
     var colorView = UIView()
@@ -31,13 +31,6 @@ class LoginViewController: UIViewController, UIScrollViewDelegate, FBSDKLoginBut
     override func viewDidLoad() {
         super.viewDidLoad()
         visualize()
-        configureFacebook()
-    }
-    
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     
@@ -68,7 +61,6 @@ class LoginViewController: UIViewController, UIScrollViewDelegate, FBSDKLoginBut
             subView.layer.masksToBounds = true
             subView.image = backgrounds[index]
             imageViews.append(subView)
-//            self.scrollView.addSubview(subView)
         }
         
         for image in imageViews {
@@ -82,6 +74,9 @@ class LoginViewController: UIViewController, UIScrollViewDelegate, FBSDKLoginBut
         
         scrollView.contentSize = CGSizeMake(scrollViewWidth * 3, scrollViewHeight)
         pageControl.addTarget(self, action: #selector(LoginViewController.changePage(_:)), forControlEvents: UIControlEvents.ValueChanged)
+        
+        facebookLoginButton.layer.borderColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.6).CGColor
+        facebookLoginButton.layer.borderWidth = 1
         
     }
     
@@ -179,37 +174,41 @@ class LoginViewController: UIViewController, UIScrollViewDelegate, FBSDKLoginBut
 
 extension LoginViewController {
     
-    func configureFacebook() {
-        facebookLoginButton.readPermissions = ["public_profile", "email", "user_friends"];
-        facebookLoginButton.delegate = self
-    }
     
-    func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {
-        if (error != nil) {
-            debugPrint(error.localizedDescription)
-        } else {
+    @IBAction func facebookLogin(sender: AnyObject) {
+        
+        let facebookLogin = FBSDKLoginManager()
+        facebookLogin.logInWithReadPermissions(["public_profile", "email", "user_friends"], fromViewController: self) { (result: FBSDKLoginManagerLoginResult!, error: NSError!) in
             
-            
-            Requests.createSession(["facebook", FBSDKAccessToken.currentAccessToken().appID, FBSDKAccessToken.currentAccessToken().userID, FBSDKAccessToken.currentAccessToken().tokenString, (deviceName + " " + deviceOS)],
-                completion: {(successful, error) -> Void in
-                if successful {
-                    self.returnUserData()
-                } else {
-                    debugPrint(error)
-                }
-            })
-            
+            if error != nil {
+                
+                // TODO: Show Error message
+                debugPrint(error.localizedDescription)
+            } else {
+                self.returnUserData()
+            }
         }
     }
+    
     
     func returnUserData() {
         
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        if let controller = storyboard.instantiateInitialViewController() {
-            self.presentViewController(controller, animated: true, completion: { () -> Void in
-                self.view.window?.rootViewController = controller
-            })
-        }
+        Requests.createSession(["facebook", FBSDKAccessToken.currentAccessToken().appID, FBSDKAccessToken.currentAccessToken().userID, FBSDKAccessToken.currentAccessToken().tokenString, (self.deviceName + " " + self.deviceOS)],completion: {(successful, error) -> Void in
+            
+            if successful {
+            
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                if let controller = storyboard.instantiateInitialViewController() {
+                    self.presentViewController(controller, animated: true, completion: { () -> Void in
+                        self.view.window?.rootViewController = controller
+                    })
+                }
+                
+            } else {
+                debugPrint(error)
+            }
+            
+        })
         
 //        let graphRequest : FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me",
 //            parameters: ["fields":"id,interested_in,gender,birthday,email,age_range,name,picture.width(480).height(480)"])
@@ -217,6 +216,5 @@ extension LoginViewController {
 //        })
     }
     
-    func loginButtonDidLogOut(loginButton: FBSDKLoginButton!){}
     
 }

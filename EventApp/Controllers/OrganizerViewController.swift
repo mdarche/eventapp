@@ -101,7 +101,7 @@ class OrganizerViewController: UITableViewController {
         headerLabel.text = self.tableView(self.tableView, titleForHeaderInSection: section)
         
         header.addSubview(headerLabel)
-        header.addShadow(0.3, radius: 2.5)
+        header.addShadow(0.2, radius: 2.5)
         
         return header
     }
