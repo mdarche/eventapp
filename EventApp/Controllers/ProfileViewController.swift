@@ -45,10 +45,11 @@ class ProfileViewController: UICollectionViewController, UICollectionViewDelegat
             self.navigationItem.rightBarButtonItem = settingsButton
         }
 
-//        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
-//        self.navigationController?.navigationBar.shadowImage = UIImage()
-//        self.navigationController?.navigationBar.translucent = true
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.translucent = true
         
+        collectionView?.frame = CGRectMake(0, -64, self.view.frame.width, self.view.frame.height+64)
         collectionView!.addInvisibleHeader(Colors.accentRed, sender: self.collectionView!, size: 100)
         topRefreshControl.setupSubview(.whiteColor(), bgColor: Colors.accentRed)
         topRefreshControl.addTarget(self, action: #selector(ProfileViewController.handleTopPull), forControlEvents: UIControlEvents.ValueChanged)
@@ -121,7 +122,7 @@ extension ProfileViewController {
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout,
         referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSizeMake(CGRectGetWidth(collectionView.bounds), 278.0)
+        return CGSizeMake(CGRectGetWidth(collectionView.bounds), 426.0)
     }
     
     

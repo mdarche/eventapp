@@ -10,11 +10,6 @@ import UIKit
 
 class ProfileMediaCell: UICollectionViewCell {
 
-    @IBOutlet weak var mainImage: UIImageView!
-    @IBOutlet weak var imageTwo: UIImageView!
-    @IBOutlet weak var imageThree: UIImageView!
-    @IBOutlet weak var imageFour: UIImageView!
-    @IBOutlet weak var imageFive: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
