@@ -10,7 +10,7 @@ import UIKit
 
 class ListViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
-    let listLayout = ListLayout()
+    let listLayout = ActivityListLayout()
     
     // MARK: View's Lifecycle
     

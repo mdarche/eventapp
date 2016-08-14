@@ -24,7 +24,11 @@
 		13210F591CC941D500B3E257 /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13210F581CC941D500B3E257 /* EventViewController.swift */; };
 		13210F5B1CC942A400B3E257 /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13210F5A1CC942A400B3E257 /* MainMenuViewController.swift */; };
 		1394AEB91D5539D700B0C6C3 /* ListHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1394AEB81D5539D700B0C6C3 /* ListHeader.swift */; };
-		1394AEBB1D553EBC00B0C6C3 /* ListLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1394AEBA1D553EBC00B0C6C3 /* ListLayout.swift */; };
+		1394AEBB1D553EBC00B0C6C3 /* ActivityListLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1394AEBA1D553EBC00B0C6C3 /* ActivityListLayout.swift */; };
+		13D8BB311D5EA24E00E51EEF /* ProfileSwitchHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D8BB301D5EA24E00E51EEF /* ProfileSwitchHeader.swift */; };
+		13D8BB331D5EA3F100E51EEF /* ProfileSwitchHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13D8BB321D5EA3F100E51EEF /* ProfileSwitchHeader.xib */; };
+		13D8BB351D610D3600E51EEF /* ListLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D8BB341D610D3600E51EEF /* ListLayout.swift */; };
+		13D8BB371D610D8000E51EEF /* GridLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D8BB361D610D8000E51EEF /* GridLayout.swift */; };
 		CB037EF81CE25CA400720835 /* EventMediaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB037EF71CE25CA400720835 /* EventMediaCell.swift */; };
 		CB037EFC1CE25D7600720835 /* EventHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB037EFB1CE25D7600720835 /* EventHeader.swift */; };
 		CB119FAE1CEE3CB80086B785 /* NetworkRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB119FAD1CEE3CB80086B785 /* NetworkRouter.swift */; };
@@ -111,7 +115,11 @@
 		13210F581CC941D500B3E257 /* EventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventViewController.swift; path = Controllers/EventViewController.swift; sourceTree = "<group>"; };
 		13210F5A1CC942A400B3E257 /* MainMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainMenuViewController.swift; path = Controllers/MainMenuViewController.swift; sourceTree = "<group>"; };
 		1394AEB81D5539D700B0C6C3 /* ListHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListHeader.swift; path = Views/ListHeader.swift; sourceTree = "<group>"; };
-		1394AEBA1D553EBC00B0C6C3 /* ListLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListLayout.swift; sourceTree = "<group>"; };
+		1394AEBA1D553EBC00B0C6C3 /* ActivityListLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityListLayout.swift; sourceTree = "<group>"; };
+		13D8BB301D5EA24E00E51EEF /* ProfileSwitchHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileSwitchHeader.swift; path = Views/ProfileSwitchHeader.swift; sourceTree = "<group>"; };
+		13D8BB321D5EA3F100E51EEF /* ProfileSwitchHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ProfileSwitchHeader.xib; path = Views/ProfileSwitchHeader.xib; sourceTree = "<group>"; };
+		13D8BB341D610D3600E51EEF /* ListLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListLayout.swift; path = Layouts/ListLayout.swift; sourceTree = "<group>"; };
+		13D8BB361D610D8000E51EEF /* GridLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GridLayout.swift; path = Layouts/GridLayout.swift; sourceTree = "<group>"; };
 		930CD7A4051AA73C6076E8E2 /* Pods-EventApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EventApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EventApp/Pods-EventApp.debug.xcconfig"; sourceTree = "<group>"; };
 		9914B401D19A02F6CB2593EC /* Pods_EventApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EventApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B75B4194D8FDF54C69627121 /* Pods-EventApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EventApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-EventApp/Pods-EventApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -333,7 +341,9 @@
 			isa = PBXGroup;
 			children = (
 				CB214AC01D25845B00238BF6 /* MediaFeedLayout.swift */,
-				1394AEBA1D553EBC00B0C6C3 /* ListLayout.swift */,
+				1394AEBA1D553EBC00B0C6C3 /* ActivityListLayout.swift */,
+				13D8BB341D610D3600E51EEF /* ListLayout.swift */,
+				13D8BB361D610D8000E51EEF /* GridLayout.swift */,
 			);
 			name = Layouts;
 			sourceTree = "<group>";
@@ -408,6 +418,8 @@
 			children = (
 				CBB451341CD82FD200AD6A73 /* ProfileActivityCell.swift */,
 				1313E4DF1CD6685F0050483C /* ProfileHeader.swift */,
+				13D8BB301D5EA24E00E51EEF /* ProfileSwitchHeader.swift */,
+				13D8BB321D5EA3F100E51EEF /* ProfileSwitchHeader.xib */,
 				CBB451361CD8FB3400AD6A73 /* ProfileMediaCell.swift */,
 			);
 			name = Profile;
@@ -555,6 +567,7 @@
 				CBD7A40C1D0F3327000CD9C2 /* Roboto-Regular.ttf in Resources */,
 				CBD7A40A1D0F3327000CD9C2 /* Roboto-Light.ttf in Resources */,
 				CBD7A40B1D0F3327000CD9C2 /* Roboto-Medium.ttf in Resources */,
+				13D8BB331D5EA3F100E51EEF /* ProfileSwitchHeader.xib in Resources */,
 				13210F2C1CC86C5300B3E257 /* LaunchScreen.storyboard in Resources */,
 				13210F291CC86C5300B3E257 /* Assets.xcassets in Resources */,
 				13210F271CC86C5300B3E257 /* Main.storyboard in Resources */,
@@ -645,12 +658,15 @@
 				13210F591CC941D500B3E257 /* EventViewController.swift in Sources */,
 				CBD7A4101D107350000CD9C2 /* Notification.swift in Sources */,
 				CBB451391CD939F200AD6A73 /* OrganizerViewController.swift in Sources */,
+				13D8BB351D610D3600E51EEF /* ListLayout.swift in Sources */,
 				CB037EFC1CE25D7600720835 /* EventHeader.swift in Sources */,
+				13D8BB371D610D8000E51EEF /* GridLayout.swift in Sources */,
 				CBFD3E0B1CD26A9400FBE4A8 /* MediaGridCell.swift in Sources */,
-				1394AEBB1D553EBC00B0C6C3 /* ListLayout.swift in Sources */,
+				1394AEBB1D553EBC00B0C6C3 /* ActivityListLayout.swift in Sources */,
 				CBFFCE891D145E3200C32877 /* MediaFeedViewController.swift in Sources */,
 				CBFFCE901D1A0E6300C32877 /* MediaFeedCell.swift in Sources */,
 				CB17759E1D3D3ABB00E23A47 /* MediaPlayerViewController.swift in Sources */,
+				13D8BB311D5EA24E00E51EEF /* ProfileSwitchHeader.swift in Sources */,
 				CB73E19A1CCEB3B200E6C6AF /* ClassExtensions.swift in Sources */,
 				1313E4E01CD6685F0050483C /* ProfileHeader.swift in Sources */,
 				CB037EF81CE25CA400720835 /* EventMediaCell.swift in Sources */,
