@@ -12,18 +12,22 @@ class MainMenuViewController: UITableViewController {
 
     @IBOutlet weak var logoutButton: UIButton!
     @IBOutlet weak var tableHeader: UIView!
+    @IBOutlet weak var progressView: ProgressView!
     
     
     // MARK: View's Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        progressView.animateProgressView()
         visualize()
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
+        self.tableView.contentOffset.y = 0
     }
+    
     
     
     // MARK: View's Transition Handler

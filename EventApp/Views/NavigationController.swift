@@ -18,7 +18,6 @@ class NavigationController: UINavigationController {
     
     func visualize() {
         self.navigationBar.barTintColor = Colors.primaryBlue
-        
         self.navigationBar.layer.shadowOffset = CGSizeMake(0, 2)
         self.navigationBar.layer.shadowRadius = 2.5
         self.navigationBar.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5).CGColor

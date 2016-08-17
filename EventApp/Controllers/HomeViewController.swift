@@ -63,8 +63,8 @@ class HomeViewController: UIViewController {
         outerView.layer.borderColor = Colors.primaryBlue.CGColor
         outerView.layer.borderWidth = 1
         
-        let moreButton = UIBarButtonItem(image: UIImage(named: "more"), style: .Plain, target: self, action: #selector(HomeViewController.moreMenuPressed))
-        self.navigationItem.rightBarButtonItem = moreButton
+//        let moreButton = UIBarButtonItem(image: UIImage(named: "more"), style: .Plain, target: self, action: #selector(HomeViewController.moreMenuPressed))
+//        self.navigationItem.rightBarButtonItem = moreButton
     }
     
     func moreMenuPressed() {

@@ -23,7 +23,7 @@ class LoginViewController: UIViewController, UIScrollViewDelegate {
     var deviceOS = UIDevice.currentDevice().systemVersion
     
     var backgrounds:[UIImage?] = [UIImage(named: "beachPartyDark"), UIImage(named: "login2"), UIImage(named:"login1")]
-    var strings = ["Find the most current activities near you, no matter where you are", "Explore the nightlife of a new city", "Test string"]
+    var strings = ["Find the most current activities near you, no matter where you are", "Explore the nightlife of a new city", "Get directions, venue ratings, and event information in real time"]
     
     
     // MARK: View's Lifecycle

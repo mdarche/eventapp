@@ -74,18 +74,5 @@ struct Colors {
     static let darkestBlue = UIColor(red: 30/255, green: 32/255, blue: 42/255, alpha: 1.0)
     static let lightBlue = UIColor(red: 42/255, green: 45/255, blue: 60/255, alpha: 1.0)
     
-    // Event and Map Pairings
-    
-    static let primaryPurple = UIColor(red: 156/255, green: 39/255, blue: 176/255, alpha: 1.0)
-    static let darkPurple = UIColor(red: 106/255, green: 27/255, blue: 154/255, alpha: 1.0)
-    
-    static let primaryCyan = UIColor(red: 0/255, green: 188/255, blue: 212/255, alpha: 1.0)
-    static let darkCyan = UIColor(red: 0/255, green: 131/255, blue: 143/255, alpha: 1.0)
-    
-    static let primaryPink = UIColor(red: 233/255, green: 30/255, blue: 99/255, alpha: 1.0)
-    static let darkPink = UIColor(red: 194/255, green: 24/255, blue: 91/255, alpha: 1.0)
-    
-    static let primaryOrange = UIColor(red: 255/255, green: 87/255, blue: 34/255, alpha: 1.0)
-    static let darkOrange = UIColor(red: 230/255, green: 74/255, blue: 25/255, alpha: 1.0)
     
 }

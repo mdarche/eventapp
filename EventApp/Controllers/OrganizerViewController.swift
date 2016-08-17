@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GaugeKit
 
 class OrganizerViewController: UITableViewController {
 
@@ -22,6 +23,11 @@ class OrganizerViewController: UITableViewController {
         visualize()
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(true)
+        navigationController?.navigationBar.hidden = false
+        navigationController?.hidesBarsOnSwipe = true
+    }
     
     // MARK: View's Transition Handler
     
@@ -33,6 +39,14 @@ class OrganizerViewController: UITableViewController {
     }
     
     // MARK: Setup View's Layout
+    
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return .LightContent
+    }
+    
+    override func prefersStatusBarHidden() -> Bool {
+        return navigationController?.navigationBarHidden ?? false
+    }
     
     func visualize() {
         tableView!.addInvisibleHeader(Colors.darkBlue, sender: self.tableView!, size: 260)
@@ -89,14 +103,20 @@ class OrganizerViewController: UITableViewController {
         return headerTitles[section]
     }
     
+    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 30
+    }
+    
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
         let header = UIView()
         header.backgroundColor = UIColor.whiteColor()
+
         
-        let headerLabel = UILabel(frame: CGRectMake(12, 3, 150, 35))
+        let headerLabel = UILabel(frame: CGRectMake(12, 0, 150, 30))
         headerLabel.font = UIFont(name: "Roboto-Medium", size: 12)
-        headerLabel.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.45)
+        headerLabel.textColor = UIColor(white: 0, alpha: 0.45)
+
         headerLabel.textAlignment = .Left
         headerLabel.text = self.tableView(self.tableView, titleForHeaderInSection: section)
         

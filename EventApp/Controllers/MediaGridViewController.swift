@@ -20,6 +20,12 @@ class MediaGridViewController: UICollectionViewController, UICollectionViewDeleg
         visualize()
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(true)
+        navigationController?.navigationBar.hidden = false
+        navigationController?.hidesBarsOnSwipe = true
+    }
+    
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(true)
     }
@@ -35,14 +41,22 @@ class MediaGridViewController: UICollectionViewController, UICollectionViewDeleg
     
     // MARK: Set UI
     
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return .LightContent
+    }
+    
+    override func prefersStatusBarHidden() -> Bool {
+        return navigationController?.navigationBarHidden ?? false
+    }
+    
     func visualize() {
         flowLayout.minimumInteritemSpacing = 1
         flowLayout.minimumLineSpacing = 1
-        flowLayout.scrollDirection = .Vertical
         collectionView?.collectionViewLayout = flowLayout
-        
     }
 }
+
+
 
 extension MediaGridViewController {
     
@@ -66,11 +80,11 @@ extension MediaGridViewController {
     func collectionView(collectionView : UICollectionView,layout collectionViewLayout:UICollectionViewLayout,sizeForItemAtIndexPath indexPath:NSIndexPath) -> CGSize {
         
         switch indexPath.item {
-        case 0,1,7,8,16,17,27,28:
+        case 0,1:
             let numberOfColumns: CGFloat = 2
             let itemWidth = (CGRectGetWidth(self.collectionView!.frame) - (numberOfColumns - 1)) / numberOfColumns
-            return CGSizeMake(itemWidth, 150)
-        case 2,3,15,35:
+            return CGSizeMake(itemWidth, 200)
+        case 2:
             return CGSize(width: collectionView.frame.size.width, height: 112)
         default:
             let numberOfColumns: CGFloat = 3

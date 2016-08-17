@@ -45,9 +45,7 @@ class ProfileViewController: UICollectionViewController, UICollectionViewDelegat
         removeNavBar(nil, yes: false)
     }
     
-    override func viewDidDisappear(animated: Bool) {
-        super.viewDidDisappear(true)
-    }
+    
     // MARK: View's Transition Handler
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -103,8 +101,8 @@ class ProfileViewController: UICollectionViewController, UICollectionViewDelegat
         self.navigationController?.navigationBar.translucent = false
         
         collectionView?.frame = CGRectMake(0, -64, self.view.frame.width, self.view.frame.height+64)
-        collectionView!.addInvisibleHeader(Colors.accentRed, sender: self.collectionView!, size: 100)
-        topRefreshControl.setupSubview(.clearColor(), bgColor: Colors.accentRed)
+        collectionView!.addInvisibleHeader(Colors.primaryBlue, sender: self.collectionView!, size: 100)
+        topRefreshControl.setupSubview(.clearColor(), bgColor: Colors.primaryBlue)
         topRefreshControl.addTarget(self, action: #selector(ProfileViewController.handleTopPull), forControlEvents: UIControlEvents.ValueChanged)
         collectionView!.addSubview(topRefreshControl)
         
@@ -231,12 +229,13 @@ extension ProfileViewController {
         topRefreshControl.scrollTableView()
         
         let offset = scrollView.contentOffset.y
+        print(offset)
         
         if offset <= 64 {
             let navBarTransform = CATransform3DMakeTranslation(0, max(-64, offset), 0)
             animatedNavbar?.layer.transform = navBarTransform
-        } else {
-            animatedNavbar?.frame = CGRectMake(0, -UIApplication.sharedApplication().statusBarFrame.height, (navigationController?.navigationBar.frame.width)!, 64)
+        } else if offset > 65 {
+            animatedNavbar?.frame = CGRectMake(0, -UIApplication.sharedApplication().statusBarFrame.height,(navigationController?.navigationBar.frame.width)!, 64)
         }
         
         let labelTransform = CATransform3DMakeTranslation(0, max(-30, 90 - offset), 0)

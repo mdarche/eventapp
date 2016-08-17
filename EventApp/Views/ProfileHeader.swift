@@ -29,7 +29,7 @@ class ProfileHeader: UICollectionReusableView {
         profileImage.layer.cornerRadius = profileImage.frame.size.width/2
         profileImage.layer.borderColor = UIColor.whiteColor().CGColor
         profileImage.layer.borderWidth = 3.5
-//        headerBG.addColorGradient()
+        followButton.layer.cornerRadius = followButton.frame.size.height/2
     }
     
 }
