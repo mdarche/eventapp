@@ -49,7 +49,7 @@ class ProgressView: UIView {
     func createInnerCircle() {
         innerCircle = UIView(frame: CGRectMake(0, 0, CGRectGetWidth(frame)/2.35, CGRectGetHeight(frame)/2.35))
         innerCircle.layer.cornerRadius = innerCircle.frame.width / 2
-        innerCircle.backgroundColor = UIColor(white: 1, alpha: 0)
+        innerCircle.backgroundColor = UIColor(white: 1, alpha: 0.04)
         innerCircle.center = CGPointMake(CGRectGetMidX(self.bounds), CGRectGetMidY(self.bounds))
         addSubview(innerCircle)
         
@@ -71,6 +71,7 @@ class ProgressView: UIView {
         
         gradientMaskLayer.mask = progressLayer
         layer.addSublayer(gradientMaskLayer)
+        self.alpha = 0.0
     }
     
     private func gradientMask() -> CAGradientLayer {
@@ -93,7 +94,7 @@ class ProgressView: UIView {
     
     func animateProgressView() {
         UIView.animateWithDuration(0.9, animations: {
-            self.innerCircle.backgroundColor = UIColor(white: 1, alpha: 0.03)
+            self.alpha = 1.0
         })
         
         progressLabel.text = ""
@@ -102,7 +103,7 @@ class ProgressView: UIView {
         let animation = CABasicAnimation(keyPath: "strokeEnd")
         animation.fromValue = CGFloat(0.0)
         animation.toValue = CGFloat(1.0)
-        animation.duration = 0.8
+        animation.duration = 0.45
         animation.delegate = self
         animation.removedOnCompletion = false
         animation.additive = true

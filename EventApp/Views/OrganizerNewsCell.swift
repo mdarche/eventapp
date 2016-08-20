@@ -12,7 +12,6 @@ class OrganizerNewsCell: UITableViewCell {
 
     @IBOutlet weak var imageThumbnail: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var dateLabel: UILabel!
     
     var profileId : Int?
     var activityId: Int?

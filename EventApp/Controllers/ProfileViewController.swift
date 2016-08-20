@@ -35,14 +35,16 @@ class ProfileViewController: UICollectionViewController, UICollectionViewDelegat
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
         setNavAnimation()
+        collectionView?.delegate = self
     }
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(true)
-        collectionView?.contentOffset.y = 0
+        collectionView?.contentOffset.y = -50
         animatedNavbar?.removeFromSuperview()
         statusBarBG?.removeFromSuperview()
         removeNavBar(nil, yes: false)
+        collectionView?.delegate = nil
     }
     
     
@@ -100,7 +102,7 @@ class ProfileViewController: UICollectionViewController, UICollectionViewDelegat
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.translucent = false
         
-        collectionView?.frame = CGRectMake(0, -64, self.view.frame.width, self.view.frame.height+64)
+        collectionView?.frame = CGRectMake(0, -navigationController!.navigationBar.frame.height, self.view.frame.width, self.view.frame.height+64)
         collectionView!.addInvisibleHeader(Colors.primaryBlue, sender: self.collectionView!, size: 100)
         topRefreshControl.setupSubview(.clearColor(), bgColor: Colors.primaryBlue)
         topRefreshControl.addTarget(self, action: #selector(ProfileViewController.handleTopPull), forControlEvents: UIControlEvents.ValueChanged)
@@ -199,6 +201,10 @@ extension ProfileViewController {
     
     }
     
+    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        print("Tapped")
+    }
+    
     override func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String,
                                  atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
         
@@ -229,7 +235,6 @@ extension ProfileViewController {
         topRefreshControl.scrollTableView()
         
         let offset = scrollView.contentOffset.y
-        print(offset)
         
         if offset <= 64 {
             let navBarTransform = CATransform3DMakeTranslation(0, max(-64, offset), 0)

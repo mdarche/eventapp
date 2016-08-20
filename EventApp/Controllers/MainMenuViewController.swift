@@ -10,24 +10,24 @@ import UIKit
 
 class MainMenuViewController: UITableViewController {
 
+    @IBOutlet weak var accentLineA: UIView!
+    @IBOutlet weak var accentLineB: UIView!
+    
     @IBOutlet weak var logoutButton: UIButton!
     @IBOutlet weak var tableHeader: UIView!
     @IBOutlet weak var progressView: ProgressView!
-    
+    let headerTitles = ["PROFILE / SETTINGS", "MORE"]
     
     // MARK: View's Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        progressView.animateProgressView()
         visualize()
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
-        self.tableView.contentOffset.y = 0
     }
-    
     
     
     // MARK: View's Transition Handler
@@ -50,13 +50,18 @@ class MainMenuViewController: UITableViewController {
     }
     
     
-    
-    // MARK: Setup View's Layout
+    // MARK: Class Functions
     
     func visualize() {
+        progressView.animateProgressView()
         tableView?.addInvisibleHeader(Colors.darkestBlue, sender: self.tableView, size: 260)
         logoutButton.layer.cornerRadius = logoutButton.frame.size.height/2
         logoutButton.addShadow(0.3, radius: 2)
+        
+        UIView.animateWithDuration(1.2, animations: {
+            self.accentLineA.backgroundColor = UIColor(white: 1, alpha: 0.1)
+            self.accentLineB.backgroundColor = UIColor(white: 1, alpha: 0.0)
+        })
     }
     
     func showInviteAlert() {
@@ -73,18 +78,53 @@ class MainMenuViewController: UITableViewController {
         alertController.addAction(buttonCancel)
         presentViewController(alertController, animated: true, completion: nil)
     }
+}
+
+
+extension MainMenuViewController {
     
-    
-    // MARK: Tableview setup
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 2
+    }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 6
+        //TODO: return count of each object array per section
+        if section == 0 {
+            return 5
+        } else {
+            return 2
+        }
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if indexPath.row == 3 {
             showInviteAlert()
         }
+    }
+    
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return headerTitles[section]
+    }
+    
+    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 30
+    }
+    
+    override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        let header = UIView()
+        header.backgroundColor = UIColor(red: 225/255, green: 228/255, blue: 234/255, alpha: 1.0)
+        
+        let headerLabel = UILabel(frame: CGRectMake(12, 0, 150, 30))
+        headerLabel.font = UIFont(name: "Roboto-Medium", size: 12)
+        headerLabel.textColor = UIColor(white: 0, alpha: 0.3)
+        
+        headerLabel.textAlignment = .Left
+        headerLabel.text = self.tableView(self.tableView, titleForHeaderInSection: section)
+        
+        header.addSubview(headerLabel)
+        
+        return header
     }
     
     @IBAction func logoutButtonPressed(sender: AnyObject) {
@@ -99,6 +139,5 @@ class MainMenuViewController: UITableViewController {
             })
         }
     }
-    
     
 }

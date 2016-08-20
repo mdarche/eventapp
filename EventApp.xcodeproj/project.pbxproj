@@ -23,6 +23,7 @@
 		13210F571CC93FEC00B3E257 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13210F561CC93FEC00B3E257 /* HomeViewController.swift */; };
 		13210F591CC941D500B3E257 /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13210F581CC941D500B3E257 /* EventViewController.swift */; };
 		13210F5B1CC942A400B3E257 /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13210F5A1CC942A400B3E257 /* MainMenuViewController.swift */; };
+		132B20251D679C6A002841AC /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132B20241D679C6A002841AC /* Utility.swift */; };
 		133B7D951D638F9A00DF5E34 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133B7D941D638F9A00DF5E34 /* ProgressView.swift */; };
 		1394AEB91D5539D700B0C6C3 /* ListHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1394AEB81D5539D700B0C6C3 /* ListHeader.swift */; };
 		1394AEBB1D553EBC00B0C6C3 /* ActivityListLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1394AEBA1D553EBC00B0C6C3 /* ActivityListLayout.swift */; };
@@ -52,7 +53,7 @@
 		CBB451331CD7FE1200AD6A73 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB451321CD7FE1200AD6A73 /* Constants.swift */; };
 		CBB451351CD82FD200AD6A73 /* ProfileActivityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB451341CD82FD200AD6A73 /* ProfileActivityCell.swift */; };
 		CBB451371CD8FB3400AD6A73 /* ProfileMediaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB451361CD8FB3400AD6A73 /* ProfileMediaCell.swift */; };
-		CBB451391CD939F200AD6A73 /* OrganizerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB451381CD939F200AD6A73 /* OrganizerViewController.swift */; };
+		CBB451391CD939F200AD6A73 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB451381CD939F200AD6A73 /* NotificationViewController.swift */; };
 		CBB4513B1CDBB78100AD6A73 /* OrganizerNewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB4513A1CDBB78000AD6A73 /* OrganizerNewsCell.swift */; };
 		CBCF43731CF7770800E691DD /* MapAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCF43721CF7770800E691DD /* MapAnnotation.swift */; };
 		CBD7A3FF1D087483000CD9C2 /* MapCalloutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD7A3FE1D087483000CD9C2 /* MapCalloutView.swift */; };
@@ -66,7 +67,7 @@
 		CBFD3E0B1CD26A9400FBE4A8 /* MediaGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFD3E0A1CD26A9400FBE4A8 /* MediaGridCell.swift */; };
 		CBFD3E0D1CD26D9F00FBE4A8 /* MediaGridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFD3E0C1CD26D9F00FBE4A8 /* MediaGridViewController.swift */; };
 		CBFFCE831D144FB100C32877 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFFCE821D144FB100C32877 /* EditProfileViewController.swift */; };
-		CBFFCE851D14553500C32877 /* NotificationSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFFCE841D14553500C32877 /* NotificationSettingsViewController.swift */; };
+		CBFFCE851D14553500C32877 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFFCE841D14553500C32877 /* SettingsViewController.swift */; };
 		CBFFCE871D14574900C32877 /* PrivacyTermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFFCE861D14574900C32877 /* PrivacyTermsViewController.swift */; };
 		CBFFCE891D145E3200C32877 /* MediaFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFFCE881D145E3200C32877 /* MediaFeedViewController.swift */; };
 		CBFFCE8B1D14617C00C32877 /* FFITableviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFFCE8A1D14617C00C32877 /* FFITableviewController.swift */; };
@@ -115,6 +116,7 @@
 		13210F561CC93FEC00B3E257 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = Controllers/HomeViewController.swift; sourceTree = "<group>"; };
 		13210F581CC941D500B3E257 /* EventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventViewController.swift; path = Controllers/EventViewController.swift; sourceTree = "<group>"; };
 		13210F5A1CC942A400B3E257 /* MainMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainMenuViewController.swift; path = Controllers/MainMenuViewController.swift; sourceTree = "<group>"; };
+		132B20241D679C6A002841AC /* Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Utility.swift; path = Utility/Utility.swift; sourceTree = "<group>"; };
 		133B7D941D638F9A00DF5E34 /* ProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProgressView.swift; path = Views/ProgressView.swift; sourceTree = "<group>"; };
 		1394AEB81D5539D700B0C6C3 /* ListHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListHeader.swift; path = Views/ListHeader.swift; sourceTree = "<group>"; };
 		1394AEBA1D553EBC00B0C6C3 /* ActivityListLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityListLayout.swift; sourceTree = "<group>"; };
@@ -149,7 +151,7 @@
 		CBB451321CD7FE1200AD6A73 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Utility/Constants.swift; sourceTree = "<group>"; };
 		CBB451341CD82FD200AD6A73 /* ProfileActivityCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileActivityCell.swift; path = Views/ProfileActivityCell.swift; sourceTree = "<group>"; };
 		CBB451361CD8FB3400AD6A73 /* ProfileMediaCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileMediaCell.swift; path = Views/ProfileMediaCell.swift; sourceTree = "<group>"; };
-		CBB451381CD939F200AD6A73 /* OrganizerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OrganizerViewController.swift; path = Controllers/OrganizerViewController.swift; sourceTree = "<group>"; };
+		CBB451381CD939F200AD6A73 /* NotificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotificationViewController.swift; path = Controllers/NotificationViewController.swift; sourceTree = "<group>"; };
 		CBB4513A1CDBB78000AD6A73 /* OrganizerNewsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OrganizerNewsCell.swift; path = Views/OrganizerNewsCell.swift; sourceTree = "<group>"; };
 		CBCF43721CF7770800E691DD /* MapAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapAnnotation.swift; path = Models/MapAnnotation.swift; sourceTree = "<group>"; };
 		CBD7A3FE1D087483000CD9C2 /* MapCalloutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapCalloutView.swift; path = Views/MapCalloutView.swift; sourceTree = "<group>"; };
@@ -163,7 +165,7 @@
 		CBFD3E0A1CD26A9400FBE4A8 /* MediaGridCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MediaGridCell.swift; path = Views/MediaGridCell.swift; sourceTree = "<group>"; };
 		CBFD3E0C1CD26D9F00FBE4A8 /* MediaGridViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MediaGridViewController.swift; path = Controllers/MediaGridViewController.swift; sourceTree = "<group>"; };
 		CBFFCE821D144FB100C32877 /* EditProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditProfileViewController.swift; path = Controllers/EditProfileViewController.swift; sourceTree = "<group>"; };
-		CBFFCE841D14553500C32877 /* NotificationSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotificationSettingsViewController.swift; path = Controllers/NotificationSettingsViewController.swift; sourceTree = "<group>"; };
+		CBFFCE841D14553500C32877 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = Controllers/SettingsViewController.swift; sourceTree = "<group>"; };
 		CBFFCE861D14574900C32877 /* PrivacyTermsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PrivacyTermsViewController.swift; path = Controllers/PrivacyTermsViewController.swift; sourceTree = "<group>"; };
 		CBFFCE881D145E3200C32877 /* MediaFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MediaFeedViewController.swift; path = Controllers/MediaFeedViewController.swift; sourceTree = "<group>"; };
 		CBFFCE8A1D14617C00C32877 /* FFITableviewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FFITableviewController.swift; path = Controllers/FFITableviewController.swift; sourceTree = "<group>"; };
@@ -379,6 +381,7 @@
 			children = (
 				CB73E1991CCEB3B200E6C6AF /* ClassExtensions.swift */,
 				CBB451321CD7FE1200AD6A73 /* Constants.swift */,
+				132B20241D679C6A002841AC /* Utility.swift */,
 				13210F2D1CC86C5300B3E257 /* Info.plist */,
 				CB7A24FE1CCE835D00D46DE2 /* Application-Bridging-Header.h */,
 			);
@@ -399,8 +402,8 @@
 				13210F521CC93F2D00B3E257 /* MapViewController.swift */,
 				CBFD3E0C1CD26D9F00FBE4A8 /* MediaGridViewController.swift */,
 				CBFFCE881D145E3200C32877 /* MediaFeedViewController.swift */,
-				CBFFCE841D14553500C32877 /* NotificationSettingsViewController.swift */,
-				CBB451381CD939F200AD6A73 /* OrganizerViewController.swift */,
+				CBFFCE841D14553500C32877 /* SettingsViewController.swift */,
+				CBB451381CD939F200AD6A73 /* NotificationViewController.swift */,
 				CBFFCE861D14574900C32877 /* PrivacyTermsViewController.swift */,
 				CBB451301CD7F2F600AD6A73 /* ProfileViewController.swift */,
 			);
@@ -660,12 +663,13 @@
 				13210F5B1CC942A400B3E257 /* MainMenuViewController.swift in Sources */,
 				13210F591CC941D500B3E257 /* EventViewController.swift in Sources */,
 				CBD7A4101D107350000CD9C2 /* Notification.swift in Sources */,
-				CBB451391CD939F200AD6A73 /* OrganizerViewController.swift in Sources */,
+				CBB451391CD939F200AD6A73 /* NotificationViewController.swift in Sources */,
 				13D8BB351D610D3600E51EEF /* ListLayout.swift in Sources */,
 				CB037EFC1CE25D7600720835 /* EventHeader.swift in Sources */,
 				13D8BB371D610D8000E51EEF /* GridLayout.swift in Sources */,
 				CBFD3E0B1CD26A9400FBE4A8 /* MediaGridCell.swift in Sources */,
 				1394AEBB1D553EBC00B0C6C3 /* ActivityListLayout.swift in Sources */,
+				132B20251D679C6A002841AC /* Utility.swift in Sources */,
 				CBFFCE891D145E3200C32877 /* MediaFeedViewController.swift in Sources */,
 				CBFFCE901D1A0E6300C32877 /* MediaFeedCell.swift in Sources */,
 				CB17759E1D3D3ABB00E23A47 /* MediaPlayerViewController.swift in Sources */,
@@ -679,7 +683,7 @@
 				1300ECF81D1A38C700E223A2 /* TopRefresher.swift in Sources */,
 				CB119FAE1CEE3CB80086B785 /* NetworkRouter.swift in Sources */,
 				CBB451331CD7FE1200AD6A73 /* Constants.swift in Sources */,
-				CBFFCE851D14553500C32877 /* NotificationSettingsViewController.swift in Sources */,
+				CBFFCE851D14553500C32877 /* SettingsViewController.swift in Sources */,
 				CBA899FA1D04A343003A2B87 /* MapAnnotationView.swift in Sources */,
 				1313E4E71CD682D00050483C /* Activity.swift in Sources */,
 				13210F201CC86C5300B3E257 /* AppDelegate.swift in Sources */,

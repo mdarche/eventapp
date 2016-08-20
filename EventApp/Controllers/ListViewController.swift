@@ -65,6 +65,11 @@ class ListViewController: UICollectionViewController, UICollectionViewDelegateFl
         return cell
     }
     
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout,
+        referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSizeMake(CGRectGetWidth(collectionView.bounds), 30.0)
+    }
+    
     override func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String,
                                  atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
         

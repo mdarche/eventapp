@@ -103,7 +103,7 @@ class LoginViewController: UIViewController, UIScrollViewDelegate {
     
     func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
         
-        onboardLabel.pushTransition(0.15, effect: "fade")
+        onboardLabel.pushTransition(0.15)
         let pageNumber = round(scrollView.contentOffset.x / scrollView.frame.size.width)
         pageControl.currentPage = Int(pageNumber)
         

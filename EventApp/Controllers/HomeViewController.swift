@@ -10,6 +10,7 @@ import UIKit
 
 class HomeViewController: UIViewController {
 
+    
     @IBOutlet weak var listContainer: UIView!
     @IBOutlet weak var mapContainer: UIView!
     @IBOutlet weak var eventNotification: UIView!
@@ -31,11 +32,13 @@ class HomeViewController: UIViewController {
     @IBAction func showComponent(sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0 {
             UIView.animateWithDuration(0.2, animations: {
+                self.navigationController?.navigationBar.barTintColor = Colors.darkestBlue
                 self.mapContainer.alpha = 1
                 self.listContainer.alpha = 0
             })
         } else {
             UIView.animateWithDuration(0.2, animations: {
+                self.navigationController?.navigationBar.barTintColor = Colors.primaryBlue
                 self.mapContainer.alpha = 0
                 self.listContainer.alpha = 1
             })

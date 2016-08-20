@@ -13,23 +13,9 @@ class TabBarController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         UITabBar.appearance().tintColor = .whiteColor()
         UITabBar.appearance().alpha = 1
     }
-}
-
-class Utility : NSObject {
-    
-    class func delay(delay:Double, closure:()->()) {
-        dispatch_after(
-            dispatch_time(
-                DISPATCH_TIME_NOW,
-                Int64(delay * Double(NSEC_PER_SEC))
-            ),
-            dispatch_get_main_queue(), closure)
-    }
-    
 }
 
 
@@ -48,9 +34,9 @@ extension UIImageView{
     
     // For Profiles
     
-    func addColorGradient() {
+    func addCoverImageGradient() {
         let gradientLayer = CAGradientLayer()
-        let gradientColors = [ UIColor(red: 30/255, green: 32/255, blue: 42/255, alpha: 0.85).CGColor, UIColor(red: 30/255, green: 32/255, blue: 42/255, alpha: 0.68).CGColor, UIColor(red: 30/255, green: 32/255, blue: 42/255, alpha: 1.0).CGColor ]
+        let gradientColors = [ UIColor(red: 30/255, green: 32/255, blue: 42/255, alpha: 0.85).CGColor, UIColor(red: 30/255, green: 32/255, blue: 42/255, alpha: 0.68).CGColor, UIColor.clearColor().CGColor ]
         let gradientLocations = [0.0, 0.5, 1.0]
         
         gradientLayer.colors = gradientColors
@@ -65,8 +51,8 @@ extension UIImageView{
     
     func addDarkGradientLayer() {
         let gradientLayer = CAGradientLayer()
-        let gradientColors = [UIColor.clearColor().CGColor, UIColor(red: 30/255, green: 32/255, blue: 42/255, alpha: 0.7).CGColor ]
-        let gradientLocations = [0.4, 1.0]
+        let gradientColors = [UIColor.clearColor().CGColor, UIColor(red: 30/255, green: 32/255, blue: 42/255, alpha: 0.6).CGColor ]
+        let gradientLocations = [0.3, 1.0]
         
         gradientLayer.colors = gradientColors
         gradientLayer.locations = gradientLocations
@@ -77,19 +63,12 @@ extension UIImageView{
 }
 
 extension UIView {
-    func pushTransition(duration:CFTimeInterval, effect: String?) {
+    func pushTransition(duration:CFTimeInterval) {
         let animation:CATransition = CATransition()
-        animation.timingFunction = CAMediaTimingFunction(name:
-            kCAMediaTimingFunctionEaseInEaseOut)
+        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
         
-        if effect == "fade" {
-            animation.type = kCATransitionFade
-            animation.subtype = kCATransitionFade
-        } else {
-            animation.type = kCATransitionFromBottom
-            animation.subtype = kCATransitionFromBottom
-        }
-        
+        animation.type = kCATransitionFade
+        animation.subtype = kCATransitionFade
         animation.duration = duration
         self.layer.addAnimation(animation, forKey: kCATransitionPush)
     }
@@ -106,6 +85,35 @@ extension UIView {
     
 }
 
+//extension CALayer {
+//    
+//    func addBorder(edge: UIRectEdge, color: UIColor, thickness: CGFloat) {
+//        
+//        let border = CALayer()
+//        
+//        switch edge {
+//        case UIRectEdge.Top:
+//            border.frame = CGRectMake(0, 0, CGRectGetHeight(self.frame), thickness)
+//            break
+//        case UIRectEdge.Bottom:
+//            border.frame = CGRectMake(0, CGRectGetHeight(self.frame) - thickness, UIScreen.mainScreen().bounds.width, thickness)
+//            break
+//        case UIRectEdge.Left:
+//            border.frame = CGRectMake(0, 0, thickness, CGRectGetHeight(self.frame))
+//            break
+//        case UIRectEdge.Right:
+//            border.frame = CGRectMake(CGRectGetWidth(self.frame) - thickness, 0, thickness, CGRectGetHeight(self.frame))
+//            break
+//        default:
+//            break
+//        }
+//        
+//        border.backgroundColor = color.CGColor;
+//        
+//        self.addSublayer(border)
+//    }
+//    
+//}
 
 // MARK: UITableViews
 

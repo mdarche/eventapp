@@ -74,5 +74,6 @@ struct Colors {
     static let darkestBlue = UIColor(red: 30/255, green: 32/255, blue: 42/255, alpha: 1.0)
     static let lightBlue = UIColor(red: 42/255, green: 45/255, blue: 60/255, alpha: 1.0)
     
+    static let primaryGray = UIColor(white: 0, alpha: 0.1)
     
 }

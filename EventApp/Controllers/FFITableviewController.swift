@@ -24,6 +24,7 @@ class FFITableviewController: UITableViewController {
     private var skip = 0
     private var downloadControl = false
     
+    
     // MARK: View's Lifecycle
     
     override func viewDidLoad() {
@@ -36,11 +37,10 @@ class FFITableviewController: UITableViewController {
 //        downloadData(limit, skip: skip)
     }
     
+    
     // MARK: Setup View
     
-    
     func visualize() {
-//        setTableViewBackgroundGradient(self)
         activityIndicator.stopAnimating()
         if isFollowers != nil {
             navigationItem.title = "Followers"

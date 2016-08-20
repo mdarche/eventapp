@@ -1,5 +1,5 @@
 //
-//  OrganizerViewController.swift
+//  NotificationViewController.swift
 //  EventApp
 //
 //  Created by Michael Darche on 5/3/16.
@@ -7,9 +7,8 @@
 //
 
 import UIKit
-import GaugeKit
 
-class OrganizerViewController: UITableViewController {
+class NotificationViewController: UITableViewController {
 
     let headerTitles = ["SAVED ACTIVITIES", "NEWS FEED"]
     var upcomingEvents : [Activity]?
@@ -29,6 +28,7 @@ class OrganizerViewController: UITableViewController {
         navigationController?.hidesBarsOnSwipe = true
     }
     
+    
     // MARK: View's Transition Handler
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -37,6 +37,7 @@ class OrganizerViewController: UITableViewController {
             vc.parentNavColor = Colors.primaryBlue
         }
     }
+    
     
     // MARK: Setup View's Layout
     
@@ -49,7 +50,7 @@ class OrganizerViewController: UITableViewController {
     }
     
     func visualize() {
-        tableView!.addInvisibleHeader(Colors.darkBlue, sender: self.tableView!, size: 260)
+        tableView!.addInvisibleHeader(Colors.darkestBlue, sender: self.tableView!, size: 260)
     }
     
 
@@ -95,7 +96,7 @@ class OrganizerViewController: UITableViewController {
         if indexPath.section == 0 {
             return 112
         } else {
-            return 65
+            return 60
         }
     }
     
@@ -111,17 +112,18 @@ class OrganizerViewController: UITableViewController {
         
         let header = UIView()
         header.backgroundColor = UIColor.whiteColor()
-
+        
+        let bottomBorder = UIView(frame: CGRectMake(0, 30, tableView.frame.width, 1))
+        bottomBorder.backgroundColor = Colors.primaryGray
         
         let headerLabel = UILabel(frame: CGRectMake(12, 0, 150, 30))
         headerLabel.font = UIFont(name: "Roboto-Medium", size: 12)
         headerLabel.textColor = UIColor(white: 0, alpha: 0.45)
-
         headerLabel.textAlignment = .Left
         headerLabel.text = self.tableView(self.tableView, titleForHeaderInSection: section)
         
+        header.addSubview(bottomBorder)
         header.addSubview(headerLabel)
-        header.addShadow(0.2, radius: 2.5)
         
         return header
     }

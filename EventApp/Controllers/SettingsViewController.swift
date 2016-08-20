@@ -1,5 +1,5 @@
 //
-//  NotificationSettingsViewController.swift
+//  SettingsViewController.swift
 //  EventApp
 //
 //  Created by Michael Darche on 6/17/16.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NotificationSettingsViewController: UITableViewController {
+class SettingsViewController: UITableViewController {
 
     @IBOutlet weak var nearbyEventSwitch: UISwitch!
     @IBOutlet weak var eventReminderSwitch: UISwitch!
@@ -22,7 +22,6 @@ class NotificationSettingsViewController: UITableViewController {
     }
     
     func visualize() {
-//        tableView?.addInvisibleHeader(.whiteColor(), sender: self.tableView, size: 50)
         saveButton.layer.cornerRadius = saveButton.frame.size.height/2
     }
     
