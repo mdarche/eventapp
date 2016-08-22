@@ -11,7 +11,6 @@ import UIKit
 class MainMenuViewController: UITableViewController {
 
     @IBOutlet weak var accentLineA: UIView!
-    @IBOutlet weak var accentLineB: UIView!
     
     @IBOutlet weak var logoutButton: UIButton!
     @IBOutlet weak var tableHeader: UIView!
@@ -60,7 +59,6 @@ class MainMenuViewController: UITableViewController {
         
         UIView.animateWithDuration(1.2, animations: {
             self.accentLineA.backgroundColor = UIColor(white: 1, alpha: 0.1)
-            self.accentLineB.backgroundColor = UIColor(white: 1, alpha: 0.0)
         })
     }
     

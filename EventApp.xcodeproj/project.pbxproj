@@ -24,6 +24,7 @@
 		13210F591CC941D500B3E257 /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13210F581CC941D500B3E257 /* EventViewController.swift */; };
 		13210F5B1CC942A400B3E257 /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13210F5A1CC942A400B3E257 /* MainMenuViewController.swift */; };
 		132B20251D679C6A002841AC /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132B20241D679C6A002841AC /* Utility.swift */; };
+		132B20271D6A3C2D002841AC /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132B20261D6A3C2D002841AC /* EditProfileViewController.swift */; };
 		133B7D951D638F9A00DF5E34 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133B7D941D638F9A00DF5E34 /* ProgressView.swift */; };
 		1394AEB91D5539D700B0C6C3 /* ListHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1394AEB81D5539D700B0C6C3 /* ListHeader.swift */; };
 		1394AEBB1D553EBC00B0C6C3 /* ActivityListLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1394AEBA1D553EBC00B0C6C3 /* ActivityListLayout.swift */; };
@@ -66,7 +67,6 @@
 		CBD7A41E1D11BF08000CD9C2 /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD7A41C1D11BF08000CD9C2 /* CurrentUser.swift */; };
 		CBFD3E0B1CD26A9400FBE4A8 /* MediaGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFD3E0A1CD26A9400FBE4A8 /* MediaGridCell.swift */; };
 		CBFD3E0D1CD26D9F00FBE4A8 /* MediaGridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFD3E0C1CD26D9F00FBE4A8 /* MediaGridViewController.swift */; };
-		CBFFCE831D144FB100C32877 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFFCE821D144FB100C32877 /* EditProfileViewController.swift */; };
 		CBFFCE851D14553500C32877 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFFCE841D14553500C32877 /* SettingsViewController.swift */; };
 		CBFFCE871D14574900C32877 /* PrivacyTermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFFCE861D14574900C32877 /* PrivacyTermsViewController.swift */; };
 		CBFFCE891D145E3200C32877 /* MediaFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFFCE881D145E3200C32877 /* MediaFeedViewController.swift */; };
@@ -117,6 +117,7 @@
 		13210F581CC941D500B3E257 /* EventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventViewController.swift; path = Controllers/EventViewController.swift; sourceTree = "<group>"; };
 		13210F5A1CC942A400B3E257 /* MainMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainMenuViewController.swift; path = Controllers/MainMenuViewController.swift; sourceTree = "<group>"; };
 		132B20241D679C6A002841AC /* Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Utility.swift; path = Utility/Utility.swift; sourceTree = "<group>"; };
+		132B20261D6A3C2D002841AC /* EditProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditProfileViewController.swift; path = Controllers/EditProfileViewController.swift; sourceTree = "<group>"; };
 		133B7D941D638F9A00DF5E34 /* ProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProgressView.swift; path = Views/ProgressView.swift; sourceTree = "<group>"; };
 		1394AEB81D5539D700B0C6C3 /* ListHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListHeader.swift; path = Views/ListHeader.swift; sourceTree = "<group>"; };
 		1394AEBA1D553EBC00B0C6C3 /* ActivityListLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityListLayout.swift; sourceTree = "<group>"; };
@@ -164,7 +165,6 @@
 		CBD7A41C1D11BF08000CD9C2 /* CurrentUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CurrentUser.swift; path = Models/CurrentUser.swift; sourceTree = "<group>"; };
 		CBFD3E0A1CD26A9400FBE4A8 /* MediaGridCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MediaGridCell.swift; path = Views/MediaGridCell.swift; sourceTree = "<group>"; };
 		CBFD3E0C1CD26D9F00FBE4A8 /* MediaGridViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MediaGridViewController.swift; path = Controllers/MediaGridViewController.swift; sourceTree = "<group>"; };
-		CBFFCE821D144FB100C32877 /* EditProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditProfileViewController.swift; path = Controllers/EditProfileViewController.swift; sourceTree = "<group>"; };
 		CBFFCE841D14553500C32877 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = Controllers/SettingsViewController.swift; sourceTree = "<group>"; };
 		CBFFCE861D14574900C32877 /* PrivacyTermsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PrivacyTermsViewController.swift; path = Controllers/PrivacyTermsViewController.swift; sourceTree = "<group>"; };
 		CBFFCE881D145E3200C32877 /* MediaFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MediaFeedViewController.swift; path = Controllers/MediaFeedViewController.swift; sourceTree = "<group>"; };
@@ -240,7 +240,7 @@
 		13210F1E1CC86C5300B3E257 /* EventApp */ = {
 			isa = PBXGroup;
 			children = (
-				CB214ABE1D25818D00238BF6 /* Assets & Storyboards */,
+				CB214ABE1D25818D00238BF6 /* Assets */,
 				13210F511CC93EBB00B3E257 /* Controllers */,
 				CB214ABF1D25843000238BF6 /* Layouts */,
 				1313E4E31CD6698E0050483C /* Models */,
@@ -328,7 +328,7 @@
 			name = Fonts;
 			sourceTree = "<group>";
 		};
-		CB214ABE1D25818D00238BF6 /* Assets & Storyboards */ = {
+		CB214ABE1D25818D00238BF6 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
 				13210F1F1CC86C5300B3E257 /* AppDelegate.swift */,
@@ -338,7 +338,7 @@
 				13210F2A1CC86C5300B3E257 /* LaunchScreen.storyboard */,
 				CB1F7FFD1D1D90D000D1F6C3 /* Fonts */,
 			);
-			name = "Assets & Storyboards";
+			name = Assets;
 			sourceTree = "<group>";
 		};
 		CB214ABF1D25843000238BF6 /* Layouts */ = {
@@ -392,20 +392,20 @@
 			isa = PBXGroup;
 			children = (
 				13210F581CC941D500B3E257 /* EventViewController.swift */,
-				CBFFCE821D144FB100C32877 /* EditProfileViewController.swift */,
-				CBFFCE8A1D14617C00C32877 /* FFITableviewController.swift */,
-				13210F561CC93FEC00B3E257 /* HomeViewController.swift */,
 				CB403DFE1D36A725000E6A22 /* EventTextViewController.swift */,
+				CBFFCE8A1D14617C00C32877 /* FFITableviewController.swift */,
+				132B20261D6A3C2D002841AC /* EditProfileViewController.swift */,
+				13210F561CC93FEC00B3E257 /* HomeViewController.swift */,
 				13210F541CC93FB200B3E257 /* ListViewController.swift */,
 				13210F5A1CC942A400B3E257 /* MainMenuViewController.swift */,
-				CB17759D1D3D3ABB00E23A47 /* MediaPlayerViewController.swift */,
 				13210F521CC93F2D00B3E257 /* MapViewController.swift */,
+				CB17759D1D3D3ABB00E23A47 /* MediaPlayerViewController.swift */,
 				CBFD3E0C1CD26D9F00FBE4A8 /* MediaGridViewController.swift */,
 				CBFFCE881D145E3200C32877 /* MediaFeedViewController.swift */,
-				CBFFCE841D14553500C32877 /* SettingsViewController.swift */,
 				CBB451381CD939F200AD6A73 /* NotificationViewController.swift */,
 				CBFFCE861D14574900C32877 /* PrivacyTermsViewController.swift */,
 				CBB451301CD7F2F600AD6A73 /* ProfileViewController.swift */,
+				CBFFCE841D14553500C32877 /* SettingsViewController.swift */,
 			);
 			name = Main;
 			sourceTree = "<group>";
@@ -658,7 +658,6 @@
 				CBB451311CD7F2F600AD6A73 /* ProfileViewController.swift in Sources */,
 				CB119FB21CEE5CD30086B785 /* Media.swift in Sources */,
 				CBFD3E0D1CD26D9F00FBE4A8 /* MediaGridViewController.swift in Sources */,
-				CBFFCE831D144FB100C32877 /* EditProfileViewController.swift in Sources */,
 				CBB4513B1CDBB78100AD6A73 /* OrganizerNewsCell.swift in Sources */,
 				13210F5B1CC942A400B3E257 /* MainMenuViewController.swift in Sources */,
 				13210F591CC941D500B3E257 /* EventViewController.swift in Sources */,
@@ -682,6 +681,7 @@
 				CB214AC11D25845B00238BF6 /* MediaFeedLayout.swift in Sources */,
 				1300ECF81D1A38C700E223A2 /* TopRefresher.swift in Sources */,
 				CB119FAE1CEE3CB80086B785 /* NetworkRouter.swift in Sources */,
+				132B20271D6A3C2D002841AC /* EditProfileViewController.swift in Sources */,
 				CBB451331CD7FE1200AD6A73 /* Constants.swift in Sources */,
 				CBFFCE851D14553500C32877 /* SettingsViewController.swift in Sources */,
 				CBA899FA1D04A343003A2B87 /* MapAnnotationView.swift in Sources */,
