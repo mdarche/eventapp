@@ -26,7 +26,7 @@ Encapsulates iteration state and interface for iteration over a `RealmCollection
 */
 public final class RLMIterator<T: Object>: IteratorProtocol {
     private var i: UInt = 0
-    private let generatorBase : NSFastEnumerationIterator
+    private let generatorBase: NSFastEnumerationIterator
 
     init(collection: RLMCollection) {
         generatorBase = NSFastEnumerationIterator(collection)
@@ -125,7 +125,7 @@ public protocol RealmCollection: RandomAccessCollection, CustomStringConvertible
     associatedtype Element: Object
 
 
-    // MARK: Properties
+    // MARK: - Properties
 
     /// The Realm the objects in this collection belong to, or `nil` if the
     /// collection's owning object does not belong to a realm (the collection is
@@ -144,7 +144,7 @@ public protocol RealmCollection: RandomAccessCollection, CustomStringConvertible
     var description: String { get }
 
 
-    // MARK: Index Retrieval
+    // MARK: - Index Retrieval
 
     /**
     Returns the index of the given object, or `nil` if the object is not in the collection.
@@ -177,7 +177,7 @@ public protocol RealmCollection: RandomAccessCollection, CustomStringConvertible
     func indexOfObject(for predicateFormat: String, _ args: AnyObject...) -> Int?
 
 
-    // MARK: Filtering
+    // MARK: - Filtering
 
     /**
     Returns `Results` containing collection elements that match the given predicate.
@@ -198,7 +198,7 @@ public protocol RealmCollection: RandomAccessCollection, CustomStringConvertible
     func filter(using predicate: Predicate) -> Results<Element>
 
 
-    // MARK: Sorting
+    // MARK: - Sorting
 
     /**
     Returns `Results` containing collection elements sorted by the given property.
@@ -220,7 +220,7 @@ public protocol RealmCollection: RandomAccessCollection, CustomStringConvertible
     func sorted<S: Sequence where S.Iterator.Element == SortDescriptor>(with sortDescriptors: S) -> Results<Element>
 
 
-    // MARK: Aggregate Operations
+    // MARK: - Aggregate Operations
 
     /**
     Returns the minimum value of the given property.
@@ -270,7 +270,7 @@ public protocol RealmCollection: RandomAccessCollection, CustomStringConvertible
     func average<U: AddableType>(ofProperty property: String) -> U?
 
 
-    // MARK: Key-Value Coding
+    // MARK: - Key-Value Coding
 
     /**
     Returns an Array containing the results of invoking `valueForKey(_:)` using key on each of the collection's objects.
@@ -302,7 +302,7 @@ public protocol RealmCollection: RandomAccessCollection, CustomStringConvertible
     */
     func setValue(_ value: AnyObject?, forKey key: String)
 
-    // MARK: Notifications
+    // MARK: - Notifications
 
     /**
      Register a block to be called each time the collection changes.
@@ -359,7 +359,7 @@ public protocol RealmCollection: RandomAccessCollection, CustomStringConvertible
      */
     func addNotificationBlock(block: (RealmCollectionChange<Self>) -> Void) -> NotificationToken
 
-    /// :nodoc:
+    ///:nodoc:
     func _addNotificationBlock(block: (RealmCollectionChange<AnyRealmCollection<Element>>) -> Void) -> NotificationToken
 }
 
@@ -400,7 +400,7 @@ private final class _AnyRealmCollection<C: RealmCollection>: _AnyRealmCollection
         self.base = base
     }
 
-    // MARK: Properties
+    // MARK: - Properties
 
     /// The Realm the objects in this collection belong to, or `nil` if the
     /// collection's owning object does not belong to a realm (the collection is
@@ -419,7 +419,7 @@ private final class _AnyRealmCollection<C: RealmCollection>: _AnyRealmCollection
     override var description: String { return base.description }
 
 
-    // MARK: Index Retrieval
+    // MARK: - Index Retrieval
 
     /**
     Returns the index of the given object, or `nil` if the object is not in the collection.
@@ -453,7 +453,7 @@ private final class _AnyRealmCollection<C: RealmCollection>: _AnyRealmCollection
         return base.indexOfObject(for: Predicate(format: predicateFormat, argumentArray: args))
     }
 
-    // MARK: Filtering
+    // MARK: - Filtering
 
     /**
     Returns `Results` containing collection elements that match the given predicate.
@@ -476,7 +476,7 @@ private final class _AnyRealmCollection<C: RealmCollection>: _AnyRealmCollection
     override func filter(using predicate: Predicate) -> Results<C.Element> { return base.filter(using: predicate) }
 
 
-    // MARK: Sorting
+    // MARK: - Sorting
 
     /**
     Returns `Results` containing collection elements sorted by the given property.
@@ -503,7 +503,7 @@ private final class _AnyRealmCollection<C: RealmCollection>: _AnyRealmCollection
     }
 
 
-    // MARK: Aggregate Operations
+    // MARK: - Aggregate Operations
 
     /**
     Returns the minimum value of the given property.
@@ -561,7 +561,7 @@ private final class _AnyRealmCollection<C: RealmCollection>: _AnyRealmCollection
     }
 
 
-    // MARK: Sequence Support
+    // MARK: - Sequence Support
 
     /**
     Returns the object at the given `index`.
@@ -582,7 +582,7 @@ private final class _AnyRealmCollection<C: RealmCollection>: _AnyRealmCollection
     }
 
 
-    // MARK: Collection Support
+    // MARK: - Collection Support
 
     /// The position of the first element in a non-empty collection.
     /// Identical to endIndex in an empty collection.
@@ -600,7 +600,7 @@ private final class _AnyRealmCollection<C: RealmCollection>: _AnyRealmCollection
     }
 
 
-    // MARK: Key-Value Coding
+    // MARK: - Key-Value Coding
 
     /**
     Returns an Array containing the results of invoking `valueForKey(_:)` using key on each of the collection's objects.
@@ -632,9 +632,9 @@ private final class _AnyRealmCollection<C: RealmCollection>: _AnyRealmCollection
     */
     override func setValue(_ value: AnyObject?, forKey key: String) { base.setValue(value, forKey: key) }
 
-    // MARK: Notifications
+    // MARK: - Notifications
 
-    /// :nodoc:
+    ///:nodoc:
     override func _addNotificationBlock(block: (RealmCollectionChange<Wrapper>) -> Void)
         -> NotificationToken { return base._addNotificationBlock(block: block) }
 }
@@ -659,7 +659,7 @@ public final class AnyRealmCollection<T: Object>: RealmCollection {
         self.base = _AnyRealmCollection(base: base)
     }
 
-    // MARK: Properties
+    // MARK: - Properties
 
     /// The Realm the objects in this collection belong to, or `nil` if the
     /// collection's owning object does not belong to a realm (the collection is
@@ -678,7 +678,7 @@ public final class AnyRealmCollection<T: Object>: RealmCollection {
     public var description: String { return base.description }
 
 
-    // MARK: Index Retrieval
+    // MARK: - Index Retrieval
 
     /**
     Returns the index of the given object, or `nil` if the object is not in the collection.
@@ -712,7 +712,7 @@ public final class AnyRealmCollection<T: Object>: RealmCollection {
         return base.indexOfObject(for: Predicate(format: predicateFormat, argumentArray: args))
     }
 
-    // MARK: Filtering
+    // MARK: - Filtering
 
     /**
     Returns `Results` containing collection elements that match the given predicate.
@@ -735,7 +735,7 @@ public final class AnyRealmCollection<T: Object>: RealmCollection {
     public func filter(using predicate: Predicate) -> Results<Element> { return base.filter(using: predicate) }
 
 
-    // MARK: Sorting
+    // MARK: - Sorting
 
     /**
     Returns `Results` containing collection elements sorted by the given property.
@@ -762,7 +762,7 @@ public final class AnyRealmCollection<T: Object>: RealmCollection {
     }
 
 
-    // MARK: Aggregate Operations
+    // MARK: - Aggregate Operations
 
     /**
     Returns the minimum value of the given property.
@@ -816,7 +816,7 @@ public final class AnyRealmCollection<T: Object>: RealmCollection {
     public func average<U: AddableType>(ofProperty property: String) -> U? { return base.average(ofProperty: property) }
 
 
-    // MARK: Sequence Support
+    // MARK: - Sequence Support
 
     /**
     Returns the object at the given `index`.
@@ -831,7 +831,7 @@ public final class AnyRealmCollection<T: Object>: RealmCollection {
     public func makeIterator() -> RLMIterator<T> { return base.makeIterator() }
 
 
-    // MARK: Collection Support
+    // MARK: - Collection Support
 
     /// The position of the first element in a non-empty collection.
     /// Identical to endIndex in an empty collection.
@@ -843,7 +843,7 @@ public final class AnyRealmCollection<T: Object>: RealmCollection {
     public var endIndex: Int { return base.endIndex }
 
 
-    // MARK: Key-Value Coding
+    // MARK: - Key-Value Coding
 
     /**
     Returns an Array containing the results of invoking `valueForKey(_:)` using key on each of the collection's objects.
@@ -875,7 +875,7 @@ public final class AnyRealmCollection<T: Object>: RealmCollection {
     */
     public func setValue(_ value: AnyObject?, forKey key: String) { base.setValue(value, forKey: key) }
 
-    // MARK: Notifications
+    // MARK: - Notifications
 
     /**
      Register a block to be called each time the collection changes.
@@ -933,17 +933,17 @@ public final class AnyRealmCollection<T: Object>: RealmCollection {
     public func addNotificationBlock(block: (RealmCollectionChange<AnyRealmCollection>) -> ())
         -> NotificationToken { return base._addNotificationBlock(block: block) }
 
-    /// :nodoc:
+    ///:nodoc:
     public func _addNotificationBlock(block: (RealmCollectionChange<AnyRealmCollection>) -> ())
         -> NotificationToken { return base._addNotificationBlock(block: block) }
 }
 
 
-// MARK: Unavailable
+// MARK: - Unavailable
 
 extension AnyRealmCollection {
     @available(*, unavailable, renamed:"isInvalidated")
-    public var invalidated : Bool { fatalError() }
+    public var invalidated: Bool { fatalError() }
 
     @available(*, unavailable, renamed:"indexOfObject(for:)")
     public func index(of predicate: Predicate) -> Int? { fatalError() }
@@ -1086,7 +1086,7 @@ public protocol RealmCollectionType: CollectionType, CustomStringConvertible {
     associatedtype Element: Object
 
 
-    // MARK: Properties
+    // MARK: - Properties
 
     /// The Realm which manages the collection, or `nil` for unmanaged collections.
     var realm: Realm? { get }
@@ -1103,7 +1103,7 @@ public protocol RealmCollectionType: CollectionType, CustomStringConvertible {
     var description: String { get }
 
 
-    // MARK: Index Retrieval
+    // MARK: - Index Retrieval
 
     /**
      Returns the index of an object in the collection, or `nil` if the object is not present.
@@ -1127,7 +1127,7 @@ public protocol RealmCollectionType: CollectionType, CustomStringConvertible {
     func indexOf(predicateFormat: String, _ args: AnyObject...) -> Int?
 
 
-    // MARK: Filtering
+    // MARK: - Filtering
 
     /**
      Returns all objects matching the given predicate in the collection.
@@ -1148,7 +1148,7 @@ public protocol RealmCollectionType: CollectionType, CustomStringConvertible {
     func filter(predicate: NSPredicate) -> Results<Element>
 
 
-    // MARK: Sorting
+    // MARK: - Sorting
 
     /**
      Returns a `Results` containing the objects in the collection, but sorted.
@@ -1177,7 +1177,7 @@ public protocol RealmCollectionType: CollectionType, CustomStringConvertible {
     func sorted<S: SequenceType where S.Generator.Element == SortDescriptor>(sortDescriptors: S) -> Results<Element>
 
 
-    // MARK: Aggregate Operations
+    // MARK: - Aggregate Operations
 
     /**
      Returns the minimum (lowest) value of the given property among all the objects represented by the collection.
@@ -1224,7 +1224,7 @@ public protocol RealmCollectionType: CollectionType, CustomStringConvertible {
     func average<U: AddableType>(property: String) -> U?
 
 
-    // MARK: Key-Value Coding
+    // MARK: - Key-Value Coding
 
     /**
      Returns an `Array` containing the results of invoking `valueForKey(_:)` with `key` on each of the collection's
@@ -1252,7 +1252,7 @@ public protocol RealmCollectionType: CollectionType, CustomStringConvertible {
      */
     func setValue(value: AnyObject?, forKey key: String)
 
-    // MARK: Notifications
+    // MARK: - Notifications
 
     /**
      Registers a block to be called each time the collection changes.
@@ -1316,7 +1316,7 @@ public protocol RealmCollectionType: CollectionType, CustomStringConvertible {
      */
     func addNotificationBlock(block: (RealmCollectionChange<Self>) -> Void) -> NotificationToken
 
-    /// :nodoc:
+    ///:nodoc:
     func _addNotificationBlock(block: (RealmCollectionChange<AnyRealmCollection<Element>>) -> Void) -> NotificationToken
 }
 
@@ -1358,7 +1358,7 @@ private final class _AnyRealmCollection<C: RealmCollectionType>: _AnyRealmCollec
     }
 
     // TODO (az): copyedit private docstrings
-    // MARK: Properties
+    // MARK: - Properties
 
     /// The Realm the objects in this collection belong to, or `nil` if the
     /// collection's owning object does not belong to a realm (the collection is
@@ -1377,7 +1377,7 @@ private final class _AnyRealmCollection<C: RealmCollectionType>: _AnyRealmCollec
     override var description: String { return base.description }
 
 
-    // MARK: Index Retrieval
+    // MARK: - Index Retrieval
 
     /**
     Returns the index of the given object, or `nil` if the object is not in the collection.
@@ -1403,7 +1403,7 @@ private final class _AnyRealmCollection<C: RealmCollectionType>: _AnyRealmCollec
         return base.indexOf(NSPredicate(format: predicateFormat, argumentArray: args))
     }
 
-    // MARK: Filtering
+    // MARK: - Filtering
 
     /**
     Returns a `Results` containing collection elements that match the given predicate.
@@ -1427,7 +1427,7 @@ private final class _AnyRealmCollection<C: RealmCollectionType>: _AnyRealmCollec
     override func filter(predicate: NSPredicate) -> Results<C.Element> { return base.filter(predicate) }
 
 
-    // MARK: Sorting
+    // MARK: - Sorting
 
     /**
      Returns a `Results` containing the objects in the collection, but sorted.
@@ -1461,7 +1461,7 @@ private final class _AnyRealmCollection<C: RealmCollectionType>: _AnyRealmCollec
     }
 
 
-    // MARK: Aggregate Operations
+    // MARK: - Aggregate Operations
 
     /**
     Returns the minimum value of the given property.
@@ -1511,7 +1511,7 @@ private final class _AnyRealmCollection<C: RealmCollectionType>: _AnyRealmCollec
     override func average<U: AddableType>(property: String) -> U? { return base.average(property) }
 
 
-    // MARK: Sequence Support
+    // MARK: - Sequence Support
 
     /**
     Returns the object at the given `index`.
@@ -1532,7 +1532,7 @@ private final class _AnyRealmCollection<C: RealmCollectionType>: _AnyRealmCollec
     }
 
 
-    // MARK: Collection Support
+    // MARK: - Collection Support
 
     /// The position of the first element in a non-empty collection.
     /// Identical to endIndex in an empty collection.
@@ -1550,7 +1550,7 @@ private final class _AnyRealmCollection<C: RealmCollectionType>: _AnyRealmCollec
     }
 
 
-    // MARK: Key-Value Coding
+    // MARK: - Key-Value Coding
 
     /**
     Returns an Array containing the results of invoking `valueForKey(_:)` using key on each of the collection's objects.
@@ -1582,9 +1582,9 @@ private final class _AnyRealmCollection<C: RealmCollectionType>: _AnyRealmCollec
     */
     override func setValue(value: AnyObject?, forKey key: String) { base.setValue(value, forKey: key) }
 
-    // MARK: Notifications
+    // MARK: - Notifications
 
-    /// :nodoc:
+    ///:nodoc:
     override func _addNotificationBlock(block: (RealmCollectionChange<Wrapper>) -> Void)
         -> NotificationToken { return base._addNotificationBlock(block) }
 }
@@ -1606,7 +1606,7 @@ public final class AnyRealmCollection<T: Object>: RealmCollectionType {
         self.base = _AnyRealmCollection(base: base)
     }
 
-    // MARK: Properties
+    // MARK: - Properties
 
     /// The Realm which manages this collection, or `nil` if the collection is unmanaged.
     public var realm: Realm? { return base.realm }
@@ -1623,7 +1623,7 @@ public final class AnyRealmCollection<T: Object>: RealmCollectionType {
     public var description: String { return base.description }
 
 
-    // MARK: Index Retrieval
+    // MARK: - Index Retrieval
 
     /**
      Returns the index of the given object, or `nil` if the object is not in the collection.
@@ -1648,7 +1648,7 @@ public final class AnyRealmCollection<T: Object>: RealmCollectionType {
         return base.indexOf(NSPredicate(format: predicateFormat, argumentArray: args))
     }
 
-    // MARK: Filtering
+    // MARK: - Filtering
 
     /**
      Returns a `Results` containing all objects matching the given predicate in the collection.
@@ -1669,7 +1669,7 @@ public final class AnyRealmCollection<T: Object>: RealmCollectionType {
     public func filter(predicate: NSPredicate) -> Results<Element> { return base.filter(predicate) }
 
 
-    // MARK: Sorting
+    // MARK: - Sorting
 
     /**
      Returns a `Results` containing the objects in the collection, but sorted.
@@ -1703,7 +1703,7 @@ public final class AnyRealmCollection<T: Object>: RealmCollectionType {
     }
 
 
-    // MARK: Aggregate Operations
+    // MARK: - Aggregate Operations
 
     /**
      Returns the minimum (lowest) value of the given property among all the objects represented by the collection.
@@ -1750,7 +1750,7 @@ public final class AnyRealmCollection<T: Object>: RealmCollectionType {
     public func average<U: AddableType>(property: String) -> U? { return base.average(property) }
 
 
-    // MARK: Sequence Support
+    // MARK: - Sequence Support
 
     /**
      Returns the object at the given `index`.
@@ -1765,7 +1765,7 @@ public final class AnyRealmCollection<T: Object>: RealmCollectionType {
     public func generate() -> RLMGenerator<T> { return base.generate() }
 
 
-    // MARK: Collection Support
+    // MARK: - Collection Support
 
     /// The position of the first element in a non-empty collection.
     /// Identical to `endIndex` in an empty collection.
@@ -1777,7 +1777,7 @@ public final class AnyRealmCollection<T: Object>: RealmCollectionType {
     public var endIndex: Int { return base.endIndex }
 
 
-    // MARK: Key-Value Coding
+    // MARK: - Key-Value Coding
 
     /**
      Returns an `Array` containing the results of invoking `valueForKey(_:)` with `key` on each of the collection's
@@ -1809,7 +1809,7 @@ public final class AnyRealmCollection<T: Object>: RealmCollectionType {
      */
     public func setValue(value: AnyObject?, forKey key: String) { base.setValue(value, forKey: key) }
 
-    // MARK: Notifications
+    // MARK: - Notifications
 
     /**
      Registers a block to be called each time the collection changes.
@@ -1874,7 +1874,7 @@ public final class AnyRealmCollection<T: Object>: RealmCollectionType {
     public func addNotificationBlock(block: (RealmCollectionChange<AnyRealmCollection>) -> ())
         -> NotificationToken { return base._addNotificationBlock(block) }
 
-    /// :nodoc:
+    ///:nodoc:
     public func _addNotificationBlock(block: (RealmCollectionChange<AnyRealmCollection>) -> ())
         -> NotificationToken { return base._addNotificationBlock(block) }
 }

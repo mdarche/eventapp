@@ -253,7 +253,7 @@ static void RLMRegisterClassLocalNames(Class *classes, NSUInteger count) {
 + (instancetype)dynamicSchemaFromObjectStoreSchema:(Schema &)objectStoreSchema {
     // cache descriptors for all subclasses of RLMObject
     NSMutableArray *schemaArray = [NSMutableArray arrayWithCapacity:objectStoreSchema.size()];
-    for (auto &objectSchema : objectStoreSchema) {
+    for (auto &objectSchema: objectStoreSchema) {
         RLMObjectSchema *schema = [RLMObjectSchema objectSchemaForObjectStoreSchema:objectSchema];
         [schemaArray addObject:schema];
     }
@@ -270,7 +270,7 @@ static void RLMRegisterClassLocalNames(Class *classes, NSUInteger count) {
     }
 
     if (Class cls = NSClassFromString(className)) {
-        return RLMIsObjectSubclass(cls) ? cls : nil;
+        return RLMIsObjectSubclass(cls) ? cls: nil;
     }
 
     // className might be the local name of a Swift class we haven't registered

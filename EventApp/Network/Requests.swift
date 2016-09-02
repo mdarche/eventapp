@@ -15,7 +15,7 @@ public let keychain = Keychain(service: "Authentication")
 
 class Requests {
     
-    // MARK: Sessions Collection
+    // MARK: - Sessions Collection
     
     class func createSession(authParams: [AnyObject], completion: ((successful: Bool, error: NSError?) -> Void)?) {
         Alamofire.request(NetworkRouter.CreateSession(authParams)).validate().responseJSON { response in
@@ -87,9 +87,9 @@ class Requests {
     
     
     
-    // MARK: Activities Collection
+    // MARK: - Activities Collection
     
-    class func getActivitiesCollection(locationParams: [String], completion : ((activities: [Activity]?, successful: Bool, error: NSError?) -> Void)?) {
+    class func getActivitiesCollection(locationParams: [String], completion: ((activities: [Activity]?, successful: Bool, error: NSError?) -> Void)?) {
         Alamofire.request(NetworkRouter.ActivitiesCollection(locationParams)).validate().responseJSON { response in
             if let block = completion {
                 var activities = [Activity]()
@@ -192,7 +192,7 @@ class Requests {
     
     
     
-    // MARK: Profile Collection
+    // MARK: - Profile Collection
     
     class func getProfile(profileId: String, completion: ((userData: User?, successful: Bool, error: NSError?) -> Void)?) {
         Alamofire.request(NetworkRouter.Profile(profileId)).validate().responseJSON { response in
@@ -292,7 +292,7 @@ class Requests {
     }
     
     
-    class func getProfileActivities(activityParams: [AnyObject], completion : ((activities: [Activity]?, successful: Bool, error: NSError?) -> Void)?) {
+    class func getProfileActivities(activityParams: [AnyObject], completion: ((activities: [Activity]?, successful: Bool, error: NSError?) -> Void)?) {
         Alamofire.request(NetworkRouter.ProfileActivities(activityParams)).validate().responseJSON { response in
             if let block = completion {
                 var activities = [Activity]()
@@ -347,7 +347,7 @@ class Requests {
     }
     
     
-    class func getProfileSettings(completion: ((settings: [String : AnyObject]?, successful: Bool, error: NSError?) -> Void)?) {
+    class func getProfileSettings(completion: ((settings: [String: AnyObject]?, successful: Bool, error: NSError?) -> Void)?) {
         // TODO: call current userID for params here
         Alamofire.request(NetworkRouter.ProfileSettings("FakeStringForTesting")).validate().responseJSON { response in
             if let block = completion {

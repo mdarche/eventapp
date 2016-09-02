@@ -248,7 +248,7 @@ NSString *RLMDescriptionWithMaxDepth(NSString *name,
 
 static NSArray *toArray(realm::IndexSet const& set) {
     NSMutableArray *ret = [NSMutableArray new];
-    for (auto index : set.as_indexes()) {
+    for (auto index: set.as_indexes()) {
         [ret addObject:@(index)];
     }
     return ret;
@@ -269,7 +269,7 @@ static NSArray *toArray(realm::IndexSet const& set) {
 static NSArray *toIndexPathArray(realm::IndexSet const& set, NSUInteger section) {
     NSMutableArray *ret = [NSMutableArray new];
     NSUInteger path[2] = {section, 0};
-    for (auto index : set.as_indexes()) {
+    for (auto index: set.as_indexes()) {
         path[1] = index;
         [ret addObject:[NSIndexPath indexPathWithIndexes:path length:2]];
     }
@@ -305,7 +305,7 @@ RLMNotificationToken *RLMAddNotificationBlock(id objcCollection,
         }
     };
 
-    auto skip = suppressInitialChange ? std::make_shared<bool>(true) : nullptr;
+    auto skip = suppressInitialChange ? std::make_shared<bool>(true): nullptr;
     auto cb = [=, &collection](realm::CollectionChangeSet const& changes,
                                std::exception_ptr err) {
         if (err) {

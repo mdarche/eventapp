@@ -87,7 +87,7 @@ BOOL RLMPropertyTypeIsNumeric(RLMPropertyType propertyType) {
 
 // FIXME: TrueExpression and FalseExpression should be supported by core in some way
 
-struct TrueExpression : realm::Expression {
+struct TrueExpression: realm::Expression {
     size_t find_first(size_t start, size_t end) const override
     {
         if (start != end)
@@ -103,7 +103,7 @@ struct TrueExpression : realm::Expression {
     }
 };
 
-struct FalseExpression : realm::Expression {
+struct FalseExpression: realm::Expression {
     size_t find_first(size_t, size_t) const override { return realm::not_found; }
     void set_base_table(const Table*) override {}
     const Table* get_base_table() const override { return nullptr; }
@@ -158,7 +158,7 @@ Table& get_table(Group& group, RLMObjectSchema *objectSchema)
 class ColumnReference {
 public:
     ColumnReference(Query& query, Group& group, RLMSchema *schema, RLMProperty* property, const std::vector<RLMProperty*>& links = {})
-    : m_links(links), m_property(property), m_schema(schema), m_group(&group), m_query(&query), m_table(query.get_table().get())
+   : m_links(links), m_property(property), m_schema(schema), m_group(&group), m_query(&query), m_table(query.get_table().get())
     {
         auto& table = walk_link_chain([](Table&, size_t, RLMPropertyType) { });
         m_index = table.get_column_index(m_property.name.UTF8String);
@@ -239,7 +239,7 @@ private:
     Table& walk_link_chain(Func&& func) const
     {
         auto table = m_query->get_table().get();
-        for (const auto& link : m_links) {
+        for (const auto& link: m_links) {
             if (link.type != RLMPropertyTypeLinkingObjects) {
                 auto index = table->get_column_index(link.name.UTF8String);
                 func(*table, index, link.type);
@@ -296,7 +296,7 @@ public:
     };
 
     CollectionOperation(Type type, ColumnReference link_column, util::Optional<ColumnReference> column)
-        : m_type(type)
+       : m_type(type)
         , m_link_column(std::move(link_column))
         , m_column(std::move(column))
     {
@@ -318,7 +318,7 @@ public:
     }
 
     CollectionOperation(NSString *operationName, ColumnReference link_column, util::Optional<ColumnReference> column = util::none)
-        : CollectionOperation(type_for_name(operationName), std::move(link_column), std::move(column))
+       : CollectionOperation(type_for_name(operationName), std::move(link_column), std::move(column))
     {
     }
 
@@ -398,7 +398,7 @@ private:
 class QueryBuilder {
 public:
     QueryBuilder(Query& query, Group& group, RLMSchema *schema)
-    : m_query(query), m_group(group), m_schema(schema) { }
+   : m_query(query), m_group(group), m_schema(schema) { }
 
     void apply_predicate(NSPredicate *predicate, RLMObjectSchema *objectSchema);
 
@@ -774,7 +774,7 @@ realm::null value_of_type(realm::null) {
 
 template <typename RequestedType>
 auto value_of_type(id value) {
-    return ::convert<RequestedType>(value);
+    return::convert<RequestedType>(value);
 }
 
 template <typename RequestedType>
@@ -865,7 +865,7 @@ ColumnReference QueryBuilder::column_reference_from_key_path(RLMObjectSchema *ob
     NSUInteger start = 0, length = keyPath.length, end = NSNotFound;
     do {
         end = [keyPath rangeOfString:@"." options:0 range:{start, length - start}].location;
-        NSString *propertyName = [keyPath substringWithRange:{start, end == NSNotFound ? length - start : end - start}];
+        NSString *propertyName = [keyPath substringWithRange:{start, end == NSNotFound ? length - start: end - start}];
         property = objectSchema[propertyName];
         RLMPrecondition(property, @"Invalid property name",
                         @"Property '%@' not found in object of type '%@'", propertyName, objectSchema.className);
@@ -1164,7 +1164,7 @@ void QueryBuilder::apply_subquery_count_expression(RLMObjectSchema *objectSchema
     RLMObjectSchema *collectionMemberObjectSchema = m_schema[collectionColumn.property().objectClassName];
 
     // Eliminate references to the iteration variable in the subquery.
-    NSPredicate *subqueryPredicate = [subqueryExpression.predicate predicateWithSubstitutionVariables:@{ subqueryExpression.variable : [NSExpression expressionForEvaluatedObject] }];
+    NSPredicate *subqueryPredicate = [subqueryExpression.predicate predicateWithSubstitutionVariables:@{ subqueryExpression.variable: [NSExpression expressionForEvaluatedObject] }];
     subqueryPredicate = transformPredicate(subqueryPredicate, simplify_self_value_for_key_path_function_expression);
 
     Query subquery = RLMPredicateToQuery(subqueryPredicate, collectionMemberObjectSchema, m_schema, m_group);

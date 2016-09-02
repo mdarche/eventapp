@@ -96,7 +96,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (NSUInteger)indexOfObjectWhere:(NSString *)predicateFormat, ...;
 
-/// :nodoc:
+///:nodoc:
 - (NSUInteger)indexOfObjectWhere:(NSString *)predicateFormat args:(va_list)args;
 
 /**
@@ -117,7 +117,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (RLMResults *)objectsWhere:(NSString *)predicateFormat, ...;
 
-/// :nodoc:
+///:nodoc:
 - (RLMResults *)objectsWhere:(NSString *)predicateFormat args:(va_list)args;
 
 /**
@@ -148,7 +148,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (RLMResults *)sortedResultsUsingDescriptors:(NSArray<RLMSortDescriptor *> *)properties;
 
-/// :nodoc:
+///:nodoc:
 - (id)objectAtIndexedSubscript:(NSUInteger)index;
 
 /**
@@ -243,7 +243,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  `RLMSortDescriptor` instances are immutable.
  */
-@interface RLMSortDescriptor : NSObject
+@interface RLMSortDescriptor: NSObject
 
 #pragma mark - Properties
 
@@ -292,7 +292,7 @@ NS_ASSUME_NONNULL_BEGIN
 
  All of the arrays in an `RLMCollectionChange` are always sorted in ascending order.
  */
-@interface RLMCollectionChange : NSObject
+@interface RLMCollectionChange: NSObject
 /// The indices of objects in the previous version of the collection which have
 /// been removed from this one.
 @property (nonatomic, readonly) NSArray<NSNumber *> *deletions;

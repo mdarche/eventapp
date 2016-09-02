@@ -21,7 +21,7 @@ import Realm
 
 #if swift(>=3.0)
 
-// MARK: MinMaxType
+// MARK: - MinMaxType
 
 /// Types which can be used for min()/max().
 public protocol MinMaxType {}
@@ -34,7 +34,7 @@ extension Int32: MinMaxType {}
 extension Int64: MinMaxType {}
 extension NSDate: MinMaxType {}
 
-// MARK: AddableType
+// MARK: - AddableType
 
 /// Types which can be used for average()/sum().
 public protocol AddableType {}
@@ -80,7 +80,7 @@ public final class Results<T: Object>: NSObject, NSFastEnumeration {
         return gsub(pattern: "RLMResults <0x[a-z0-9]+>", template: type, string: rlmResults.description) ?? type
     }
 
-    // MARK: Fast Enumeration
+    // MARK: - Fast Enumeration
 
     public func countByEnumerating(with state: UnsafeMutablePointer<NSFastEnumerationState>,
                    objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>!,
@@ -91,7 +91,7 @@ public final class Results<T: Object>: NSObject, NSFastEnumeration {
     /// Element type contained in this collection.
     public typealias Element = T
 
-    // MARK: Properties
+    // MARK: - Properties
 
     /// Returns the Realm these results are associated with.
     /// Despite returning an `Optional<Realm>` in order to conform to
@@ -107,13 +107,13 @@ public final class Results<T: Object>: NSObject, NSFastEnumeration {
     /// Returns the number of objects in these results.
     public var count: Int { return Int(rlmResults.count) }
 
-    // MARK: Initializers
+    // MARK: - Initializers
 
     internal init(_ rlmResults: RLMResults<RLMObject>) {
         self.rlmResults = rlmResults
     }
 
-    // MARK: Index Retrieval
+    // MARK: - Index Retrieval
 
     /**
     Returns the index of the given object, or `nil` if the object is not in the results.
@@ -151,7 +151,7 @@ public final class Results<T: Object>: NSObject, NSFastEnumeration {
                                                                              argumentArray: args)))
     }
 
-    // MARK: Object Retrieval
+    // MARK: - Object Retrieval
 
     /**
     Returns the object at the given `index`.
@@ -171,7 +171,7 @@ public final class Results<T: Object>: NSObject, NSFastEnumeration {
     /// Returns the last object in the results, or `nil` if empty.
     public var last: T? { return unsafeBitCast(rlmResults.lastObject(), to: Optional<T>.self) }
 
-    // MARK: KVC
+    // MARK: - KVC
 
     /**
     Returns an Array containing the results of invoking `valueForKey(_:)` using key on each of the collection's objects.
@@ -209,7 +209,7 @@ public final class Results<T: Object>: NSObject, NSFastEnumeration {
         return rlmResults.setValue(value, forKeyPath: key)
     }
 
-    // MARK: Filtering
+    // MARK: - Filtering
 
     /**
     Filters the results to the objects that match the given predicate.
@@ -233,7 +233,7 @@ public final class Results<T: Object>: NSObject, NSFastEnumeration {
         return Results<T>(rlmResults.objects(with: predicate))
     }
 
-    // MARK: Sorting
+    // MARK: - Sorting
 
     /**
     Returns `Results` with elements sorted by the given property name.
@@ -258,7 +258,7 @@ public final class Results<T: Object>: NSObject, NSFastEnumeration {
         return Results<T>(rlmResults.sortedResults(using: sortDescriptors.map { $0.rlmSortDescriptorValue }))
     }
 
-    // MARK: Aggregate Operations
+    // MARK: - Aggregate Operations
 
     /**
     Returns the minimum value of the given property.
@@ -312,7 +312,7 @@ public final class Results<T: Object>: NSObject, NSFastEnumeration {
         return rlmResults.average(ofProperty: property) as! U?
     }
 
-    // MARK: Notifications
+    // MARK: - Notifications
 
     /**
      Register a block to be called each time the Results changes.
@@ -381,14 +381,14 @@ public final class Results<T: Object>: NSObject, NSFastEnumeration {
 }
 
 extension Results: RealmCollection {
-    // MARK: Sequence Support
+    // MARK: - Sequence Support
 
     /// Returns a `RLMIterator` that yields successive elements in the results.
     public func makeIterator() -> RLMIterator<T> {
         return RLMIterator(collection: rlmResults)
     }
 
-    // MARK: Collection Support
+    // MARK: - Collection Support
 
     /// The position of the first element in a non-empty collection.
     /// Identical to endIndex in an empty collection.
@@ -402,7 +402,7 @@ extension Results: RealmCollection {
     public func index(after i: Int) -> Int { return i + 1 }
     public func index(before i: Int) -> Int { return i - 1 }
 
-    /// :nodoc:
+    ///:nodoc:
     public func _addNotificationBlock(block: (RealmCollectionChange<AnyRealmCollection<T>>) -> Void) ->
         NotificationToken {
         let anyCollection = AnyRealmCollection(self)
@@ -412,11 +412,11 @@ extension Results: RealmCollection {
     }
 }
 
-// MARK: Unavailable
+// MARK: - Unavailable
 
 extension Results {
     @available(*, unavailable, renamed:"isInvalidated")
-    public var invalidated : Bool { fatalError() }
+    public var invalidated: Bool { fatalError() }
 
     @available(*, unavailable, renamed:"indexOfObject(for:)")
     public func index(of predicate: Predicate) -> Int? { fatalError() }
@@ -453,7 +453,7 @@ extension Results {
 
 #else
 
-// MARK: MinMaxType
+// MARK: - MinMaxType
 
 /**
  Types of properties which can be used with the minimum and maximum value APIs.
@@ -470,7 +470,7 @@ extension Int32: MinMaxType {}
 extension Int64: MinMaxType {}
 extension NSDate: MinMaxType {}
 
-// MARK: AddableType
+// MARK: - AddableType
 
 /**
  Types of properties which can be used with the sum and average value APIs.
@@ -486,7 +486,7 @@ extension Int16: AddableType {}
 extension Int32: AddableType {}
 extension Int64: AddableType {}
 
-/// :nodoc:
+///:nodoc:
 /// Internal class. Do not use directly.
 public class ResultsBase: NSObject, NSFastEnumeration {
     internal let rlmResults: RLMResults
@@ -497,13 +497,13 @@ public class ResultsBase: NSObject, NSFastEnumeration {
         return gsub("RLMResults <0x[a-z0-9]+>", template: type, string: rlmResults.description) ?? type
     }
 
-    // MARK: Initializers
+    // MARK: - Initializers
 
     internal init(_ rlmResults: RLMResults) {
         self.rlmResults = rlmResults
     }
 
-    // MARK: Fast Enumeration
+    // MARK: - Fast Enumeration
 
     public func countByEnumeratingWithState(state: UnsafeMutablePointer<NSFastEnumerationState>,
                                             objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>,
@@ -543,7 +543,7 @@ public final class Results<T: Object>: ResultsBase {
     /// The type of the objects contained in the collection.
     public typealias Element = T
 
-    // MARK: Properties
+    // MARK: - Properties
 
     /// The Realm which manages this results collection. Note that this property will never return `nil`.
     public var realm: Realm? { return Realm(rlmResults.realm) }
@@ -559,13 +559,13 @@ public final class Results<T: Object>: ResultsBase {
     /// The number of objects in the results collection.
     public var count: Int { return Int(rlmResults.count) }
 
-    // MARK: Initializers
+    // MARK: - Initializers
 
     internal override init(_ rlmResults: RLMResults) {
         super.init(rlmResults)
     }
 
-    // MARK: Index Retrieval
+    // MARK: - Index Retrieval
 
     /**
      Returns the index of an object in the results collection, or `nil` if the object is not present.
@@ -595,7 +595,7 @@ public final class Results<T: Object>: ResultsBase {
                                                                                argumentArray: args)))
     }
 
-    // MARK: Object Retrieval
+    // MARK: - Object Retrieval
 
     /**
      Returns the object at the given `index`.
@@ -617,7 +617,7 @@ public final class Results<T: Object>: ResultsBase {
     /// Returns the last object in the results collection, or `nil` if the collection is empty.
     public var last: T? { return unsafeBitCast(rlmResults.lastObject(), Optional<T>.self) }
 
-    // MARK: KVC
+    // MARK: - KVC
 
     /**
      Returns an `Array` containing the results of invoking `valueForKey(_:)` with `key` on each of the results
@@ -651,7 +651,7 @@ public final class Results<T: Object>: ResultsBase {
         return rlmResults.setValue(value, forKey: key)
     }
 
-    // MARK: Filtering
+    // MARK: - Filtering
 
     /**
      Returns a `Results` containing all objects matching the given predicate in the results collection.
@@ -671,7 +671,7 @@ public final class Results<T: Object>: ResultsBase {
         return Results<T>(rlmResults.objectsWithPredicate(predicate))
     }
 
-    // MARK: Sorting
+    // MARK: - Sorting
 
     /**
      Returns a `Results` containing the objects in the results collection, but sorted.
@@ -703,7 +703,7 @@ public final class Results<T: Object>: ResultsBase {
         return Results<T>(rlmResults.sortedResultsUsingDescriptors(sortDescriptors.map { $0.rlmSortDescriptorValue }))
     }
 
-    // MARK: Aggregate Operations
+    // MARK: - Aggregate Operations
 
     /**
      Returns the minimum (lowest) value of the given property among all the objects represented by the collection.
@@ -757,7 +757,7 @@ public final class Results<T: Object>: ResultsBase {
         return rlmResults.averageOfProperty(property) as! U?
     }
 
-    // MARK: Notifications
+    // MARK: - Notifications
 
     /**
      Registers a block to be called each time the results collection changes.
@@ -826,14 +826,14 @@ public final class Results<T: Object>: ResultsBase {
 }
 
 extension Results: RealmCollectionType {
-    // MARK: Sequence Support
+    // MARK: - Sequence Support
 
     /// Returns an `RLMGenerator` that yields successive elements in the results.
     public func generate() -> RLMGenerator<T> {
         return RLMGenerator(collection: rlmResults)
     }
 
-    // MARK: Collection Support
+    // MARK: - Collection Support
 
     /// The position of the first element in a non-empty collection.
     /// Identical to `endIndex` in an empty collection.
@@ -844,7 +844,7 @@ extension Results: RealmCollectionType {
     /// zero or more applications of `successor()`.
     public var endIndex: Int { return count }
 
-    /// :nodoc:
+    ///:nodoc:
     public func _addNotificationBlock(block: (RealmCollectionChange<AnyRealmCollection<T>>) -> Void) ->
         NotificationToken {
         let anyCollection = AnyRealmCollection(self)

@@ -203,12 +203,12 @@ static inline void RLMResultsValidateInWriteTransaction(__unsafe_unretained RLMR
 
 - (id)firstObject {
     auto row = translateErrors([&] { return _results.first(); });
-    return row ? RLMCreateObjectAccessor(_realm, _objectSchema, *row) : nil;
+    return row ? RLMCreateObjectAccessor(_realm, _objectSchema, *row): nil;
 }
 
 - (id)lastObject {
     auto row = translateErrors([&] { return _results.last(); });
-    return row ? RLMCreateObjectAccessor(_realm, _objectSchema, *row) : nil;
+    return row ? RLMCreateObjectAccessor(_realm, _objectSchema, *row): nil;
 }
 
 - (NSUInteger)indexOfObject:(RLMObject *)object {
@@ -228,7 +228,7 @@ static inline void RLMResultsValidateInWriteTransaction(__unsafe_unretained RLMR
         }
         NSRange operatorRange = [keyPath rangeOfString:@"." options:NSLiteralSearch];
         NSUInteger keyPathLength = keyPath.length;
-        NSUInteger separatorIndex = operatorRange.location != NSNotFound ? operatorRange.location : keyPathLength;
+        NSUInteger separatorIndex = operatorRange.location != NSNotFound ? operatorRange.location: keyPathLength;
         NSString *operatorName = [keyPath substringWithRange:NSMakeRange(1, separatorIndex - 1)];
         SEL opSelector = NSSelectorFromString([NSString stringWithFormat:@"_%@ForKeyPath:", operatorName]);
         BOOL isValidOperator = [self respondsToSelector:opSelector];

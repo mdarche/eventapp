@@ -12,7 +12,7 @@ struct Log {
     
     private static let Tag = "[HANEKE]"
     
-    private enum Level : String {
+    private enum Level: String {
         case Debug = "[DEBUG]"
         case Error = "[ERROR]"
     }

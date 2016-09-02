@@ -17,7 +17,7 @@ class ListFeedCell: UICollectionViewCell {
     @IBOutlet weak var attendingIcon: UIImageView!
     
     
-    // MARK: Class's public methods
+    // MARK: - Class's public methods
     override func awakeFromNib() {
         super.awakeFromNib()
         self.visualize()

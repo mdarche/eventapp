@@ -24,13 +24,13 @@
 #include <realm/util/assert.hpp>
 
 namespace realm { namespace _impl {
-Printable::Printable(StringData value) : m_type(Type::String), m_string(value.data()) { }
+Printable::Printable(StringData value): m_type(Type::String), m_string(value.data()) { }
 
 void Printable::print(std::ostream& out) const
 {
     switch (m_type) {
         case Printable::Type::Bool:
-            out << (m_uint ? "true" : "false");
+            out << (m_uint ? "true": "false");
             break;
         case Printable::Type::Uint:
             out << m_uint;

@@ -106,7 +106,7 @@ void ListNotifier::run()
             m_change.modifications.add(i);
     }
 
-    for (auto const& move : m_change.moves) {
+    for (auto const& move: m_change.moves) {
         if (m_change.modifications.contains(move.to))
             continue;
         if (row_did_change(m_lv->get(move.to).get_index()))

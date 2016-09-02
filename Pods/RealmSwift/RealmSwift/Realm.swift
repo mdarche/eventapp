@@ -46,7 +46,7 @@ strong references to it.
 */
 public final class Realm {
 
-    // MARK: Properties
+    // MARK: - Properties
 
     /// The Schema used by this realm.
     public var schema: Schema { return Schema(rlmRealm.schema) }
@@ -57,7 +57,7 @@ public final class Realm {
     /// Indicates if this Realm contains any objects.
     public var isEmpty: Bool { return rlmRealm.isEmpty }
 
-    // MARK: Initializers
+    // MARK: - Initializers
 
     /**
     Obtains a Realm instance with the default Realm configuration, which can be
@@ -95,7 +95,7 @@ public final class Realm {
         try self.init(configuration: configuration)
     }
 
-    // MARK: Transactions
+    // MARK: - Transactions
 
     /**
     Performs actions contained within the given block inside a write transaction.
@@ -195,7 +195,7 @@ public final class Realm {
         return rlmRealm.inWriteTransaction
     }
 
-    // MARK: Adding and Creating objects
+    // MARK: - Adding and Creating objects
 
     /**
     Adds or updates an object to be persisted it in this Realm.
@@ -297,7 +297,7 @@ public final class Realm {
 
     - returns: The created object.
 
-    :nodoc:
+   :nodoc:
     */
     @discardableResult
     public func createDynamicObject(ofType typeName: String, populatedWith value: AnyObject = [:], update: Bool = false) -> DynamicObject {
@@ -307,7 +307,7 @@ public final class Realm {
         return unsafeBitCast(RLMCreateObjectInRealmWithValue(rlmRealm, typeName, value, update), to: DynamicObject.self)
     }
 
-    // MARK: Deleting objects
+    // MARK: - Deleting objects
 
     /**
     Deletes the given object from this Realm.
@@ -341,7 +341,7 @@ public final class Realm {
 
     - parameter objects: The objects to be deleted. Must be `List<Object>`.
 
-    :nodoc:
+   :nodoc:
     */
     public func delete<T: Object>(_ objects: List<T>) {
         rlmRealm.deleteObjects(objects._rlmArray)
@@ -354,7 +354,7 @@ public final class Realm {
 
     - parameter objects: The objects to be deleted. Must be `Results<Object>`.
 
-    :nodoc:
+   :nodoc:
     */
     public func delete<T: Object>(_ objects: Results<T>) {
         rlmRealm.deleteObjects(objects.rlmResults)
@@ -369,7 +369,7 @@ public final class Realm {
         RLMDeleteAllObjectsFromRealm(rlmRealm)
     }
 
-    // MARK: Object Retrieval
+    // MARK: - Object Retrieval
 
     /**
     Returns all objects of the given type in the Realm.
@@ -395,7 +395,7 @@ public final class Realm {
 
     - returns: All objects for the given class name as dynamic objects
 
-    :nodoc:
+   :nodoc:
     */
     public func allDynamicObjects(ofType typeName: String) -> Results<DynamicObject> {
         return Results<DynamicObject>(RLMGetObjects(rlmRealm, typeName, nil))
@@ -439,13 +439,13 @@ public final class Realm {
 
     - returns: An object of type `DynamicObject` or `nil` if an object with the given primary key does not exist.
 
-    :nodoc:
+   :nodoc:
     */
     public func dynamicObject(ofType typeName: String, forPrimaryKey key: AnyObject) -> DynamicObject? {
         return unsafeBitCast(RLMGetObject(rlmRealm, typeName, key), to: Optional<DynamicObject>.self)
     }
 
-    // MARK: Notifications
+    // MARK: - Notifications
 
     /**
     Add a notification handler for changes in this Realm.
@@ -486,7 +486,7 @@ public final class Realm {
         }
     }
 
-    // MARK: Autorefresh and Refresh
+    // MARK: - Autorefresh and Refresh
 
     /**
     Whether this Realm automatically updates when changes happen in other threads.
@@ -538,7 +538,7 @@ public final class Realm {
         return rlmRealm.refresh()
     }
 
-    // MARK: Invalidation
+    // MARK: - Invalidation
 
     /**
     Invalidate all `Object`s and `Results` read from this Realm.
@@ -564,7 +564,7 @@ public final class Realm {
         rlmRealm.invalidate()
     }
 
-    // MARK: Writing a Copy
+    // MARK: - Writing a Copy
 
     /**
     Write an encrypted and compacted copy of the Realm to the given local URL.
@@ -583,7 +583,7 @@ public final class Realm {
         try rlmRealm.writeCopy(to: url, encryptionKey: encryptionKey)
     }
 
-    // MARK: Internal
+    // MARK: - Internal
 
     internal var rlmRealm: RLMRealm
 
@@ -592,7 +592,7 @@ public final class Realm {
     }
 }
 
-// MARK: Equatable
+// MARK: - Equatable
 
 extension Realm: Equatable { }
 
@@ -601,7 +601,7 @@ public func == (lhs: Realm, rhs: Realm) -> Bool { // swiftlint:disable:this vali
     return lhs.rlmRealm == rhs.rlmRealm
 }
 
-// MARK: Notifications
+// MARK: - Notifications
 
 /// A notification due to changes to a realm.
 public enum Notification: String {
@@ -631,12 +631,12 @@ public enum Notification: String {
 public typealias NotificationBlock = (notification: Notification, realm: Realm) -> Void
 
 
-// MARK: Unavailable
+// MARK: - Unavailable
 
 extension Realm {
 
     @available(*, unavailable, renamed:"isInWriteTransaction")
-    public var inWriteTransaction : Bool { fatalError() }
+    public var inWriteTransaction: Bool { fatalError() }
 
     @available(*, unavailable, renamed:"createObject(ofType:populatedWith:update:)")
     public func create<T: Object>(_ type: T.Type, value: AnyObject = [:], update: Bool = false) -> T { fatalError() }
@@ -668,7 +668,7 @@ extension Realm {
     public func dynamicObjectForPrimaryKey(_ className: String, key: AnyObject) -> DynamicObject? { fatalError() }
 
     @available(*, unavailable, renamed:"shouldAutorefresh")
-    public var autorefresh : Bool { get { fatalError() } set { fatalError() } }
+    public var autorefresh: Bool { get { fatalError() } set { fatalError() } }
 
     @available(*, unavailable, renamed:"writeCopy(toFileURL:encryptionKey:)")
     public func writeCopyToURL(_ fileURL: NSURL, encryptionKey: NSData? = nil) throws { fatalError() }
@@ -695,7 +695,7 @@ extension Realm {
 */
 public final class Realm {
 
-    // MARK: Properties
+    // MARK: - Properties
 
     /// The `Schema` used by the Realm.
     public var schema: Schema { return Schema(rlmRealm.schema) }
@@ -706,7 +706,7 @@ public final class Realm {
     /// Indicates if this Realm contains any objects.
     public var isEmpty: Bool { return rlmRealm.isEmpty }
 
-    // MARK: Initializers
+    // MARK: - Initializers
 
     /**
      Obtains an instance of the default Realm.
@@ -749,7 +749,7 @@ public final class Realm {
         try self.init(configuration: configuration)
     }
 
-    // MARK: Transactions
+    // MARK: - Transactions
 
     /**
      Performs actions contained within the given block inside a write transaction.
@@ -857,7 +857,7 @@ public final class Realm {
         return rlmRealm.inWriteTransaction
     }
 
-    // MARK: Adding and Creating objects
+    // MARK: - Adding and Creating objects
 
     /**
      Adds or updates an existing object into the Realm.
@@ -962,7 +962,7 @@ public final class Realm {
 
      - returns: The created object.
 
-     :nodoc:
+    :nodoc:
      */
     public func dynamicCreate(className: String, value: AnyObject = [:], update: Bool = false) -> DynamicObject {
         if update && schema[className]?.primaryKeyProperty == nil {
@@ -971,7 +971,7 @@ public final class Realm {
         return unsafeBitCast(RLMCreateObjectInRealmWithValue(rlmRealm, className, value, update), DynamicObject.self)
     }
 
-    // MARK: Deleting objects
+    // MARK: - Deleting objects
 
     /**
      Deletes an object from the Realm. Once the object is deleted it is considered invalidated.
@@ -1005,7 +1005,7 @@ public final class Realm {
 
      - parameter objects: A list of objects to delete.
 
-     :nodoc:
+    :nodoc:
      */
     public func delete<T: Object>(objects: List<T>) {
         rlmRealm.deleteObjects(objects._rlmArray)
@@ -1018,7 +1018,7 @@ public final class Realm {
 
      - parameter objects: A `Results` containing the objects to be deleted.
 
-     :nodoc:
+    :nodoc:
      */
     public func delete<T: Object>(objects: Results<T>) {
         rlmRealm.deleteObjects(objects.rlmResults)
@@ -1033,7 +1033,7 @@ public final class Realm {
         RLMDeleteAllObjectsFromRealm(rlmRealm)
     }
 
-    // MARK: Object Retrieval
+    // MARK: - Object Retrieval
 
     /**
      Returns all objects of the given type stored in the Realm.
@@ -1059,7 +1059,7 @@ public final class Realm {
 
      - returns: All objects for the given class name as dynamic objects
 
-     :nodoc:
+    :nodoc:
     */
     public func dynamicObjects(className: String) -> Results<DynamicObject> {
         return Results<DynamicObject>(RLMGetObjects(rlmRealm, className, nil))
@@ -1101,13 +1101,13 @@ public final class Realm {
 
      - returns: An object of type `DynamicObject` or `nil` if an object with the given primary key does not exist.
 
-     :nodoc:
+    :nodoc:
      */
     public func dynamicObjectForPrimaryKey(className: String, key: AnyObject?) -> DynamicObject? {
         return unsafeBitCast(RLMGetObject(rlmRealm, className, key), Optional<DynamicObject>.self)
     }
 
-    // MARK: Notifications
+    // MARK: - Notifications
 
     /**
      Adds a notification handler for changes made to this Realm, and returns a notification token.
@@ -1144,7 +1144,7 @@ public final class Realm {
         }
     }
 
-    // MARK: Autorefresh and Refresh
+    // MARK: - Autorefresh and Refresh
 
     /**
      Set this property to `true` to automatically update this Realm when changes happen in other threads.
@@ -1193,7 +1193,7 @@ public final class Realm {
         return rlmRealm.refresh()
     }
 
-    // MARK: Invalidation
+    // MARK: - Invalidation
 
     /**
      Invalidates all `Object`s, `Results`, `LinkingObjects`, and `List`s managed by the Realm.
@@ -1218,7 +1218,7 @@ public final class Realm {
         rlmRealm.invalidate()
     }
 
-    // MARK: Writing a Copy
+    // MARK: - Writing a Copy
 
     /**
      Writes a compacted and optionally encrypted copy of the Realm to the given local URL.
@@ -1237,7 +1237,7 @@ public final class Realm {
         try rlmRealm.writeCopyToURL(fileURL, encryptionKey: encryptionKey)
     }
 
-    // MARK: Internal
+    // MARK: - Internal
 
     internal var rlmRealm: RLMRealm
 
@@ -1246,7 +1246,7 @@ public final class Realm {
     }
 }
 
-// MARK: Equatable
+// MARK: - Equatable
 
 extension Realm: Equatable { }
 
@@ -1255,7 +1255,7 @@ public func == (lhs: Realm, rhs: Realm) -> Bool { // swiftlint:disable:this vali
     return lhs.rlmRealm == rhs.rlmRealm
 }
 
-// MARK: Notifications
+// MARK: - Notifications
 
 /// A notification indicating that changes were made to a Realm.
 public enum Notification: String {

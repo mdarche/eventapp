@@ -10,8 +10,8 @@ import UIKit
 
 class TopRefresher: UIRefreshControl {
     
-    private var refreshLoadingView : UIView!
-    private var refreshColorView : UIView!
+    private var refreshLoadingView: UIView!
+    private var refreshColorView: UIView!
     
     private var isRefreshIconsOverlap = false
     private var isRefreshAnimating = false

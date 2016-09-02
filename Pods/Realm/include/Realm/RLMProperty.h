@@ -21,23 +21,23 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-/// :nodoc:
+///:nodoc:
 @protocol RLMInt
 @end
 
-/// :nodoc:
+///:nodoc:
 @protocol RLMBool
 @end
 
-/// :nodoc:
+///:nodoc:
 @protocol RLMDouble
 @end
 
-/// :nodoc:
+///:nodoc:
 @protocol RLMFloat
 @end
 
-/// :nodoc:
+///:nodoc:
 @interface NSNumber ()<RLMInt, RLMBool, RLMDouble, RLMFloat>
 @end
 
@@ -49,7 +49,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  These property instances map to columns in the core database.
  */
-@interface RLMProperty : NSObject
+@interface RLMProperty: NSObject
 
 #pragma mark - Properties
 
@@ -100,7 +100,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  An `RLMPropertyDescriptor` instance represents a specific property on a given class.
  */
-@interface RLMPropertyDescriptor : NSObject
+@interface RLMPropertyDescriptor: NSObject
 
 /**
  Creates and returns a property descriptor.

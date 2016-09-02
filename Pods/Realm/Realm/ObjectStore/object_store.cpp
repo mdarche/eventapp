@@ -157,9 +157,9 @@ static inline bool property_can_be_migrated_to_nullable(const Property& old_prop
 }
 
 void ObjectStore::verify_missing_renamed_properties(Schema const& actual_schema, Schema& target_schema) {
-    for (auto &object_schema : target_schema) {
+    for (auto &object_schema: target_schema) {
         auto matching_schema = actual_schema.find(object_schema);
-        for (auto& target_prop : matching_schema->persisted_properties) {
+        for (auto& target_prop: matching_schema->persisted_properties) {
             if (!object_schema.property_for_name(target_prop.name)) {
                 throw PropertyRenameMissingNewPropertyException(target_prop.name);
             }
@@ -169,7 +169,7 @@ void ObjectStore::verify_missing_renamed_properties(Schema const& actual_schema,
 
 void ObjectStore::verify_schema(Schema const& actual_schema, Schema& target_schema, bool allow_missing_tables) {
     std::vector<ObjectSchemaValidationException> errors;
-    for (auto &object_schema : target_schema) {
+    for (auto &object_schema: target_schema) {
         auto matching_schema = actual_schema.find(object_schema);
         if (matching_schema == actual_schema.end()) {
             if (!allow_missing_tables) {
@@ -192,7 +192,7 @@ std::vector<ObjectSchemaValidationException> ObjectStore::verify_object_schema(O
     std::vector<ObjectSchemaValidationException> exceptions;
 
     // check to see if properties are the same
-    for (auto& current_prop : table_schema.persisted_properties) {
+    for (auto& current_prop: table_schema.persisted_properties) {
         auto target_prop = target_schema.property_for_name(current_prop.name);
 
         if (!target_prop) {
@@ -214,7 +214,7 @@ std::vector<ObjectSchemaValidationException> ObjectStore::verify_object_schema(O
     }
 
     // check for new missing properties
-    for (auto& target_prop : target_schema.persisted_properties) {
+    for (auto& target_prop: target_schema.persisted_properties) {
         if (!table_schema.property_for_name(target_prop.name)) {
             exceptions.emplace_back(ExtraPropertyException(table_schema.name, target_prop));
         }
@@ -271,7 +271,7 @@ std::vector<std::pair<std::string, Property>> ObjectStore::create_tables(Group *
 
     // first pass to create missing tables
     std::vector<ObjectSchema *> to_update;
-    for (auto& object_schema : target_schema) {
+    for (auto& object_schema: target_schema) {
         bool created = false;
         ObjectStore::table_for_object_type_create_if_needed(group, object_schema.name, created);
 
@@ -282,13 +282,13 @@ std::vector<std::pair<std::string, Property>> ObjectStore::create_tables(Group *
     }
 
     // second pass adds/removes columns for out of date tables
-    for (auto& target_object_schema : to_update) {
+    for (auto& target_object_schema: to_update) {
         TableRef table = table_for_object_type(group, target_object_schema->name);
         ObjectSchema current_schema(group, target_object_schema->name);
         std::vector<Property> &target_props = target_object_schema->persisted_properties;
 
         // handle columns changing from required to optional
-        for (auto& current_prop : current_schema.persisted_properties) {
+        for (auto& current_prop: current_schema.persisted_properties) {
             auto target_prop = target_object_schema->property_for_name(current_prop.name);
             if (!target_prop || !property_can_be_migrated_to_nullable(current_prop, *target_prop))
                 continue;
@@ -307,7 +307,7 @@ std::vector<std::pair<std::string, Property>> ObjectStore::create_tables(Group *
 
         // remove extra columns
         size_t deleted = 0;
-        for (auto& current_prop : current_schema.persisted_properties) {
+        for (auto& current_prop: current_schema.persisted_properties) {
             current_prop.table_column -= deleted;
 
             auto target_prop = target_object_schema->property_for_name(current_prop.name);
@@ -331,7 +331,7 @@ std::vector<std::pair<std::string, Property>> ObjectStore::create_tables(Group *
         }
 
         // add missing columns
-        for (auto& target_prop : target_props) {
+        for (auto& target_prop: target_props) {
             auto current_prop = current_schema.property_for_name(target_prop.name);
 
             // add any new properties (no old column or old column was removed due to not matching)
@@ -361,7 +361,7 @@ std::vector<std::pair<std::string, Property>> ObjectStore::create_tables(Group *
             // We inserted a placeholder due to removing all columns from the table. Remove it, and update the indices
             // of any columns that we inserted after it.
             table->remove_column(0);
-            for (auto& target_prop : target_props) {
+            for (auto& target_prop: target_props) {
                 target_prop.table_column--;
             }
         }
@@ -382,13 +382,13 @@ std::vector<std::pair<std::string, Property>> ObjectStore::create_tables(Group *
 }
 
 void ObjectStore::remove_properties(Group *group, Schema &target_schema, std::vector<std::pair<std::string, Property>> to_delete) {
-    for (auto& target_object_schema : target_schema) {
+    for (auto& target_object_schema: target_schema) {
         TableRef table = table_for_object_type(group, target_object_schema.name);
         ObjectSchema current_schema(group, target_object_schema.name);
         size_t deleted = 0;
-        for (auto& current_prop : current_schema.persisted_properties) {
+        for (auto& current_prop: current_schema.persisted_properties) {
             current_prop.table_column -= deleted;
-            for (auto& single_to_delete : to_delete) {
+            for (auto& single_to_delete: to_delete) {
                 if (target_object_schema.name == single_to_delete.first &&
                     current_prop.name == single_to_delete.second.name &&
                     current_prop.object_type == single_to_delete.second.object_type) {
@@ -410,7 +410,7 @@ bool ObjectStore::is_schema_at_version(const Group *group, uint64_t version) {
 }
 
 bool ObjectStore::needs_update(Schema const& old_schema, Schema const& schema) {
-    for (auto const& target_schema : schema) {
+    for (auto const& target_schema: schema) {
         auto matching_schema = old_schema.find(target_schema);
         if (matching_schema == end(old_schema)) {
             // Table doesn't exist
@@ -484,13 +484,13 @@ Schema ObjectStore::schema_from_group(const Group *group) {
 
 bool ObjectStore::update_indexes(Group *group, Schema &schema) {
     bool changed = false;
-    for (auto& object_schema : schema) {
+    for (auto& object_schema: schema) {
         TableRef table = table_for_object_type(group, object_schema.name);
         if (!table) {
             continue;
         }
 
-        for (auto& property : object_schema.persisted_properties) {
+        for (auto& property: object_schema.persisted_properties) {
             if (property.requires_index() == table->has_search_index(property.table_column)) {
                 continue;
             }
@@ -513,7 +513,7 @@ bool ObjectStore::update_indexes(Group *group, Schema &schema) {
 }
 
 void ObjectStore::validate_primary_column_uniqueness(const Group *group, Schema const& schema) {
-    for (auto& object_schema : schema) {
+    for (auto& object_schema: schema) {
         auto primary_prop = object_schema.primary_key_property();
         if (!primary_prop) {
             continue;
@@ -570,7 +570,7 @@ void ObjectStore::rename_property(Group *group, Schema& passed_schema, StringDat
     table->rename_column(old_property->table_column, new_name);
     table->remove_column(column_to_remove);
     // update table_column for each property since it may have shifted
-    for (auto& current_prop : passed_object_schema->persisted_properties) {
+    for (auto& current_prop: passed_object_schema->persisted_properties) {
         auto target_prop = matching_schema.property_for_name(current_prop.name);
         current_prop.table_column = target_prop->table_column;
     }
@@ -608,54 +608,54 @@ bool ObjectStore::is_empty(const Group *group) {
     return true;
 }
 
-PropertyRenameException::PropertyRenameException(std::string old_property_name, std::string new_property_name) :
+PropertyRenameException::PropertyRenameException(std::string old_property_name, std::string new_property_name):
     m_old_property_name(old_property_name), m_new_property_name(new_property_name)
 {
     m_what = util::format("Old property '%1' cannot be renamed to property '%2'.",
                           old_property_name, new_property_name);
 }
 
-PropertyRenameMissingObjectTypeException::PropertyRenameMissingObjectTypeException(std::string object_type) :
+PropertyRenameMissingObjectTypeException::PropertyRenameMissingObjectTypeException(std::string object_type):
     m_object_type(object_type)
 {
     m_what = util::format("Cannot rename properties on type '%1'.", object_type);
 }
 
-PropertyRenameMissingOldObjectTypeException::PropertyRenameMissingOldObjectTypeException(std::string object_type) :
+PropertyRenameMissingOldObjectTypeException::PropertyRenameMissingOldObjectTypeException(std::string object_type):
     PropertyRenameMissingObjectTypeException(object_type)
 {
     m_what = util::format("Cannot rename properties on type '%1' because it is missing from the Realm file.",
                           object_type);
 }
 
-PropertyRenameMissingNewObjectTypeException::PropertyRenameMissingNewObjectTypeException(std::string object_type) :
+PropertyRenameMissingNewObjectTypeException::PropertyRenameMissingNewObjectTypeException(std::string object_type):
     PropertyRenameMissingObjectTypeException(object_type)
 {
     m_what = util::format("Cannot rename properties on type '%1' because it is missing from the specified schema.",
                           object_type);
 }
 
-PropertyRenameMissingOldPropertyException::PropertyRenameMissingOldPropertyException(std::string old_property_name, std::string new_property_name) :
+PropertyRenameMissingOldPropertyException::PropertyRenameMissingOldPropertyException(std::string old_property_name, std::string new_property_name):
     PropertyRenameException(old_property_name, new_property_name)
 {
     m_what = util::format("Old property '%1' is missing from the Realm file so it cannot be renamed to '%2'.",
                           old_property_name, new_property_name);
 }
 
-PropertyRenameMissingNewPropertyException::PropertyRenameMissingNewPropertyException(std::string new_property_name) :
+PropertyRenameMissingNewPropertyException::PropertyRenameMissingNewPropertyException(std::string new_property_name):
     m_new_property_name(new_property_name)
 {
     m_what = util::format("Renamed property '%1' is not in the latest model.", new_property_name);
 }
 
-PropertyRenameOldStillExistsException::PropertyRenameOldStillExistsException(std::string old_property_name, std::string new_property_name) :
+PropertyRenameOldStillExistsException::PropertyRenameOldStillExistsException(std::string old_property_name, std::string new_property_name):
     PropertyRenameException(old_property_name, new_property_name)
 {
     m_what = util::format("Old property '%1' cannot be renamed to '%2' because the old property is still present "
                           "in the specified schema.", old_property_name, new_property_name);
 }
 
-PropertyRenameTypeMismatchException::PropertyRenameTypeMismatchException(Property const& old_property, Property const& new_property) :
+PropertyRenameTypeMismatchException::PropertyRenameTypeMismatchException(Property const& old_property, Property const& new_property):
     m_old_property(old_property), m_new_property(new_property)
 {
     m_what = util::format("Old property '%1' of type '%2' cannot be renamed to property '%3' of type '%4'.",
@@ -663,13 +663,13 @@ PropertyRenameTypeMismatchException::PropertyRenameTypeMismatchException(Propert
                           new_property.name, new_property.type_string());
 }
 
-InvalidSchemaVersionException::InvalidSchemaVersionException(uint64_t old_version, uint64_t new_version) :
+InvalidSchemaVersionException::InvalidSchemaVersionException(uint64_t old_version, uint64_t new_version):
     m_old_version(old_version), m_new_version(new_version)
 {
     m_what = util::format("Provided schema version %1 is less than last set version %2.", new_version, old_version);
 }
 
-DuplicatePrimaryKeyValueException::DuplicatePrimaryKeyValueException(std::string const& object_type, Property const& property) :
+DuplicatePrimaryKeyValueException::DuplicatePrimaryKeyValueException(std::string const& object_type, Property const& property):
     m_object_type(object_type), m_property(property)
 {
     m_what = util::format("Primary key property '%1' has duplicate values after migration.", property.name);
@@ -679,16 +679,16 @@ SchemaValidationException::SchemaValidationException(std::vector<ObjectSchemaVal
 : m_validation_errors(errors)
 {
     m_what = "Schema validation failed due to the following errors:";
-    for (auto const& error : errors) {
+    for (auto const& error: errors) {
         m_what += std::string("\n- ") + error.what();
     }
 }
 
-SchemaMismatchException::SchemaMismatchException(std::vector<ObjectSchemaValidationException> const& errors) :
+SchemaMismatchException::SchemaMismatchException(std::vector<ObjectSchemaValidationException> const& errors):
     m_validation_errors(errors)
 {
     m_what = "Migration is required due to the following errors:";
-    for (auto const& error : errors) {
+    for (auto const& error: errors) {
         m_what += std::string("\n- ") + error.what();
     }
 }
@@ -701,19 +701,19 @@ PropertyTypeNotIndexableException::PropertyTypeNotIndexableException(std::string
                           object_type, property.name, string_for_property_type(property.type));
 }
 
-ExtraPropertyException::ExtraPropertyException(std::string const& object_type, Property const& property) :
+ExtraPropertyException::ExtraPropertyException(std::string const& object_type, Property const& property):
     ObjectSchemaPropertyException(object_type, property)
 {
     m_what = util::format("Property '%1' has been added to latest object model.", property.name);
 }
 
-MissingPropertyException::MissingPropertyException(std::string const& object_type, Property const& property) :
+MissingPropertyException::MissingPropertyException(std::string const& object_type, Property const& property):
     ObjectSchemaPropertyException(object_type, property)
 {
     m_what = util::format("Property '%1' is missing from latest object model.", property.name);
 }
 
-InvalidNullabilityException::InvalidNullabilityException(std::string const& object_type, Property const& property) :
+InvalidNullabilityException::InvalidNullabilityException(std::string const& object_type, Property const& property):
     ObjectSchemaPropertyException(object_type, property)
 {
     switch (property.type) {
@@ -746,7 +746,7 @@ MissingObjectTypeException::MissingObjectTypeException(std::string const& object
 
 MismatchedPropertiesException::MismatchedPropertiesException(std::string const& object_type,
                                                              Property const& old_property,
-                                                             Property const& new_property) :
+                                                             Property const& new_property):
     ObjectSchemaValidationException(object_type), m_old_property(old_property), m_new_property(new_property)
 {
     if (new_property.type != old_property.type) {
@@ -779,7 +779,7 @@ ChangedPrimaryKeyException::ChangedPrimaryKeyException(std::string const& object
     }
 }
 
-InvalidPrimaryKeyException::InvalidPrimaryKeyException(std::string const& object_type, std::string const& primary) :
+InvalidPrimaryKeyException::InvalidPrimaryKeyException(std::string const& object_type, std::string const& primary):
     ObjectSchemaValidationException(object_type), m_primary_key(primary)
 {
     m_what = util::format("Specified primary key property '%1' does not exist.", primary);

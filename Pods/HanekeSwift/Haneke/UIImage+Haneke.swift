@@ -12,7 +12,7 @@ extension UIImage {
 
     func hnk_imageByScalingToSize(toSize: CGSize) -> UIImage {
         UIGraphicsBeginImageContextWithOptions(toSize, !hnk_hasAlpha(), 0.0)
-        drawInRect(CGRectMake(0, 0, toSize.width, toSize.height))
+        drawInRect(CGRect(x: 0, y: 0, width: toSize.width, height: toSize.height))
         let resizedImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         return resizedImage
@@ -30,7 +30,7 @@ extension UIImage {
     
     func hnk_data(compressionQuality compressionQuality: Float = 1.0) -> NSData! {
         let hasAlpha = self.hnk_hasAlpha()
-        let data = hasAlpha ? UIImagePNGRepresentation(self) : UIImageJPEGRepresentation(self, CGFloat(compressionQuality))
+        let data = hasAlpha ? UIImagePNGRepresentation(self): UIImageJPEGRepresentation(self, CGFloat(compressionQuality))
         return data
     }
     
@@ -58,7 +58,7 @@ extension UIImage {
             return self
         }
 
-        let imageRect = CGRectMake(0, 0, pixelSize.width, pixelSize.height)
+        let imageRect = CGRect(x: 0, y: 0, width: pixelSize.width, height: pixelSize.height)
         UIGraphicsPushContext(context)
         
         // Flip coordinate system. See: http://stackoverflow.com/questions/506622/cgcontextdrawimage-draws-image-upside-down-when-passed-uiimage-cgimage

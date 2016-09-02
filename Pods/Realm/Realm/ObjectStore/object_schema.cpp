@@ -51,7 +51,7 @@ ObjectSchema::ObjectSchema(std::string name, std::string primary_key, std::initi
     set_primary_key_property();
 }
 
-ObjectSchema::ObjectSchema(const Group *group, const std::string &name) : name(name) {
+ObjectSchema::ObjectSchema(const Group *group, const std::string &name): name(name) {
     ConstTableRef table = ObjectStore::table_for_object_type(group, name);
 
     size_t count = table->get_column_count();
@@ -77,12 +77,12 @@ ObjectSchema::ObjectSchema(const Group *group, const std::string &name) : name(n
 }
 
 Property *ObjectSchema::property_for_name(StringData name) {
-    for (auto& prop : persisted_properties) {
+    for (auto& prop: persisted_properties) {
         if (StringData(prop.name) == name) {
             return &prop;
         }
     }
-    for (auto& prop : computed_properties) {
+    for (auto& prop: computed_properties) {
         if (StringData(prop.name) == name) {
             return &prop;
         }

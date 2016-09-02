@@ -21,7 +21,7 @@ import Realm
 
 #if swift(>=3.0)
 
-/// :nodoc:
+///:nodoc:
 /// Internal class. Do not use directly. Used for reflection and initialization
 public class LinkingObjectsBase: NSObject, NSFastEnumeration {
     internal let objectClassName: String
@@ -55,7 +55,7 @@ public class LinkingObjectsBase: NSObject, NSFastEnumeration {
         self.propertyName = propertyName
     }
 
-    // MARK: Fast Enumeration
+    // MARK: - Fast Enumeration
     public func countByEnumerating(with state: UnsafeMutablePointer<NSFastEnumerationState>,
                                    objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>!,
                                    count len: Int) -> Int {
@@ -84,10 +84,10 @@ public final class LinkingObjects<T: Object>: LinkingObjectsBase {
     /// Element type contained in this collection.
     public typealias Element = T
 
-    // MARK: Properties
+    // MARK: - Properties
 
     /// Returns the Realm these linking objects are associated with.
-    public var realm: Realm? { return rlmResults.isAttached ? Realm(rlmResults.realm) : nil }
+    public var realm: Realm? { return rlmResults.isAttached ? Realm(rlmResults.realm): nil }
 
     /// Indicates if the linking objects can no longer be accessed.
     ///
@@ -97,7 +97,7 @@ public final class LinkingObjects<T: Object>: LinkingObjectsBase {
     /// Returns the number of objects in these linking objects.
     public var count: Int { return Int(rlmResults.count) }
 
-    // MARK: Initializers
+    // MARK: - Initializers
 
     /**
      Creates a LinkingObjects. This initializer should only be called when
@@ -118,7 +118,7 @@ public final class LinkingObjects<T: Object>: LinkingObjectsBase {
         return gsub(pattern: "RLMResults <0x[a-z0-9]+>", template: type, string: rlmResults.description) ?? type
     }
 
-    // MARK: Index Retrieval
+    // MARK: - Index Retrieval
 
     /**
      Returns the index of the given object, or `nil` if the object is not present.
@@ -156,7 +156,7 @@ public final class LinkingObjects<T: Object>: LinkingObjectsBase {
                                                                              argumentArray: args)))
     }
 
-    // MARK: Object Retrieval
+    // MARK: - Object Retrieval
 
     /**
      Returns the object at the given `index`.
@@ -178,7 +178,7 @@ public final class LinkingObjects<T: Object>: LinkingObjectsBase {
     /// Returns the last object in the collection, or `nil` if empty.
     public var last: T? { return unsafeBitCast(rlmResults.lastObject(), to: Optional<T>.self) }
 
-    // MARK: KVC
+    // MARK: - KVC
 
     /**
      Returns an Array containing the results of invoking `valueForKey(_:)` using key on each of the
@@ -218,7 +218,7 @@ public final class LinkingObjects<T: Object>: LinkingObjectsBase {
         return rlmResults.setValue(value, forKeyPath: key)
     }
 
-    // MARK: Filtering
+    // MARK: - Filtering
 
     /**
      Filters the collection to the objects that match the given predicate.
@@ -242,7 +242,7 @@ public final class LinkingObjects<T: Object>: LinkingObjectsBase {
         return Results<T>(rlmResults.objects(with: predicate))
     }
 
-    // MARK: Sorting
+    // MARK: - Sorting
 
     /**
      Returns `Results` with elements sorted by the given property name.
@@ -267,7 +267,7 @@ public final class LinkingObjects<T: Object>: LinkingObjectsBase {
         return Results<T>(rlmResults.sortedResults(using: sortDescriptors.map { $0.rlmSortDescriptorValue }))
     }
 
-    // MARK: Aggregate Operations
+    // MARK: - Aggregate Operations
 
     /**
      Returns the minimum value of the given property.
@@ -324,7 +324,7 @@ public final class LinkingObjects<T: Object>: LinkingObjectsBase {
         return rlmResults.average(ofProperty: property) as! U?
     }
 
-    // MARK: Notifications
+    // MARK: - Notifications
 
     /**
      Register a block to be called each time the LinkingObjects changes.
@@ -391,15 +391,15 @@ public final class LinkingObjects<T: Object>: LinkingObjectsBase {
     }
 }
 
-extension LinkingObjects : RealmCollection {
-    // MARK: Sequence Support
+extension LinkingObjects: RealmCollection {
+    // MARK: - Sequence Support
 
     /// Returns a `GeneratorOf<T>` that yields successive elements in the results.
     public func makeIterator() -> RLMIterator<T> {
         return RLMIterator(collection: rlmResults)
     }
 
-    // MARK: Collection Support
+    // MARK: - Collection Support
 
     /// The position of the first element in a non-empty collection.
     /// Identical to endIndex in an empty collection.
@@ -418,7 +418,7 @@ extension LinkingObjects : RealmCollection {
       return before - 1
     }
 
-    /// :nodoc:
+    ///:nodoc:
     public func _addNotificationBlock(block: (RealmCollectionChange<AnyRealmCollection<T>>) -> Void) ->
         NotificationToken {
             let anyCollection = AnyRealmCollection(self)
@@ -428,11 +428,11 @@ extension LinkingObjects : RealmCollection {
     }
 }
 
-// MARK: Unavailable
+// MARK: - Unavailable
 
 extension LinkingObjects {
     @available(*, unavailable, renamed:"isInvalidated")
-    public var invalidated : Bool { fatalError() }
+    public var invalidated: Bool { fatalError() }
 
     @available(*, unavailable, renamed:"indexOfObject(for:)")
     public func index(of predicate: Predicate) -> Int? { fatalError() }
@@ -469,7 +469,7 @@ extension LinkingObjects {
 
 #else
 
-/// :nodoc:
+///:nodoc:
 /// Internal class. Do not use directly. Used for reflection and initialization
 public class LinkingObjectsBase: NSObject, NSFastEnumeration {
     internal let objectClassName: String
@@ -503,7 +503,7 @@ public class LinkingObjectsBase: NSObject, NSFastEnumeration {
         self.propertyName = propertyName
     }
 
-    // MARK: Fast Enumeration
+    // MARK: - Fast Enumeration
     public func countByEnumeratingWithState(state: UnsafeMutablePointer<NSFastEnumerationState>,
                                             objects buffer: AutoreleasingUnsafeMutablePointer<AnyObject?>,
                                                     count len: Int) -> Int {
@@ -532,10 +532,10 @@ public final class LinkingObjects<T: Object>: LinkingObjectsBase {
     /// The element type contained in this collection.
     public typealias Element = T
 
-    // MARK: Properties
+    // MARK: - Properties
 
     /// The Realm which manages this linking objects collection, or `nil` if the collection is unmanaged.
-    public var realm: Realm? { return rlmResults.attached ? Realm(rlmResults.realm) : nil }
+    public var realm: Realm? { return rlmResults.attached ? Realm(rlmResults.realm): nil }
 
     /// Indicates if the linking objects collection is no longer valid.
     ///
@@ -547,7 +547,7 @@ public final class LinkingObjects<T: Object>: LinkingObjectsBase {
     /// The number of objects in the linking objects.
     public var count: Int { return Int(rlmResults.count) }
 
-    // MARK: Initializers
+    // MARK: - Initializers
 
     /**
      Creates an instance of a `LinkingObjects`. This initializer should only be called when
@@ -567,7 +567,7 @@ public final class LinkingObjects<T: Object>: LinkingObjectsBase {
         return gsub("RLMResults <0x[a-z0-9]+>", template: type, string: rlmResults.description) ?? type
     }
 
-    // MARK: Index Retrieval
+    // MARK: - Index Retrieval
 
     /**
      Returns the index of an object in the linking objects collection, or `nil` if the object is not present.
@@ -597,7 +597,7 @@ public final class LinkingObjects<T: Object>: LinkingObjectsBase {
             argumentArray: args)))
     }
 
-    // MARK: Object Retrieval
+    // MARK: - Object Retrieval
 
     /**
      Returns the object at the given `index`.
@@ -619,7 +619,7 @@ public final class LinkingObjects<T: Object>: LinkingObjectsBase {
     /// Returns the last object in the linking objects collection, or `nil` if collection is empty.
     public var last: T? { return unsafeBitCast(rlmResults.lastObject(), Optional<T>.self) }
 
-    // MARK: KVC
+    // MARK: - KVC
 
     /**
      Returns an `Array` containing the results of invoking `valueForKey(_:)` with `key` on each of the linking objects
@@ -654,7 +654,7 @@ public final class LinkingObjects<T: Object>: LinkingObjectsBase {
         return rlmResults.setValue(value, forKey: key)
     }
 
-    // MARK: Filtering
+    // MARK: - Filtering
 
     /**
      Returns a `Results` containing all objects matching the given predicate in the linking objects collection.
@@ -674,7 +674,7 @@ public final class LinkingObjects<T: Object>: LinkingObjectsBase {
         return Results<T>(rlmResults.objectsWithPredicate(predicate))
     }
 
-    // MARK: Sorting
+    // MARK: - Sorting
 
     /**
      Returns a `Results` containing the objects in the linking objects collection, but sorted.
@@ -706,7 +706,7 @@ public final class LinkingObjects<T: Object>: LinkingObjectsBase {
         return Results<T>(rlmResults.sortedResultsUsingDescriptors(sortDescriptors.map { $0.rlmSortDescriptorValue }))
     }
 
-    // MARK: Aggregate Operations
+    // MARK: - Aggregate Operations
 
     /**
      Returns the minimum (lowest) value of the given property among all the objects represented by the linking objects
@@ -763,7 +763,7 @@ public final class LinkingObjects<T: Object>: LinkingObjectsBase {
         return rlmResults.averageOfProperty(property) as! U?
     }
 
-    // MARK: Notifications
+    // MARK: - Notifications
 
     /**
      Registers a block to be called each time the linking objects collection changes.
@@ -833,14 +833,14 @@ public final class LinkingObjects<T: Object>: LinkingObjectsBase {
 }
 
 extension LinkingObjects: RealmCollectionType {
-    // MARK: Sequence Support
+    // MARK: - Sequence Support
 
     /// Returns an `RLMGenerator` that yields successive elements in the results.
     public func generate() -> RLMGenerator<T> {
         return RLMGenerator(collection: rlmResults)
     }
 
-    // MARK: Collection Support
+    // MARK: - Collection Support
 
     /// The position of the first element in a non-empty collection.
     /// Identical to `endIndex` in an empty collection.
@@ -851,7 +851,7 @@ extension LinkingObjects: RealmCollectionType {
     /// zero or more applications of `successor()`.
     public var endIndex: Int { return count }
 
-    /// :nodoc:
+    ///:nodoc:
     public func _addNotificationBlock(block: (RealmCollectionChange<AnyRealmCollection<T>>) -> Void) ->
         NotificationToken {
             let anyCollection = AnyRealmCollection(self)

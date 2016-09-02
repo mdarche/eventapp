@@ -47,11 +47,11 @@ class Following: Object {
     }
 }
 
-class Activities : Object {
+class Activities: Object {
     dynamic var activityId = 0
-    dynamic var title : String? = nil
-    dynamic var coverImage : String? = nil
-    dynamic var eventDate : NSDate? = nil
+    dynamic var title: String? = nil
+    dynamic var coverImage: String? = nil
+    dynamic var eventDate: NSDate? = nil
 }
 
 
@@ -90,7 +90,7 @@ extension CurrentUser {
         try! realm!.write {
             if follow {
                 followingCount += 1
-                followingIds.append(Following(value: ["followingId" : followingId]))
+                followingIds.append(Following(value: ["followingId": followingId]))
                 print("Success")
             } else {
 //                var followingAccount = realm?.objects(Following.self).filter("followingId = '\(followingId)'")
@@ -102,7 +102,7 @@ extension CurrentUser {
     }
     
     
-    // MARK: Event Functions
+    // MARK: - Event Functions
     
     func attendEvent(){
         // TODO: make network request and save

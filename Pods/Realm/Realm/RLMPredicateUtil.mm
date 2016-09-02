@@ -41,7 +41,7 @@
 namespace {
 
 struct PredicateExpressionTransformer {
-    PredicateExpressionTransformer(ExpressionVisitor visitor) : m_visitor(visitor) { }
+    PredicateExpressionTransformer(ExpressionVisitor visitor): m_visitor(visitor) { }
 
     NSExpression *visit(NSExpression *expression) const;
     NSPredicate *visit(NSPredicate *predicate) const;

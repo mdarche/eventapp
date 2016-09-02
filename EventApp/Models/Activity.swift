@@ -11,26 +11,26 @@ import SwiftyJSON
 
 class Activity: NSObject {
     
-    var activityId : Int?
-    var type : String?
-    var eventType : String?
+    var activityId: Int?
+    var type: String?
+    var eventType: String?
     
-    var locationId : Int?
-    var latitude : Double?
-    var longitude : Double?
+    var locationId: Int?
+    var latitude: Double?
+    var longitude: Double?
     
-    var title : String?
-    var shortDescription : String?
-    var coverImage : NSURL?
-    var timestamp : String?
+    var title: String?
+    var shortDescription: String?
+    var coverImage: NSURL?
+    var timestamp: String?
     
-    var venueId : Int?
-    var venueTitle : String?
-    var venueType : String?
+    var venueId: Int?
+    var venueTitle: String?
+    var venueType: String?
     
-    var eventRate : Int?
-    var venueRate : Int?
-    var attendeesCount : Int?
+    var eventRate: Int?
+    var venueRate: Int?
+    var attendeesCount: Int?
     
     var attendeesPreview = [User]()
     

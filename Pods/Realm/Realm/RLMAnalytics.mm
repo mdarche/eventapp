@@ -177,7 +177,7 @@ static NSDictionary *RLMAnalyticsPayload() {
     NSString *osVersionString = [[NSProcessInfo processInfo] operatingSystemVersionString];
     Class swiftObjectUtilClass = NSClassFromString(@"RealmSwiftObjectUtil");
     BOOL isSwift = swiftObjectUtilClass != nil;
-    NSString *swiftVersion = isSwift ? [swiftObjectUtilClass swiftVersion] : @"N/A";
+    NSString *swiftVersion = isSwift ? [swiftObjectUtilClass swiftVersion]: @"N/A";
 
     static NSString *kUnknownString = @"unknown";
     NSString *hashedMACAddress = RLMMACAddress() ?: kUnknownString;
@@ -195,7 +195,7 @@ static NSDictionary *RLMAnalyticsPayload() {
 
                      // Which version of Realm is being used
                      @"Binding": @"cocoa",
-                     @"Language": isSwift ? @"swift" : @"objc",
+                     @"Language": isSwift ? @"swift": @"objc",
                      @"Realm Version": REALM_COCOA_VERSION,
 #if TARGET_OS_WATCH
                      @"Target OS Type": @"watchos",

@@ -9,15 +9,15 @@
 import Foundation
 import SwiftyJSON
 
-class Notification : NSObject {
+class Notification: NSObject {
     
-    var type : String?
-    var message : String?
-    var timestamp : String?
-    var imageThumb : NSURL?
+    var type: String?
+    var message: String?
+    var timestamp: String?
+    var imageThumb: NSURL?
     
-    var activityId : Int?
-    var profileId : Int?
+    var activityId: Int?
+    var profileId: Int?
     
     init?(json: JSON) {
         super.init()

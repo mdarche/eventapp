@@ -38,7 +38,6 @@
 		CB119FB01CEE48C80086B785 /* Requests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB119FAF1CEE48C80086B785 /* Requests.swift */; };
 		CB119FB21CEE5CD30086B785 /* Media.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB119FB11CEE5CD30086B785 /* Media.swift */; };
 		CB119FB41CEF6C2B0086B785 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB119FB31CEF6C2B0086B785 /* User.swift */; };
-		CB17759E1D3D3ABB00E23A47 /* MediaPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB17759D1D3D3ABB00E23A47 /* MediaPlayerViewController.swift */; };
 		CB214AC11D25845B00238BF6 /* MediaFeedLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB214AC01D25845B00238BF6 /* MediaFeedLayout.swift */; };
 		CB403DFF1D36A725000E6A22 /* EventTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB403DFE1D36A725000E6A22 /* EventTextViewController.swift */; };
 		CB73E1961CCE8CFE00E6C6AF /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB73E1941CCE8CFE00E6C6AF /* FBSDKCoreKit.framework */; };
@@ -135,7 +134,6 @@
 		CB119FAF1CEE48C80086B785 /* Requests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Requests.swift; path = Network/Requests.swift; sourceTree = "<group>"; };
 		CB119FB11CEE5CD30086B785 /* Media.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Media.swift; path = Models/Media.swift; sourceTree = "<group>"; };
 		CB119FB31CEF6C2B0086B785 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Models/User.swift; sourceTree = "<group>"; };
-		CB17759D1D3D3ABB00E23A47 /* MediaPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MediaPlayerViewController.swift; path = Controllers/MediaPlayerViewController.swift; sourceTree = "<group>"; };
 		CB214AC01D25845B00238BF6 /* MediaFeedLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MediaFeedLayout.swift; path = Layouts/MediaFeedLayout.swift; sourceTree = "<group>"; };
 		CB403DFE1D36A725000E6A22 /* EventTextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventTextViewController.swift; path = Controllers/EventTextViewController.swift; sourceTree = "<group>"; };
 		CB73E1941CCE8CFE00E6C6AF /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = EventApp/Frameworks/FBSDKCoreKit.framework; sourceTree = "<group>"; };
@@ -399,7 +397,6 @@
 				13210F541CC93FB200B3E257 /* ListViewController.swift */,
 				13210F5A1CC942A400B3E257 /* MainMenuViewController.swift */,
 				13210F521CC93F2D00B3E257 /* MapViewController.swift */,
-				CB17759D1D3D3ABB00E23A47 /* MediaPlayerViewController.swift */,
 				CBFD3E0C1CD26D9F00FBE4A8 /* MediaGridViewController.swift */,
 				CBFFCE881D145E3200C32877 /* MediaFeedViewController.swift */,
 				CBB451381CD939F200AD6A73 /* NotificationViewController.swift */,
@@ -671,7 +668,6 @@
 				132B20251D679C6A002841AC /* Utility.swift in Sources */,
 				CBFFCE891D145E3200C32877 /* MediaFeedViewController.swift in Sources */,
 				CBFFCE901D1A0E6300C32877 /* MediaFeedCell.swift in Sources */,
-				CB17759E1D3D3ABB00E23A47 /* MediaPlayerViewController.swift in Sources */,
 				133B7D951D638F9A00DF5E34 /* ProgressView.swift in Sources */,
 				13D8BB311D5EA24E00E51EEF /* ProfileSwitchHeader.swift in Sources */,
 				CB73E19A1CCEB3B200E6C6AF /* ClassExtensions.swift in Sources */,

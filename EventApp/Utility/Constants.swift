@@ -35,8 +35,6 @@ enum Segues {
     static let showInviteTable = "ShowInviteTable"
     
     static let showMediaFeedView = "ShowMediaFeedView"
-    static let showMediaDetail = "ShowMediaDetail"
-    static let showEventMedia = "ShowEventMedia"
 }
 
 enum Identifiers {
@@ -74,6 +72,9 @@ struct Colors {
     static let darkestBlue = UIColor(red: 30/255, green: 32/255, blue: 42/255, alpha: 1.0)
     static let lightBlue = UIColor(red: 42/255, green: 45/255, blue: 60/255, alpha: 1.0)
     
-    static let primaryGray = UIColor(white: 0, alpha: 0.1)
+    static let primaryGray = UIColor(red: 225/255, green: 228/255, blue: 234/255, alpha: 1.0)
+    
+    static let borderGray = UIColor(white: 0, alpha: 0.1)
+    static let labelBlack = UIColor(white: 0, alpha: 0.38)
     
 }

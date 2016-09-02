@@ -59,13 +59,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
         FBSDKAppEvents.activateApp()
     }
-
-    func applicationWillTerminate(application: UIApplication) {
-    }
     
     func setupAppearance() {
         if let font = UIFont(name: "Roboto-Regular", size: 16) {
-            UINavigationBar.appearance().titleTextAttributes = [NSFontAttributeName : font, NSForegroundColorAttributeName : UIColor.whiteColor()]}
+            UINavigationBar.appearance().titleTextAttributes = [NSFontAttributeName: font, NSForegroundColorAttributeName: UIColor.whiteColor()]}
     }
     
 

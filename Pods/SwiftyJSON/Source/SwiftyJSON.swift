@@ -22,7 +22,7 @@
 
 import Foundation
 
-// MARK: - Error
+// MARK: - - Error
 
 ///Error domain
 public let ErrorDomain: String = "SwiftyJSONErrorDomain"
@@ -34,14 +34,14 @@ public let ErrorWrongType: Int = 901
 public let ErrorNotExist: Int = 500
 public let ErrorInvalidJSON: Int = 490
 
-// MARK: - JSON Type
+// MARK: - - JSON Type
 
 /**
 JSON's type definitions.
 
 See http://www.json.org
 */
-public enum Type :Int{
+public enum Type:Int{
 
     case Number
     case String
@@ -52,7 +52,7 @@ public enum Type :Int{
     case Unknown
 }
 
-// MARK: - JSON Base
+// MARK: - - JSON Base
 
 public struct JSON {
 
@@ -127,7 +127,7 @@ public struct JSON {
 
     /// Private object
     private var rawArray: [AnyObject] = []
-    private var rawDictionary: [String : AnyObject] = [:]
+    private var rawDictionary: [String: AnyObject] = [:]
     private var rawString: String = ""
     private var rawNumber: NSNumber = 0
     private var rawNull: NSNull = NSNull()
@@ -172,7 +172,7 @@ public struct JSON {
             case let array as [AnyObject]:
                 _type = .Array
                 self.rawArray = array
-            case let dictionary as [String : AnyObject]:
+            case let dictionary as [String: AnyObject]:
                 _type = .Dictionary
                 self.rawDictionary = dictionary
             default:
@@ -194,8 +194,8 @@ public struct JSON {
     public static var null: JSON { get { return JSON(NSNull()) } }
 }
 
-// MARK: - CollectionType, SequenceType, Indexable
-extension JSON : Swift.CollectionType, Swift.SequenceType, Swift.Indexable {
+// MARK: - - CollectionType, SequenceType, Indexable
+extension JSON: Swift.CollectionType, Swift.SequenceType, Swift.Indexable {
 
     public typealias Generator = JSONGenerator
 
@@ -374,7 +374,7 @@ public func >(lhs: JSONIndex, rhs: JSONIndex) -> Bool {
     }
 }
 
-public struct JSONGenerator : GeneratorType {
+public struct JSONGenerator: GeneratorType {
 
     public typealias Element = (String, JSON)
 
@@ -414,7 +414,7 @@ public struct JSONGenerator : GeneratorType {
     }
 }
 
-// MARK: - Subscript
+// MARK: - - Subscript
 
 /**
 *  To mark both String and Int can be used in subscript.
@@ -557,7 +557,7 @@ extension JSON {
     }
 }
 
-// MARK: - LiteralConvertible
+// MARK: - - LiteralConvertible
 
 extension JSON: Swift.StringLiteralConvertible {
 
@@ -598,7 +598,7 @@ extension JSON: Swift.FloatLiteralConvertible {
 extension JSON: Swift.DictionaryLiteralConvertible {
 
     public init(dictionaryLiteral elements: (String, AnyObject)...) {
-        self.init(elements.reduce([String : AnyObject](minimumCapacity: elements.count)){(dictionary: [String : AnyObject], element:(String, AnyObject)) -> [String : AnyObject] in
+        self.init(elements.reduce([String: AnyObject](minimumCapacity: elements.count)){(dictionary: [String: AnyObject], element:(String, AnyObject)) -> [String: AnyObject] in
             var d = dictionary
             d[element.0] = element.1
             return d
@@ -620,7 +620,7 @@ extension JSON: Swift.NilLiteralConvertible {
     }
 }
 
-// MARK: - Raw
+// MARK: - - Raw
 
 extension JSON: Swift.RawRepresentable {
 
@@ -667,7 +667,7 @@ extension JSON: Swift.RawRepresentable {
     }
 }
 
-// MARK: - Printable, DebugPrintable
+// MARK: - - Printable, DebugPrintable
 
 extension JSON: Swift.Printable, Swift.DebugPrintable {
 
@@ -684,7 +684,7 @@ extension JSON: Swift.Printable, Swift.DebugPrintable {
     }
 }
 
-// MARK: - Array
+// MARK: - - Array
 
 extension JSON {
 
@@ -726,14 +726,14 @@ extension JSON {
     }
 }
 
-// MARK: - Dictionary
+// MARK: - - Dictionary
 
 extension JSON {
 
-    //Optional [String : JSON]
-    public var dictionary: [String : JSON]? {
+    //Optional [String: JSON]
+    public var dictionary: [String: JSON]? {
         if self.type == .Dictionary {
-            return self.rawDictionary.reduce([String : JSON](minimumCapacity: count)) { (dictionary: [String : JSON], element: (String, AnyObject)) -> [String : JSON] in
+            return self.rawDictionary.reduce([String: JSON](minimumCapacity: count)) { (dictionary: [String: JSON], element: (String, AnyObject)) -> [String: JSON] in
                 var d = dictionary
                 d[element.0] = JSON(element.1)
                 return d
@@ -743,13 +743,13 @@ extension JSON {
         }
     }
 
-    //Non-optional [String : JSON]
-    public var dictionaryValue: [String : JSON] {
+    //Non-optional [String: JSON]
+    public var dictionaryValue: [String: JSON] {
         return self.dictionary ?? [:]
     }
 
-    //Optional [String : AnyObject]
-    public var dictionaryObject: [String : AnyObject]? {
+    //Optional [String: AnyObject]
+    public var dictionaryObject: [String: AnyObject]? {
         get {
             switch self.type {
             case .Dictionary:
@@ -768,7 +768,7 @@ extension JSON {
     }
 }
 
-// MARK: - Bool
+// MARK: - - Bool
 
 extension JSON: Swift.BooleanType {
 
@@ -807,7 +807,7 @@ extension JSON: Swift.BooleanType {
     }
 }
 
-// MARK: - String
+// MARK: - - String
 
 extension JSON {
 
@@ -850,7 +850,7 @@ extension JSON {
     }
 }
 
-// MARK: - Number
+// MARK: - - Number
 extension JSON {
 
     //Optional number
@@ -937,7 +937,7 @@ extension JSON {
     }
 }
 
-// MARK: - Int, Double, Float, Int8, Int16, Int32, Int64
+// MARK: - - Int, Double, Float, Int8, Int16, Int32, Int64
 
 extension JSON {
 
@@ -1207,7 +1207,7 @@ extension JSON {
 }
 
 //MARK: - Comparable
-extension JSON : Swift.Comparable {}
+extension JSON: Swift.Comparable {}
 
 public func ==(lhs: JSON, rhs: JSON) -> Bool {
 
@@ -1298,7 +1298,7 @@ private let falseNumber = NSNumber(bool: false)
 private let trueObjCType = String.fromCString(trueNumber.objCType)
 private let falseObjCType = String.fromCString(falseNumber.objCType)
 
-// MARK: - NSNumber: Comparable
+// MARK: - - NSNumber: Comparable
 
 extension NSNumber {
     var isBool:Bool {

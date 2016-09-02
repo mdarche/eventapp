@@ -13,19 +13,19 @@ class FFITableviewController: UITableViewController {
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    var isFollowers : Bool?
-    var isFollowing : Bool?
-    var isInvitation : Bool?
+    var isFollowers: Bool?
+    var isFollowing: Bool?
+    var isInvitation: Bool?
     
     var users = [User]()
-    var profileId : Int?
+    var profileId: Int?
     
     private var limit = 20
     private var skip = 0
     private var downloadControl = false
     
     
-    // MARK: View's Lifecycle
+    // MARK: - View's Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +38,7 @@ class FFITableviewController: UITableViewController {
     }
     
     
-    // MARK: Setup View
+    // MARK: - Setup View
     
     func visualize() {
         activityIndicator.stopAnimating()
@@ -88,7 +88,7 @@ class FFITableviewController: UITableViewController {
     }
     
     
-    // MARK: Follow and Invite Functions
+    // MARK: - Follow and Invite Functions
     
 }
 

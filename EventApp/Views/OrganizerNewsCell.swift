@@ -13,7 +13,7 @@ class OrganizerNewsCell: UITableViewCell {
     @IBOutlet weak var imageThumbnail: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     
-    var profileId : Int?
+    var profileId: Int?
     var activityId: Int?
     
     override func awakeFromNib() {

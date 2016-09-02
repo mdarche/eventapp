@@ -23,11 +23,11 @@ public class Fetch<T> {
     
     public typealias Failer = (NSError?) -> ()
     
-    private var onSuccess : Succeeder?
+    private var onSuccess: Succeeder?
     
-    private var onFailure : Failer?
+    private var onFailure: Failer?
     
-    private var state : FetchState<T> = FetchState.Pending
+    private var state: FetchState<T> = FetchState.Pending
     
     public init() {}
     
@@ -63,7 +63,7 @@ public class Fetch<T> {
         self.onFailure?(error)
     }
     
-    var hasFailed : Bool {
+    var hasFailed: Bool {
         switch self.state {
         case FetchState.Failure(_):
             return true
@@ -72,7 +72,7 @@ public class Fetch<T> {
             }
     }
     
-    var hasSucceeded : Bool {
+    var hasSucceeded: Bool {
         switch self.state {
         case FetchState.Success(_):
             return true

@@ -94,7 +94,7 @@ This object provides access to the previous and current `Schema`s for this migra
 */
 public final class Migration {
 
-    // MARK: Properties
+    // MARK: - Properties
 
     /// The migration's old `Schema`, describing the `Realm` before applying a migration.
     public var oldSchema: Schema { return Schema(rlmMigration.oldSchema) }
@@ -104,7 +104,7 @@ public final class Migration {
 
     internal var rlmMigration: RLMMigration
 
-    // MARK: Altering Objects During a Migration
+    // MARK: - Altering Objects During a Migration
 
     /**
     Enumerates objects of a given type in this Realm, providing both the old and new versions of
@@ -181,7 +181,7 @@ public final class Migration {
 }
 
 
-// MARK: Private Helpers
+// MARK: - Private Helpers
 
 internal func accessorMigrationBlock(_ migrationBlock: MigrationBlock) -> RLMMigrationBlock {
     return { migration, oldVersion in
@@ -202,7 +202,7 @@ internal func accessorMigrationBlock(_ migrationBlock: MigrationBlock) -> RLMMig
     }
 }
 
-// MARK: Unavailable
+// MARK: - Unavailable
 
 extension Migration {
     @available(*, unavailable, renamed:"enumerateObjects(ofType:_:)")
@@ -291,7 +291,7 @@ public func migrateRealm(configuration: Realm.Configuration = Realm.Configuratio
 */
 public final class Migration {
 
-    // MARK: Properties
+    // MARK: - Properties
 
     /// Returns the old schema, describing the Realm before applying a migration.
     public var oldSchema: Schema { return Schema(rlmMigration.oldSchema) }
@@ -301,7 +301,7 @@ public final class Migration {
 
     internal var rlmMigration: RLMMigration
 
-    // MARK: Altering Objects During a Migration
+    // MARK: - Altering Objects During a Migration
 
     /**
      Enumerates all the objects of a given type in this Realm, providing both the old and new versions of
@@ -382,7 +382,7 @@ public final class Migration {
 }
 
 
-// MARK: Private Helpers
+// MARK: - Private Helpers
 
 internal func accessorMigrationBlock(migrationBlock: MigrationBlock) -> RLMMigrationBlock {
     return { migration, oldVersion in

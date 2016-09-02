@@ -30,7 +30,6 @@ class ListLayout: UICollectionViewFlowLayout {
         self.sectionHeadersPinToVisibleBounds = true
     }
     
-    /// here we define the width of each cell, creating a 2 column layout. In case you would create 3 columns, change the number 2 to 3
     func itemWidth() -> CGFloat {
         return (CGRectGetWidth(collectionView!.frame)/1)-1
     }

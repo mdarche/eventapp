@@ -21,13 +21,15 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var outerView: UIView!
     
     
-    // MARK: View's Lifecycle
+    // MARK: - View's Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         visualize()
     }
     
+    
+    // MARK: - Class Functions
     
     @IBAction func showComponent(sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0 {
@@ -65,9 +67,6 @@ class HomeViewController: UIViewController {
         outerView.layer.cornerRadius = CGRectGetHeight(outerView.bounds) / 2
         outerView.layer.borderColor = Colors.primaryBlue.CGColor
         outerView.layer.borderWidth = 1
-        
-//        let moreButton = UIBarButtonItem(image: UIImage(named: "more"), style: .Plain, target: self, action: #selector(HomeViewController.moreMenuPressed))
-//        self.navigationItem.rightBarButtonItem = moreButton
     }
     
     func moreMenuPressed() {

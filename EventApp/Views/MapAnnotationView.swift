@@ -11,16 +11,16 @@ import MapKit
 
 class MapAnnotationView: MKAnnotationView {
 
-    private var type : String?
-    private var eventType : String?
-    private var venueTitle : String?
-    private var venueType : String?
-    var title : String?
-    var coverImage : NSURL?
-    var activityId : Int?
+    private var type: String?
+    private var eventType: String?
+    private var venueTitle: String?
+    private var venueType: String?
+    var title: String?
+    var coverImage: NSURL?
+    var activityId: Int?
     
     private var hitOutside = true
-    private var calloutView : MapCalloutView?
+    private var calloutView: MapCalloutView?
     
     var preventDeselection:Bool {
         return !hitOutside

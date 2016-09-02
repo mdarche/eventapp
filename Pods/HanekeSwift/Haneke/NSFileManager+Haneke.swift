@@ -19,13 +19,13 @@ extension NSFileManager {
                 
                 // Maybe there's a better way to do this. See: http://stackoverflow.com/questions/25502914/comparing-anyobject-in-swift
                 
-                var value1 : AnyObject?
+                var value1: AnyObject?
                 do {
                     try URL1.getResourceValue(&value1, forKey: property);
                 } catch {
                     return true
                 }
-                var value2 : AnyObject?
+                var value2: AnyObject?
                 do {
                     try URL2.getResourceValue(&value2, forKey: property);
                 } catch {
@@ -33,22 +33,22 @@ extension NSFileManager {
                 }
                 
                 if let string1 = value1 as? String, let string2 = value2 as? String {
-                    return ascending ? string1 < string2 : string2 < string1
+                    return ascending ? string1 < string2: string2 < string1
                 }
                 
                 if let date1 = value1 as? NSDate, let date2 = value2 as? NSDate {
-                    return ascending ? date1 < date2 : date2 < date1
+                    return ascending ? date1 < date2: date2 < date1
                 }
                 
                 if let number1 = value1 as? NSNumber, let number2 = value2 as? NSNumber {
-                    return ascending ? number1 < number2 : number2 < number1
+                    return ascending ? number1 < number2: number2 < number1
                 }
                 
                 return false
             })
             
             for (i, v) in sortedContents.enumerate() {
-                var stop : Bool = false
+                var stop: Bool = false
                 block(v, i, &stop)
                 if stop { break }
             }

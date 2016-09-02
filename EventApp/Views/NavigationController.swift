@@ -26,7 +26,7 @@ class NavigationController: UINavigationController {
     
 }
 
-class DarkNavigationController : UINavigationController {
+class DarkNavigationController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
         visualize()

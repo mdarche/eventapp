@@ -32,7 +32,7 @@ CollectionChangeBuilder::CollectionChangeBuilder(IndexSet deletions,
                                                  std::vector<Move> moves)
 : CollectionChangeSet({std::move(deletions), std::move(insertions), std::move(modifications), std::move(moves)})
 {
-    for (auto&& move : this->moves) {
+    for (auto&& move: this->moves) {
         this->deletions.add(move.from);
         this->insertions.add(move.to);
     }
@@ -89,7 +89,7 @@ void CollectionChangeBuilder::merge(CollectionChangeBuilder&& c)
 
     // Ensure that any previously modified rows which were moved are still modified
     if (!modifications.empty() && !c.moves.empty()) {
-        for (auto const& move : c.moves) {
+        for (auto const& move: c.moves) {
             if (modifications.contains(move.from))
                 c.modifications.add(move.to);
         }
@@ -98,7 +98,7 @@ void CollectionChangeBuilder::merge(CollectionChangeBuilder&& c)
     // Update the source position of new moves to compensate for the changes made
     // in the old changeset
     if (!deletions.empty() || !insertions.empty()) {
-        for (auto& move : c.moves)
+        for (auto& move: c.moves)
             move.from = deletions.shift(insertions.unshift(move.from));
     }
 
@@ -139,7 +139,7 @@ void CollectionChangeBuilder::clean_up_stale_moves()
 void CollectionChangeBuilder::parse_complete()
 {
     moves.reserve(m_move_mapping.size());
-    for (auto move : m_move_mapping) {
+    for (auto move: m_move_mapping) {
         REALM_ASSERT_DEBUG(deletions.contains(move.second));
         REALM_ASSERT_DEBUG(insertions.contains(move.first));
         moves.push_back({move.second, move.first});
@@ -162,7 +162,7 @@ void CollectionChangeBuilder::insert(size_t index, size_t count, bool track_move
 
     insertions.insert_at(index, count);
 
-    for (auto& move : moves) {
+    for (auto& move: moves) {
         if (move.to >= index)
             ++move.to;
     }
@@ -189,9 +189,9 @@ void CollectionChangeBuilder::erase(size_t index)
 void CollectionChangeBuilder::clear(size_t old_size)
 {
     if (old_size != std::numeric_limits<size_t>::max()) {
-        for (auto range : deletions)
+        for (auto range: deletions)
             old_size += range.second - range.first;
-        for (auto range : insertions)
+        for (auto range: insertions)
             old_size -= range.second - range.first;
     }
 
@@ -207,7 +207,7 @@ void CollectionChangeBuilder::move(size_t from, size_t to)
     REALM_ASSERT(from != to);
 
     bool updated_existing_move = false;
-    for (auto& move : moves) {
+    for (auto& move: moves) {
         if (move.to != from) {
             // Shift other moves if this row is moving from one side of them
             // to the other
@@ -319,7 +319,7 @@ void CollectionChangeBuilder::move_over(size_t row_ndx, size_t last_row, bool tr
 void CollectionChangeBuilder::verify()
 {
 #ifdef REALM_DEBUG
-    for (auto&& move : moves) {
+    for (auto&& move: moves) {
         REALM_ASSERT(deletions.contains(move.from));
         REALM_ASSERT(insertions.contains(move.to));
     }
@@ -337,7 +337,7 @@ struct RowInfo {
 void calculate_moves_unsorted(std::vector<RowInfo>& new_rows, IndexSet& removed, CollectionChangeSet& changeset)
 {
     size_t expected = 0;
-    for (auto& row : new_rows) {
+    for (auto& row: new_rows) {
         // With unsorted queries rows only move due to move_last_over(), which
         // inherently can only move a row to earlier in the table.
         REALM_ASSERT(row.shifted_tv_index >= expected);
@@ -385,7 +385,7 @@ public:
     LongestCommonSubsequenceCalculator(std::vector<Row>& a, std::vector<Row>& b,
                                        size_t start_index,
                                        IndexSet const& modifications)
-    : m_modified(modifications)
+   : m_modified(modifications)
     , a(a), b(b)
     {
         find_longest_matches(start_index, a.size(),
@@ -422,7 +422,7 @@ private:
         // Calculate the length of the matching block *ending* at b[j], which
         // is 1 if b[j - 1] did not match, and b[j - 1] + 1 otherwise.
         auto length = [&](size_t j) -> size_t {
-            for (auto const& pair : prev) {
+            for (auto const& pair: prev) {
                 if (pair.j + 1 == j)
                     return pair.len + 1;
             }
@@ -507,7 +507,7 @@ void calculate_moves_sorted(std::vector<RowInfo>& rows, CollectionChangeSet& cha
     std::vector<LongestCommonSubsequenceCalculator::Row> a, b;
 
     a.reserve(rows.size());
-    for (auto& row : rows) {
+    for (auto& row: rows) {
         a.push_back({row.row_index, row.prev_tv_index});
     }
     std::sort(begin(a), end(a), [](auto lft, auto rgt) {
@@ -540,7 +540,7 @@ void calculate_moves_sorted(std::vector<RowInfo>& rows, CollectionChangeSet& cha
 
     // And then insert and delete rows as needed to align them
     size_t i = first_difference, j = first_difference;
-    for (auto match : matches) {
+    for (auto match: matches) {
         for (; i < match.i; ++i)
             changeset.deletions.add(a[i].tv_index);
         for (; j < match.j; ++j)
@@ -626,7 +626,7 @@ CollectionChangeBuilder CollectionChangeBuilder::calculate(std::vector<size_t> c
     std::sort(begin(new_rows), end(new_rows),
               [](auto& lft, auto& rgt) { return lft.tv_index < rgt.tv_index; });
 
-    for (auto& row : new_rows) {
+    for (auto& row: new_rows) {
         if (row_did_change(row.row_index)) {
             ret.modifications.add(row.tv_index);
         }
@@ -650,7 +650,7 @@ CollectionChangeBuilder CollectionChangeBuilder::calculate(std::vector<size_t> c
             rows.erase(rows.begin() + it->first, rows.begin() + it->second);
         }
 
-        for (auto i : ret.insertions.as_indexes()) {
+        for (auto i: ret.insertions.as_indexes()) {
             rows.insert(rows.begin() + i, next_rows[i]);
         }
 

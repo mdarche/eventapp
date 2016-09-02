@@ -48,7 +48,7 @@ NS_ASSUME_NONNULL_BEGIN
 
  `RLMResults` cannot be directly instantiated.
  */
-@interface RLMResults<RLMObjectType: RLMObject *> : NSObject<RLMCollection, NSFastEnumeration>
+@interface RLMResults<RLMObjectType: RLMObject *>: NSObject<RLMCollection, NSFastEnumeration>
 
 #pragma mark - Properties
 
@@ -124,7 +124,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (NSUInteger)indexOfObjectWhere:(NSString *)predicateFormat, ...;
 
-/// :nodoc:
+///:nodoc:
 - (NSUInteger)indexOfObjectWhere:(NSString *)predicateFormat args:(va_list)args;
 
 /**
@@ -145,7 +145,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (RLMResults<RLMObjectType> *)objectsWhere:(NSString *)predicateFormat, ...;
 
-/// :nodoc:
+///:nodoc:
 - (RLMResults<RLMObjectType> *)objectsWhere:(NSString *)predicateFormat args:(va_list)args;
 
 /**
@@ -300,7 +300,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (nullable NSNumber *)averageOfProperty:(NSString *)property;
 
-/// :nodoc:
+///:nodoc:
 - (id)objectAtIndexedSubscript:(NSUInteger)index;
 
 #pragma mark - Unavailable Methods
@@ -326,7 +326,7 @@ NS_ASSUME_NONNULL_BEGIN
  For more information, please see the "Inverse Relationships" section in the
  [documentation](https://realm.io/docs/objc/latest/#relationships).
  */
-@interface RLMLinkingObjects<RLMObjectType: RLMObject *> : RLMResults
+@interface RLMLinkingObjects<RLMObjectType: RLMObject *>: RLMResults
 @end
 
 NS_ASSUME_NONNULL_END

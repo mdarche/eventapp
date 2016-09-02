@@ -13,7 +13,7 @@ extension HanekeGlobals {
     // It'd be better to define this in the DiskFetcher class but Swift doesn't allow to declare an enum in a generic type
     public struct DiskFetcher {
         
-        public enum ErrorCode : Int {
+        public enum ErrorCode: Int {
             case InvalidData = -500
         }
         
@@ -21,7 +21,7 @@ extension HanekeGlobals {
     
 }
 
-public class DiskFetcher<T : DataConvertible> : Fetcher<T> {
+public class DiskFetcher<T: DataConvertible>: Fetcher<T> {
     
     let path: String
     var cancelled = false
@@ -32,7 +32,7 @@ public class DiskFetcher<T : DataConvertible> : Fetcher<T> {
         super.init(key: key)
     }
     
-    // MARK: Fetcher
+    // MARK: - Fetcher
     
     public override func fetch(failure fail: ((NSError?) -> ()), success succeed: (T.Result) -> ()) {
         self.cancelled = false
@@ -47,14 +47,14 @@ public class DiskFetcher<T : DataConvertible> : Fetcher<T> {
         self.cancelled = true
     }
     
-    // MARK: Private
+    // MARK: - Private
     
     private func privateFetch(failure fail: ((NSError?) -> ()), success succeed: (T.Result) -> ()) {
         if self.cancelled {
             return
         }
         
-        let data : NSData
+        let data: NSData
         do {
             data = try NSData(contentsOfFile: self.path, options: NSDataReadingOptions())
         } catch {
@@ -71,7 +71,7 @@ public class DiskFetcher<T : DataConvertible> : Fetcher<T> {
             return
         }
         
-        guard let value : T.Result = T.convertFromData(data) else {
+        guard let value: T.Result = T.convertFromData(data) else {
             let localizedFormat = NSLocalizedString("Failed to convert value from data at path %@", comment: "Error description")
             let description = String(format:localizedFormat, self.path)
             let error = errorWithCode(HanekeGlobals.DiskFetcher.ErrorCode.InvalidData.rawValue, description: description)

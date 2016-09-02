@@ -10,9 +10,9 @@ import UIKit
 
 class EditProfileViewController: UITableViewController {
 
-    let imagePicker = UIImagePickerController()
-    let headerTitles = ["PUBLIC PROFILE", "PRIVATE INFORMATION"]
-    private var editProfileImage : Bool?
+    private let imagePicker = UIImagePickerController()
+    private let headerTitles = ["PUBLIC PROFILE", "PRIVATE INFORMATION"]
+    private var editProfileImage: Bool?
     
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var coverImage: UIImageView!
@@ -28,7 +28,7 @@ class EditProfileViewController: UITableViewController {
     @IBOutlet weak var saveButton: UIButton!
     
     
-    // MARK: View's Lifecycle
+    // MARK: - View's Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,7 +41,7 @@ class EditProfileViewController: UITableViewController {
     }
     
     
-    // MARK: Class Functions
+    // MARK: - Class Functions
     
     func setCurrentInformation() {
         // TODO: Grab data from disk
@@ -72,7 +72,7 @@ class EditProfileViewController: UITableViewController {
     }
     
     
-    // MARK: Tableview Functions
+    // MARK: - Tableview Functions
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 2
@@ -88,16 +88,10 @@ class EditProfileViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
-        let header = UIView()
-        header.backgroundColor = UIColor(red: 225/255, green: 228/255, blue: 234/255, alpha: 1.0)
+        let header = Utility.createTableHeader(Colors.primaryGray, bottomBorder: false, tableView: self.tableView)
         
-        let headerLabel = UILabel(frame: CGRectMake(12, 0, 150, 30))
-        headerLabel.font = UIFont(name: "Roboto-Medium", size: 12)
-        headerLabel.textColor = UIColor(white: 0, alpha: 0.3)
-        
-        headerLabel.textAlignment = .Left
+        let headerLabel = Utility.createHeaderLabel(Colors.labelBlack)
         headerLabel.text = self.tableView(self.tableView, titleForHeaderInSection: section)
-        
         header.addSubview(headerLabel)
         
         return header
@@ -107,7 +101,7 @@ class EditProfileViewController: UITableViewController {
 
 extension EditProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String: AnyObject]) {
         let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage
         if editProfileImage == true {
             profileImage.image = pickedImage

@@ -16,10 +16,16 @@ class SettingsViewController: UITableViewController {
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var saveButton: UIButton!
     
+    
+    // MARK: - View's Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         visualize()
     }
+    
+    
+    // MARK: - Class Functions
     
     func visualize() {
         saveButton.layer.cornerRadius = saveButton.frame.size.height/2

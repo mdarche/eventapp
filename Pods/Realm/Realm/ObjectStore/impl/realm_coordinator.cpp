@@ -58,7 +58,7 @@ std::shared_ptr<RealmCoordinator> RealmCoordinator::get_existing_coordinator(Str
 {
     std::lock_guard<std::mutex> lock(s_coordinator_mutex);
     auto it = s_coordinators_per_path.find(path);
-    return it == s_coordinators_per_path.end() ? nullptr : it->second.lock();
+    return it == s_coordinators_per_path.end() ? nullptr: it->second.lock();
 }
 
 std::shared_ptr<Realm> RealmCoordinator::get_realm(Realm::Config config)
@@ -100,7 +100,7 @@ std::shared_ptr<Realm> RealmCoordinator::get_realm(Realm::Config config)
     }
 
     if (config.cache) {
-        for (auto& cachedRealm : m_weak_realm_notifiers) {
+        for (auto& cachedRealm: m_weak_realm_notifiers) {
             if (cachedRealm.is_cached_for_current_thread()) {
                 // can be null if we jumped in between ref count hitting zero and
                 // unregister_realm() getting the lock
@@ -124,7 +124,7 @@ std::shared_ptr<Realm> RealmCoordinator::get_realm()
 
 const Schema* RealmCoordinator::get_schema() const noexcept
 {
-    return m_weak_realm_notifiers.empty() ? nullptr : m_config.schema.get();
+    return m_weak_realm_notifiers.empty() ? nullptr: m_config.schema.get();
 }
 
 void RealmCoordinator::update_schema(Schema const& schema)
@@ -163,7 +163,7 @@ void RealmCoordinator::clear_cache()
     {
         std::lock_guard<std::mutex> lock(s_coordinator_mutex);
 
-        for (auto& weak_coordinator : s_coordinators_per_path) {
+        for (auto& weak_coordinator: s_coordinators_per_path) {
             auto coordinator = weak_coordinator.second.lock();
             if (!coordinator) {
                 continue;
@@ -172,7 +172,7 @@ void RealmCoordinator::clear_cache()
             coordinator->m_notifier = nullptr;
 
             // Gather a list of all of the realms which will be removed
-            for (auto& weak_realm_notifier : coordinator->m_weak_realm_notifiers) {
+            for (auto& weak_realm_notifier: coordinator->m_weak_realm_notifiers) {
                 if (auto realm = weak_realm_notifier.realm()) {
                     realms_to_close.push_back(realm);
                 }
@@ -184,7 +184,7 @@ void RealmCoordinator::clear_cache()
 
     // Close all of the previously cached Realms. This can't be done while
     // s_coordinator_mutex is held as it may try to re-lock it.
-    for (auto& weak_realm : realms_to_close) {
+    for (auto& weak_realm: realms_to_close) {
         if (auto realm = weak_realm.lock()) {
             realm->close();
         }
@@ -196,11 +196,11 @@ void RealmCoordinator::clear_all_caches()
     std::vector<std::weak_ptr<RealmCoordinator>> to_clear;
     {
         std::lock_guard<std::mutex> lock(s_coordinator_mutex);
-        for (auto iter : s_coordinators_per_path) {
+        for (auto iter: s_coordinators_per_path) {
             to_clear.push_back(iter.second);
         }
     }
-    for (auto weak_coordinator : to_clear) {
+    for (auto weak_coordinator: to_clear) {
         if (auto coordinator = weak_coordinator.lock()) {
             coordinator->clear_cache();
         }
@@ -305,7 +305,7 @@ void RealmCoordinator::on_change()
     run_async_notifiers();
 
     std::lock_guard<std::mutex> lock(m_realm_mutex);
-    for (auto& realm : m_weak_realm_notifiers) {
+    for (auto& realm: m_weak_realm_notifiers) {
         realm.notify();
     }
 }
@@ -315,7 +315,7 @@ class IncrementalChangeInfo {
 public:
     IncrementalChangeInfo(SharedGroup& sg,
                           std::vector<std::shared_ptr<_impl::CollectionNotifier>>& notifiers)
-    : m_sg(sg)
+   : m_sg(sg)
     {
         if (notifiers.empty())
             return;
@@ -448,14 +448,14 @@ void RealmCoordinator::run_async_notifiers()
         // Each Info has all of the changes between that source version and the
         // next source version, and they'll be merged together later after
         // releasing the lock
-        for (auto& notifier : new_notifiers) {
+        for (auto& notifier: new_notifiers) {
             new_notifier_change_info.advance_incremental(notifier->version());
             notifier->attach_to(*m_advancer_sg);
             notifier->add_required_change_info(new_notifier_change_info.current());
         }
         new_notifier_change_info.advance_to_final(SharedGroup::VersionID{});
 
-        for (auto& notifier : new_notifiers) {
+        for (auto& notifier: new_notifiers) {
             notifier->detach();
         }
         version = m_advancer_sg->get_version_of_current_transaction();
@@ -471,27 +471,27 @@ void RealmCoordinator::run_async_notifiers()
     // Advance the non-new notifiers to the same version as we advanced the new
     // ones to (or the latest if there were no new ones)
     IncrementalChangeInfo change_info(*m_notifier_sg, notifiers);
-    for (auto& notifier : notifiers) {
+    for (auto& notifier: notifiers) {
         notifier->add_required_change_info(change_info.current());
     }
     change_info.advance_to_final(version);
 
     // Attach the new notifiers to the main SG and move them to the main list
-    for (auto& notifier : new_notifiers) {
+    for (auto& notifier: new_notifiers) {
         notifier->attach_to(*m_notifier_sg);
     }
     std::move(new_notifiers.begin(), new_notifiers.end(), std::back_inserter(notifiers));
 
     // Change info is now all ready, so the notifiers can now perform their
     // background work
-    for (auto& notifier : notifiers) {
+    for (auto& notifier: notifiers) {
         notifier->run();
     }
 
     // Reacquire the lock while updating the fields that are actually read on
     // other threads
     lock.lock();
-    for (auto& notifier : notifiers) {
+    for (auto& notifier: notifiers) {
         notifier->prepare_handover();
     }
     m_notifiers = std::move(notifiers);
@@ -526,7 +526,7 @@ void RealmCoordinator::advance_to_ready(Realm& realm)
     auto& sg = Realm::Internal::get_shared_group(realm);
 
     auto get_notifier_version = [&] {
-        for (auto& notifier : m_notifiers) {
+        for (auto& notifier: m_notifiers) {
             auto version = notifier->version();
             if (version != SharedGroup::VersionID{}) {
                 return version;
@@ -568,7 +568,7 @@ void RealmCoordinator::advance_to_ready(Realm& realm)
             continue;
 
         // Query version now matches the SG version, so we can deliver them
-        for (auto& notifier : m_notifiers) {
+        for (auto& notifier: m_notifiers) {
             if (notifier->deliver(realm, sg, m_async_error)) {
                 notifiers.push_back(notifier);
             }
@@ -576,7 +576,7 @@ void RealmCoordinator::advance_to_ready(Realm& realm)
         break;
     }
 
-    for (auto& notifier : notifiers) {
+    for (auto& notifier: notifiers) {
         notifier->call_callbacks();
     }
 }
@@ -587,14 +587,14 @@ void RealmCoordinator::process_available_async(Realm& realm)
     decltype(m_notifiers) notifiers;
     {
         std::lock_guard<std::mutex> lock(m_notifier_mutex);
-        for (auto& notifier : m_notifiers) {
+        for (auto& notifier: m_notifiers) {
             if (notifier->deliver(realm, sg, m_async_error)) {
                 notifiers.push_back(notifier);
             }
         }
     }
 
-    for (auto& notifier : notifiers) {
+    for (auto& notifier: notifiers) {
         notifier->call_callbacks();
     }
 }

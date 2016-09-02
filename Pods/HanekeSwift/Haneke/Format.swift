@@ -12,19 +12,19 @@ public struct Format<T> {
     
     public let name: String
     
-    public let diskCapacity : UInt64
+    public let diskCapacity: UInt64
     
-    public var transform : ((T) -> (T))?
+    public var transform: ((T) -> (T))?
     
-    public var convertToData : (T -> NSData)?
+    public var convertToData: (T -> NSData)?
 
-    public init(name: String, diskCapacity : UInt64 = UINT64_MAX, transform: ((T) -> (T))? = nil) {
+    public init(name: String, diskCapacity: UInt64 = UINT64_MAX, transform: ((T) -> (T))? = nil) {
         self.name = name
         self.diskCapacity = diskCapacity
         self.transform = transform
     }
     
-    public func apply(value : T) -> T {
+    public func apply(value: T) -> T {
         var transformed = value
         if let transform = self.transform {
             transformed = transform(value)
@@ -32,7 +32,7 @@ public struct Format<T> {
         return transformed
     }
     
-    var isIdentity : Bool {
+    var isIdentity: Bool {
         return self.transform == nil
     }
 
@@ -46,13 +46,13 @@ public struct ImageResizer {
     
     public typealias T = UIImage
     
-    public let allowUpscaling : Bool
+    public let allowUpscaling: Bool
     
-    public let size : CGSize
+    public let size: CGSize
     
     public let scaleMode: ScaleMode
     
-    public let compressionQuality : Float
+    public let compressionQuality: Float
     
     public init(size: CGSize = CGSizeZero, scaleMode: ScaleMode = .None, allowUpscaling: Bool = true, compressionQuality: Float = 1.0) {
         self.size = size

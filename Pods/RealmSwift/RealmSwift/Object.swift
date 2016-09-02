@@ -70,7 +70,7 @@ See our [Cocoa guide](http://realm.io/docs/cocoa) for more details.
 @objc(RealmSwiftObject)
 public class Object: RLMObjectBase {
 
-    // MARK: Initializers
+    // MARK: - Initializers
 
     /**
     Initialize a standalone (unpersisted) `Object`.
@@ -98,7 +98,7 @@ public class Object: RLMObjectBase {
     }
 
 
-    // MARK: Properties
+    // MARK: - Properties
 
     /// The `Realm` this object belongs to, or `nil` if the object
     /// does not belong to a realm (the object is standalone).
@@ -133,14 +133,14 @@ public class Object: RLMObjectBase {
 
     /**
     WARNING: This is an internal helper method not intended for public use.
-    :nodoc:
+   :nodoc:
     */
     public override class func objectUtilClass(_ isSwift: Bool) -> AnyClass {
         return ObjectUtil.self
     }
 
 
-    // MARK: Object Customization
+    // MARK: - Object Customization
 
     /**
     Override to designate a property as the primary key for an `Object` subclass. Only properties of
@@ -169,7 +169,7 @@ public class Object: RLMObjectBase {
     public class func indexedProperties() -> [String] { return [] }
 
 
-    // MARK: Key-Value Coding & Subscripting
+    // MARK: - Key-Value Coding & Subscripting
 
     /// Returns or sets the value of the property with the given name.
     public subscript(key: String) -> AnyObject? {
@@ -194,7 +194,7 @@ public class Object: RLMObjectBase {
         }
     }
 
-    // MARK: Dynamic list
+    // MARK: - Dynamic list
 
     /**
     This method is useful only in specialized circumstances, for example, when building
@@ -209,13 +209,13 @@ public class Object: RLMObjectBase {
 
     - returns: A List of DynamicObjects
 
-    :nodoc:
+   :nodoc:
     */
     public func dynamicList(_ propertyName: String) -> List<DynamicObject> {
         return unsafeBitCast(listForProperty(prop: RLMValidatedGetProperty(self, propertyName)), to: List<DynamicObject>.self)
     }
 
-    // MARK: Equatable
+    // MARK: - Equatable
 
     /**
     Returns whether both objects are equal.
@@ -229,13 +229,13 @@ public class Object: RLMObjectBase {
         return RLMObjectBaseAreEqual(self as RLMObjectBase?, object as? RLMObjectBase)
     }
 
-    // MARK: Private functions
+    // MARK: - Private functions
 
     // FIXME: None of these functions should be exposed in the public interface.
 
     /**
     WARNING: This is an internal initializer not intended for public use.
-    :nodoc:
+   :nodoc:
     */
     public override required init(realm: RLMRealm, schema: RLMObjectSchema) {
         super.init(realm: realm, schema: schema)
@@ -243,7 +243,7 @@ public class Object: RLMObjectBase {
 
     /**
     WARNING: This is an internal initializer not intended for public use.
-    :nodoc:
+   :nodoc:
     */
     public override required init(value: AnyObject, schema: RLMSchema) {
         super.init(value: value, schema: schema)
@@ -268,7 +268,7 @@ public class Object: RLMObjectBase {
 
 
 /// Object interface which allows untyped getters and setters for Objects.
-/// :nodoc:
+///:nodoc:
 public final class DynamicObject: Object {
     private var listProperties = [String: List<DynamicObject>]()
     private var optionalProperties = [String: RLMOptionalBase]()
@@ -299,23 +299,23 @@ public final class DynamicObject: Object {
         return nil
     }
 
-    /// :nodoc:
+    ///:nodoc:
     public override func value(forUndefinedKey key: String) -> AnyObject? {
         return self[key]
     }
 
-    /// :nodoc:
+    ///:nodoc:
     public override func setValue(_ value: AnyObject?, forUndefinedKey key: String) {
         self[key] = value
     }
 
-    /// :nodoc:
+    ///:nodoc:
     public override class func shouldIncludeInDefaultSchema() -> Bool {
         return false
     }
 }
 
-/// :nodoc:
+///:nodoc:
 /// Internal class. Do not use directly.
 @objc(RealmSwiftObjectUtil)
 public class ObjectUtil: NSObject {
@@ -409,7 +409,7 @@ public class ObjectUtil: NSObject {
         }.flatMap { (prop: Mirror.Child) in
             (prop.label!, prop.value as! LinkingObjectsBase)
         }
-        return properties.reduce([String : [String: String ]]()) { (dictionary, property) in
+        return properties.reduce([String: [String: String ]]()) { (dictionary, property) in
             var d = dictionary
             let (name, results) = property
             d[name] = ["class": results.objectClassName, "property": results.propertyName]
@@ -472,7 +472,7 @@ public class ObjectUtil: NSObject {
 @objc(RealmSwiftObject)
 public class Object: RLMObjectBase {
 
-    // MARK: Initializers
+    // MARK: - Initializers
 
     /**
      Initializes an unmanaged instance of a Realm object.
@@ -506,7 +506,7 @@ public class Object: RLMObjectBase {
     }
 
 
-    // MARK: Properties
+    // MARK: - Properties
 
     /// The Realm which manages the object, or `nil` if the object is unmanaged.
     public var realm: Realm? {
@@ -540,14 +540,14 @@ public class Object: RLMObjectBase {
 
     /**
     WARNING: This is an internal helper method not intended for public use.
-    :nodoc:
+   :nodoc:
     */
     public override class func objectUtilClass(isSwift: Bool) -> AnyClass {
         return ObjectUtil.self
     }
 
 
-    // MARK: Object Customization
+    // MARK: - Object Customization
 
     /**
      Override this method to specify the name of a property to be used as the primary key.
@@ -578,7 +578,7 @@ public class Object: RLMObjectBase {
     public class func indexedProperties() -> [String] { return [] }
 
 
-    // MARK: Key-Value Coding & Subscripting
+    // MARK: - Key-Value Coding & Subscripting
 
     /// Returns or sets the value of the property with the given name.
     public subscript(key: String) -> AnyObject? {
@@ -603,7 +603,7 @@ public class Object: RLMObjectBase {
         }
     }
 
-    // MARK: Dynamic list
+    // MARK: - Dynamic list
 
     /**
      Returns a list of `DynamicObject`s for a given property name.
@@ -616,13 +616,13 @@ public class Object: RLMObjectBase {
 
     - returns: A list of `DynamicObject`s.
 
-    :nodoc:
+   :nodoc:
     */
     public func dynamicList(propertyName: String) -> List<DynamicObject> {
         return unsafeBitCast(listForProperty(RLMValidatedGetProperty(self, propertyName)), List<DynamicObject>.self)
     }
 
-    // MARK: Equatable
+    // MARK: - Equatable
 
     /**
      Returns whether two Realm objects are equal.
@@ -636,13 +636,13 @@ public class Object: RLMObjectBase {
         return RLMObjectBaseAreEqual(self as RLMObjectBase?, object as? RLMObjectBase)
     }
 
-    // MARK: Private functions
+    // MARK: - Private functions
 
     // FIXME: None of these functions should be exposed in the public interface.
 
     /**
     WARNING: This is an internal initializer not intended for public use.
-    :nodoc:
+   :nodoc:
     */
     public override required init(realm: RLMRealm, schema: RLMObjectSchema) {
         super.init(realm: realm, schema: schema)
@@ -650,7 +650,7 @@ public class Object: RLMObjectBase {
 
     /**
     WARNING: This is an internal initializer not intended for public use.
-    :nodoc:
+   :nodoc:
     */
     public override required init(value: AnyObject, schema: RLMSchema) {
         super.init(value: value, schema: schema)
@@ -675,7 +675,7 @@ public class Object: RLMObjectBase {
 
 
 /// Object interface which allows untyped getters and setters for Objects.
-/// :nodoc:
+///:nodoc:
 public final class DynamicObject: Object {
     private var listProperties = [String: List<DynamicObject>]()
     private var optionalProperties = [String: RLMOptionalBase]()
@@ -706,23 +706,23 @@ public final class DynamicObject: Object {
         return nil
     }
 
-    /// :nodoc:
+    ///:nodoc:
     public override func valueForUndefinedKey(key: String) -> AnyObject? {
         return self[key]
     }
 
-    /// :nodoc:
+    ///:nodoc:
     public override func setValue(value: AnyObject?, forUndefinedKey key: String) {
         self[key] = value
     }
 
-    /// :nodoc:
+    ///:nodoc:
     public override class func shouldIncludeInDefaultSchema() -> Bool {
         return false
     }
 }
 
-/// :nodoc:
+///:nodoc:
 /// Internal class. Do not use directly.
 @objc(RealmSwiftObjectUtil)
 public class ObjectUtil: NSObject {
@@ -816,7 +816,7 @@ public class ObjectUtil: NSObject {
         }.flatMap { (prop: Mirror.Child) in
             (prop.label!, prop.value as! LinkingObjectsBase)
         }
-        return properties.reduce([:] as [String : [String: String ]]) { (dictionary, property) in
+        return properties.reduce([:] as [String: [String: String ]]) { (dictionary, property) in
             var d = dictionary
             let (name, results) = property
             d[name] = ["class": results.objectClassName, "property": results.propertyName]

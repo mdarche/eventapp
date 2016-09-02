@@ -10,8 +10,8 @@ import UIKit
 
 class ProfileHeader: UICollectionReusableView {
     
-    private var newValue : Bool?
-    private var isFollowing : Bool {
+    private var newValue: Bool?
+    private var isFollowing: Bool {
         get {
             // TODO: Query following dictionary here
             newValue = true

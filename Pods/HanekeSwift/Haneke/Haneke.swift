@@ -16,7 +16,7 @@ public struct HanekeGlobals {
 
 public struct Shared {
     
-    public static var imageCache : Cache<UIImage> {
+    public static var imageCache: Cache<UIImage> {
         struct Static {
             static let name = "shared-images"
             static let cache = Cache<UIImage>(name: name)
@@ -24,7 +24,7 @@ public struct Shared {
         return Static.cache
     }
     
-    public static var dataCache : Cache<NSData> {
+    public static var dataCache: Cache<NSData> {
         struct Static {
             static let name = "shared-data"
             static let cache = Cache<NSData>(name: name)
@@ -32,7 +32,7 @@ public struct Shared {
         return Static.cache
     }
     
-    public static var stringCache : Cache<String> {
+    public static var stringCache: Cache<String> {
         struct Static {
             static let name = "shared-strings"
             static let cache = Cache<String>(name: name)
@@ -40,7 +40,7 @@ public struct Shared {
         return Static.cache
     }
     
-    public static var JSONCache : Cache<JSON> {
+    public static var JSONCache: Cache<JSON> {
         struct Static {
             static let name = "shared-json"
             static let cache = Cache<JSON>(name: name)

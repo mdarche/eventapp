@@ -25,8 +25,8 @@ class MediaFeedCell: UICollectionViewCell {
         
         let delta = 1 - ((featuredHeight - CGRectGetHeight(frame)) / (featuredHeight - standardHeight))
         
-        let minAlpha : CGFloat = 0
-        let maxAlpha : CGFloat = 0.4
+        let minAlpha: CGFloat = 0
+        let maxAlpha: CGFloat = 0.4
         
         imageCoverView.alpha = maxAlpha - (delta * (maxAlpha - minAlpha))
         

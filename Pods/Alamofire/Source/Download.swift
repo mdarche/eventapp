@@ -59,7 +59,7 @@ extension Manager {
         return request
     }
 
-    // MARK: Request
+    // MARK: - Request
 
     /**
         Creates a download request for the specified method, URL string, parameters, parameter encoding, headers
@@ -105,7 +105,7 @@ extension Manager {
         return download(.Request(URLRequest.URLRequest), destination: destination)
     }
 
-    // MARK: Resume Data
+    // MARK: - Resume Data
 
     /**
         Creates a request for downloading from the resume data produced from a previous request cancellation.
@@ -124,7 +124,7 @@ extension Manager {
     }
 }
 
-// MARK: -
+// MARK: - -
 
 extension Request {
     /**
@@ -170,7 +170,7 @@ extension Request {
         return data
     }
 
-    // MARK: - DownloadTaskDelegate
+    // MARK: - - DownloadTaskDelegate
 
     class DownloadTaskDelegate: TaskDelegate, NSURLSessionDownloadDelegate {
         var downloadTask: NSURLSessionDownloadTask? { return task as? NSURLSessionDownloadTask }
@@ -179,15 +179,15 @@ extension Request {
         var resumeData: NSData?
         override var data: NSData? { return resumeData }
 
-        // MARK: - NSURLSessionDownloadDelegate
+        // MARK: - - NSURLSessionDownloadDelegate
 
-        // MARK: Override Closures
+        // MARK: - Override Closures
 
         var downloadTaskDidFinishDownloadingToURL: ((NSURLSession, NSURLSessionDownloadTask, NSURL) -> NSURL)?
         var downloadTaskDidWriteData: ((NSURLSession, NSURLSessionDownloadTask, Int64, Int64, Int64) -> Void)?
         var downloadTaskDidResumeAtOffset: ((NSURLSession, NSURLSessionDownloadTask, Int64, Int64) -> Void)?
 
-        // MARK: Delegate Methods
+        // MARK: - Delegate Methods
 
         func URLSession(
             session: NSURLSession,

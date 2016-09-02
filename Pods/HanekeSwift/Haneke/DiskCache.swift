@@ -20,9 +20,9 @@ public class DiskCache {
     
     public let path: String
 
-    public var size : UInt64 = 0
+    public var size: UInt64 = 0
 
-    public var capacity : UInt64 = 0 {
+    public var capacity: UInt64 = 0 {
         didSet {
             dispatch_async(self.cacheQueue, {
                 self.controlCapacity()
@@ -30,7 +30,7 @@ public class DiskCache {
         }
     }
 
-    public lazy var cacheQueue : dispatch_queue_t = {
+    public lazy var cacheQueue: dispatch_queue_t = {
         let queueName = HanekeGlobals.Domain + "." + (self.path as NSString).lastPathComponent
         let cacheQueue = dispatch_queue_create(queueName, nil)
         return cacheQueue
@@ -118,12 +118,12 @@ public class DiskCache {
 
     public func pathForKey(key: String) -> String {
         let escapedFilename = key.escapedFilename()
-        let filename = escapedFilename.characters.count < Int(NAME_MAX) ? escapedFilename : key.MD5Filename()
+        let filename = escapedFilename.characters.count < Int(NAME_MAX) ? escapedFilename: key.MD5Filename()
         let keyPath = (self.path as NSString).stringByAppendingPathComponent(filename)
         return keyPath
     }
     
-    // MARK: Private
+    // MARK: - Private
     
     private func calculateSize() {
         let fileManager = NSFileManager.defaultManager()
@@ -134,7 +134,7 @@ public class DiskCache {
             for pathComponent in contents {
                 let path = (cachePath as NSString).stringByAppendingPathComponent(pathComponent)
                 do {
-                    let attributes : NSDictionary = try fileManager.attributesOfItemAtPath(path)
+                    let attributes: NSDictionary = try fileManager.attributesOfItemAtPath(path)
                     size += attributes.fileSize()
                 } catch {
                     Log.error("Failed to read file size of \(path)", error as NSError)
@@ -151,7 +151,7 @@ public class DiskCache {
         
         let fileManager = NSFileManager.defaultManager()
         let cachePath = self.path
-        fileManager.enumerateContentsOfDirectoryAtPath(cachePath, orderedByProperty: NSURLContentModificationDateKey, ascending: true) { (URL : NSURL, _, inout stop : Bool) -> Void in
+        fileManager.enumerateContentsOfDirectoryAtPath(cachePath, orderedByProperty: NSURLContentModificationDateKey, ascending: true) { (URL: NSURL, _, inout stop: Bool) -> Void in
             
             if let path = URL.path {
                 self.removeFileAtPath(path)
@@ -164,7 +164,7 @@ public class DiskCache {
     private func setDataSync(data: NSData, key: String) {
         let path = self.pathForKey(key)
         let fileManager = NSFileManager.defaultManager()
-        let previousAttributes : NSDictionary? = try? fileManager.attributesOfItemAtPath(path)
+        let previousAttributes: NSDictionary? = try? fileManager.attributesOfItemAtPath(path)
         
         do {
             try data.writeToFile(path, options: NSDataWritingOptions.AtomicWrite)
@@ -183,7 +183,7 @@ public class DiskCache {
         let fileManager = NSFileManager.defaultManager()
         let now = NSDate()
         do {
-            try fileManager.setAttributes([NSFileModificationDate : now], ofItemAtPath: path)
+            try fileManager.setAttributes([NSFileModificationDate: now], ofItemAtPath: path)
             return true
         } catch {
             Log.error("Failed to update access date", error as NSError)
@@ -194,7 +194,7 @@ public class DiskCache {
     private func removeFileAtPath(path: String) {
         let fileManager = NSFileManager.defaultManager()
         do {
-            let attributes : NSDictionary =  try fileManager.attributesOfItemAtPath(path)
+            let attributes: NSDictionary =  try fileManager.attributesOfItemAtPath(path)
             let fileSize = attributes.fileSize()
             do {
                 try fileManager.removeItemAtPath(path)
@@ -213,7 +213,7 @@ public class DiskCache {
     }
 }
 
-private func isNoSuchFileError(error : NSError?) -> Bool {
+private func isNoSuchFileError(error: NSError?) -> Bool {
     if let error = error {
         return NSCocoaErrorDomain == error.domain && error.code == NSFileReadNoSuchFileError
     }

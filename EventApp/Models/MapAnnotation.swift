@@ -9,17 +9,17 @@
 import Foundation
 import MapKit
 
-class MapAnnotation : NSObject, MKAnnotation {
+class MapAnnotation: NSObject, MKAnnotation {
    
-    var type : String?
-    var eventType : String?
-    var coordinate : CLLocationCoordinate2D
-    var venueTitle : String?
-    var venueType : String?
-    var title : String?
+    var type: String?
+    var eventType: String?
+    var coordinate: CLLocationCoordinate2D
+    var venueTitle: String?
+    var venueType: String?
+    var title: String?
     var subtitle: String?
-    var activityId : Int?
-    var coverImage : NSURL?
+    var activityId: Int?
+    var coverImage: NSURL?
     
     init(activity: Activity) {
         activityId = activity.activityId

@@ -54,14 +54,14 @@
 
 @end
 
-@interface RLMDynamicObject : RLMObject
+@interface RLMDynamicObject: RLMObject
 
 @end
 
 // A reference to an object's row that doesn't keep the object accessor alive.
 // Used by some Swift property types, such as LinkingObjects, to avoid retain cycles
 // with their containing object.
-@interface RLMWeakObjectHandle : NSObject
+@interface RLMWeakObjectHandle: NSObject
 
 - (instancetype)initWithObject:(RLMObjectBase *)object;
 
@@ -92,7 +92,7 @@ FOUNDATION_EXTERN Class RLMObjectUtilClass(BOOL isSwift);
 FOUNDATION_EXTERN const NSUInteger RLMDescriptionMaxDepth;
 
 @class RLMProperty, RLMArray;
-@interface RLMObjectUtil : NSObject
+@interface RLMObjectUtil: NSObject
 
 + (NSArray<NSString *> *)ignoredPropertiesForClass:(Class)cls;
 + (NSArray<NSString *> *)indexedPropertiesForClass:(Class)cls;

@@ -48,8 +48,8 @@ static bool rawTypeIsComputedProperty(NSString *rawType) {
 + (instancetype)propertyForObjectStoreProperty:(const realm::Property &)prop {
     return [[RLMProperty alloc] initWithName:@(prop.name.c_str())
                                         type:(RLMPropertyType)prop.type
-                             objectClassName:prop.object_type.length() ? @(prop.object_type.c_str()) : nil
-                      linkOriginPropertyName:prop.link_origin_property_name.length() ? @(prop.link_origin_property_name.c_str()) : nil
+                             objectClassName:prop.object_type.length() ? @(prop.object_type.c_str()): nil
+                      linkOriginPropertyName:prop.link_origin_property_name.length() ? @(prop.link_origin_property_name.c_str()): nil
                                      indexed:prop.is_indexed
                                     optional:prop.is_nullable];
 }
@@ -90,7 +90,7 @@ static bool rawTypeIsComputedProperty(NSString *rawType) {
         int asciiCode = [_name characterAtIndex:0];
         BOOL shouldUppercase = asciiCode >= 'a' && asciiCode <= 'z';
         NSString *firstChar = [_name substringToIndex:1];
-        firstChar = shouldUppercase ? firstChar.uppercaseString : firstChar;
+        firstChar = shouldUppercase ? firstChar.uppercaseString: firstChar;
         _setterName = [NSString stringWithFormat:@"set%@%@:", firstChar, [_name substringFromIndex:1]];
     }
 
@@ -388,7 +388,7 @@ static bool rawTypeIsComputedProperty(NSString *rawType) {
         // it actually sets it to 1.
         [obj setValue:@2 forKey:name];
         NSNumber *value = [obj valueForKey:name];
-        _type = value.intValue == 2 ? RLMPropertyTypeInt : RLMPropertyTypeBool;
+        _type = value.intValue == 2 ? RLMPropertyTypeInt: RLMPropertyTypeBool;
     }
 
     // update getter/setter names
@@ -543,17 +543,17 @@ static bool rawTypeIsComputedProperty(NSString *rawType) {
 }
 
 - (NSString *)description {
-    return [NSString stringWithFormat:@"%@ {\n\ttype = %@;\n\tobjectClassName = %@;\n\tlinkOriginPropertyName = %@;\n\tindexed = %@;\n\tisPrimary = %@;\n\toptional = %@;\n}", self.name, RLMTypeToString(self.type), self.objectClassName, self.linkOriginPropertyName, self.indexed ? @"YES" : @"NO", self.isPrimary ? @"YES" : @"NO", self.optional ? @"YES" : @"NO"];
+    return [NSString stringWithFormat:@"%@ {\n\ttype = %@;\n\tobjectClassName = %@;\n\tlinkOriginPropertyName = %@;\n\tindexed = %@;\n\tisPrimary = %@;\n\toptional = %@;\n}", self.name, RLMTypeToString(self.type), self.objectClassName, self.linkOriginPropertyName, self.indexed ? @"YES": @"NO", self.isPrimary ? @"YES": @"NO", self.optional ? @"YES": @"NO"];
 }
 
 - (realm::Property)objectStoreCopy {
     realm::Property p;
     p.name = _name.UTF8String;
     p.type = (realm::PropertyType)_type;
-    p.object_type = _objectClassName ? _objectClassName.UTF8String : "";
+    p.object_type = _objectClassName ? _objectClassName.UTF8String: "";
     p.is_indexed = _indexed;
     p.is_nullable = _optional;
-    p.link_origin_property_name = _linkOriginPropertyName ? _linkOriginPropertyName.UTF8String : "";
+    p.link_origin_property_name = _linkOriginPropertyName ? _linkOriginPropertyName.UTF8String: "";
     return p;
 }
 

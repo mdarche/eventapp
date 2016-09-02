@@ -71,7 +71,7 @@ void RLMInstallUncaughtExceptionHandler() {
         NSNumber *threadID = @(pthread_mach_thread_np(pthread_self()));
         {
             std::lock_guard<std::mutex> lock(s_realmCacheMutex);
-            for (auto const& realmsPerThread : s_realmsPerPath) {
+            for (auto const& realmsPerThread: s_realmsPerPath) {
                 if (RLMRealm *realm = [realmsPerThread.second objectForKey:threadID]) {
                     if (realm.inWriteTransaction) {
                         [realm cancelWriteTransaction];
@@ -86,9 +86,9 @@ void RLMInstallUncaughtExceptionHandler() {
 }
 
 namespace {
-class RLMNotificationHelper : public realm::BindingContext {
+class RLMNotificationHelper: public realm::BindingContext {
 public:
-    RLMNotificationHelper(RLMRealm *realm) : _realm(realm) { }
+    RLMNotificationHelper(RLMRealm *realm): _realm(realm) { }
 
     bool can_deliver_notifications() const noexcept override {
         // The main thread may not be in a run loop yet if we're called from

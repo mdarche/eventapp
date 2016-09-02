@@ -10,25 +10,25 @@ import UIKit
 
 struct MediaFeedLayoutConstants {
     struct Cell {
-        static let standardHeight : CGFloat = 85
-        static let featuredHeight : CGFloat = 380
+        static let standardHeight: CGFloat = 85
+        static let featuredHeight: CGFloat = 380
     }
 }
 
-class MediaFeedLayout : UICollectionViewLayout {
+class MediaFeedLayout: UICollectionViewLayout {
     
-    // MARK: Properties and variables
+    // MARK: - Properties and variables
     
-    let dragOffset : CGFloat = 180.0
+    let dragOffset: CGFloat = 180.0
     var cache = [UICollectionViewLayoutAttributes]()
     
-    var featuredItemIndex : Int {
+    var featuredItemIndex: Int {
         get {
             return max(0, Int(collectionView!.contentOffset.y / dragOffset))
         }
     }
     
-    var nextItemPercentageOffset : CGFloat {
+    var nextItemPercentageOffset: CGFloat {
         get {
             return (collectionView!.contentOffset.y / dragOffset) - CGFloat(featuredItemIndex)
         }
@@ -52,7 +52,7 @@ class MediaFeedLayout : UICollectionViewLayout {
         }
     }
     
-    // MARK: UICollectionViewLayout
+    // MARK: - UICollectionViewLayout
     
     override func collectionViewContentSize() -> CGSize {
         let contentHeight = (CGFloat(numberOfItems) * dragOffset) + (height - dragOffset)

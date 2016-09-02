@@ -22,7 +22,7 @@
 
 import Foundation
 
-// MARK: ResponseSerializer
+// MARK: - ResponseSerializer
 
 /**
     The type in which all response serializers must conform to in order to serialize a response.
@@ -40,7 +40,7 @@ public protocol ResponseSerializerType {
     var serializeResponse: (NSURLRequest?, NSHTTPURLResponse?, NSData?, NSError?) -> Result<SerializedObject, ErrorObject> { get }
 }
 
-// MARK: -
+// MARK: - -
 
 /**
     A generic `ResponseSerializerType` used to serialize a request, response, and data into a serialized object.
@@ -69,7 +69,7 @@ public struct ResponseSerializer<Value, Error: ErrorType>: ResponseSerializerTyp
     }
 }
 
-// MARK: - Default
+// MARK: - - Default
 
 extension Request {
 
@@ -135,7 +135,7 @@ extension Request {
     }
 }
 
-// MARK: - Data
+// MARK: - - Data
 
 extension Request {
 
@@ -172,7 +172,7 @@ extension Request {
     }
 }
 
-// MARK: - String
+// MARK: - - String
 
 extension Request {
 
@@ -240,7 +240,7 @@ extension Request {
     }
 }
 
-// MARK: - JSON
+// MARK: - - JSON
 
 extension Request {
 
@@ -296,7 +296,7 @@ extension Request {
     }
 }
 
-// MARK: - Property List
+// MARK: - - Property List
 
 extension Request {
 

@@ -143,7 +143,7 @@ NSString *RLMRealmPathForFile(NSString *fileName) {
 
 - (NSString *)description {
     NSMutableString *string = [NSMutableString stringWithFormat:@"%@ {\n", self.class];
-    for (NSString *key : c_RLMRealmConfigurationProperties) {
+    for (NSString *key: c_RLMRealmConfigurationProperties) {
         NSString *description = [[self valueForKey:key] description];
         description = [description stringByReplacingOccurrencesOfString:@"\n" withString:@"\n\t"];
 
@@ -168,7 +168,7 @@ static void RLMNSStringToStdString(std::string &out, NSString *in) {
 }
 
 - (NSURL *)fileURL {
-    return _config.in_memory ? nil : [NSURL fileURLWithPath:@(_config.path.c_str())];
+    return _config.in_memory ? nil: [NSURL fileURLWithPath:@(_config.path.c_str())];
 }
 
 - (void)setFileURL:(NSURL *)fileURL {
@@ -198,7 +198,7 @@ static void RLMNSStringToStdString(std::string &out, NSString *in) {
 }
 
 - (NSData *)encryptionKey {
-    return _config.encryption_key.empty() ? nil : [NSData dataWithBytes:_config.encryption_key.data() length:_config.encryption_key.size()];
+    return _config.encryption_key.empty() ? nil: [NSData dataWithBytes:_config.encryption_key.data() length:_config.encryption_key.size()];
 }
 
 - (void)setEncryptionKey:(NSData * __nullable)encryptionKey {

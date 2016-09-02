@@ -30,9 +30,9 @@ static bool compare_by_name(ObjectSchema const& lft, ObjectSchema const& rgt) {
     return lft.name < rgt.name;
 }
 
-Schema::Schema(std::initializer_list<ObjectSchema> types) : Schema(base(types)) { }
+Schema::Schema(std::initializer_list<ObjectSchema> types): Schema(base(types)) { }
 
-Schema::Schema(base types) : base(std::move(types)) {
+Schema::Schema(base types): base(std::move(types)) {
     std::sort(begin(), end(), compare_by_name);
 }
 
@@ -65,13 +65,13 @@ Schema::const_iterator Schema::find(ObjectSchema const& object) const noexcept
 void Schema::validate() const
 {
     std::vector<ObjectSchemaValidationException> exceptions;
-    for (auto const& object : *this) {
+    for (auto const& object: *this) {
         const Property *primary = nullptr;
 
         std::vector<Property> all_properties = object.persisted_properties;
         all_properties.insert(all_properties.end(), object.computed_properties.begin(), object.computed_properties.end());
 
-        for (auto const& prop : all_properties) {
+        for (auto const& prop: all_properties) {
             // check object_type existence
             if (!prop.object_type.empty()) {
                 auto it = find(prop.object_type);

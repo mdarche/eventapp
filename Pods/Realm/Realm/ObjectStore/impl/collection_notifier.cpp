@@ -72,7 +72,7 @@ DeepChangeChecker::DeepChangeChecker(TransactionChangeInfo const& info,
 : m_info(info)
 , m_root_table(root_table)
 , m_root_table_ndx(root_table.get_index_in_group())
-, m_root_modifications(m_root_table_ndx < info.tables.size() ? &info.tables[m_root_table_ndx].modifications : nullptr)
+, m_root_modifications(m_root_table_ndx < info.tables.size() ? &info.tables[m_root_table_ndx].modifications: nullptr)
 , m_related_tables(related_tables)
 {
 }
@@ -97,7 +97,7 @@ bool DeepChangeChecker::check_outgoing_links(size_t table_ndx,
         return false;
     };
 
-    for (auto const& link : it->links) {
+    for (auto const& link: it->links) {
         if (already_checking(link.col_ndx))
             continue;
         if (!link.is_list) {
@@ -171,7 +171,7 @@ size_t CollectionNotifier::add_callback(CollectionChangeCallback callback)
 
     auto next_token = [=] {
         size_t token = 0;
-        for (auto& callback : m_callbacks) {
+        for (auto& callback: m_callbacks) {
             if (token <= callback.token) {
                 token = callback.token + 1;
             }
@@ -250,7 +250,7 @@ void CollectionNotifier::add_required_change_info(TransactionChangeInfo& info)
 
     if (max->table_ndx >= info.table_modifications_needed.size())
         info.table_modifications_needed.resize(max->table_ndx + 1, false);
-    for (auto& tbl : m_related_tables) {
+    for (auto& tbl: m_related_tables) {
         info.table_modifications_needed[tbl.table_ndx] = true;
     }
 }

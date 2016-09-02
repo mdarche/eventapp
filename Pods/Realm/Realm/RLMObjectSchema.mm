@@ -183,7 +183,7 @@ using namespace realm;
     NSDictionary *linkingObjectsProperties = [objectUtil linkingObjectsPropertiesForClass:objectClass];
 
     // For Swift classes we need an instance of the object when parsing properties
-    id swiftObjectInstance = isSwiftClass ? [[objectClass alloc] init] : nil;
+    id swiftObjectInstance = isSwiftClass ? [[objectClass alloc] init]: nil;
 
     unsigned int count;
     objc_property_t *props = class_copyPropertyList(objectClass, &count);
@@ -395,7 +395,7 @@ using namespace realm;
 - (realm::ObjectSchema)objectStoreCopy {
     ObjectSchema objectSchema;
     objectSchema.name = _className.UTF8String;
-    objectSchema.primary_key = _primaryKeyProperty ? _primaryKeyProperty.name.UTF8String : "";
+    objectSchema.primary_key = _primaryKeyProperty ? _primaryKeyProperty.name.UTF8String: "";
     for (RLMProperty *prop in _properties) {
         Property p = [prop objectStoreCopy];
         p.is_primary = (prop == _primaryKeyProperty);
@@ -413,7 +413,7 @@ using namespace realm;
 
     // create array of RLMProperties
     NSMutableArray *properties = [NSMutableArray arrayWithCapacity:objectSchema.persisted_properties.size()];
-    for (const Property &prop : objectSchema.persisted_properties) {
+    for (const Property &prop: objectSchema.persisted_properties) {
         RLMProperty *property = [RLMProperty propertyForObjectStoreProperty:prop];
         property.isPrimary = (prop.name == objectSchema.primary_key);
         [properties addObject:property];
@@ -421,7 +421,7 @@ using namespace realm;
     schema.properties = properties;
 
     NSMutableArray *computedProperties = [NSMutableArray arrayWithCapacity:objectSchema.computed_properties.size()];
-    for (const Property &prop : objectSchema.computed_properties) {
+    for (const Property &prop: objectSchema.computed_properties) {
         [computedProperties addObject:[RLMProperty propertyForObjectStoreProperty:prop]];
     }
     schema.computedProperties = computedProperties;
@@ -455,7 +455,7 @@ using namespace realm;
         }
     }
 
-    return tableCol < _propertiesInTableOrder.size() ? _propertiesInTableOrder[tableCol] : nil;
+    return tableCol < _propertiesInTableOrder.size() ? _propertiesInTableOrder[tableCol]: nil;
 }
 
 - (NSArray *)swiftGenericProperties {

@@ -22,7 +22,7 @@ import Realm
 // These types don't change when wrapping in Swift
 // so we just typealias them to remove the 'RLM' prefix
 
-// MARK: Aliases
+// MARK: - Aliases
 
 /**
  `PropertyType` is an enum describing all property types supported in Realm models.

@@ -22,7 +22,7 @@ import Realm.Private
 
 #if swift(>=3.0)
 
-/// :nodoc:
+///:nodoc:
 /// Internal class. Do not use directly.
 public class ListBase: RLMListBase {
     // Printable requires a description property defined in Swift (and not obj-c),
@@ -56,7 +56,7 @@ public final class List<T: Object>: ListBase {
     /// Element type contained in this collection.
     public typealias Element = T
 
-    // MARK: Properties
+    // MARK: - Properties
 
     /// The Realm the objects in this List belong to, or `nil` if the List's
     /// owning object does not belong to a Realm (the List is standalone).
@@ -67,14 +67,14 @@ public final class List<T: Object>: ListBase {
     /// Indicates if the List can no longer be accessed.
     public var isInvalidated: Bool { return _rlmArray.isInvalidated }
 
-    // MARK: Initializers
+    // MARK: - Initializers
 
     /// Creates a `List` that holds objects of type `T`.
     public override init() {
         super.init(array: RLMArray(objectClassName: (T.self as Object.Type).className()))
     }
 
-    // MARK: Index Retrieval
+    // MARK: - Index Retrieval
 
     /**
     Returns the index of the given object, or `nil` if the object is not in the List.
@@ -112,7 +112,7 @@ public final class List<T: Object>: ListBase {
         return indexOfObject(for: Predicate(format: predicateFormat, argumentArray: args))
     }
 
-    // MARK: Object Retrieval
+    // MARK: - Object Retrieval
 
     /**
     Returns the object at the given `index` on get.
@@ -141,7 +141,7 @@ public final class List<T: Object>: ListBase {
     /// Returns the last object in the List, or `nil` if empty.
     public var last: T? { return _rlmArray.lastObject() as! T? }
 
-    // MARK: KVC
+    // MARK: - KVC
 
     /**
     Returns an Array containing the results of invoking `valueForKey(_:)` using key on each of the collection's objects.
@@ -179,7 +179,7 @@ public final class List<T: Object>: ListBase {
         return _rlmArray.setValue(value, forKeyPath: key)
     }
 
-    // MARK: Filtering
+    // MARK: - Filtering
 
     /**
     Returns `Results` containing elements that match the given predicate.
@@ -203,7 +203,7 @@ public final class List<T: Object>: ListBase {
         return Results<T>(_rlmArray.objects(with: predicate))
     }
 
-    // MARK: Sorting
+    // MARK: - Sorting
 
     /**
     Returns `Results` containing elements sorted by the given property.
@@ -228,7 +228,7 @@ public final class List<T: Object>: ListBase {
         return Results<T>(_rlmArray.sortedResults(using: sortDescriptors.map { $0.rlmSortDescriptorValue }))
     }
 
-    // MARK: Aggregate Operations
+    // MARK: - Aggregate Operations
 
     /**
     Returns the minimum value of the given property.
@@ -282,7 +282,7 @@ public final class List<T: Object>: ListBase {
         return filter(using: Predicate(value: true)).average(ofProperty: property)
     }
 
-    // MARK: Mutation
+    // MARK: - Mutation
 
     /**
     Appends the given object to the end of the List. If the object is from a
@@ -402,7 +402,7 @@ public final class List<T: Object>: ListBase {
         _rlmArray.exchangeObject(at: UInt(index1), withObjectAt: UInt(index2))
     }
 
-    // MARK: Notifications
+    // MARK: - Notifications
 
     /**
     Register a block to be called each time the List changes.
@@ -471,15 +471,15 @@ public final class List<T: Object>: ListBase {
     }
 }
 
-extension List : RealmCollection, RangeReplaceableCollection {
-    // MARK: Sequence Support
+extension List: RealmCollection, RangeReplaceableCollection {
+    // MARK: - Sequence Support
 
     /// Returns a `RLMIterator` that yields successive elements in the `List`.
     public func makeIterator() -> RLMIterator<T> {
         return RLMIterator(collection: _rlmArray)
     }
 
-    // MARK: RangeReplaceableCollection Support
+    // MARK: - RangeReplaceableCollection Support
 
     /**
     Replace the given `subRange` of elements with `newElements`.
@@ -487,7 +487,7 @@ extension List : RealmCollection, RangeReplaceableCollection {
     - parameter subRange:    The range of elements to be replaced.
     - parameter newElements: The new elements to be inserted into the List.
     */
-    public func replaceSubrange<C : Collection where C.Iterator.Element == T>(_ subrange: Range<Int>,
+    public func replaceSubrange<C: Collection where C.Iterator.Element == T>(_ subrange: Range<Int>,
                                                                               with newElements: C) {
         for _ in subrange.lowerBound..<subrange.upperBound {
             remove(objectAtIndex: subrange.lowerBound)
@@ -509,7 +509,7 @@ extension List : RealmCollection, RangeReplaceableCollection {
     public func index(after i: Int) -> Int { return i + 1 }
     public func index(before i: Int) -> Int { return i - 1 }
 
-    /// :nodoc:
+    ///:nodoc:
     public func _addNotificationBlock(block: (RealmCollectionChange<AnyRealmCollection<T>>) -> Void) ->
         NotificationToken {
         let anyCollection = AnyRealmCollection(self)
@@ -519,7 +519,7 @@ extension List : RealmCollection, RangeReplaceableCollection {
     }
 }
 
-// MARK: Unavailable
+// MARK: - Unavailable
 
 extension List {
     @available(*, unavailable, renamed:"append(objectsIn:)")
@@ -535,7 +535,7 @@ extension List {
     public func remove(at index: Int) { }
 
     @available(*, unavailable, renamed:"isInvalidated")
-    public var invalidated : Bool { fatalError() }
+    public var invalidated: Bool { fatalError() }
 
     @available(*, unavailable, renamed:"indexOfObject(for:)")
     public func index(of predicate: Predicate) -> Int? { fatalError() }
@@ -572,7 +572,7 @@ extension List {
 
 #else
 
-/// :nodoc:
+///:nodoc:
 /// Internal class. Do not use directly.
 public class ListBase: RLMListBase {
     // Printable requires a description property defined in Swift (and not obj-c),
@@ -609,7 +609,7 @@ public final class List<T: Object>: ListBase {
     /// The type of the elements contained within the collection.
     public typealias Element = T
 
-    // MARK: Properties
+    // MARK: - Properties
 
     /// The Realm which manages the list. Returns `nil` for unmanaged lists.
     public var realm: Realm? {
@@ -619,14 +619,14 @@ public final class List<T: Object>: ListBase {
     /// Indicates if the list can no longer be accessed.
     public var invalidated: Bool { return _rlmArray.invalidated }
 
-    // MARK: Initializers
+    // MARK: - Initializers
 
     /// Creates a `List` that holds Realm model objects of type `T`.
     public override init() {
         super.init(array: RLMArray(objectClassName: (T.self as Object.Type).className()))
     }
 
-    // MARK: Index Retrieval
+    // MARK: - Index Retrieval
 
     /**
      Returns the index of an object in the list, or `nil` if the object is not present.
@@ -655,7 +655,7 @@ public final class List<T: Object>: ListBase {
         return indexOf(NSPredicate(format: predicateFormat, argumentArray: args))
     }
 
-    // MARK: Object Retrieval
+    // MARK: - Object Retrieval
 
     /**
      Returns the object at the given index (get), or replaces the object at the given index (set).
@@ -683,7 +683,7 @@ public final class List<T: Object>: ListBase {
     /// Returns the last object in the list, or `nil` if the list is empty.
     public var last: T? { return _rlmArray.lastObject() as! T? }
 
-    // MARK: KVC
+    // MARK: - KVC
 
     /**
      Returns an `Array` containing the results of invoking `valueForKey(_:)` using `key` on each of the collection's
@@ -717,7 +717,7 @@ public final class List<T: Object>: ListBase {
         return _rlmArray.setValue(value, forKey: key)
     }
 
-    // MARK: Filtering
+    // MARK: - Filtering
 
     /**
      Returns a `Results` containing all objects matching the given predicate in the list.
@@ -737,7 +737,7 @@ public final class List<T: Object>: ListBase {
         return Results<T>(_rlmArray.objectsWithPredicate(predicate))
     }
 
-    // MARK: Sorting
+    // MARK: - Sorting
 
     /**
      Returns a `Results` containing the objects in the list, but sorted.
@@ -769,7 +769,7 @@ public final class List<T: Object>: ListBase {
         return Results<T>(_rlmArray.sortedResultsUsingDescriptors(sortDescriptors.map { $0.rlmSortDescriptorValue }))
     }
 
-    // MARK: Aggregate Operations
+    // MARK: - Aggregate Operations
 
     /**
      Returns the minimum (lowest) value of the given property among all the objects in the list.
@@ -823,7 +823,7 @@ public final class List<T: Object>: ListBase {
         return filter(NSPredicate(value: true)).average(property)
     }
 
-    // MARK: Mutation
+    // MARK: - Mutation
 
     /**
      Appends the given object to the end of the list.
@@ -946,7 +946,7 @@ public final class List<T: Object>: ListBase {
         _rlmArray.exchangeObjectAtIndex(UInt(index1), withObjectAtIndex: UInt(index2))
     }
 
-    // MARK: Notifications
+    // MARK: - Notifications
 
     /**
      Registers a block to be called each time the list changes.
@@ -1017,14 +1017,14 @@ public final class List<T: Object>: ListBase {
 }
 
 extension List: RealmCollectionType, RangeReplaceableCollectionType {
-    // MARK: Sequence Support
+    // MARK: - Sequence Support
 
     /// Returns an `RLMGenerator` that yields successive elements in the list.
     public func generate() -> RLMGenerator<T> {
         return RLMGenerator(collection: _rlmArray)
     }
 
-    // MARK: RangeReplaceableCollection Support
+    // MARK: - RangeReplaceableCollection Support
 
     /**
      Replace the given `subRange` of elements with `newElements`.
@@ -1051,7 +1051,7 @@ extension List: RealmCollectionType, RangeReplaceableCollectionType {
     /// zero or more applications of `successor()`.
     public var endIndex: Int { return count }
 
-    /// :nodoc:
+    ///:nodoc:
     public func _addNotificationBlock(block: (RealmCollectionChange<AnyRealmCollection<T>>) -> Void) ->
         NotificationToken {
         let anyCollection = AnyRealmCollection(self)

@@ -37,7 +37,7 @@ using namespace realm;
 // The source realm for a migration has to use a SharedGroup to be able to share
 // the file with the destination realm, but we don't want to let the user call
 // beginWriteTransaction on it as that would make no sense.
-@interface RLMMigrationRealm : RLMRealm
+@interface RLMMigrationRealm: RLMRealm
 @end
 
 @implementation RLMMigrationRealm
@@ -73,8 +73,8 @@ using namespace realm;
 
 - (void)enumerateObjects:(NSString *)className block:(RLMObjectMigrationBlock)block {
     // get all objects
-    RLMResults *objects = [_realm.schema schemaForClassName:className] ? [_realm allObjects:className] : nil;
-    RLMResults *oldObjects = [_oldRealm.schema schemaForClassName:className] ? [_oldRealm allObjects:className] : nil;
+    RLMResults *objects = [_realm.schema schemaForClassName:className] ? [_realm allObjects:className]: nil;
+    RLMResults *oldObjects = [_oldRealm.schema schemaForClassName:className] ? [_oldRealm allObjects:className]: nil;
 
     if (objects && oldObjects) {
         for (long i = oldObjects.count - 1; i >= 0; i--) {

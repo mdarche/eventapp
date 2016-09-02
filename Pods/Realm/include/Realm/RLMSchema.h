@@ -30,7 +30,7 @@ NS_ASSUME_NONNULL_BEGIN
 
  Schemas map to collections of tables in the core database.
  */
-@interface RLMSchema : NSObject<NSCopying>
+@interface RLMSchema: NSObject<NSCopying>
 
 #pragma mark - Properties
 

@@ -10,7 +10,7 @@ import UIKit
 
 class EventHeader: UICollectionReusableView {
 
-    var mainColor : UIColor?
+    var mainColor: UIColor?
     
     @IBOutlet weak var subheaderView: UIView!
     @IBOutlet weak var infoView: UIView!

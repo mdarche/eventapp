@@ -119,7 +119,7 @@ ChunkedRangeVector::iterator ChunkedRangeVector::ensure_space(iterator pos)
     prev->data.resize(prev->data.size() - to_move);
 
     size_t moved_count = 0;
-    for (auto range : new_pos->data)
+    for (auto range: new_pos->data)
         moved_count += range.second - range.first;
 
     prev->end = prev->data.back().second;
@@ -151,7 +151,7 @@ ChunkedRangeVector::iterator ChunkedRangeVector::erase(iterator pos)
     if (chunk.data.size() == 0) {
         pos.m_outer = m_data.erase(pos.m_outer);
         pos.m_end = m_data.end();
-        pos.m_inner = pos.m_outer == m_data.end() ? nullptr : &pos.m_outer->data.front();
+        pos.m_inner = pos.m_outer == m_data.end() ? nullptr: &pos.m_outer->data.front();
         verify();
         return pos;
     }
@@ -162,7 +162,7 @@ ChunkedRangeVector::iterator ChunkedRangeVector::erase(iterator pos)
         pos.m_inner = &chunk.data[offset];
     else {
         ++pos.m_outer;
-        pos.m_inner = pos.m_outer == pos.m_end ? nullptr : &pos.m_outer->data.front();
+        pos.m_inner = pos.m_outer == pos.m_end ? nullptr: &pos.m_outer->data.front();
     }
 
     verify();
@@ -173,19 +173,19 @@ void ChunkedRangeVector::verify() const noexcept
 {
 #ifdef REALM_DEBUG
     size_t prev_end = -1;
-    for (auto range : *this) {
+    for (auto range: *this) {
         REALM_ASSERT(range.first < range.second);
         REALM_ASSERT(prev_end == size_t(-1) || range.first > prev_end);
         prev_end = range.second;
     }
 
-    for (auto& chunk : m_data) {
+    for (auto& chunk: m_data) {
         REALM_ASSERT(!chunk.data.empty());
         REALM_ASSERT(chunk.data.front().first == chunk.begin);
         REALM_ASSERT(chunk.data.back().second == chunk.end);
         REALM_ASSERT(chunk.count <= chunk.end - chunk.begin);
         size_t count = 0;
-        for (auto range : chunk.data)
+        for (auto range: chunk.data)
             count += range.second - range.first;
         REALM_ASSERT(count == chunk.count);
     }
@@ -209,7 +209,7 @@ private:
 ChunkedRangeVectorBuilder::ChunkedRangeVectorBuilder(ChunkedRangeVector const& expected)
 {
     size_t size = 0;
-    for (auto const& chunk : expected.m_data)
+    for (auto const& chunk: expected.m_data)
         size += chunk.data.size();
     m_data.resize(size / ChunkedRangeVector::max_size + 1);
     for (size_t i = 0; i < m_data.size() - 1; ++i)
@@ -266,7 +266,7 @@ std::vector<ChunkedRangeVector::Chunk> ChunkedRangeVectorBuilder::finalize()
 
 IndexSet::IndexSet(std::initializer_list<size_t> values)
 {
-    for (size_t v : values)
+    for (size_t v: values)
         add(v);
 }
 
@@ -351,7 +351,7 @@ void IndexSet::add(size_t index)
 void IndexSet::add(IndexSet const& other)
 {
     auto it = begin();
-    for (size_t index : other.as_indexes()) {
+    for (size_t index: other.as_indexes()) {
         it = do_add(find(index, it), index);
     }
 }
@@ -379,7 +379,7 @@ void IndexSet::add_shifted_by(IndexSet const& shifted_by, IndexSet const& values
 
 #ifdef REALM_DEBUG
     size_t expected = std::distance(as_indexes().begin(), as_indexes().end());
-    for (auto index : values.as_indexes()) {
+    for (auto index: values.as_indexes()) {
         if (!shifted_by.contains(index))
             ++expected;
     }
@@ -393,7 +393,7 @@ void IndexSet::add_shifted_by(IndexSet const& shifted_by, IndexSet const& values
     size_t skip_until = 0;
     size_t old_shift = 0;
     size_t new_shift = 0;
-    for (size_t index : values.as_indexes()) {
+    for (size_t index: values.as_indexes()) {
         for (; shift_it != shift_end && shift_it->first <= index; ++shift_it) {
             new_shift += shift_it->second - shift_it->first;
             skip_until = shift_it->second;
@@ -646,7 +646,7 @@ void IndexSet::remove(size_t index, size_t count)
 void IndexSet::remove(realm::IndexSet const& values)
 {
     auto it = begin();
-    for (auto range : values) {
+    for (auto range: values) {
         it = do_remove(it, range.first, range.second);
         if (it == end())
             return;
@@ -656,7 +656,7 @@ void IndexSet::remove(realm::IndexSet const& values)
 size_t IndexSet::shift(size_t index) const
 {
     // FIXME: optimize
-    for (auto range : *this) {
+    for (auto range: *this) {
         if (range.first > index)
             break;
         index += range.second - range.first;

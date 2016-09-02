@@ -67,7 +67,7 @@ extension Manager {
         return request
     }
 
-    // MARK: File
+    // MARK: - File
 
     /**
         Creates a request for uploading a file to the specified URL request.
@@ -106,7 +106,7 @@ extension Manager {
         return upload(mutableURLRequest, file: file)
     }
 
-    // MARK: Data
+    // MARK: - Data
 
     /**
         Creates a request for uploading data to the specified URL request.
@@ -146,7 +146,7 @@ extension Manager {
         return upload(mutableURLRequest, data: data)
     }
 
-    // MARK: Stream
+    // MARK: - Stream
 
     /**
         Creates a request for uploading a stream to the specified URL request.
@@ -186,7 +186,7 @@ extension Manager {
         return upload(mutableURLRequest, stream: stream)
     }
 
-    // MARK: MultipartFormData
+    // MARK: - MultipartFormData
 
     /// Default memory threshold used when encoding `MultipartFormData`.
     public static let MultipartFormDataEncodingMemoryThreshold: UInt64 = 10 * 1024 * 1024
@@ -334,23 +334,23 @@ extension Manager {
     }
 }
 
-// MARK: -
+// MARK: - -
 
 extension Request {
 
-    // MARK: - UploadTaskDelegate
+    // MARK: - - UploadTaskDelegate
 
     class UploadTaskDelegate: DataTaskDelegate {
         var uploadTask: NSURLSessionUploadTask? { return task as? NSURLSessionUploadTask }
         var uploadProgress: ((Int64, Int64, Int64) -> Void)!
 
-        // MARK: - NSURLSessionTaskDelegate
+        // MARK: - - NSURLSessionTaskDelegate
 
-        // MARK: Override Closures
+        // MARK: - Override Closures
 
         var taskDidSendBodyData: ((NSURLSession, NSURLSessionTask, Int64, Int64, Int64) -> Void)?
 
-        // MARK: Delegate Methods
+        // MARK: - Delegate Methods
 
         func URLSession(
             session: NSURLSession,

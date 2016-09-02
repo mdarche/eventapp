@@ -57,7 +57,7 @@ NS_ASSUME_NONNULL_BEGIN
  object. Instead, you can call the mutation methods on the `RLMArray` directly.
  */
 
-@interface RLMArray<RLMObjectType: RLMObject *> : NSObject<RLMCollection, NSFastEnumeration>
+@interface RLMArray<RLMObjectType: RLMObject *>: NSObject<RLMCollection, NSFastEnumeration>
 
 #pragma mark - Properties
 
@@ -226,7 +226,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (NSUInteger)indexOfObjectWhere:(NSString *)predicateFormat, ...;
 
-/// :nodoc:
+///:nodoc:
 - (NSUInteger)indexOfObjectWhere:(NSString *)predicateFormat args:(va_list)args;
 
 /**
@@ -247,7 +247,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (RLMResults<RLMObjectType> *)objectsWhere:(NSString *)predicateFormat, ...;
 
-/// :nodoc:
+///:nodoc:
 - (RLMResults<RLMObjectType> *)objectsWhere:(NSString *)predicateFormat args:(va_list)args;
 
 /**
@@ -278,10 +278,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (RLMResults<RLMObjectType> *)sortedResultsUsingDescriptors:(NSArray *)properties;
 
-/// :nodoc:
+///:nodoc:
 - (RLMObjectType)objectAtIndexedSubscript:(NSUInteger)index;
 
-/// :nodoc:
+///:nodoc:
 - (void)setObject:(RLMObjectType)newValue atIndexedSubscript:(NSUInteger)index;
 
 #pragma mark - Notifications
@@ -360,7 +360,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-/// :nodoc:
+///:nodoc:
 @interface RLMArray (Swift)
 // for use only in Swift class definitions
 - (instancetype)initWithObjectClassName:(NSString *)objectClassName;

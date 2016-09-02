@@ -19,7 +19,7 @@
 import Foundation
 import Realm
 
-// MARK: Internal Helpers
+// MARK: - Internal Helpers
 
 internal func notFoundToNil(index: UInt) -> Int? {
     if index == UInt(NSNotFound) {

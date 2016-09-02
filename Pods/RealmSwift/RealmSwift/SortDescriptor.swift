@@ -29,7 +29,7 @@ engine.
 */
 public struct SortDescriptor {
 
-    // MARK: Properties
+    // MARK: - Properties
 
     /// The name of the property which this sort descriptor orders results by.
     public let property: String
@@ -42,7 +42,7 @@ public struct SortDescriptor {
         return RLMSortDescriptor(property: property, ascending: ascending)
     }
 
-    // MARK: Initializers
+    // MARK: - Initializers
 
     /**
     Creates a `SortDescriptor` with the given property and ascending values.
@@ -55,7 +55,7 @@ public struct SortDescriptor {
         self.ascending = ascending
     }
 
-    // MARK: Functions
+    // MARK: - Functions
 
     /// Returns a copy of the `SortDescriptor` with the sort order reversed.
     public func reversed() -> SortDescriptor {
@@ -63,17 +63,17 @@ public struct SortDescriptor {
     }
 }
 
-// MARK: CustomStringConvertible
+// MARK: - CustomStringConvertible
 
 extension SortDescriptor: CustomStringConvertible {
     /// Returns a human-readable description of the sort descriptor.
     public var description: String {
-        let direction = ascending ? "ascending" : "descending"
+        let direction = ascending ? "ascending": "descending"
         return "SortDescriptor (property: \(property), direction: \(direction))"
     }
 }
 
-// MARK: Equatable
+// MARK: - Equatable
 
 extension SortDescriptor: Equatable {}
 
@@ -84,7 +84,7 @@ public func == (lhs: SortDescriptor, rhs: SortDescriptor) -> Bool {
         lhs.ascending == lhs.ascending
 }
 
-// MARK: StringLiteralConvertible
+// MARK: - StringLiteralConvertible
 
 extension SortDescriptor: StringLiteralConvertible {
 
@@ -132,7 +132,7 @@ extension SortDescriptor: StringLiteralConvertible {
  */
 public struct SortDescriptor {
 
-    // MARK: Properties
+    // MARK: - Properties
 
     /// The name of the property which the sort descriptor orders results by.
     public let property: String
@@ -145,7 +145,7 @@ public struct SortDescriptor {
         return RLMSortDescriptor(property: property, ascending: ascending)
     }
 
-    // MARK: Initializers
+    // MARK: - Initializers
 
     /**
      Initializes a sort descriptor with the given property and sort order values.
@@ -158,7 +158,7 @@ public struct SortDescriptor {
         self.ascending = ascending
     }
 
-    // MARK: Functions
+    // MARK: - Functions
 
     /// Returns a copy of the sort descriptor with the sort order reversed.
     public func reversed() -> SortDescriptor {
@@ -166,17 +166,17 @@ public struct SortDescriptor {
     }
 }
 
-// MARK: CustomStringConvertible
+// MARK: - CustomStringConvertible
 
 extension SortDescriptor: CustomStringConvertible {
     /// Returns a human-readable description of the sort descriptor.
     public var description: String {
-        let direction = ascending ? "ascending" : "descending"
+        let direction = ascending ? "ascending": "descending"
         return "SortDescriptor (property: \(property), direction: \(direction))"
     }
 }
 
-// MARK: Equatable
+// MARK: - Equatable
 
 extension SortDescriptor: Equatable {}
 
@@ -187,7 +187,7 @@ public func == (lhs: SortDescriptor, rhs: SortDescriptor) -> Bool {
         lhs.ascending == lhs.ascending
 }
 
-// MARK: StringLiteralConvertible
+// MARK: - StringLiteralConvertible
 
 extension SortDescriptor: StringLiteralConvertible {
 

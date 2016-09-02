@@ -92,7 +92,7 @@ func rotateLeft(v: UInt32, n: UInt32) -> UInt32 {
     return ((v << n) & 0xFFFFFFFF) | (v >> (32 - n))
 }
 
-class MD5 : HashBase {
+class MD5: HashBase {
     
     /** specifies the per-round shift amounts */
     private let s: [UInt32] = [7, 12, 17, 22,  7, 12, 17, 22,  7, 12, 17, 22,  7, 12, 17, 22,

@@ -49,7 +49,7 @@ NS_ASSUME_NONNULL_BEGIN
  all of its blocks on the same thread.
  */
 
-@interface RLMRealm : NSObject
+@interface RLMRealm: NSObject
 
 #pragma mark - Creating & Initializing a Realm
 
@@ -491,7 +491,7 @@ NS_REFINED_FOR_SWIFT;
  When you wish to stop, call the `-stop` method. Notifications are also stopped if
  the token is deallocated.
  */
-@interface RLMNotificationToken : NSObject
+@interface RLMNotificationToken: NSObject
 /// Stops notifications for the change subscription that returned this token.
 - (void)stop;
 @end

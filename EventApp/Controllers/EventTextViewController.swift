@@ -12,16 +12,21 @@ class EventTextViewController: UIViewController {
 
     @IBOutlet weak var containerView: UIView!
     
+    
+    // MARK: - View's Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         visualize()
     }
     
-    
     override func viewDidDisappear(animated: Bool) {
         super.viewDidDisappear(true)
         self.dismissViewControllerAnimated(true, completion: nil)
     }
+    
+    
+    // MARK: - Class Functions
     
     @IBAction func dismissPresed(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)

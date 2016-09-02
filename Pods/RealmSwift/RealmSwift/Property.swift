@@ -31,7 +31,7 @@ These properties map to columns in the core database.
 */
 public final class Property: CustomStringConvertible {
 
-    // MARK: Properties
+    // MARK: - Properties
 
     internal let rlmProperty: RLMProperty
 
@@ -53,14 +53,14 @@ public final class Property: CustomStringConvertible {
     /// Returns a human-readable description of this property.
     public var description: String { return rlmProperty.description }
 
-    // MARK: Initializers
+    // MARK: - Initializers
 
     internal init(_ rlmProperty: RLMProperty) {
         self.rlmProperty = rlmProperty
     }
 }
 
-// MARK: Equatable
+// MARK: - Equatable
 
 extension Property: Equatable {}
 
@@ -69,14 +69,14 @@ public func == (lhs: Property, rhs: Property) -> Bool { // swiftlint:disable:thi
     return lhs.rlmProperty.isEqual(to: rhs.rlmProperty)
 }
 
-// MARK: Unavailable
+// MARK: - Unavailable
 
 extension Property {
     @available(*, unavailable, renamed:"isIndexed")
-    public var indexed : Bool { fatalError() }
+    public var indexed: Bool { fatalError() }
 
     @available(*, unavailable, renamed:"isOptional")
-    public var optional : Bool { fatalError() }
+    public var optional: Bool { fatalError() }
 }
 
 #else
@@ -91,7 +91,7 @@ extension Property {
 */
 public final class Property: CustomStringConvertible {
 
-    // MARK: Properties
+    // MARK: - Properties
 
     internal let rlmProperty: RLMProperty
 
@@ -114,14 +114,14 @@ public final class Property: CustomStringConvertible {
     /// Returns a human-readable description of this property.
     public var description: String { return rlmProperty.description }
 
-    // MARK: Initializers
+    // MARK: - Initializers
 
     internal init(_ rlmProperty: RLMProperty) {
         self.rlmProperty = rlmProperty
     }
 }
 
-// MARK: Equatable
+// MARK: - Equatable
 
 extension Property: Equatable {}
 

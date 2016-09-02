@@ -13,7 +13,7 @@ extension HanekeGlobals {
     // It'd be better to define this in the NetworkFetcher class but Swift doesn't allow to declare an enum in a generic type
     public struct NetworkFetcher {
 
-        public enum ErrorCode : Int {
+        public enum ErrorCode: Int {
             case InvalidData = -400
             case MissingData = -401
             case InvalidStatusCode = -402
@@ -23,26 +23,26 @@ extension HanekeGlobals {
     
 }
 
-public class NetworkFetcher<T : DataConvertible> : Fetcher<T> {
+public class NetworkFetcher<T: DataConvertible>: Fetcher<T> {
     
-    let URL : NSURL
+    let URL: NSURL
     
-    public init(URL : NSURL) {
+    public init(URL: NSURL) {
         self.URL = URL
 
         let key =  URL.absoluteString
         super.init(key: key)
     }
     
-    public var session : NSURLSession { return NSURLSession.sharedSession() }
+    public var session: NSURLSession { return NSURLSession.sharedSession() }
     
-    var task : NSURLSessionDataTask? = nil
+    var task: NSURLSessionDataTask? = nil
     
     var cancelled = false
     
-    // MARK: Fetcher
+    // MARK: - Fetcher
     
-    public override func fetch(failure fail : ((NSError?) -> ()), success succeed : (T.Result) -> ()) {
+    public override func fetch(failure fail: ((NSError?) -> ()), success succeed: (T.Result) -> ()) {
         self.cancelled = false
         self.task = self.session.dataTaskWithURL(self.URL) {[weak self] (data, response, error) -> Void in
             if let strongSelf = self {
@@ -57,7 +57,7 @@ public class NetworkFetcher<T : DataConvertible> : Fetcher<T> {
         self.cancelled = true
     }
     
-    // MARK: Private
+    // MARK: - Private
     
     private func onReceiveData(data: NSData!, response: NSURLResponse!, error: NSError!, failure fail: ((NSError?) -> ()), success succeed: (T.Result) -> ()) {
 

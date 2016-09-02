@@ -49,7 +49,7 @@ Realm::Config::Config(const Config& c)
     }
 }
 
-Realm::Config::Config() : schema_version(ObjectStore::NotVersioned) { }
+Realm::Config::Config(): schema_version(ObjectStore::NotVersioned) { }
 Realm::Config::Config(Config&&) = default;
 Realm::Config::~Config() = default;
 
@@ -79,7 +79,7 @@ REALM_NOINLINE static void translate_file_exception(StringData path, bool read_o
     catch (util::File::PermissionDenied const& ex) {
         throw RealmFileException(RealmFileException::Kind::PermissionDenied, ex.get_path(),
                                  util::format("Unable to open a realm at path '%1'. Please use a path where your app has %2 permissions.",
-                                              ex.get_path(), read_only ? "read" : "read-write"),
+                                              ex.get_path(), read_only ? "read": "read-write"),
                                  ex.what());
     }
     catch (util::File::Exists const& ex) {
@@ -134,7 +134,7 @@ void Realm::open_with_config(const Config& config,
         }
         else {
             history = realm::make_client_history(config.path, config.encryption_key.data());
-            SharedGroup::DurabilityLevel durability = config.in_memory ? SharedGroup::durability_MemOnly :
+            SharedGroup::DurabilityLevel durability = config.in_memory ? SharedGroup::durability_MemOnly:
                                                                            SharedGroup::durability_Full;
             shared_group = std::make_unique<SharedGroup>(*history, durability, config.encryption_key.data(), !config.disable_format_upgrade,
                                                          [&](int from_version, int to_version) {
@@ -401,7 +401,7 @@ bool Realm::compact()
     }
 
     Group* group = read_group();
-    for (auto &object_schema : *m_config.schema) {
+    for (auto &object_schema: *m_config.schema) {
         ObjectStore::table_for_object_type(group, object_schema.name)->optimize();
     }
     m_shared_group->end_read();

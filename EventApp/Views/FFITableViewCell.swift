@@ -14,7 +14,7 @@ class FFITableViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var button: UIButton!
     
-    // MARK: Class's public methods
+    // MARK: - Class's public methods
     override func awakeFromNib() {
         super.awakeFromNib()
         self.visualize()

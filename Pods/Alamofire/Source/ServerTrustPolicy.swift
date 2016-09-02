@@ -58,7 +58,7 @@ public class ServerTrustPolicyManager {
     }
 }
 
-// MARK: -
+// MARK: - -
 
 extension NSURLSession {
     private struct AssociatedKeys {
@@ -75,7 +75,7 @@ extension NSURLSession {
     }
 }
 
-// MARK: - ServerTrustPolicy
+// MARK: - - ServerTrustPolicy
 
 /**
     The `ServerTrustPolicy` evaluates the server trust generally provided by an `NSURLAuthenticationChallenge` when 
@@ -116,7 +116,7 @@ public enum ServerTrustPolicy {
     case DisableEvaluation
     case CustomEvaluation((serverTrust: SecTrust, host: String) -> Bool)
 
-    // MARK: - Bundle Location
+    // MARK: - - Bundle Location
 
     /**
         Returns all certificates within the given bundle with a `.cer` file extension.
@@ -163,7 +163,7 @@ public enum ServerTrustPolicy {
         return publicKeys
     }
 
-    // MARK: - Evaluation
+    // MARK: - - Evaluation
 
     /**
         Evaluates whether the server trust is valid for the given host.
@@ -178,13 +178,13 @@ public enum ServerTrustPolicy {
 
         switch self {
         case let .PerformDefaultEvaluation(validateHost):
-            let policy = SecPolicyCreateSSL(true, validateHost ? host as CFString : nil)
+            let policy = SecPolicyCreateSSL(true, validateHost ? host as CFString: nil)
             SecTrustSetPolicies(serverTrust, [policy])
 
             serverTrustIsValid = trustIsValid(serverTrust)
         case let .PinCertificates(pinnedCertificates, validateCertificateChain, validateHost):
             if validateCertificateChain {
-                let policy = SecPolicyCreateSSL(true, validateHost ? host as CFString : nil)
+                let policy = SecPolicyCreateSSL(true, validateHost ? host as CFString: nil)
                 SecTrustSetPolicies(serverTrust, [policy])
 
                 SecTrustSetAnchorCertificates(serverTrust, pinnedCertificates)
@@ -208,7 +208,7 @@ public enum ServerTrustPolicy {
             var certificateChainEvaluationPassed = true
 
             if validateCertificateChain {
-                let policy = SecPolicyCreateSSL(true, validateHost ? host as CFString : nil)
+                let policy = SecPolicyCreateSSL(true, validateHost ? host as CFString: nil)
                 SecTrustSetPolicies(serverTrust, [policy])
 
                 certificateChainEvaluationPassed = trustIsValid(serverTrust)
@@ -233,7 +233,7 @@ public enum ServerTrustPolicy {
         return serverTrustIsValid
     }
 
-    // MARK: - Private - Trust Validation
+    // MARK: - - Private - Trust Validation
 
     private func trustIsValid(trust: SecTrust) -> Bool {
         var isValid = false
@@ -251,7 +251,7 @@ public enum ServerTrustPolicy {
         return isValid
     }
 
-    // MARK: - Private - Certificate Data
+    // MARK: - - Private - Certificate Data
 
     private func certificateDataForTrust(trust: SecTrust) -> [NSData] {
         var certificates: [SecCertificate] = []
@@ -269,7 +269,7 @@ public enum ServerTrustPolicy {
         return certificates.map { SecCertificateCopyData($0) as NSData }
     }
 
-    // MARK: - Private - Public Key Extraction
+    // MARK: - - Private - Public Key Extraction
 
     private static func publicKeysForTrust(trust: SecTrust) -> [SecKey] {
         var publicKeys: [SecKey] = []

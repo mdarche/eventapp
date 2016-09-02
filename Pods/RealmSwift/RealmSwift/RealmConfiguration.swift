@@ -36,7 +36,7 @@ extension Realm {
     */
     public struct Configuration {
 
-        // MARK: Default Configuration
+        // MARK: - Default Configuration
 
         /// Returns the default Realm.Configuration used to create Realms when no other
         /// configuration is explicitly specified (i.e. `Realm()`).
@@ -49,7 +49,7 @@ extension Realm {
             }
         }
 
-        // MARK: Initialization
+        // MARK: - Initialization
 
         /**
         Initializes a `Realm.Configuration`, suitable for creating new `Realm` instances.
@@ -84,7 +84,7 @@ extension Realm {
                 self.objectTypes = objectTypes
         }
 
-        // MARK: Configuration Properties
+        // MARK: - Configuration Properties
 
         /// The local URL to the realm file.
         /// Mutually exclusive with `inMemoryIdentifier`.
@@ -152,7 +152,7 @@ extension Realm {
         /// Allows to disable automatic format upgrades when accessing the Realm.
         internal var disableFormatUpgrade: Bool = false
 
-        // MARK: Private Methods
+        // MARK: - Private Methods
 
         internal var rlmConfiguration: RLMRealmConfiguration {
             let configuration = RLMRealmConfiguration()
@@ -193,7 +193,7 @@ extension Realm {
     }
 }
 
-// MARK: CustomStringConvertible
+// MARK: - CustomStringConvertible
 
 extension Realm.Configuration: CustomStringConvertible {
     /// Returns a human-readable description of the configuration.
@@ -222,7 +222,7 @@ extension Realm {
      */
     public struct Configuration {
 
-        // MARK: Default Configuration
+        // MARK: - Default Configuration
 
         /// Returns the default configuration used to create Realms when no other
         /// configuration is explicitly specified (i.e. `Realm()`).
@@ -235,7 +235,7 @@ extension Realm {
             }
         }
 
-        // MARK: Initialization
+        // MARK: - Initialization
 
         /**
         Initializes a `Realm.Configuration`, suitable for creating new `Realm` instances.
@@ -270,7 +270,7 @@ extension Realm {
                 self.objectTypes = objectTypes
         }
 
-        // MARK: Configuration Properties
+        // MARK: - Configuration Properties
 
         /// The local URL of the Realm file. Mutually exclusive with `inMemoryIdentifier`.
         public var fileURL: NSURL? {
@@ -345,7 +345,7 @@ extension Realm {
         /// If `true`, disables automatic format upgrades when accessing the Realm.
         internal var disableFormatUpgrade: Bool = false
 
-        // MARK: Private Methods
+        // MARK: - Private Methods
 
         internal var rlmConfiguration: RLMRealmConfiguration {
             let configuration = RLMRealmConfiguration()
@@ -386,7 +386,7 @@ extension Realm {
     }
 }
 
-// MARK: CustomStringConvertible
+// MARK: - CustomStringConvertible
 
 extension Realm.Configuration: CustomStringConvertible {
     /// Returns a human-readable description of the configuration.

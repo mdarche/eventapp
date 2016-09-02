@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoginViewController: UIViewController, UIScrollViewDelegate {
+class LoginViewController: UIViewController {
     
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var pageControl: UIPageControl!
@@ -17,16 +17,16 @@ class LoginViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet var appNameLabel: UILabel!
     @IBOutlet weak var facebookLoginButton: UIButton!
 
-    var imageViews = [UIImageView]()
-    var colorView = UIView()
-    var deviceName = String(UIDevice.currentDevice().type)
-    var deviceOS = UIDevice.currentDevice().systemVersion
+    private var imageViews = [UIImageView]()
+    private var colorView = UIView()
+    private var deviceName = String(UIDevice.currentDevice().type)
+    private var deviceOS = UIDevice.currentDevice().systemVersion
     
-    var backgrounds:[UIImage?] = [UIImage(named: "beachPartyDark"), UIImage(named: "login2"), UIImage(named:"login1")]
-    var strings = ["Find the most current activities near you, no matter where you are", "Explore the nightlife of a new city", "Get directions, venue ratings, and event information in real time"]
+    private var backgrounds:[UIImage?] = [UIImage(named: "beachPartyDark"), UIImage(named: "login2"), UIImage(named:"login1")]
+    private var strings = ["Find the most current activities near you, no matter where you are", "Explore the nightlife of a new city", "Get directions, venue ratings, and event information in real time"]
     
     
-    // MARK: View's Lifecycle
+    // MARK: - View's Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +34,7 @@ class LoginViewController: UIViewController, UIScrollViewDelegate {
     }
     
     
-    // MARK: Set Up Scrollview and Paging
+    // MARK: - Set Up Scrollview and Paging
     
     override func prefersStatusBarHidden() -> Bool {
         return true
@@ -45,8 +45,8 @@ class LoginViewController: UIViewController, UIScrollViewDelegate {
         scrollView.delegate = self
     
         
-        scrollView.frame = CGRectMake(0, 0, (self.view.frame.width + 3), self.view.frame.height)
-        var frame = CGRectMake(0, 0, self.view.frame.width, self.view.frame.height)
+        scrollView.frame = CGRect(x: 0, y: 0, width: (self.view.frame.width + 3), height: self.view.frame.height)
+        var frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
         let scrollViewHeight = self.scrollView.frame.height
         let scrollViewWidth = self.scrollView.frame.width
         
@@ -67,7 +67,7 @@ class LoginViewController: UIViewController, UIScrollViewDelegate {
             self.scrollView.addSubview(image)
         }
         
-        colorView.frame = CGRectMake(0, 0, scrollView.frame.width*3, scrollView.frame.height)
+        colorView.frame = CGRect(x: 0, y: 0, width: scrollView.frame.width*3, height: scrollView.frame.height)
         colorView.alpha = 0.4
         self.scrollView.addSubview(colorView)
         colorView.backgroundColor = Colors.primaryBlue
@@ -82,8 +82,12 @@ class LoginViewController: UIViewController, UIScrollViewDelegate {
     
     func changePage(sender: AnyObject) -> () {
         let x = CGFloat(pageControl.currentPage) * scrollView.frame.size.width
-        scrollView.setContentOffset(CGPointMake(x, 0), animated: true)
+        scrollView.setContentOffset(CGPoint(x: x, y: 0), animated: true)
     }
+}
+
+
+extension LoginViewController: UIScrollViewDelegate {
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
         // Vertical
@@ -98,7 +102,7 @@ class LoginViewController: UIViewController, UIScrollViewDelegate {
         let percentageHorizontalOffset = currentHorizontalOffset / maximumHorizontalOffset
         let percentageVerticalOffset = currentVerticalOffset / maximumVerticalOffset
         
-        scrollViewdidScrollToPercentageOffset(scrollView, percentageOffset: CGPointMake(percentageHorizontalOffset, percentageVerticalOffset))
+        scrollViewdidScrollToPercentageOffset(scrollView, percentageOffset: CGPoint(x: percentageHorizontalOffset, y: percentageVerticalOffset))
     }
     
     func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
@@ -125,19 +129,15 @@ class LoginViewController: UIViewController, UIScrollViewDelegate {
         
         
         if (percentageOffset.x < 0.5) {
-        // multiply the offset by 2 because we want 0.5 to be 100%
         colorView.backgroundColor = fadeFromColor(colors[0], toColor: colors[1], withPercentage: percentageOffset.x*2)
         } else {
-        // minus 0.5 because we want 0.5 to be 0%
         colorView.backgroundColor = fadeFromColor(colors[1], toColor: colors[2], withPercentage: (percentageOffset.x - 0.5)*2)
         }
         
     }
     
     func fadeImageAlpha(currentAlpha: CGFloat, toAlpha: CGFloat, withPercentage:CGFloat) -> CGFloat {
-        
         return (toAlpha - currentAlpha) * withPercentage + currentAlpha
-        
     }
     
     func fadeFromColor(fromColor: UIColor, toColor: UIColor, withPercentage: CGFloat) -> UIColor {
@@ -146,31 +146,25 @@ class LoginViewController: UIViewController, UIScrollViewDelegate {
         var fromGreen: CGFloat = 0.0
         var fromBlue: CGFloat = 0.0
         var fromAlpha: CGFloat = 0.0
-        
         fromColor.getRed(&fromRed, green: &fromGreen, blue: &fromBlue, alpha: &fromAlpha)
         
         var toRed: CGFloat = 0.0
         var toGreen: CGFloat = 0.0
         var toBlue: CGFloat = 0.0
         var toAlpha: CGFloat = 0.0
-        
         toColor.getRed(&toRed, green: &toGreen, blue: &toBlue, alpha: &toAlpha)
         
-        //calculate the actual RGBA values of the fade colour
         let red = (toRed - fromRed) * withPercentage + fromRed
         let green = (toGreen - fromGreen) * withPercentage + fromGreen
         let blue = (toBlue - fromBlue) * withPercentage + fromBlue
         let alpha = (toAlpha - fromAlpha) * withPercentage + fromAlpha
         
-        // return the fade colour
         return UIColor(red: red, green: green, blue: blue, alpha: alpha)
     }
-
-    
 }
 
 
-// MARK: Account Authentication w/ Facebook and API
+// MARK: - Account Authentication w/ Facebook and API
 
 extension LoginViewController {
     
@@ -181,8 +175,8 @@ extension LoginViewController {
         facebookLogin.logInWithReadPermissions(["public_profile", "email", "user_friends"], fromViewController: self) { (result: FBSDKLoginManagerLoginResult!, error: NSError!) in
             
             if error != nil {
-                
-                // TODO: Show Error message
+                let errorView = Utility.createErrorAlert("Error", message: "There was a problem connecting to Facebook. Please try again.", buttonTitle: "Okay")
+                self.presentViewController(errorView, animated: true, completion: nil)
                 debugPrint(error.localizedDescription)
             } else {
                 self.returnUserData()
@@ -196,24 +190,18 @@ extension LoginViewController {
         Requests.createSession(["facebook", FBSDKAccessToken.currentAccessToken().appID, FBSDKAccessToken.currentAccessToken().userID, FBSDKAccessToken.currentAccessToken().tokenString, (self.deviceName + " " + self.deviceOS)],completion: {(successful, error) -> Void in
             
             if successful {
-            
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 if let controller = storyboard.instantiateInitialViewController() {
                     self.presentViewController(controller, animated: true, completion: { () -> Void in
                         self.view.window?.rootViewController = controller
                     })
                 }
-                
             } else {
+                let errorView = Utility.createErrorAlert("Error", message: "There was a problem creating your account. Please try again.", buttonTitle: "Okay")
+                self.presentViewController(errorView, animated: true, completion: nil)
                 debugPrint(error)
             }
-            
         })
-        
-//        let graphRequest : FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me",
-//            parameters: ["fields":"id,interested_in,gender,birthday,email,age_range,name,picture.width(480).height(480)"])
-//        graphRequest.startWithCompletionHandler({ (connection, result, error) -> Void in
-//        })
     }
     
     

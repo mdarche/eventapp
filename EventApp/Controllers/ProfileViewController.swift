@@ -8,47 +8,51 @@
 
 import UIKit
 
-class ProfileViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout, ToggleGridLayoutDelegate {
+class ProfileViewController: UICollectionViewController {
     
     
-    private var topRefreshControl = TopRefresher()
-    var profileId : Int?
-    var user : User?
-    var isMe : Bool?
-    
-    var headerLabel : UILabel?
-    var animatedNavbar : UIView?
-    var statusBarBG : UIView?
+    var profileId: Int?
+    var user: User?
+    var isMe: Bool?
     
     var isListLayout = true
     let listLayout = ListLayout()
     let gridLayout = GridLayout()
     
-    // MARK: View's Lifecycle
+    private var headerLabel: UILabel?
+    private var animatedNavbar: UIView?
+    private var statusBarBG: UIView?
+    private var topRefreshControl = TopRefresher()
+
+    
+    // MARK: - View's Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         visualize()
-        
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
+        
         setNavAnimation()
         collectionView?.delegate = self
+        
     }
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(true)
+        
         collectionView?.contentOffset.y = -50
         animatedNavbar?.removeFromSuperview()
         statusBarBG?.removeFromSuperview()
         removeNavBar(nil, yes: false)
         collectionView?.delegate = nil
+        
     }
     
     
-    // MARK: View's Transition Handler
+    // MARK: - View's Transition Handler
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == Segues.showFFTable {
@@ -61,34 +65,14 @@ class ProfileViewController: UICollectionViewController, UICollectionViewDelegat
         }
     }
     
-    
-    // MARK: LayoutSwitch Delegate Method
-    
-    func switchOn(bool: Bool) {
-        
-        if bool == true {
-            if !isListLayout {
-                isListLayout = true
-                collectionView?.collectionViewLayout.invalidateLayout()
-                collectionView?.setCollectionViewLayout(self.listLayout, animated: false)
-                collectionView?.reloadData()
-            }
-        } else {
-            if isListLayout {
-                isListLayout = false
-                collectionView?.collectionViewLayout.invalidateLayout()
-                collectionView?.setCollectionViewLayout(self.gridLayout, animated: false)
-                collectionView?.reloadData()
-            }
-        }
-        
-    }
-    
-    // MARK: Class Functions
+ 
+    // MARK: - Class Functions
     
     func visualize() {
         
         collectionView!.collectionViewLayout = listLayout
+        collectionView?.frame = CGRect(x: 0, y: -navigationController!.navigationBar.frame.height, width: self.view.frame.width, height: self.view.frame.height+64)
+        collectionView!.addInvisibleHeader(Colors.primaryBlue, sender: self.collectionView!, size: 100)
         
         let headerNib = UINib(nibName: "ProfileSwitchHeader", bundle: nil)
         collectionView?.registerNib(headerNib, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "header")
@@ -98,12 +82,6 @@ class ProfileViewController: UICollectionViewController, UICollectionViewDelegat
             self.navigationItem.rightBarButtonItem = settingsButton
         }
         
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.translucent = false
-        
-        collectionView?.frame = CGRectMake(0, -navigationController!.navigationBar.frame.height, self.view.frame.width, self.view.frame.height+64)
-        collectionView!.addInvisibleHeader(Colors.primaryBlue, sender: self.collectionView!, size: 100)
         topRefreshControl.setupSubview(.clearColor(), bgColor: Colors.primaryBlue)
         topRefreshControl.addTarget(self, action: #selector(ProfileViewController.handleTopPull), forControlEvents: UIControlEvents.ValueChanged)
         collectionView!.addSubview(topRefreshControl)
@@ -112,29 +90,13 @@ class ProfileViewController: UICollectionViewController, UICollectionViewDelegat
     
     func setNavAnimation() {
 
-        statusBarBG = UIView(frame: CGRectMake(0, -UIApplication.sharedApplication().statusBarFrame.height, (navigationController?.navigationBar.frame.width)!, UIApplication.sharedApplication().statusBarFrame.height))
-        statusBarBG!.backgroundColor = Colors.darkestBlue
-        navigationController?.navigationBar.addSubview(statusBarBG!)
-        navigationController?.navigationBar.sendSubviewToBack(statusBarBG!)
-        
-        animatedNavbar = UIView(frame: CGRectMake(0, -UIApplication.sharedApplication().statusBarFrame.height - 64, (navigationController?.navigationBar.frame.width)!, 64))
-        animatedNavbar?.clipsToBounds = true
-        animatedNavbar?.backgroundColor = Colors.darkestBlue
-        navigationController?.navigationBar.addSubview(animatedNavbar!)
-        navigationController?.navigationBar.sendSubviewToBack(animatedNavbar!)
-        animatedNavbar?.userInteractionEnabled = false
-        
-        
-        headerLabel = UILabel(frame: CGRectMake(0, 48, navigationController!.navigationBar.frame.width, navigationController!.navigationBar.frame.height))
-        headerLabel?.font = UIFont(name: "Roboto-Regular", size: 15)
-        headerLabel?.text = "username"
-        headerLabel?.textAlignment = .Center
-        headerLabel?.textColor = UIColor.whiteColor()
+        removeNavBar(UIImage(), yes: true)
+
+        statusBarBG = Utility.addStatusBarBG(navigationController!)
+        animatedNavbar = Utility.createCustomNav(navigationController!)
+        headerLabel = Utility.createCustomNavHeader(navigationController!, text: "username")
 
         animatedNavbar?.addSubview(headerLabel!)
-        
-        removeNavBar(UIImage(), yes: true)
-        
     }
     
     func removeNavBar(image: UIImage?, yes: Bool) {
@@ -166,14 +128,32 @@ class ProfileViewController: UICollectionViewController, UICollectionViewDelegat
         performSegueWithIdentifier(Segues.showFFTable, sender: "following")
     }
     
-    
-    
 }
 
 
-extension ProfileViewController {
+extension ProfileViewController: ToggleGridLayoutDelegate {
     
-    // MARK: UICollectionViewDataSource
+    func switchOn(bool: Bool) {
+        if bool == true {
+            if (!isListLayout) {
+                isListLayout = true
+                collectionView?.collectionViewLayout.invalidateLayout()
+                collectionView?.setCollectionViewLayout(self.listLayout, animated: false)
+                collectionView?.reloadData()
+            }
+        } else {
+            if (isListLayout) {
+                isListLayout = false
+                collectionView?.collectionViewLayout.invalidateLayout()
+                collectionView?.setCollectionViewLayout(self.gridLayout, animated: false)
+                collectionView?.reloadData()
+            }
+        }
+    }
+}
+
+
+extension ProfileViewController: UICollectionViewDelegateFlowLayout {
     
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 2
@@ -240,7 +220,7 @@ extension ProfileViewController {
             let navBarTransform = CATransform3DMakeTranslation(0, max(-64, offset), 0)
             animatedNavbar?.layer.transform = navBarTransform
         } else if offset > 65 {
-            animatedNavbar?.frame = CGRectMake(0, -UIApplication.sharedApplication().statusBarFrame.height,(navigationController?.navigationBar.frame.width)!, 64)
+            animatedNavbar?.frame = CGRect(x: 0, y: -UIApplication.sharedApplication().statusBarFrame.height,width: (navigationController?.navigationBar.frame.width)!, height: 64)
         }
         
         let labelTransform = CATransform3DMakeTranslation(0, max(-30, 90 - offset), 0)

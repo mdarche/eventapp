@@ -92,7 +92,7 @@ public:
     bool insert_group_level_table(size_t table_ndx, size_t, StringData)
     {
         // Shift any previously added tables after the new one
-        for (auto& table : m_new_tables) {
+        for (auto& table: m_new_tables) {
             if (table >= table_ndx)
                 ++table;
         }
@@ -146,13 +146,13 @@ public:
 
 // A transaction log handler that just validates that all operations made are
 // ones supported by the object store
-struct TransactLogValidator : public TransactLogValidationMixin, public MarkDirtyMixin<TransactLogValidator> {
+struct TransactLogValidator: public TransactLogValidationMixin, public MarkDirtyMixin<TransactLogValidator> {
     void mark_dirty(size_t, size_t) { }
 };
 
 // Extends TransactLogValidator to also track changes and report it to the
 // binding context if any properties are being observed
-class TransactLogObserver : public TransactLogValidationMixin, public MarkDirtyMixin<TransactLogObserver> {
+class TransactLogObserver: public TransactLogValidationMixin, public MarkDirtyMixin<TransactLogObserver> {
     using ColumnInfo = BindingContext::ColumnInfo;
     using ObserverState = BindingContext::ObserverState;
 
@@ -202,7 +202,7 @@ class TransactLogObserver : public TransactLogValidationMixin, public MarkDirtyM
 public:
     template<typename Func>
     TransactLogObserver(BindingContext* context, SharedGroup& sg, Func&& func, bool validate_schema_changes)
-    : m_context(context)
+   : m_context(context)
     {
         if (!context) {
             if (validate_schema_changes) {
@@ -251,7 +251,7 @@ public:
 
     bool insert_group_level_table(size_t table_ndx, size_t prior_size, StringData name)
     {
-        for (auto& observer : m_observers) {
+        for (auto& observer: m_observers) {
             if (observer.table_ndx >= table_ndx)
                 ++observer.table_ndx;
         }
@@ -302,7 +302,7 @@ public:
     bool select_link_list(size_t col, size_t row, size_t)
     {
         m_active_linklist = nullptr;
-        for (auto& o : m_observers) {
+        for (auto& o: m_observers) {
             if (o.table_ndx == current_table() && o.row_ndx == row) {
                 m_active_linklist = &get_change(o, col);
                 break;
@@ -419,7 +419,7 @@ public:
 };
 
 // Extends TransactLogValidator to track changes made to LinkViews
-class LinkViewObserver : public TransactLogValidationMixin, public MarkDirtyMixin<LinkViewObserver> {
+class LinkViewObserver: public TransactLogValidationMixin, public MarkDirtyMixin<LinkViewObserver> {
     _impl::TransactionChangeInfo& m_info;
     _impl::CollectionChangeBuilder* m_active = nullptr;
 
@@ -442,7 +442,7 @@ class LinkViewObserver : public TransactLogValidationMixin, public MarkDirtyMixi
 
 public:
     LinkViewObserver(_impl::TransactionChangeInfo& info)
-    : m_info(info) { }
+   : m_info(info) { }
 
     void mark_dirty(size_t row, __unused size_t col)
     {
@@ -452,10 +452,10 @@ public:
 
     void parse_complete()
     {
-        for (auto& table : m_info.tables) {
+        for (auto& table: m_info.tables) {
             table.parse_complete();
         }
-        for (auto& list : m_info.lists) {
+        for (auto& list: m_info.lists) {
             list.changes->clean_up_stale_moves();
         }
     }

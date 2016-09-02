@@ -12,20 +12,19 @@ class ListViewController: UICollectionViewController, UICollectionViewDelegateFl
     
     let listLayout = ActivityListLayout()
     
-    // MARK: View's Lifecycle
+    // MARK: - View's Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         visualize()
     }
     
-    
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(true)
     }
 
     
-    // MARK: View's Transition Handler
+    // MARK: - View's Transition Handler
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == Segues.showListEvent {
@@ -35,7 +34,7 @@ class ListViewController: UICollectionViewController, UICollectionViewDelegateFl
     }
     
     
-    // MARK: View set up and functions
+    // MARK: - Class Functions
     
     func visualize() {
         listLayout.headerReferenceSize = CGSizeMake(CGRectGetWidth(collectionView!.bounds), 35.0)
@@ -43,7 +42,7 @@ class ListViewController: UICollectionViewController, UICollectionViewDelegateFl
     }
     
     
-    // MARK: CollectionView Setup
+    // MARK: - CollectionView Setup
     
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 2
@@ -56,7 +55,6 @@ class ListViewController: UICollectionViewController, UICollectionViewDelegateFl
             return 10
         }
     }
-    
     
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCellWithReuseIdentifier("ListCell", forIndexPath: indexPath) as? ListFeedCell else {
@@ -85,18 +83,9 @@ class ListViewController: UICollectionViewController, UICollectionViewDelegateFl
         return header
     }
     
-    
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         performSegueWithIdentifier(Segues.showListEvent, sender: indexPath)
-        
-        // TODO: Create protocol and delegate method
-        
     }
-    
-    override func scrollViewDidScroll(scrollView: UIScrollView) {
-    
-    }
-    
     
 }
 

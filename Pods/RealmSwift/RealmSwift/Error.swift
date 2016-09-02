@@ -35,12 +35,12 @@ happening when initializing a Realm instance.
 */
 public enum Error: ErrorProtocol {
     // swiftlint:disable variable_name
-    /// :nodoc:
+    ///:nodoc:
     public var _code: Int {
         return rlmError.rawValue
     }
 
-    /// :nodoc:
+    ///:nodoc:
     public var _domain: String {
         return RLMErrorDomain
     }
@@ -103,7 +103,7 @@ public enum Error: ErrorProtocol {
     case SchemaMismatch
 }
 
-// MARK: Equatable
+// MARK: - Equatable
 
 extension Error: Equatable {}
 
@@ -113,7 +113,7 @@ public func == (lhs: ErrorProtocol, rhs: ErrorProtocol) -> Bool { // swiftlint:d
         && lhs._domain == rhs._domain
 }
 
-// MARK: Pattern Matching
+// MARK: - Pattern Matching
 
 /**
 Explicitly implement pattern matching for `Realm.Error`, so that the instances can be used in the
@@ -142,12 +142,12 @@ public func ~= (lhs: Error, rhs: ErrorProtocol) -> Bool { // swiftlint:disable:t
 */
 public enum Error: ErrorType {
     // swiftlint:disable variable_name
-    /// :nodoc:
+    ///:nodoc:
     public var _code: Int {
         return rlmError.rawValue
     }
 
-    /// :nodoc:
+    ///:nodoc:
     public var _domain: String {
         return RLMErrorDomain
     }
@@ -220,7 +220,7 @@ public enum Error: ErrorType {
     case SchemaMismatch
 }
 
-// MARK: Equatable
+// MARK: - Equatable
 
 extension Error: Equatable {}
 
@@ -230,7 +230,7 @@ public func == (lhs: ErrorType, rhs: ErrorType) -> Bool { // swiftlint:disable:t
         && lhs._domain == rhs._domain
 }
 
-// MARK: Pattern Matching
+// MARK: - Pattern Matching
 
 /**
  Pattern matching matching for `Realm.Error`, so that the instances can be used with Swift's

@@ -383,7 +383,7 @@ public class Keychain {
     
     private let options: Options
     
-    // MARK:
+    // MARK: -
     
     public convenience init() {
         var options = Options()
@@ -432,7 +432,7 @@ public class Keychain {
         options = opts
     }
     
-    // MARK:
+    // MARK: -
     
     public func accessibility(accessibility: Accessibility) -> Keychain {
         var options = self.options
@@ -481,7 +481,7 @@ public class Keychain {
         return Keychain(options)
     }
     
-    // MARK:
+    // MARK: -
     
     public func get(key: String) throws -> String? {
         return try getString(key)
@@ -549,7 +549,7 @@ public class Keychain {
         }
     }
 
-    // MARK:
+    // MARK: -
     
     public func set(value: String, key: String) throws {
         guard let data = value.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false) else {
@@ -674,7 +674,7 @@ public class Keychain {
         }
     }
     
-    // MARK:
+    // MARK: -
     
     public func remove(key: String) throws {
         var query = options.query()
@@ -698,7 +698,7 @@ public class Keychain {
         }
     }
     
-    // MARK:
+    // MARK: -
     
     public func contains(key: String) throws -> Bool {
         var query = options.query()
@@ -715,7 +715,7 @@ public class Keychain {
         }
     }
     
-    // MARK:
+    // MARK: -
     
     public class func allKeys(itemClass: ItemClass) -> [(String, String)] {
         var query = [String: AnyObject]()
@@ -921,7 +921,7 @@ public class Keychain {
     }
     #endif
     
-    // MARK:
+    // MARK: -
     
     private func items() -> [[String: AnyObject]] {
         var query = options.query()
@@ -995,7 +995,7 @@ public class Keychain {
                 }
             }
             if let synchronizable = attributes[AttributeSynchronizable] as? Bool {
-                item["synchronizable"] = synchronizable ? "true" : "false"
+                item["synchronizable"] = synchronizable ? "true": "false"
             }
 
             return item
@@ -1003,7 +1003,7 @@ public class Keychain {
         return items
     }
     
-    // MARK:
+    // MARK: -
     
     private class func conversionError(message message: String) -> NSError {
         let error = NSError(domain: KeychainAccessErrorDomain, code: Int(Status.ConversionError.rawValue), userInfo: [NSLocalizedDescriptionKey: message])
@@ -1231,7 +1231,7 @@ extension Options {
     }
 }
 
-// MARK:
+// MARK: -
 
 extension Attributes: CustomStringConvertible, CustomDebugStringConvertible {
     public var description: String {

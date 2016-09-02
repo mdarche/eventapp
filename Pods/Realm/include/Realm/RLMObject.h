@@ -34,7 +34,7 @@ NS_ASSUME_NONNULL_BEGIN
  Then instantiate and use your custom subclasses instead of using the `RLMObject` class directly.
 
      // Dog.h
-     @interface Dog : RLMObject
+     @interface Dog: RLMObject
      @property NSString *name;
      @property BOOL      adopted;
      @end
@@ -91,7 +91,7 @@ NS_ASSUME_NONNULL_BEGIN
     times when you *cannot* begin a write transaction.
  */
 
-@interface RLMObject : RLMObjectBase
+@interface RLMObject: RLMObjectBase
 
 #pragma mark - Creating & Initializing Objects
 
@@ -326,7 +326,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (RLMResults *)objectsWhere:(NSString *)predicateFormat, ...;
 
-/// :nodoc:
+///:nodoc:
 + (RLMResults *)objectsWhere:(NSString *)predicateFormat args:(va_list)args;
 
 
@@ -375,7 +375,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (RLMResults *)objectsInRealm:(RLMRealm *)realm where:(NSString *)predicateFormat, ...;
 
-/// :nodoc:
+///:nodoc:
 + (RLMResults *)objectsInRealm:(RLMRealm *)realm where:(NSString *)predicateFormat args:(va_list)args;
 
 /**
@@ -419,10 +419,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark - Dynamic Accessors
 
-/// :nodoc:
+///:nodoc:
 - (nullable id)objectForKeyedSubscript:(NSString *)key;
 
-/// :nodoc:
+///:nodoc:
 - (void)setObject:(nullable id)obj forKeyedSubscript:(NSString *)key;
 
 @end

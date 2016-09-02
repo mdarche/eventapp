@@ -27,7 +27,7 @@ import Foundation
 */
 public class Manager {
 
-    // MARK: - Properties
+    // MARK: - - Properties
 
     /**
         A shared instance of `Manager`, used by top-level Alamofire request methods, and suitable for use directly 
@@ -103,7 +103,7 @@ public class Manager {
     */
     public var backgroundCompletionHandler: (() -> Void)?
 
-    // MARK: - Lifecycle
+    // MARK: - - Lifecycle
 
     /**
         Initializes the `Manager` instance with the specified configuration, delegate and server trust policy.
@@ -164,7 +164,7 @@ public class Manager {
         session.invalidateAndCancel()
     }
 
-    // MARK: - Request
+    // MARK: - - Request
 
     /**
         Creates a request for the specified method, URL string, parameters, parameter encoding and headers.
@@ -213,7 +213,7 @@ public class Manager {
         return request
     }
 
-    // MARK: - SessionDelegate
+    // MARK: - - SessionDelegate
 
     /**
         Responsible for handling all delegate callbacks for the underlying session.
@@ -244,9 +244,9 @@ public class Manager {
             super.init()
         }
 
-        // MARK: - NSURLSessionDelegate
+        // MARK: - - NSURLSessionDelegate
 
-        // MARK: Override Closures
+        // MARK: - Override Closures
 
         /// Overrides default behavior for NSURLSessionDelegate method `URLSession:didBecomeInvalidWithError:`.
         public var sessionDidBecomeInvalidWithError: ((NSURLSession, NSError?) -> Void)?
@@ -257,7 +257,7 @@ public class Manager {
         /// Overrides default behavior for NSURLSessionDelegate method `URLSessionDidFinishEventsForBackgroundURLSession:`.
         public var sessionDidFinishEventsForBackgroundURLSession: ((NSURLSession) -> Void)?
 
-        // MARK: Delegate Methods
+        // MARK: - Delegate Methods
 
         /**
             Tells the delegate that the session has been invalidated.
@@ -314,9 +314,9 @@ public class Manager {
             sessionDidFinishEventsForBackgroundURLSession?(session)
         }
 
-        // MARK: - NSURLSessionTaskDelegate
+        // MARK: - - NSURLSessionTaskDelegate
 
-        // MARK: Override Closures
+        // MARK: - Override Closures
 
         /// Overrides default behavior for NSURLSessionTaskDelegate method `URLSession:task:willPerformHTTPRedirection:newRequest:completionHandler:`.
         public var taskWillPerformHTTPRedirection: ((NSURLSession, NSURLSessionTask, NSHTTPURLResponse, NSURLRequest) -> NSURLRequest?)?
@@ -333,7 +333,7 @@ public class Manager {
         /// Overrides default behavior for NSURLSessionTaskDelegate method `URLSession:task:didCompleteWithError:`.
         public var taskDidComplete: ((NSURLSession, NSURLSessionTask, NSError?) -> Void)?
 
-        // MARK: Delegate Methods
+        // MARK: - Delegate Methods
 
         /**
             Tells the delegate that the remote server requested an HTTP redirect.
@@ -455,9 +455,9 @@ public class Manager {
             self[task] = nil
         }
 
-        // MARK: - NSURLSessionDataDelegate
+        // MARK: - - NSURLSessionDataDelegate
 
-        // MARK: Override Closures
+        // MARK: - Override Closures
 
         /// Overrides default behavior for NSURLSessionDataDelegate method `URLSession:dataTask:didReceiveResponse:completionHandler:`.
         public var dataTaskDidReceiveResponse: ((NSURLSession, NSURLSessionDataTask, NSURLResponse) -> NSURLSessionResponseDisposition)?
@@ -471,7 +471,7 @@ public class Manager {
         /// Overrides default behavior for NSURLSessionDataDelegate method `URLSession:dataTask:willCacheResponse:completionHandler:`.
         public var dataTaskWillCacheResponse: ((NSURLSession, NSURLSessionDataTask, NSCachedURLResponse) -> NSCachedURLResponse!)?
 
-        // MARK: Delegate Methods
+        // MARK: - Delegate Methods
 
         /**
             Tells the delegate that the data task received the initial reply (headers) from the server.
@@ -566,9 +566,9 @@ public class Manager {
             }
         }
 
-        // MARK: - NSURLSessionDownloadDelegate
+        // MARK: - - NSURLSessionDownloadDelegate
 
-        // MARK: Override Closures
+        // MARK: - Override Closures
 
         /// Overrides default behavior for NSURLSessionDownloadDelegate method `URLSession:downloadTask:didFinishDownloadingToURL:`.
         public var downloadTaskDidFinishDownloadingToURL: ((NSURLSession, NSURLSessionDownloadTask, NSURL) -> Void)?
@@ -579,7 +579,7 @@ public class Manager {
         /// Overrides default behavior for NSURLSessionDownloadDelegate method `URLSession:downloadTask:didResumeAtOffset:expectedTotalBytes:`.
         public var downloadTaskDidResumeAtOffset: ((NSURLSession, NSURLSessionDownloadTask, Int64, Int64) -> Void)?
 
-        // MARK: Delegate Methods
+        // MARK: - Delegate Methods
 
         /**
             Tells the delegate that a download task has finished downloading.
@@ -664,14 +664,14 @@ public class Manager {
             }
         }
 
-        // MARK: - NSURLSessionStreamDelegate
+        // MARK: - - NSURLSessionStreamDelegate
 
         var _streamTaskReadClosed: Any?
         var _streamTaskWriteClosed: Any?
         var _streamTaskBetterRouteDiscovered: Any?
         var _streamTaskDidBecomeInputStream: Any?
 
-        // MARK: - NSObject
+        // MARK: - - NSObject
 
         public override func respondsToSelector(selector: Selector) -> Bool {
             switch selector {

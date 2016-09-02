@@ -13,7 +13,7 @@ class ProgressView: UIView {
     private let progressLayer: CAShapeLayer = CAShapeLayer()
     private var innerCircle = UIView()
     private var progressLabel: UILabel
-    var activityCount : String?
+    var activityCount: String?
 
     
     required init?(coder aDecoder: NSCoder) {
@@ -33,7 +33,7 @@ class ProgressView: UIView {
     }
     
     func createLabel() {
-        progressLabel = UILabel(frame: CGRectMake(0.0, 0.0, innerCircle.frame.width, 60))
+        progressLabel = UILabel(frame: CGRect(x: 0.0, y: 0.0, width: innerCircle.frame.width, height: 60))
         progressLabel.textColor = .whiteColor()
         progressLabel.textAlignment = .Center
         progressLabel.text = ""
@@ -47,10 +47,10 @@ class ProgressView: UIView {
     }
     
     func createInnerCircle() {
-        innerCircle = UIView(frame: CGRectMake(0, 0, CGRectGetWidth(frame)/2.35, CGRectGetHeight(frame)/2.35))
+        innerCircle = UIView(frame: CGRect(x: 0, y: 0, width: CGRectGetWidth(frame)/2.35, height: CGRectGetHeight(frame)/2.35))
         innerCircle.layer.cornerRadius = innerCircle.frame.width / 2
         innerCircle.backgroundColor = UIColor(white: 1, alpha: 0.04)
-        innerCircle.center = CGPointMake(CGRectGetMidX(self.bounds), CGRectGetMidY(self.bounds))
+        innerCircle.center = CGPoint(x: CGRectGetMidX(self.bounds), y: CGRectGetMidY(self.bounds))
         addSubview(innerCircle)
         
     }
@@ -58,7 +58,7 @@ class ProgressView: UIView {
     private func createProgressLayer() {
         let startAngle = CGFloat(M_PI_2)
         let endAngle = CGFloat(M_PI * 2 + M_PI_2)
-        let centerPoint = CGPointMake(CGRectGetWidth(frame)/2 , CGRectGetHeight(frame)/2)
+        let centerPoint = CGPoint(x: CGRectGetWidth(frame)/2 , y: CGRectGetHeight(frame)/2)
         
         let gradientMaskLayer = gradientMask()
         progressLayer.path = UIBezierPath(arcCenter:centerPoint, radius: CGRectGetWidth(frame)/2 - 30.0, startAngle:startAngle, endAngle:endAngle, clockwise: true).CGPath

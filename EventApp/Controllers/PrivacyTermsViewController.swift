@@ -12,9 +12,12 @@ class PrivacyTermsViewController: UIViewController {
 
     @IBOutlet weak var webView: UIWebView!
     
-    var isPrivacy : Bool?
-    var requestObject : NSURLRequest?
-    var url : NSURL?
+    var isPrivacy: Bool?
+    var requestObject: NSURLRequest?
+    var url: NSURL?
+    
+    
+    // MARK: - View's Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +28,9 @@ class PrivacyTermsViewController: UIViewController {
             setupForTerms()
         }
     }
+    
+    
+    // MARK: - Class Functions
     
     func setupForPrivacy() {
         navigationItem.title = "Privacy Policy"

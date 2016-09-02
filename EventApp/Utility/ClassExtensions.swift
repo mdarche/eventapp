@@ -19,7 +19,7 @@ class TabBarController: UITabBarController {
 }
 
 
-// MARK: UIImageViews and UIViews
+// MARK: - UIImageViews and UIViews
 
 extension UIImageView{
     
@@ -85,65 +85,20 @@ extension UIView {
     
 }
 
-//extension CALayer {
-//    
-//    func addBorder(edge: UIRectEdge, color: UIColor, thickness: CGFloat) {
-//        
-//        let border = CALayer()
-//        
-//        switch edge {
-//        case UIRectEdge.Top:
-//            border.frame = CGRectMake(0, 0, CGRectGetHeight(self.frame), thickness)
-//            break
-//        case UIRectEdge.Bottom:
-//            border.frame = CGRectMake(0, CGRectGetHeight(self.frame) - thickness, UIScreen.mainScreen().bounds.width, thickness)
-//            break
-//        case UIRectEdge.Left:
-//            border.frame = CGRectMake(0, 0, thickness, CGRectGetHeight(self.frame))
-//            break
-//        case UIRectEdge.Right:
-//            border.frame = CGRectMake(CGRectGetWidth(self.frame) - thickness, 0, thickness, CGRectGetHeight(self.frame))
-//            break
-//        default:
-//            break
-//        }
-//        
-//        border.backgroundColor = color.CGColor;
-//        
-//        self.addSublayer(border)
-//    }
-//    
-//}
 
-// MARK: UITableViews
+// MARK: - UITableViews
 
 extension UITableView {
     
     func addInvisibleHeader(color: UIColor, sender: UITableView, size: CGFloat) {
-        let topView: UIView = UIView(frame: CGRectMake(0.0, -size, UIScreen.mainScreen().bounds.width, size))
+        let topView: UIView = UIView(frame: CGRect(x: 0.0, y: -size, width: UIScreen.mainScreen().bounds.width, height: size))
         topView.backgroundColor = color
         sender.addSubview(topView)
     }
-    
 }
 
 extension UITableViewController {
     
-    func setTableViewBackgroundGradient(sender: UITableViewController) {
-        
-        let gradientBackgroundColors = [UIColor(red: 30/255, green: 32/255, blue: 42/255, alpha: 1.0).CGColor, UIColor(red: 71/255, green: 70/255, blue: 236/255, alpha: 1.0).CGColor]
-        let gradientLocations = [0.0,1.0]
-        
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.colors = gradientBackgroundColors
-        gradientLayer.locations = gradientLocations
-        
-        gradientLayer.frame = sender.tableView.bounds
-        let backgroundView = UIView(frame: sender.tableView.bounds)
-        backgroundView.layer.insertSublayer(gradientLayer, atIndex: 0)
-        
-        sender.tableView.backgroundView = backgroundView
-    }
     
     func animateTable() {
         tableView.reloadData()
@@ -173,14 +128,14 @@ extension UITableViewController {
 extension UICollectionView {
     
     func addInvisibleHeader(color: UIColor, sender: UICollectionView, size: CGFloat) {
-        let topView: UIView = UIView(frame: CGRectMake(0.0, -size, UIScreen.mainScreen().bounds.width, size))
+        let topView: UIView = UIView(frame: CGRect(x: 0.0, y: -size, width: UIScreen.mainScreen().bounds.width, height: size))
         topView.backgroundColor = color
         sender.addSubview(topView)
     }
 }
 
 
-// MARK: Mapkit extensions
+// MARK: - Mapkit extensions
 
 extension MKAnnotationView {
     func createCurrentUserLocation(pulseView: MKAnnotationView) {
@@ -198,7 +153,7 @@ extension MKAnnotationView {
         subview1.frame.offsetInPlace(dx: 15, dy: 15)
         
         let subview2 = UIImageView(image: UIImage(named: "userLocation"))
-        subview2.frame = CGRectMake(0, 0, 30, 30)
+        subview2.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
         subview2.contentMode = .ScaleAspectFit
         
         pulseView.addSubview(subview2)
@@ -209,7 +164,7 @@ extension MKAnnotationView {
 }
 
 
-// MARK: NSDate Dateformatters
+// MARK: - NSDate Dateformatters
 
 extension NSDate {
     func yearsFrom(date: NSDate) -> Int {
@@ -245,9 +200,9 @@ extension NSDate {
     }
 }
 
-// MARK: UIDevice lookup
+// MARK: - UIDevice lookup
 
-public enum Model : String {
+public enum Model: String {
     case simulator = "simulator/sandbox",
     iPod1          = "iPod 1",
     iPod2          = "iPod 2",
@@ -281,49 +236,49 @@ public extension UIDevice {
         let modelCode = withUnsafeMutablePointer(&systemInfo.machine) {
             ptr in String.fromCString(UnsafePointer<CChar>(ptr))
         }
-        var modelMap : [ String : Model ] = [
-            "i386"      : .simulator,
-            "x86_64"    : .simulator,
-            "iPod1,1"   : .iPod1,
-            "iPod2,1"   : .iPod2,
-            "iPod3,1"   : .iPod3,
-            "iPod4,1"   : .iPod4,
-            "iPod5,1"   : .iPod5,
-            "iPad2,1"   : .iPad2,
-            "iPad2,2"   : .iPad2,
-            "iPad2,3"   : .iPad2,
-            "iPad2,4"   : .iPad2,
-            "iPad2,5"   : .iPadMini1,
-            "iPad2,6"   : .iPadMini1,
-            "iPad2,7"   : .iPadMini1,
-            "iPhone3,1" : .iPhone4,
-            "iPhone3,2" : .iPhone4,
-            "iPhone3,3" : .iPhone4,
-            "iPhone4,1" : .iPhone4S,
-            "iPhone5,1" : .iPhone5,
-            "iPhone5,2" : .iPhone5,
-            "iPhone5,3" : .iPhone5C,
-            "iPhone5,4" : .iPhone5C,
-            "iPad3,1"   : .iPad3,
-            "iPad3,2"   : .iPad3,
-            "iPad3,3"   : .iPad3,
-            "iPad3,4"   : .iPad4,
-            "iPad3,5"   : .iPad4,
-            "iPad3,6"   : .iPad4,
-            "iPhone6,1" : .iPhone5S,
-            "iPhone6,2" : .iPhone5S,
-            "iPad4,1"   : .iPadAir1,
-            "iPad4,2"   : .iPadAir2,
-            "iPad4,4"   : .iPadMini2,
-            "iPad4,5"   : .iPadMini2,
-            "iPad4,6"   : .iPadMini2,
-            "iPad4,7"   : .iPadMini3,
-            "iPad4,8"   : .iPadMini3,
-            "iPad4,9"   : .iPadMini3,
-            "iPhone7,1" : .iPhone6plus,
-            "iPhone7,2" : .iPhone6,
-            "iPhone8,1" : .iPhone6S,
-            "iPhone8,2" : .iPhone6Splus
+        var modelMap: [ String: Model ] = [
+            "i386"     : .simulator,
+            "x86_64"   : .simulator,
+            "iPod1,1"  : .iPod1,
+            "iPod2,1"  : .iPod2,
+            "iPod3,1"  : .iPod3,
+            "iPod4,1"  : .iPod4,
+            "iPod5,1"  : .iPod5,
+            "iPad2,1"  : .iPad2,
+            "iPad2,2"  : .iPad2,
+            "iPad2,3"  : .iPad2,
+            "iPad2,4"  : .iPad2,
+            "iPad2,5"  : .iPadMini1,
+            "iPad2,6"  : .iPadMini1,
+            "iPad2,7"  : .iPadMini1,
+            "iPhone3,1": .iPhone4,
+            "iPhone3,2": .iPhone4,
+            "iPhone3,3": .iPhone4,
+            "iPhone4,1": .iPhone4S,
+            "iPhone5,1": .iPhone5,
+            "iPhone5,2": .iPhone5,
+            "iPhone5,3": .iPhone5C,
+            "iPhone5,4": .iPhone5C,
+            "iPad3,1"  : .iPad3,
+            "iPad3,2"  : .iPad3,
+            "iPad3,3"  : .iPad3,
+            "iPad3,4"  : .iPad4,
+            "iPad3,5"  : .iPad4,
+            "iPad3,6"  : .iPad4,
+            "iPhone6,1": .iPhone5S,
+            "iPhone6,2": .iPhone5S,
+            "iPad4,1"  : .iPadAir1,
+            "iPad4,2"  : .iPadAir2,
+            "iPad4,4"  : .iPadMini2,
+            "iPad4,5"  : .iPadMini2,
+            "iPad4,6"  : .iPadMini2,
+            "iPad4,7"  : .iPadMini3,
+            "iPad4,8"  : .iPadMini3,
+            "iPad4,9"  : .iPadMini3,
+            "iPhone7,1": .iPhone6plus,
+            "iPhone7,2": .iPhone6,
+            "iPhone8,1": .iPhone6S,
+            "iPhone8,2": .iPhone6Splus
         ]
         
         if let model = modelMap[String.fromCString(modelCode!)!] {

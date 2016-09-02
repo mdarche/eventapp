@@ -11,11 +11,11 @@ import UIKit
 class NotificationViewController: UITableViewController {
 
     let headerTitles = ["SAVED ACTIVITIES", "NEWS FEED"]
-    var upcomingEvents : [Activity]?
-    var notifications : [Notification]?
+    var upcomingEvents: [Activity]?
+    var notifications: [Notification]?
     
     
-    // MARK: View's Lifecycle
+    // MARK: - View's Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,11 +25,10 @@ class NotificationViewController: UITableViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
         navigationController?.navigationBar.hidden = false
-        navigationController?.hidesBarsOnSwipe = true
     }
     
     
-    // MARK: View's Transition Handler
+    // MARK: - View's Transition Handler
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == Segues.showOrganizerEvent {
@@ -39,7 +38,7 @@ class NotificationViewController: UITableViewController {
     }
     
     
-    // MARK: Setup View's Layout
+    // MARK: - Setup View's Layout
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return .LightContent
@@ -55,7 +54,7 @@ class NotificationViewController: UITableViewController {
     
 
     
-    // MARK: Tableview Functions
+    // MARK: - Tableview Functions
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 2
@@ -110,19 +109,10 @@ class NotificationViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
-        let header = UIView()
-        header.backgroundColor = UIColor.whiteColor()
-        
-        let bottomBorder = UIView(frame: CGRectMake(0, 30, tableView.frame.width, 1))
-        bottomBorder.backgroundColor = Colors.primaryGray
-        
-        let headerLabel = UILabel(frame: CGRectMake(12, 0, 150, 30))
-        headerLabel.font = UIFont(name: "Roboto-Medium", size: 12)
-        headerLabel.textColor = UIColor(white: 0, alpha: 0.45)
-        headerLabel.textAlignment = .Left
+        let header = Utility.createTableHeader(UIColor.whiteColor(), bottomBorder: true, tableView: self.tableView)
+
+        let headerLabel = Utility.createHeaderLabel(Colors.labelBlack)
         headerLabel.text = self.tableView(self.tableView, titleForHeaderInSection: section)
-        
-        header.addSubview(bottomBorder)
         header.addSubview(headerLabel)
         
         return header

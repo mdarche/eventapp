@@ -28,7 +28,7 @@ import Foundation
 */
 public class Request {
 
-    // MARK: - Properties
+    // MARK: - - Properties
 
     /// The delegate for the underlying task.
     public let delegate: TaskDelegate
@@ -48,7 +48,7 @@ public class Request {
     /// The progress of the request lifecycle.
     public var progress: NSProgress { return delegate.progress }
 
-    // MARK: - Lifecycle
+    // MARK: - - Lifecycle
 
     init(session: NSURLSession, task: NSURLSessionTask) {
         self.session = session
@@ -65,7 +65,7 @@ public class Request {
         }
     }
 
-    // MARK: - Authentication
+    // MARK: - - Authentication
 
     /**
         Associates an HTTP Basic credential with the request.
@@ -100,7 +100,7 @@ public class Request {
         return self
     }
 
-    // MARK: - Progress
+    // MARK: - - Progress
 
     /**
         Sets a closure to be called periodically during the lifecycle of the request as data is written to or read 
@@ -146,7 +146,7 @@ public class Request {
         return self
     }
 
-    // MARK: - State
+    // MARK: - - State
 
     /**
         Suspends the request.
@@ -178,7 +178,7 @@ public class Request {
         }
     }
 
-    // MARK: - TaskDelegate
+    // MARK: - - TaskDelegate
 
     /**
         The task delegate is responsible for handling all delegate callbacks for the underlying task as well as 
@@ -218,16 +218,16 @@ public class Request {
             queue.suspended = false
         }
 
-        // MARK: - NSURLSessionTaskDelegate
+        // MARK: - - NSURLSessionTaskDelegate
 
-        // MARK: Override Closures
+        // MARK: - Override Closures
 
         var taskWillPerformHTTPRedirection: ((NSURLSession, NSURLSessionTask, NSHTTPURLResponse, NSURLRequest) -> NSURLRequest?)?
         var taskDidReceiveChallenge: ((NSURLSession, NSURLSessionTask, NSURLAuthenticationChallenge) -> (NSURLSessionAuthChallengeDisposition, NSURLCredential?))?
         var taskNeedNewBodyStream: ((NSURLSession, NSURLSessionTask) -> NSInputStream?)?
         var taskDidCompleteWithError: ((NSURLSession, NSURLSessionTask, NSError?) -> Void)?
 
-        // MARK: Delegate Methods
+        // MARK: - Delegate Methods
 
         func URLSession(
             session: NSURLSession,
@@ -320,7 +320,7 @@ public class Request {
         }
     }
 
-    // MARK: - DataTaskDelegate
+    // MARK: - - DataTaskDelegate
 
     class DataTaskDelegate: TaskDelegate, NSURLSessionDataDelegate {
         var dataTask: NSURLSessionDataTask? { return task as? NSURLSessionDataTask }
@@ -344,16 +344,16 @@ public class Request {
             super.init(task: task)
         }
 
-        // MARK: - NSURLSessionDataDelegate
+        // MARK: - - NSURLSessionDataDelegate
 
-        // MARK: Override Closures
+        // MARK: - Override Closures
 
         var dataTaskDidReceiveResponse: ((NSURLSession, NSURLSessionDataTask, NSURLResponse) -> NSURLSessionResponseDisposition)?
         var dataTaskDidBecomeDownloadTask: ((NSURLSession, NSURLSessionDataTask, NSURLSessionDownloadTask) -> Void)?
         var dataTaskDidReceiveData: ((NSURLSession, NSURLSessionDataTask, NSData) -> Void)?
         var dataTaskWillCacheResponse: ((NSURLSession, NSURLSessionDataTask, NSCachedURLResponse) -> NSCachedURLResponse?)?
 
-        // MARK: Delegate Methods
+        // MARK: - Delegate Methods
 
         func URLSession(
             session: NSURLSession,
@@ -421,7 +421,7 @@ public class Request {
     }
 }
 
-// MARK: - CustomStringConvertible
+// MARK: - - CustomStringConvertible
 
 extension Request: CustomStringConvertible {
 
@@ -448,7 +448,7 @@ extension Request: CustomStringConvertible {
     }
 }
 
-// MARK: - CustomDebugStringConvertible
+// MARK: - - CustomDebugStringConvertible
 
 extension Request: CustomDebugStringConvertible {
     func cURLRepresentation() -> String {

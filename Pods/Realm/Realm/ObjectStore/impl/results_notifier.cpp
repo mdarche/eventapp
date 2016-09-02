@@ -104,7 +104,7 @@ void ResultsNotifier::calculate_changes()
 {
     size_t table_ndx = m_query->get_table()->get_index_in_group();
     if (m_initial_run_complete) {
-        auto changes = table_ndx < m_info->tables.size() ? &m_info->tables[table_ndx] : nullptr;
+        auto changes = table_ndx < m_info->tables.size() ? &m_info->tables[table_ndx]: nullptr;
 
         std::vector<size_t> next_rows;
         next_rows.reserve(m_tv.size());
@@ -113,7 +113,7 @@ void ResultsNotifier::calculate_changes()
 
         if (changes) {
             auto const& moves = changes->moves;
-            for (auto& idx : m_previous_rows) {
+            for (auto& idx: m_previous_rows) {
                 auto it = lower_bound(begin(moves), end(moves), idx,
                                       [](auto const& a, auto b) { return a.from < b; });
                 if (it != moves.end() && it->from == idx)

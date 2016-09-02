@@ -55,7 +55,7 @@ public struct Response<Value, Error: ErrorType> {
     }
 }
 
-// MARK: - CustomStringConvertible
+// MARK: - - CustomStringConvertible
 
 extension Response: CustomStringConvertible {
     /// The textual representation used when written to an output stream, which includes whether the result was a
@@ -65,7 +65,7 @@ extension Response: CustomStringConvertible {
     }
 }
 
-// MARK: - CustomDebugStringConvertible
+// MARK: - - CustomDebugStringConvertible
 
 extension Response: CustomDebugStringConvertible {
     /// The debug textual representation used when written to an output stream, which includes the URL request, the URL
@@ -73,8 +73,8 @@ extension Response: CustomDebugStringConvertible {
     public var debugDescription: String {
         var output: [String] = []
 
-        output.append(request != nil ? "[Request]: \(request!)" : "[Request]: nil")
-        output.append(response != nil ? "[Response]: \(response!)" : "[Response]: nil")
+        output.append(request != nil ? "[Request]: \(request!)": "[Request]: nil")
+        output.append(response != nil ? "[Response]: \(response!)": "[Response]: nil")
         output.append("[Data]: \(data?.length ?? 0) bytes")
         output.append("[Result]: \(result.debugDescription)")
 

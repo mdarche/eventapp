@@ -11,13 +11,14 @@ import UIKit
 class MainMenuViewController: UITableViewController {
 
     @IBOutlet weak var accentLineA: UIView!
-    
     @IBOutlet weak var logoutButton: UIButton!
     @IBOutlet weak var tableHeader: UIView!
     @IBOutlet weak var progressView: ProgressView!
-    let headerTitles = ["PROFILE / SETTINGS", "MORE"]
     
-    // MARK: View's Lifecycle
+    private let headerTitles = ["PROFILE / SETTINGS", "MORE"]
+    
+    
+    // MARK: - View's Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +30,7 @@ class MainMenuViewController: UITableViewController {
     }
     
     
-    // MARK: View's Transition Handler
+    // MARK: - View's Transition Handler
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == Segues.showProfile {
@@ -49,7 +50,7 @@ class MainMenuViewController: UITableViewController {
     }
     
     
-    // MARK: Class Functions
+    // MARK: - Class Functions
     
     func visualize() {
         progressView.animateProgressView()
@@ -86,7 +87,6 @@ extension MainMenuViewController {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //TODO: return count of each object array per section
         if section == 0 {
             return 5
         } else {
@@ -110,19 +110,14 @@ extension MainMenuViewController {
     
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
-        let header = UIView()
-        header.backgroundColor = UIColor(red: 225/255, green: 228/255, blue: 234/255, alpha: 1.0)
+        let header = Utility.createTableHeader(Colors.primaryGray, bottomBorder: false, tableView: self.tableView)
         
-        let headerLabel = UILabel(frame: CGRectMake(12, 0, 150, 30))
-        headerLabel.font = UIFont(name: "Roboto-Medium", size: 12)
-        headerLabel.textColor = UIColor(white: 0, alpha: 0.3)
-        
-        headerLabel.textAlignment = .Left
+        let headerLabel = Utility.createHeaderLabel(Colors.labelBlack)
         headerLabel.text = self.tableView(self.tableView, titleForHeaderInSection: section)
-        
         header.addSubview(headerLabel)
         
         return header
+
     }
     
     @IBAction func logoutButtonPressed(sender: AnyObject) {
@@ -137,5 +132,4 @@ extension MainMenuViewController {
             })
         }
     }
-    
 }

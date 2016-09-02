@@ -31,7 +31,7 @@ introspecting the database's schema.
 */
 public final class ObjectSchema: CustomStringConvertible {
 
-    // MARK: Properties
+    // MARK: - Properties
 
     internal let rlmObjectSchema: RLMObjectSchema
 
@@ -54,13 +54,13 @@ public final class ObjectSchema: CustomStringConvertible {
     /// Returns a human-readable description of the properties contained in this object schema.
     public var description: String { return rlmObjectSchema.description }
 
-    // MARK: Initializers
+    // MARK: - Initializers
 
     internal init(_ rlmObjectSchema: RLMObjectSchema) {
         self.rlmObjectSchema = rlmObjectSchema
     }
 
-    // MARK: Property Retrieval
+    // MARK: - Property Retrieval
 
     /// Returns the property with the given name, if it exists.
     public subscript(propertyName: String) -> Property? {
@@ -71,7 +71,7 @@ public final class ObjectSchema: CustomStringConvertible {
     }
 }
 
-// MARK: Equatable
+// MARK: - Equatable
 
 extension ObjectSchema: Equatable {}
 
@@ -92,7 +92,7 @@ public func == (lhs: ObjectSchema, rhs: ObjectSchema) -> Bool { // swiftlint:dis
 */
 public final class ObjectSchema: CustomStringConvertible {
 
-    // MARK: Properties
+    // MARK: - Properties
 
     internal let rlmObjectSchema: RLMObjectSchema
 
@@ -119,13 +119,13 @@ public final class ObjectSchema: CustomStringConvertible {
     /// Returns a human-readable description of the properties contained in the object schema.
     public var description: String { return rlmObjectSchema.description }
 
-    // MARK: Initializers
+    // MARK: - Initializers
 
     internal init(_ rlmObjectSchema: RLMObjectSchema) {
         self.rlmObjectSchema = rlmObjectSchema
     }
 
-    // MARK: Property Retrieval
+    // MARK: - Property Retrieval
 
     /// Returns the property with the given name, if it exists.
     public subscript(propertyName: String) -> Property? {
@@ -136,7 +136,7 @@ public final class ObjectSchema: CustomStringConvertible {
     }
 }
 
-// MARK: Equatable
+// MARK: - Equatable
 
 extension ObjectSchema: Equatable {}
 

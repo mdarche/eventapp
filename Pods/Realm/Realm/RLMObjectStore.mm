@@ -292,7 +292,7 @@ RLMObjectBase *RLMCreateObjectInRealmWithValue(RLMRealm *realm, NSString *classN
     }
     RLMObjectBase *object = [[objectSchema.accessorClass alloc] initWithRealm:realm schema:objectSchema];
 
-    RLMCreationOptions creationOptions = createOrUpdate ? RLMCreationOptionsCreateOrUpdate : RLMCreationOptionsNone;
+    RLMCreationOptions creationOptions = createOrUpdate ? RLMCreationOptionsCreateOrUpdate: RLMCreationOptionsNone;
 
     // create row, and populate
     if (NSArray *array = RLMDynamicCast<NSArray>(value)) {

@@ -58,7 +58,7 @@ void notify_fd(int fd, int read_fd)
 void ExternalCommitHelper::FdHolder::close()
 {
     if (m_fd != -1) {
-        ::close(m_fd);
+       ::close(m_fd);
     }
     m_fd = -1;
 }

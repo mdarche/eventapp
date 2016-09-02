@@ -9,10 +9,10 @@
 import Foundation
 import SwiftyJSON
 
-class User : NSObject {
+class User: NSObject {
     
-    var profileId : Int?
-    var username : String?
+    var profileId: Int?
+    var username: String?
     var displayName: String?
     var name: String?
     var surname: String?
@@ -20,12 +20,12 @@ class User : NSObject {
     var location: String?
     var email: String?
     var personalDescription: String?
-    var profileImage : NSURL?
+    var profileImage: NSURL?
     
-    var followerCount : Int?
-    var followingCount : Int?
-    var eventsAttended : Int?
-    var eventsMissed : Int?
+    var followerCount: Int?
+    var followingCount: Int?
+    var eventsAttended: Int?
+    var eventsMissed: Int?
     
     
     init?(json: JSON) {

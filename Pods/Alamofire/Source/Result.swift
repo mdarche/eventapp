@@ -70,7 +70,7 @@ public enum Result<Value, Error: ErrorType> {
     }
 }
 
-// MARK: - CustomStringConvertible
+// MARK: - - CustomStringConvertible
 
 extension Result: CustomStringConvertible {
     /// The textual representation used when written to an output stream, which includes whether the result was a 
@@ -85,7 +85,7 @@ extension Result: CustomStringConvertible {
     }
 }
 
-// MARK: - CustomDebugStringConvertible
+// MARK: - - CustomDebugStringConvertible
 
 extension Result: CustomDebugStringConvertible {
     /// The debug textual representation used when written to an output stream, which includes whether the result was a

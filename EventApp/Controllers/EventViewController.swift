@@ -10,9 +10,10 @@ import UIKit
 
 class EventViewController: UICollectionViewController {
 
-    var parentNavColor : UIColor?
+    var parentNavColor: UIColor?
     
-    // MARK: View's Lifecycle
+    
+    // MARK: - View's Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +36,7 @@ class EventViewController: UICollectionViewController {
     
 
     
-    // MARK: UICollectionViewDataSource
+    // MARK: - UICollectionView Methods
     
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
@@ -47,12 +48,8 @@ class EventViewController: UICollectionViewController {
             return UICollectionViewCell()
         }
         return cell
-        
     }
     
-    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        performSegueWithIdentifier(Segues.showEventMedia, sender: self)
-    }
     
     override func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String,
              atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
@@ -75,10 +72,6 @@ class EventViewController: UICollectionViewController {
         return CGSize(width: collectionView.frame.size.width, height: 320)
 
     }
-    
-    
-    // MARK: UICollectionViewDelegate
-    
     
     override func collectionView(collectionView: UICollectionView, performAction action: Selector,
              forItemAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) {

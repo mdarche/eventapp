@@ -22,7 +22,7 @@ public protocol DataRepresentable {
 
 private let imageSync = NSLock()
 
-extension UIImage : DataConvertible, DataRepresentable {
+extension UIImage: DataConvertible, DataRepresentable {
     
     public typealias Result = UIImage
 
@@ -45,7 +45,7 @@ extension UIImage : DataConvertible, DataRepresentable {
     
 }
 
-extension String : DataConvertible, DataRepresentable {
+extension String: DataConvertible, DataRepresentable {
     
     public typealias Result = String
     
@@ -60,7 +60,7 @@ extension String : DataConvertible, DataRepresentable {
     
 }
 
-extension NSData : DataConvertible, DataRepresentable {
+extension NSData: DataConvertible, DataRepresentable {
     
     public typealias Result = NSData
     
@@ -74,7 +74,7 @@ extension NSData : DataConvertible, DataRepresentable {
     
 }
 
-public enum JSON : DataConvertible, DataRepresentable {
+public enum JSON: DataConvertible, DataRepresentable {
     public typealias Result = JSON
     
     case Dictionary([String:AnyObject])
@@ -82,7 +82,7 @@ public enum JSON : DataConvertible, DataRepresentable {
     
     public static func convertFromData(data: NSData) -> Result? {
         do {
-            let object : AnyObject = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions())
+            let object: AnyObject = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions())
             switch (object) {
             case let dictionary as [String:AnyObject]:
                 return JSON.Dictionary(dictionary)
@@ -106,7 +106,7 @@ public enum JSON : DataConvertible, DataRepresentable {
         }
     }
     
-    public var array : [AnyObject]! {
+    public var array: [AnyObject]! {
         switch (self) {
         case .Dictionary(_):
             return nil
@@ -115,7 +115,7 @@ public enum JSON : DataConvertible, DataRepresentable {
         }
     }
     
-    public var dictionary : [String:AnyObject]! {
+    public var dictionary: [String:AnyObject]! {
         switch (self) {
         case .Dictionary(let dictionary):
             return dictionary

@@ -21,7 +21,7 @@
 
 @class RLMObjectBase, RLMProperty;
 
-@interface RLMOptionalBase : NSProxy
+@interface RLMOptionalBase: NSProxy
 
 - (instancetype)init;
 

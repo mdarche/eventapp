@@ -28,7 +28,7 @@
 #import <realm/link_view.hpp>
 
 // See -countByEnumeratingWithState:objects:count
-@interface RLMArrayHolder : NSObject {
+@interface RLMArrayHolder: NSObject {
 @public
     std::unique_ptr<id[]> items;
 }

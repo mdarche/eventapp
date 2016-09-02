@@ -31,7 +31,7 @@ introspecting the database's schema.
 */
 public final class Schema: CustomStringConvertible {
 
-    // MARK: Properties
+    // MARK: - Properties
 
     internal let rlmSchema: RLMSchema
 
@@ -44,13 +44,13 @@ public final class Schema: CustomStringConvertible {
     /// Returns a human-readable description of the object schemas contained in this schema.
     public var description: String { return rlmSchema.description }
 
-    // MARK: Initializers
+    // MARK: - Initializers
 
     internal init(_ rlmSchema: RLMSchema) {
         self.rlmSchema = rlmSchema
     }
 
-    // MARK: ObjectSchema Retrieval
+    // MARK: - ObjectSchema Retrieval
 
     /// Returns the object schema with the given class name, if it exists.
     public subscript(className: String) -> ObjectSchema? {
@@ -61,7 +61,7 @@ public final class Schema: CustomStringConvertible {
     }
 }
 
-// MARK: Equatable
+// MARK: - Equatable
 
 extension Schema: Equatable {}
 
@@ -82,7 +82,7 @@ public func == (lhs: Schema, rhs: Schema) -> Bool { // swiftlint:disable:this va
 */
 public final class Schema: CustomStringConvertible {
 
-    // MARK: Properties
+    // MARK: - Properties
 
     internal let rlmSchema: RLMSchema
 
@@ -98,13 +98,13 @@ public final class Schema: CustomStringConvertible {
     /// Returns a human-readable description of the object schemas contained in this schema.
     public var description: String { return rlmSchema.description }
 
-    // MARK: Initializers
+    // MARK: - Initializers
 
     internal init(_ rlmSchema: RLMSchema) {
         self.rlmSchema = rlmSchema
     }
 
-    // MARK: ObjectSchema Retrieval
+    // MARK: - ObjectSchema Retrieval
 
     /// Looks up and returns an `ObjectSchema` for the given class name in the Realm, if it exists.
     public subscript(className: String) -> ObjectSchema? {
@@ -115,7 +115,7 @@ public final class Schema: CustomStringConvertible {
     }
 }
 
-// MARK: Equatable
+// MARK: - Equatable
 
 extension Schema: Equatable {}
 

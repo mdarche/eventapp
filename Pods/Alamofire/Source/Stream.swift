@@ -62,7 +62,7 @@ extension Manager {
         - parameter hostName: The hostname of the server to connect to.
         - parameter port:     The port of the server to connect to.
 
-        :returns: The created stream request.
+       :returns: The created stream request.
     */
     public func stream(hostName hostName: String, port: Int) -> Request {
         return stream(.Stream(hostName, port))
@@ -80,12 +80,12 @@ extension Manager {
     }
 }
 
-// MARK: -
+// MARK: - -
 
 @available(iOS 9.0, OSX 10.11, *)
 extension Manager.SessionDelegate: NSURLSessionStreamDelegate {
 
-    // MARK: Override Closures
+    // MARK: - Override Closures
 
     /// Overrides default behavior for NSURLSessionStreamDelegate method `URLSession:readClosedForStreamTask:`.
     public var streamTaskReadClosed: ((NSURLSession, NSURLSessionStreamTask) -> Void)? {
@@ -127,7 +127,7 @@ extension Manager.SessionDelegate: NSURLSessionStreamDelegate {
         }
     }
 
-    // MARK: Delegate Methods
+    // MARK: - Delegate Methods
 
     /**
         Tells the delegate that the read side of the connection has been closed.

@@ -22,7 +22,7 @@
 
 import Foundation
 
-// MARK: - URLStringConvertible
+// MARK: - - URLStringConvertible
 
 /**
     Types adopting the `URLStringConvertible` protocol can be used to construct URL strings, which are then used to 
@@ -65,7 +65,7 @@ extension NSURLRequest: URLStringConvertible {
     }
 }
 
-// MARK: - URLRequestConvertible
+// MARK: - - URLRequestConvertible
 
 /**
     Types adopting the `URLRequestConvertible` protocol can be used to construct URL requests.
@@ -81,7 +81,7 @@ extension NSURLRequest: URLRequestConvertible {
     }
 }
 
-// MARK: - Convenience
+// MARK: - - Convenience
 
 func URLRequest(
     method: Method,
@@ -101,7 +101,7 @@ func URLRequest(
     return mutableURLRequest
 }
 
-// MARK: - Request Methods
+// MARK: - - Request Methods
 
 /**
     Creates a request using the shared manager instance for the specified method, URL string, parameters, and
@@ -145,9 +145,9 @@ public func request(URLRequest: URLRequestConvertible) -> Request {
     return Manager.sharedInstance.request(URLRequest.URLRequest)
 }
 
-// MARK: - Upload Methods
+// MARK: - - Upload Methods
 
-// MARK: File
+// MARK: - File
 
 /**
     Creates an upload request using the shared manager instance for the specified method, URL string, and file.
@@ -181,7 +181,7 @@ public func upload(URLRequest: URLRequestConvertible, file: NSURL) -> Request {
     return Manager.sharedInstance.upload(URLRequest, file: file)
 }
 
-// MARK: Data
+// MARK: - Data
 
 /**
     Creates an upload request using the shared manager instance for the specified method, URL string, and data.
@@ -215,7 +215,7 @@ public func upload(URLRequest: URLRequestConvertible, data: NSData) -> Request {
     return Manager.sharedInstance.upload(URLRequest, data: data)
 }
 
-// MARK: Stream
+// MARK: - Stream
 
 /**
     Creates an upload request using the shared manager instance for the specified method, URL string, and stream.
@@ -249,7 +249,7 @@ public func upload(URLRequest: URLRequestConvertible, stream: NSInputStream) -> 
     return Manager.sharedInstance.upload(URLRequest, stream: stream)
 }
 
-// MARK: MultipartFormData
+// MARK: - MultipartFormData
 
 /**
     Creates an upload request using the shared manager instance for the specified method and URL string.
@@ -303,9 +303,9 @@ public func upload(
     )
 }
 
-// MARK: - Download Methods
+// MARK: - - Download Methods
 
-// MARK: URL Request
+// MARK: - URL Request
 
 /**
     Creates a download request using the shared manager instance for the specified method and URL string.
@@ -350,7 +350,7 @@ public func download(URLRequest: URLRequestConvertible, destination: Request.Dow
     return Manager.sharedInstance.download(URLRequest, destination: destination)
 }
 
-// MARK: Resume Data
+// MARK: - Resume Data
 
 /**
     Creates a request using the shared manager instance for downloading from the resume data produced from a 

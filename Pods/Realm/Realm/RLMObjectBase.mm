@@ -322,11 +322,11 @@ static id RLMValidatedObjectForProperty(id obj, RLMProperty *prop, RLMSchema *sc
 @end
 
 RLMRealm *RLMObjectBaseRealm(__unsafe_unretained RLMObjectBase *object) {
-    return object ? object->_realm : nil;
+    return object ? object->_realm: nil;
 }
 
 RLMObjectSchema *RLMObjectBaseObjectSchema(__unsafe_unretained RLMObjectBase *object) {
-    return object ? object->_objectSchema : nil;
+    return object ? object->_objectSchema: nil;
 }
 
 id RLMObjectBaseObjectForKeyedSubscript(RLMObjectBase *object, NSString *key) {
@@ -398,7 +398,7 @@ id RLMValidatedValueForProperty(id object, NSString *key, NSString *className) {
 Class RLMObjectUtilClass(BOOL isSwift) {
     static Class objectUtilObjc = [RLMObjectUtil class];
     static Class objectUtilSwift = NSClassFromString(@"RealmSwiftObjectUtil");
-    return isSwift && objectUtilSwift ? objectUtilSwift : objectUtilObjc;
+    return isSwift && objectUtilSwift ? objectUtilSwift: objectUtilObjc;
 }
 
 @implementation RLMObjectUtil

@@ -196,15 +196,15 @@ util::Optional<RowExpr> Results::first()
         case Mode::Empty:
             return none;
         case Mode::Table:
-            return m_table->size() == 0 ? util::none : util::make_optional(m_table->front());
+            return m_table->size() == 0 ? util::none: util::make_optional(m_table->front());
         case Mode::LinkView:
             if (update_linkview())
-                return m_link_view->size() == 0 ? util::none : util::make_optional(m_link_view->get(0));
+                return m_link_view->size() == 0 ? util::none: util::make_optional(m_link_view->get(0));
             REALM_FALLTHROUGH;
         case Mode::Query:
         case Mode::TableView:
             update_tableview();
-            return m_table_view.size() == 0 ? util::none : util::make_optional(m_table_view.front());
+            return m_table_view.size() == 0 ? util::none: util::make_optional(m_table_view.front());
     }
     REALM_UNREACHABLE();
 }
@@ -216,15 +216,15 @@ util::Optional<RowExpr> Results::last()
         case Mode::Empty:
             return none;
         case Mode::Table:
-            return m_table->size() == 0 ? util::none : util::make_optional(m_table->back());
+            return m_table->size() == 0 ? util::none: util::make_optional(m_table->back());
         case Mode::LinkView:
             if (update_linkview())
-                return m_link_view->size() == 0 ? util::none : util::make_optional(m_link_view->get(m_link_view->size() - 1));
+                return m_link_view->size() == 0 ? util::none: util::make_optional(m_link_view->get(m_link_view->size() - 1));
             REALM_FALLTHROUGH;
         case Mode::Query:
         case Mode::TableView:
             update_tableview();
-            return m_table_view.size() == 0 ? util::none : util::make_optional(m_table_view.back());
+            return m_table_view.size() == 0 ? util::none: util::make_optional(m_table_view.back());
     }
     REALM_UNREACHABLE();
 }

@@ -36,7 +36,7 @@ public class Pulsator: CAReplicatorLayer {
         }
     }
     
-    // MARK: - Public Properties
+    // MARK: - - Public Properties
     
     /// The number of pulse.
     public var numPulse: Int = 1 {
@@ -100,7 +100,7 @@ public class Pulsator: CAReplicatorLayer {
     }
     
     
-    // MARK: - Initializer
+    // MARK: - - Initializer
     
     override public init() {
         super.init()
@@ -122,7 +122,7 @@ public class Pulsator: CAReplicatorLayer {
     }
     
     
-    // MARK: - Private Methods
+    // MARK: - - Private Methods
     
     private func setupPulse() {
         pulse.contentsScale = UIScreen.mainScreen().scale
@@ -174,7 +174,7 @@ public class Pulsator: CAReplicatorLayer {
         }
     }
     
-    // MARK: - Public Methods
+    // MARK: - - Public Methods
     
     /// Start the animation.
     public func start() {
@@ -190,7 +190,7 @@ public class Pulsator: CAReplicatorLayer {
     }
     
     
-    // MARK: - Delegate methods for CAAnimation
+    // MARK: - - Delegate methods for CAAnimation
     
     override public func animationDidStop(anim: CAAnimation, finished flag: Bool) {
         if pulse.animationKeys()?.count > 0 {

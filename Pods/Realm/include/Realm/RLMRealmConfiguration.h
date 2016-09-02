@@ -34,7 +34,7 @@ NS_ASSUME_NONNULL_BEGIN
  cache and reuse a single configuration object for each distinct configuration rather than 
  creating a new object each time you open a Realm.
  */
-@interface RLMRealmConfiguration : NSObject<NSCopying>
+@interface RLMRealmConfiguration: NSObject<NSCopying>
 
 #pragma mark - Default Configuration
 

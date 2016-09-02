@@ -11,9 +11,10 @@ import UIKit
 class MediaGridViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
     let flowLayout = UICollectionViewFlowLayout()
-    var gridMedia : [Media]?
+    var gridMedia: [Media]?
     
-    // MARK: View's Lifecycle
+    
+    // MARK: - View's Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +31,8 @@ class MediaGridViewController: UICollectionViewController, UICollectionViewDeleg
         super.viewWillDisappear(true)
     }
     
-    // MARK: View's Transition Handler
+    
+    // MARK: - View's Transition Handler
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 //        if segue.identifier == Segues.showMediaFeedView {
@@ -39,7 +41,7 @@ class MediaGridViewController: UICollectionViewController, UICollectionViewDeleg
     }
     
     
-    // MARK: Set UI
+    // MARK: - Class Functions
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return .LightContent
@@ -67,7 +69,7 @@ extension MediaGridViewController {
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("FeedCell", forIndexPath: indexPath) as! MediaGridCell
         
-        let imageName = (indexPath.row % 2 == 0) ? "NickCage" : "feedImage"
+        let imageName = (indexPath.row % 2 == 0) ? "NickCage": "feedImage"
         cell.imageView.image = UIImage(named: imageName)
         
         return cell
@@ -77,7 +79,7 @@ extension MediaGridViewController {
         performSegueWithIdentifier("ShowMediaFeedView", sender: self)
     }
     
-    func collectionView(collectionView : UICollectionView,layout collectionViewLayout:UICollectionViewLayout,sizeForItemAtIndexPath indexPath:NSIndexPath) -> CGSize {
+    func collectionView(collectionView: UICollectionView,layout collectionViewLayout:UICollectionViewLayout,sizeForItemAtIndexPath indexPath:NSIndexPath) -> CGSize {
         
         switch indexPath.item {
         case 0,1:

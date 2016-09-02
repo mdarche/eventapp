@@ -11,8 +11,8 @@ import SwiftyJSON
 
 class Media: NSObject {
     
-    var mediaId : Int?
-    var mimeType : String?
+    var mediaId: Int?
+    var mimeType: String?
     var mediaURL: NSURL?
     var previewURL: NSURL?
     
